@@ -17,7 +17,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Image, DarkModeToggler } from 'components/atoms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   flexGrow: {
     flexGrow: 1,
   },
@@ -114,7 +114,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Topbar = ({ themeMode, themeToggler, onSidebarOpen, pages, className, ...rest }) => {
+const Topbar = ({
+  themeMode,
+  themeToggler,
+  onSidebarOpen,
+  pages,
+  className,
+  ...rest
+}) => {
   const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -134,7 +141,7 @@ const Topbar = ({ themeMode, themeToggler, onSidebarOpen, pages, className, ...r
   const supportedPages = pages.pages;
   const account = pages.account;
 
-  const MenuGroup = props => {
+  const MenuGroup = (props) => {
     const { item } = props;
     return (
       <List disablePadding>
@@ -226,7 +233,7 @@ const Topbar = ({ themeMode, themeToggler, onSidebarOpen, pages, className, ...r
     );
   };
 
-  const renderPages = id => {
+  const renderPages = (id) => {
     if (id === 'landing-pages') {
       return <LandingPages />;
     }
@@ -244,7 +251,11 @@ const Topbar = ({ themeMode, themeToggler, onSidebarOpen, pages, className, ...r
         <a href="/" title="thefront">
           <Image
             className={classes.logoImage}
-            src={themeMode === 'light' ? 'https://assets.maccarianagency.com/the-front/logos/logo.svg' : 'https://assets.maccarianagency.com/the-front/logos/logo-negative.svg'}
+            src={
+              themeMode === 'light'
+                ? 'https://assets.maccarianagency.com/the-front/logos/logo.svg'
+                : 'https://assets.maccarianagency.com/the-front/logos/logo-negative.svg'
+            }
             alt="thefront"
             lazy={false}
           />
@@ -257,7 +268,7 @@ const Topbar = ({ themeMode, themeToggler, onSidebarOpen, pages, className, ...r
             <div key={page.id}>
               <ListItem
                 aria-describedby={page.id}
-                onClick={e => handleClick(e, page.id)}
+                onClick={(e) => handleClick(e, page.id)}
                 className={clsx(
                   classes.listItem,
                   openedPopoverId === page.id ? classes.listItemActive : '',
@@ -299,19 +310,24 @@ const Topbar = ({ themeMode, themeToggler, onSidebarOpen, pages, className, ...r
               </Popover>
             </div>
           ))}
-          <ListItem className={clsx(classes.listItem, 'menu-item--no-dropdown')}>
-            <DarkModeToggler themeMode={themeMode} onClick={() => themeToggler()} />
+          <ListItem
+            className={clsx(classes.listItem, 'menu-item--no-dropdown')}
+          >
+            <DarkModeToggler
+              themeMode={themeMode}
+              onClick={() => themeToggler()}
+            />
           </ListItem>
-          <ListItem className={clsx(classes.listItem, 'menu-item--no-dropdown')}>
-            <Button
-              variant="outlined"
-              component="a"
-              href="/documentation"
-            >
+          <ListItem
+            className={clsx(classes.listItem, 'menu-item--no-dropdown')}
+          >
+            <Button variant="outlined" component="a" href="/documentation">
               Documentation
             </Button>
           </ListItem>
-          <ListItem className={clsx(classes.listItem, 'menu-item--no-dropdown')}>
+          <ListItem
+            className={clsx(classes.listItem, 'menu-item--no-dropdown')}
+          >
             <Button
               variant="contained"
               color="primary"

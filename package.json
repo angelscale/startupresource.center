@@ -93,6 +93,7 @@
     "react-syntax-highlighter": "^15.4.3",
     "react-typed": "^1.2.0",
     "react-visibility-sensor": "^5.1.1",
+    "rehype-react": "^6.2.0",
     "start": "^5.1.0",
     "swiper": "^6.5.4",
     "validate.js": "^0.13.1"
