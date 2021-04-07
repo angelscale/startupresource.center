@@ -27,3 +27,8 @@ a {
   height: 100%;
   width: 100%;
 }
+
+p {
+  font-size: 1rem;
+  font-weight: 400;
+}

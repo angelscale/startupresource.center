@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 import 'leaflet/dist/leaflet.css';
+import 'assets/css/ghost.css';
 import 'assets/css/index.css';
 
 import 'swiper/swiper-bundle.min.css';
@@ -17,11 +17,10 @@ export default function TopLayout(props) {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
-        <link rel="shortcut icon" href="/assets/favicon.ico" />
         <meta name="theme-color" content="#ffffff" />
         <meta
           name="description"
-          content="Your Resource for connecting the dots"
+          content="Your Resource for connecting the dots about what you need to know for your Startup."
         />
         <meta
           name="robots"
@@ -31,20 +30,14 @@ export default function TopLayout(props) {
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://thefront.maccarianagency.com/assets/social.png"
+          content="https://www.startupresource.center/assets/images/social.png"
         />
-        <meta
-          property="og:title"
-          content="theFront | UI Kit by Maccarian Agency."
-        />
+        <meta property="og:title" content="Startup Resource Center" />
         <meta
           property="og:description"
-          content="A modern design system for your new landing and web pages."
+          content="Your Resource for connecting the dots about what you need to know for your Startup."
         />
-        <meta
-          property="og:url"
-          content="https://thefront.maccarianagency.com/"
-        />
+        <meta property="og:url" content="https://www.startupresource.center/" />
         <link
           href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap"
           rel="stylesheet"
@@ -58,7 +51,3 @@ export default function TopLayout(props) {
     </React.Fragment>
   );
 }
-
-TopLayout.propTypes = {
-  children: PropTypes.node,
-};

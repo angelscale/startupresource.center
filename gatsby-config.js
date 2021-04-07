@@ -68,12 +68,6 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-resolve-src`,
     {
-      resolve: `gatsby-plugin-page-creator`,
-      options: {
-        path: path.join(__dirname, `src`, `pages`),
-      },
-    },
-    {
       resolve: `gatsby-plugin-react-leaflet`,
       options: {
         linkStyles: true, // (default: true) Enable/disable loading stylesheets via CDN
@@ -82,11 +76,16 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: path.join(__dirname, `src`, `images`),
+        path: path.join(__dirname, `src`, `assets`, `images`),
         name: `images`,
       },
     },
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        icon: `src/assets/images/icon.svg`,
+      },
+    },
     {
       resolve: `gatsby-plugin-ghost-images`,
       options: {

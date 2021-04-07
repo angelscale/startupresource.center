@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -8,11 +7,14 @@ import {
   ListItemAvatar,
   ListItemText,
   Avatar,
+  Grid,
 } from '@material-ui/core';
 import { SectionHeader } from 'components/molecules';
 import { Section, Parallax } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+import SecondaryAuthors from '../SecondaryAuthors';
+
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     height: '100%',
@@ -22,7 +24,7 @@ const useStyles = makeStyles(theme => ({
   },
   sectionWrapper: {
     height: 400,
-    backgroundColor: '#003c0580',
+    backgroundColor: theme.palette.primary.main + '80',
   },
   textWhite: {
     color: 'white',
@@ -45,82 +47,79 @@ const useStyles = makeStyles(theme => ({
     height: 60,
     width: 60,
   },
+  secondaryAvatar: {
+    height: 40,
+    width: 40,
+  },
 }));
 
-const Hero = props => {
-  const { className, cover, title, subtitle, author, ...rest } = props;
+const Hero = (props) => {
+  const {
+    className,
+    cover,
+    title,
+    subtitle,
+    authors,
+    published,
+    updated,
+    ...rest
+  } = props;
   const classes = useStyles();
+
   return (
     <div className={clsx(classes.root, className)} {...rest}>
-      <Parallax backgroundImage={cover.src}>
+      <Parallax backgroundImage={cover}>
         <div className={classes.sectionWrapper}>
           <Section className={classes.section}>
             <>
-            <SectionHeader
-              title={title}
-              subtitle={subtitle}
-              align="left"
-              data-aos="fade-up"
-              titleProps={{
-                className: clsx(classes.title, classes.textWhite),
-                variant: 'h3',
-              }}
-              subtitleProps={{
-                className: classes.textWhite,
-              }}
-            />
-            <List disablePadding>
-              <ListItem disableGutters>
-                <ListItemAvatar className={classes.listItemAvatar}>
-                  <Avatar
-                    {...author.photo}
-                    alt={author.name}
-                    className={classes.avatar}
-                  />
-                </ListItemAvatar>
-                <ListItemText
-                  primary={`Published by ${author.name}`}
-                  secondary={`on ${author.date}`}
-                  primaryTypographyProps={{
-                    className: classes.textWhite,
-                    variant: 'subtitle1',
-                  }}
-                  secondaryTypographyProps={{
-                    className: classes.textWhite,
-                    variant: 'subtitle1',
-                  }}
-                />
-              </ListItem>
-            </List>
+              <SectionHeader
+                title={title}
+                subtitle={subtitle}
+                align="left"
+                titleProps={{
+                  className: clsx(classes.title, classes.textWhite),
+                  variant: 'h3',
+                }}
+                subtitleProps={{
+                  className: classes.textWhite,
+                }}
+              />
+              <Grid container>
+                <Grid item xs={12} md={4}>
+                  <List disablePadding>
+                    <ListItem disableGutters>
+                      <ListItemAvatar className={classes.listItemAvatar}>
+                        <Avatar
+                          src={authors.primary.photo}
+                          alt={authors.primary.name}
+                          className={classes.avatar}
+                        />
+                      </ListItemAvatar>
+                      <ListItemText
+                        primary={`By ${authors.primary.name}`}
+                        secondary={`Last updated at ${updated}`}
+                        primaryTypographyProps={{
+                          className: classes.textWhite,
+                          variant: 'subtitle1',
+                        }}
+                        secondaryTypographyProps={{
+                          className: classes.textWhite,
+                          variant: 'subtitle1',
+                        }}
+                      />
+                    </ListItem>
+                  </List>
+                </Grid>
+                <Grid item xs={12} md={8}>
+                  <SecondaryAuthors classes={classes} authors={authors} />
+                </Grid>
+              </Grid>
             </>
           </Section>
         </div>
       </Parallax>
     </div>
   );
-};
-
-Hero.propTypes = {
-  /**
-   * External classes
-   */
-  className: PropTypes.string,
-  /**
-   * Cover of the hero
-   */
-  cover: PropTypes.object.isRequired,
-  /**
-   * Title of the hero
-   */
-  title: PropTypes.string.isRequired,
-  /**
-   * Subtitle of the hero
-   */
-  subtitle: PropTypes.string.isRequired,
-  /**
-   * Author of the post
-   */
-  author: PropTypes.object.isRequired,
 };
 
 export default Hero;

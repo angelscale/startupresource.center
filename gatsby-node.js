@@ -1,4 +1,3 @@
-const path = require(`path`);
 const { paginate } = require(`gatsby-awesome-pagination`);
 
 /**
@@ -63,12 +62,25 @@ exports.createPages = async ({ graphql, actions }) => {
   const posts = result.data.allGhostPost.edges;
   const postsPerPage = result.data.site.siteMetadata.postsPerPage;
 
-  // Load templates
-  // const indexTemplate = path.resolve(`./src/templates/index.js`);
-  // const tagsTemplate = path.resolve(`./src/templates/tag.js`);
-  // const authorTemplate = path.resolve(`./src/templates/author.js`);
-  // const pageTemplate = path.resolve(`./src/templates/page.js`);
-  const postTemplate = path.resolve(`./src/templates/post.js`);
+  // Create Home Page
+  createPage({
+    path: '/',
+    component: require.resolve(`./src/pages/home.js`),
+    context: {},
+  });
+
+  // Create Error Pages
+  createPage({
+    path: '/404',
+    component: require.resolve(`./src/pages/404.js`),
+    context: {},
+  });
+
+  createPage({
+    path: '/_error',
+    component: require.resolve(`./src/pages/_error.js`),
+    context: {},
+  });
 
   // Create tag pages
   //   tags.forEach(({ node }) => {
@@ -135,16 +147,12 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create post pages
   posts.forEach(({ node }) => {
-    // This part here defines, that our posts will use
-    // a `/:slug/` permalink.
     node.url = `/${node.slug}/`;
 
     createPage({
       path: node.url,
-      component: postTemplate,
+      component: require.resolve(`./src/pages/blog-article.js`),
       context: {
-        // Data passed to context is available
-        // in page queries as GraphQL variables.
         slug: node.slug,
       },
     });
