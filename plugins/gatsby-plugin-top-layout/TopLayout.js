@@ -20,7 +20,7 @@ export default function TopLayout(props) {
         <meta name="theme-color" content="#ffffff" />
         <meta
           name="description"
-          content="Your Resource for connecting the dots about what you need to know for your Startup."
+          content="Connecting the dots on what you need for your Startup."
         />
         <meta
           name="robots"
@@ -35,7 +35,7 @@ export default function TopLayout(props) {
         <meta property="og:title" content="Startup Resource Center" />
         <meta
           property="og:description"
-          content="Your Resource for connecting the dots about what you need to know for your Startup."
+          content="Connecting the dots on what you need for your Startup."
         />
         <meta property="og:url" content="https://www.startupresource.center/" />
         <link

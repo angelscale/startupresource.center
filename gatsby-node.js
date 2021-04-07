@@ -65,20 +65,20 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create Home Page
   createPage({
     path: '/',
-    component: require.resolve(`./src/pages/home.js`),
+    component: require.resolve(`./src/templates/home.js`),
     context: {},
   });
 
   // Create Error Pages
   createPage({
     path: '/404',
-    component: require.resolve(`./src/pages/404.js`),
+    component: require.resolve(`./src/templates/404.js`),
     context: {},
   });
 
   createPage({
     path: '/_error',
-    component: require.resolve(`./src/pages/_error.js`),
+    component: require.resolve(`./src/templates/_error.js`),
     context: {},
   });
 
@@ -151,7 +151,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
     createPage({
       path: node.url,
-      component: require.resolve(`./src/pages/blog-article.js`),
+      component: require.resolve(`./src/templates/blog-article.js`),
       context: {
         slug: node.slug,
       },

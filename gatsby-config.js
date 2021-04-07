@@ -80,12 +80,7 @@ module.exports = {
         name: `images`,
       },
     },
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        icon: `src/assets/images/icon.svg`,
-      },
-    },
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-ghost-images`,
       options: {
