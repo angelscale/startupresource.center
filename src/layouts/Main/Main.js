@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { useMediaQuery, Divider } from '@material-ui/core';
-import { Topbar, Footer, Sidebar } from 'components';
+import { Topbar, Footer, Sidebar } from './components';
 import navigation from 'layouts/navigation';
 
 const useStyles = makeStyles((theme) => ({
@@ -40,21 +40,21 @@ const Main = ({ children, themeToggler, themeMode }) => {
     >
       <Topbar
         onSidebarOpen={handleSidebarOpen}
-        pages={navigation}
+        navigation={navigation}
         themeMode={themeMode}
         themeToggler={themeToggler}
       />
-      <Sidebar
+      {/* <Sidebar
         onClose={handleSidebarClose}
         open={open}
         variant="temporary"
-        pages={navigation}
-      />
+        navigation={navigation}
+      /> */}
       <main>
         <Divider />
         {children}
       </main>
-      <Footer pages={navigation} />
+      {/* <Footer navigation={navigation} /> */}
     </div>
   );
 };

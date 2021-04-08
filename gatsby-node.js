@@ -65,7 +65,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create Home Page
   createPage({
     path: '/',
-    component: require.resolve(`./src/templates/home.js`),
+    component: require.resolve(`./src/templates/home-page.js`),
     context: {},
   });
 
