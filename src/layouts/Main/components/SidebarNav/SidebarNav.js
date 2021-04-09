@@ -12,13 +12,24 @@ import {
   Button,
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-import { MenuGroup } from '..';
+import { MenuSection } from '..';
 
 const useStyles = makeStyles((theme) => ({
   root: {},
   listItem: {
     flexDirection: 'column',
     alignItems: 'flex-start',
+  },
+  navLink: {
+    '&:hover': {
+      color: theme.palette.primary.dark,
+    },
+  },
+  listItemText: {
+    flex: '0 0 auto',
+    marginRight: theme.spacing(1),
+    whiteSpace: 'nowrap',
+    textTransform: 'capitalize',
   },
   listItemIcon: {
     minWidth: 'auto',
@@ -36,6 +47,14 @@ const useStyles = makeStyles((theme) => ({
       marginRight: 0,
     },
   },
+  menuGroupItem: {
+    paddingTop: 0,
+    marginLeft: theme.spacing(1),
+    textTransform: 'capitalize',
+  },
+  menuGroupTitle: {
+    textTransform: 'uppercase',
+  },
   divider: {
     width: '100%',
   },
@@ -43,135 +62,6 @@ const useStyles = makeStyles((theme) => ({
 
 const SidebarNav = ({ navigation, onClose, className, ...rest }) => {
   const classes = useStyles();
-
-  // const MenuGroup = (props) => {
-  //   const { item } = props;
-  //   return (
-  //     <List disablePadding>
-  //       <ListItem disableGutters>
-  //         <Typography
-  //           variant="body2"
-  //           color="primary"
-  //           className={classes.menuGroupTitle}
-  //         >
-  //           {item.groupTitle}
-  //         </Typography>
-  //       </ListItem>
-  //       {item.pages.map((page, i) => (
-  //         <ListItem disableGutters key={i} className={classes.menuGroupItem}>
-  //           <Typography
-  //             variant="body2"
-  //             component={'a'}
-  //             href={page.href}
-  //             className={clsx(classes.navLink, 'submenu-item')}
-  //             color="textPrimary"
-  //             onClick={() => onClose()}
-  //           >
-  //             {page.title}
-  //           </Typography>
-  //         </ListItem>
-  //       ))}
-  //     </List>
-  //   );
-  // };
-
-  const navItems = [];
-  navigation.forEach(({ id, title, children }) => {
-    if (children.length > 0) {
-      const navChildren = [];
-      var section = [];
-      var count = 0;
-      children.forEach((child) => {
-        section.push(
-          <MenuGroup
-            key={child.id}
-            id={child.id}
-            groupTitle={child.groupTitle}
-            tags={child.tags}
-            classes={classes}
-            onClose={onClose}
-          />,
-        );
-        count += child.tags.length + 1;
-        if (count >= 10) {
-          navChildren.push(
-            <div key={`${id}-${child.id}`} className={classes.menuItem}>
-              {section}
-            </div>,
-          );
-          section = [];
-          count = 0;
-        }
-      });
-      if (section.length > 0) {
-        navChildren.push(
-          <div key={`${id}-last`} className={classes.menuItem}>
-            {section}
-          </div>,
-        );
-        section = [];
-        count = 0;
-      }
-      navItems.push(
-        <div key={id}>
-          <ListItem
-            aria-describedby={id}
-            onClick={(e) => handleClick(e, id)}
-            className={clsx(
-              classes.listItem,
-              openedPopoverId === id ? classes.listItemActive : '',
-            )}
-          >
-            <Typography
-              variant="body1"
-              color="textPrimary"
-              className={clsx(classes.listItemText, 'menu-item')}
-            >
-              {title}
-            </Typography>
-            <ListItemIcon className={classes.listItemIcon}>
-              <ExpandMoreIcon
-                className={openedPopoverId === id ? classes.expandOpen : ''}
-                fontSize="small"
-              />
-            </ListItemIcon>
-          </ListItem>
-          <Popover
-            elevation={1}
-            id={id}
-            open={openedPopoverId === id}
-            anchorEl={anchorEl}
-            onClose={handleClose}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'center',
-            }}
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'center',
-            }}
-            classes={{ paper: classes.popover }}
-          >
-            <div className={classes.menu}>{navChildren}</div>
-          </Popover>
-        </div>,
-      );
-    } else {
-      navItems.push(
-        <ListItem className={clsx(classes.listItem, 'menu-item--no-dropdown')}>
-          <Typography
-            variant="body1"
-            color="textPrimary"
-            className={clsx(classes.listItemText, 'menu-item')}
-            component="a"
-            href={`/${id}/`}
-          >
-            {title}
-          </Typography>
-        </ListItem>,
-      );
-    }
-  });
 
   return (
     <List {...rest} className={clsx(classes.root, className)}>
@@ -181,41 +71,58 @@ const SidebarNav = ({ navigation, onClose, className, ...rest }) => {
         </ListItemIcon>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Typography variant="h6" color="textPrimary" gutterBottom>
-          Landings
-        </Typography>
-        <LandingPages />
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Divider className={classes.divider} />
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Typography variant="h6" color="textPrimary" gutterBottom>
-          Pages
-        </Typography>
-        <SupportedPages />
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Divider className={classes.divider} />
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Typography variant="h6" color="textPrimary" gutterBottom>
-          Account
-        </Typography>
-        <AccountPages />
-      </ListItem>
-      <ListItem className={classes.listItem}>
         <Button
           variant="contained"
-          color="primary"
           fullWidth
+          color="primary"
           component="a"
           target="blank"
           href="/"
+          className={classes.listItemButton}
         >
-          Buy Now
+          Sign In
         </Button>
       </ListItem>
+      <>
+        {navigation.map(({ id, children }, idx) => (
+          <>
+            {children.length > 0 ? (
+              <>
+                <ListItem className={classes.listItem}>
+                  <Typography
+                    variant="h6"
+                    color="textPrimary"
+                    gutterBottom
+                    className={classes.listItemText}
+                  >
+                    {id.replace(/[_-]/g, ' ')}
+                  </Typography>
+                  <MenuSection
+                    id={id}
+                    children={children}
+                    onClose={onClose}
+                    classes={classes}
+                  />
+                </ListItem>
+                <ListItem className={classes.listItem}>
+                  <Divider className={classes.divider} />
+                </ListItem>
+              </>
+            ) : (
+              <ListItem className={classes.listItem}>
+                <Button
+                  variant="outlined"
+                  fullWidth
+                  component="a"
+                  href={`/${id}/`}
+                >
+                  {id.replace(/[_-]/g, ' ')}
+                </Button>
+              </ListItem>
+            )}
+          </>
+        ))}
+      </>
     </List>
   );
 };

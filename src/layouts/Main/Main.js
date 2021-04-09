@@ -44,17 +44,17 @@ const Main = ({ children, themeToggler, themeMode }) => {
         themeMode={themeMode}
         themeToggler={themeToggler}
       />
-      {/* <Sidebar
+      <Sidebar
         onClose={handleSidebarClose}
         open={open}
         variant="temporary"
         navigation={navigation}
-      /> */}
+      />
       <main>
         <Divider />
         {children}
       </main>
-      {/* <Footer navigation={navigation} /> */}
+      <Footer navigation={navigation} />
     </div>
   );
 };
