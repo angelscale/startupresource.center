@@ -25,8 +25,8 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.background.footer,
   },
   footerContainer: {
-    maxWidth: theme.layout.contentWidth,
-    width: '100%',
+    // maxWidth: theme.layout.contentWidth,
+    // width: '100%',
     margin: '0 auto',
     padding: theme.spacing(0, 2),
     [theme.breakpoints.up('sm')]: {
@@ -41,17 +41,15 @@ const useStyles = makeStyles((theme) => ({
     textTransform: 'capitalize',
   },
   logoContainerItem: {
-    paddingTop: 0,
-    margin: '0 auto',
+    width: '100%',
   },
   logoContainer: {
-    width: 250,
-    height: 50,
-    margin: '0 auto',
+    width: 300,
+    height: 'auto',
   },
   logoImage: {
     width: '100%',
-    height: '100%',
+    height: 'auto',
   },
   groupTitle: {
     textTransform: 'uppercase',
@@ -70,6 +68,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   socialContainer: {
+    // width: '100%',
+    padding: 0,
     margin: '0 auto',
   },
   icon: {
@@ -106,6 +106,9 @@ const useStyles = makeStyles((theme) => ({
   navLink: {
     color: 'rgba(255,255,255,.6)',
   },
+  wrapper: {
+    margin: 'auto',
+  },
 }));
 
 const Footer = ({ navigation, className, ...rest }) => {
@@ -138,60 +141,73 @@ const Footer = ({ navigation, className, ...rest }) => {
 
   return (
     <div {...rest} className={clsx(classes.root, className)}>
-      <div className={classes.footerContainer}>
-        <Grid container spacing={4} justify="center">
-          <Grid item xs={12}>
-            <List disablePadding>
-              <ListItem disableGutters className={classes.logoContainerItem}>
-                <div className={classes.logoContainer}>
-                  <a href="/" title={data.site.siteMetadata.title}>
-                    <Img
-                      className={classes.logoImage}
-                      fluid={data.logo.childImageSharp.fluid}
-                      alt={data.site.siteMetadata.title}
-                      loading="eager"
-                      fadeIn={false}
+      <div className={classes.wrapper}>
+        <div className={classes.footerContainer}>
+          <Grid container spacing={4} justify="center">
+            <Grid item sm={12} md={6} lg={4} xl={2}>
+              <List disablePadding>
+                <ListItem disableGutters className={classes.logoContainerItem}>
+                  <div className={classes.logoContainer}>
+                    <a href="/" title={data.site.siteMetadata.title}>
+                      <Img
+                        className={classes.logoImage}
+                        fluid={data.logo.childImageSharp.fluid}
+                        alt={data.site.siteMetadata.title}
+                        loading="eager"
+                        fadeIn={false}
+                      />
+                    </a>
+                  </div>
+                </ListItem>
+                <ListItem disableGutters className={classes.logoContainerItem}>
+                  <div className={classes.logoContainer}>
+                    <IconButton className={classes.socialIcon}>
+                      <FacebookIcon className={classes.icon} />
+                    </IconButton>
+                    <IconButton className={classes.socialIcon}>
+                      <InstagramIcon className={classes.icon} />
+                    </IconButton>
+                    <IconButton className={classes.socialIcon}>
+                      <TwitterIcon className={classes.icon} />
+                    </IconButton>
+                    <IconButton className={classes.socialIcon}>
+                      <PinterestIcon className={classes.icon} />
+                    </IconButton>
+                  </div>
+                </ListItem>
+              </List>
+            </Grid>
+            <Grid
+              item
+              sm={12}
+              md={6}
+              lg={8}
+              xl={10}
+              className={classes.menuListContainer}
+            >
+              <Grid container spacing={0}>
+                {navigation.map(({ id, children }) => (
+                  <Grid item>
+                    {children.length > 0 ? (
+                      <Typography
+                        variant="body1"
+                        color="secondary"
+                        className={clsx(classes.listItemText, 'menu-item')}
+                      >
+                        {id.replace(/[_-]/g, ' ')}
+                      </Typography>
+                    ) : null}
+                    <MenuSection
+                      id={id}
+                      children={children}
+                      classes={classes}
                     />
-                  </a>
-                </div>
-              </ListItem>
-              <ListItem disableGutters>
-                <div className={classes.socialContainer}>
-                  <IconButton className={classes.socialIcon}>
-                    <FacebookIcon className={classes.icon} />
-                  </IconButton>
-                  <IconButton className={classes.socialIcon}>
-                    <InstagramIcon className={classes.icon} />
-                  </IconButton>
-                  <IconButton className={classes.socialIcon}>
-                    <TwitterIcon className={classes.icon} />
-                  </IconButton>
-                  <IconButton className={classes.socialIcon}>
-                    <PinterestIcon className={classes.icon} />
-                  </IconButton>
-                </div>
-              </ListItem>
-            </List>
-          </Grid>
-          <Grid item xs={12} md={12} className={classes.menuListContainer}>
-            <Grid container spacing={0}>
-              {navigation.map(({ id, children }) => (
-                <Grid item>
-                  {children.length > 0 ? (
-                    <Typography
-                      variant="body1"
-                      color="secondary"
-                      className={clsx(classes.listItemText, 'menu-item')}
-                    >
-                      {id.replace(/[_-]/g, ' ')}
-                    </Typography>
-                  ) : null}
-                  <MenuSection id={id} children={children} classes={classes} />
-                </Grid>
-              ))}
+                  </Grid>
+                ))}
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
+        </div>
       </div>
     </div>
   );

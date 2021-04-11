@@ -21,7 +21,7 @@ try {
 } catch (e) {
   ghostConfig = {
     production: {
-      apiUrl: process.env.GHOST_API_URL,
+      apiUrl: process.env.GHOST_ADMIN_API_URL,
       contentApiKey: process.env.GHOST_CONTENT_API_KEY,
     },
   };

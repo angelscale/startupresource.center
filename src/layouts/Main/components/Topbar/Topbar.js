@@ -87,15 +87,11 @@ const useStyles = makeStyles((theme) => ({
   logoContainer: {
     flexShrink: 0,
     width: 250,
-    height: 50,
-    [theme.breakpoints.down('xs')]: {
-      width: 200,
-      height: 40,
-    },
+    height: 'auto',
   },
   logoImage: {
     width: '100%',
-    height: '100%',
+    height: 'auto',
   },
   menu: {
     display: 'flex',

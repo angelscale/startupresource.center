@@ -19,13 +19,13 @@
     "url": "https://github.com/angelscale/startupresource.center/issues"
   },
   "scripts": {
-    "develop": "gatsby develop",
-    "dev": "gatsby develop",
-    "build": "cross-env GENERATE_SOURCEMAP=false gatsby build",
+    "develop": "npx gatsby develop",
+    "dev": "npx gatsby develop",
+    "build": "cross-env GENERATE_SOURCEMAP=false npx gatsby build",
     "prettier": "prettier --write '**/*.{js,css,html}'",
-    "clean": "gatsby clean",
+    "clean": "npx gatsby clean",
     "clear-all": "rimraf ./.cache ./public ./node_modules",
-    "serve": "gatsby build && NODE_ENV=production gatsby serve",
+    "serve": "npx gatsby build && NODE_ENV=production npx gatsby serve",
     "lint": "eslint . --ext .js --cache",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

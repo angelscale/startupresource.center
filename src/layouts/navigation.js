@@ -1,7 +1,6 @@
 const navigation = [
   {
-    title: 'Investigation',
-    id: 'investigation',
+    id: 'investigate',
     children: [
       {
         id: 'research',
@@ -41,8 +40,7 @@ const navigation = [
     ],
   },
   {
-    title: 'Getting Started',
-    id: 'getting-started',
+    id: 'navigate',
     children: [
       {
         id: 'research',
@@ -57,8 +55,7 @@ const navigation = [
     ],
   },
   {
-    title: 'Marketing',
-    id: 'marketing',
+    id: 'communicate',
     children: [
       {
         id: 'research',
@@ -73,8 +70,7 @@ const navigation = [
     ],
   },
   {
-    title: 'Operations',
-    id: 'operations',
+    id: 'operate',
     children: [
       {
         id: 'research',
@@ -89,12 +85,14 @@ const navigation = [
     ],
   },
   {
-    title: 'Education',
-    id: 'education',
+    id: 'motivate',
     children: [],
   },
   {
-    title: 'About',
+    id: 'educate',
+    children: [],
+  },
+  {
     id: 'about',
     children: [],
   },
