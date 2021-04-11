@@ -1,0 +1,50 @@
+name: main
+
+on:
+  push:
+    branches: [main]
+    tags: [v*]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set env
+        run: |
+          echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+          echo "BUILD=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Caching Gatsby
+        id: gatsby-cache-build
+        uses: actions/cache@v2
+        with:
+          path: |
+            public
+            .cache
+          key: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-gatsby-build-
+      - name: Install Dependencies
+        run: npm install
+        env:
+          NODE_ENV: production
+      - name: Build Gatsby Site
+        run: npm run build
+        env:
+          NODE_ENV: production
+          GHOST_ADMIN_API_URL: ${{ secrets.GHOST_ADMIN_API_URL }}
+          GHOST_CONTENT_API_KEY: ${{ secrets.GHOST_ADMIN_API_KEY }}
+          GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: true
+          CI: true
+      - name: Create archive
+        run: |
+          mkdir -p ${{ github.workspace }}/artifacts
+          tar -czvg .cache/snapshot-file -f ${{ github.workspace }}/artifacts/src-build-${RELEASE_VERSION}-${BUILD} public
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ${RELEASE_VERSION}-${BUILD}
+          path: ${{ github.workspace }}/artifacts/src-build-${RELEASE_VERSION}-${BUILD}

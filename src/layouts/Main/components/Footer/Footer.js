@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -13,10 +12,11 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import PinterestIcon from '@material-ui/icons/Pinterest';
+import { graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
+import { MenuSection } from '..';
 
-import { Image } from 'components/atoms';
-
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(6, 0),
     [theme.breakpoints.up('md')]: {
@@ -25,24 +25,31 @@ const useStyles = makeStyles(theme => ({
     background: theme.palette.background.footer,
   },
   footerContainer: {
-    maxWidth: theme.layout.contentWidth,
-    width: '100%',
+    // maxWidth: theme.layout.contentWidth,
+    // width: '100%',
     margin: '0 auto',
     padding: theme.spacing(0, 2),
     [theme.breakpoints.up('sm')]: {
       padding: theme.spacing(0, 8),
     },
   },
+  listItemText: {
+    flex: '0 0 auto',
+    marginRight: theme.spacing(1),
+    marginTop: theme.spacing(2),
+    whiteSpace: 'nowrap',
+    textTransform: 'capitalize',
+  },
   logoContainerItem: {
-    paddingTop: 0,
+    width: '100%',
   },
   logoContainer: {
-    width: 120,
-    height: 32,
+    width: 300,
+    height: 'auto',
   },
   logoImage: {
     width: '100%',
-    height: '100%',
+    height: 'auto',
   },
   groupTitle: {
     textTransform: 'uppercase',
@@ -59,6 +66,11 @@ const useStyles = makeStyles(theme => ({
     '&:last-child': {
       marginRight: 0,
     },
+  },
+  socialContainer: {
+    // width: '100%',
+    padding: 0,
+    margin: '0 auto',
   },
   icon: {
     fontSize: 24,
@@ -78,6 +90,8 @@ const useStyles = makeStyles(theme => ({
   menuGroupItem: {
     paddingTop: 0,
     paddingBottom: theme.spacing(1 / 2),
+    marginLeft: theme.spacing(1),
+    textTransform: 'capitalize',
     '&:last-child': {
       paddingBottom: 0,
     },
@@ -92,157 +106,111 @@ const useStyles = makeStyles(theme => ({
   navLink: {
     color: 'rgba(255,255,255,.6)',
   },
+  wrapper: {
+    margin: 'auto',
+  },
 }));
 
-const Footer = props => {
-  const { pages, className, ...rest } = props;
-
+const Footer = ({ navigation, className, ...rest }) => {
   const classes = useStyles();
-
-  const landings = pages.landings;
-  const supportedPages = pages.pages;
-  const account = pages.account;
-
-  const MenuGroup = props => {
-    const { item } = props;
-    return (
-      <List disablePadding className={classes.menuItem}>
-        <ListItem disableGutters className={classes.menuGroupItem}>
-          <Typography variant="body2" className={classes.menuGroupTitle}>
-            {item.groupTitle}
-          </Typography>
-        </ListItem>
-        {item.pages.map((page, i) => (
-          <ListItem disableGutters key={i} className={classes.menuGroupItem}>
-            <Typography
-              variant="body2"
-              component={'a'}
-              href={page.href}
-              className={clsx(classes.navLink, 'submenu-item')}
-            >
-              {page.title}
-            </Typography>
-          </ListItem>
-        ))}
-      </List>
-    );
-  };
-
-  const LandingPages = () => {
-    const { services, apps, web } = landings.children;
-    return (
-      <div className={classes.menu}>
-        <div>
-          <MenuGroup item={services} />
-          <MenuGroup item={apps} />
-        </div>
-        <div>
-          <MenuGroup item={web} />
-        </div>
-      </div>
-    );
-  };
-
-  const SupportedPages = () => {
-    const {
-      career,
-      helpCenter,
-      company,
-      contact,
-      blog,
-      portfolio,
-    } = supportedPages.children;
-    return (
-      <div className={classes.menu}>
-        <div>
-          <MenuGroup item={career} />
-          <MenuGroup item={helpCenter} />
-        </div>
-        <div>
-          <MenuGroup item={company} />
-          <MenuGroup item={contact} />
-        </div>
-        <div>
-          <MenuGroup item={blog} />
-          <MenuGroup item={portfolio} />
-        </div>
-      </div>
-    );
-  };
-
-  const AccountPages = () => {
-    const { settings, signup, signin, password, error } = account.children;
-    return (
-      <div className={classes.menu}>
-        <div>
-          <MenuGroup item={settings} />
-          <MenuGroup item={signup} />
-        </div>
-        <div>
-          <MenuGroup item={signin} />
-          <MenuGroup item={password} />
-          <MenuGroup item={error} />
-        </div>
-      </div>
-    );
-  };
+  const data = useStaticQuery(graphql`
+    query FooterQuery {
+      site {
+        siteMetadata {
+          title
+          description
+          siteUrl
+          siteTitleMeta
+          siteDescriptionMeta
+          shareImageWidth
+          shareImageHeight
+          shortTitle
+          siteIcon
+        }
+      }
+      logo: file(relativePath: { eq: "StartupResourceCenter.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 250) {
+            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluidLimitPresentationSize
+          }
+        }
+      }
+    }
+  `);
 
   return (
     <div {...rest} className={clsx(classes.root, className)}>
-      <div className={classes.footerContainer}>
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={2}>
-            <List disablePadding>
-              <ListItem disableGutters className={classes.logoContainerItem}>
-                <div className={classes.logoContainer}>
-                  <a href="/" title="thefront">
-                    <Image
-                      className={classes.logoImage}
-                      src="https://assets.maccarianagency.com/the-front/logos/logo-negative.svg"
-                      alt="thefront"
-                      lazy={false}
+      <div className={classes.wrapper}>
+        <div className={classes.footerContainer}>
+          <Grid container spacing={4} justify="center">
+            <Grid item sm={12} md={6} lg={4} xl={2}>
+              <List disablePadding>
+                <ListItem disableGutters className={classes.logoContainerItem}>
+                  <div className={classes.logoContainer}>
+                    <a href="/" title={data.site.siteMetadata.title}>
+                      <Img
+                        className={classes.logoImage}
+                        fluid={data.logo.childImageSharp.fluid}
+                        alt={data.site.siteMetadata.title}
+                        loading="eager"
+                        fadeIn={false}
+                      />
+                    </a>
+                  </div>
+                </ListItem>
+                <ListItem disableGutters className={classes.logoContainerItem}>
+                  <div className={classes.logoContainer}>
+                    <IconButton className={classes.socialIcon}>
+                      <FacebookIcon className={classes.icon} />
+                    </IconButton>
+                    <IconButton className={classes.socialIcon}>
+                      <InstagramIcon className={classes.icon} />
+                    </IconButton>
+                    <IconButton className={classes.socialIcon}>
+                      <TwitterIcon className={classes.icon} />
+                    </IconButton>
+                    <IconButton className={classes.socialIcon}>
+                      <PinterestIcon className={classes.icon} />
+                    </IconButton>
+                  </div>
+                </ListItem>
+              </List>
+            </Grid>
+            <Grid
+              item
+              sm={12}
+              md={6}
+              lg={8}
+              xl={10}
+              className={classes.menuListContainer}
+            >
+              <Grid container spacing={0}>
+                {navigation.map(({ id, children }) => (
+                  <Grid item>
+                    {children.length > 0 ? (
+                      <Typography
+                        variant="body1"
+                        color="secondary"
+                        className={clsx(classes.listItemText, 'menu-item')}
+                      >
+                        {id.replace(/[_-]/g, ' ')}
+                      </Typography>
+                    ) : null}
+                    <MenuSection
+                      id={id}
+                      children={children}
+                      classes={classes}
                     />
-                  </a>
-                </div>
-              </ListItem>
-              <ListItem disableGutters>
-                <IconButton className={classes.socialIcon}>
-                  <FacebookIcon className={classes.icon} />
-                </IconButton>
-                <IconButton className={classes.socialIcon}>
-                  <InstagramIcon className={classes.icon} />
-                </IconButton>
-                <IconButton className={classes.socialIcon}>
-                  <TwitterIcon className={classes.icon} />
-                </IconButton>
-                <IconButton className={classes.socialIcon}>
-                  <PinterestIcon className={classes.icon} />
-                </IconButton>
-              </ListItem>
-            </List>
-          </Grid>
-          <Grid item xs={12} md={10} className={classes.menuListContainer}>
-            <Grid container spacing={0}>
-              <Grid item>
-                <LandingPages />
-              </Grid>
-              <Grid item>
-                <SupportedPages />
-              </Grid>
-              <Grid item>
-                <AccountPages />
+                  </Grid>
+                ))}
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
+        </div>
       </div>
     </div>
   );
-};
-
-Footer.propTypes = {
-  className: PropTypes.string,
-  pages: PropTypes.object.isRequired,
 };
 
 export default Footer;

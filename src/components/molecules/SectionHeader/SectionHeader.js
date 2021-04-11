@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     marginBottom: theme.spacing(3),
     [theme.breakpoints.up('md')]: {
@@ -30,13 +30,14 @@ const useStyles = makeStyles(theme => ({
  *
  * @param {Object} props
  */
-const SectionHeader = props => {
+const SectionHeader = (props) => {
   const {
     title,
+    titleColor,
     titleVariant,
-    subtitleVariant,
     subtitle,
     subtitleColor,
+    subtitleVariant,
     label,
     overline,
     fadeUp,
@@ -105,7 +106,7 @@ const SectionHeader = props => {
             classes.title,
             titleClasses ? titleClasses : {},
           )}
-          color="textPrimary"
+          color={titleColor || 'textPrimary'}
           {...titleProps}
         >
           {title}

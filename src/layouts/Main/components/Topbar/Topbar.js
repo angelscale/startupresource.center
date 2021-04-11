@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
-import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import {
   Toolbar,
@@ -15,9 +14,11 @@ import {
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Image, DarkModeToggler } from 'components/atoms';
+import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import { MenuSection } from '..';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   flexGrow: {
     flexGrow: 1,
   },
@@ -32,9 +33,6 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     margin: '0 auto',
     padding: theme.spacing(0, 2),
-    [theme.breakpoints.up('sm')]: {
-      padding: theme.spacing(0, 8),
-    },
   },
   navLink: {
     '&:hover': {
@@ -43,6 +41,7 @@ const useStyles = makeStyles(theme => ({
   },
   listItem: {
     cursor: 'pointer',
+    paddingRight: 1,
     '&:hover > .menu-item, &:hover svg': {
       color: theme.palette.primary.dark,
     },
@@ -57,8 +56,9 @@ const useStyles = makeStyles(theme => ({
   },
   listItemText: {
     flex: '0 0 auto',
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(1),
     whiteSpace: 'nowrap',
+    textTransform: 'capitalize',
   },
   listItemButton: {
     whiteSpace: 'nowrap',
@@ -74,7 +74,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(2),
   },
   iconButton: {
-    marginLeft: theme.spacing(2),
+    marginLeft: theme.spacing(1),
     padding: 0,
     '&:hover': {
       background: 'transparent',
@@ -85,37 +85,68 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.primary.dark,
   },
   logoContainer: {
-    width: 100,
-    height: 28,
-    [theme.breakpoints.up('md')]: {
-      width: 120,
-      height: 32,
-    },
+    flexShrink: 0,
+    width: 250,
+    height: 'auto',
   },
   logoImage: {
     width: '100%',
-    height: '100%',
+    height: 'auto',
   },
   menu: {
     display: 'flex',
     justifyContent: 'space-between',
   },
   menuItem: {
-    marginRight: theme.spacing(5),
+    marginRight: theme.spacing(2),
     '&:last-child': {
       marginRight: 0,
     },
   },
   menuGroupItem: {
     paddingTop: 0,
+    marginLeft: theme.spacing(1),
+    textTransform: 'capitalize',
   },
   menuGroupTitle: {
     textTransform: 'uppercase',
   },
 }));
 
-const Topbar = ({ themeMode, themeToggler, onSidebarOpen, pages, className, ...rest }) => {
+const Topbar = ({
+  themeMode,
+  themeToggler,
+  onSidebarOpen,
+  navigation,
+  className,
+  ...rest
+}) => {
   const classes = useStyles();
+  const data = useStaticQuery(graphql`
+    query HeaderQuery {
+      site {
+        siteMetadata {
+          title
+          description
+          siteUrl
+          siteTitleMeta
+          siteDescriptionMeta
+          shareImageWidth
+          shareImageHeight
+          shortTitle
+          siteIcon
+        }
+      }
+      logo: file(relativePath: { eq: "StartupResourceCenter.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 250) {
+            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluidLimitPresentationSize
+          }
+        }
+      }
+    }
+  `);
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [openedPopoverId, setOpenedPopoverId] = useState(null);
@@ -130,203 +161,108 @@ const Topbar = ({ themeMode, themeToggler, onSidebarOpen, pages, className, ...r
     setOpenedPopoverId(null);
   };
 
-  const landings = pages.landings;
-  const supportedPages = pages.pages;
-  const account = pages.account;
-
-  const MenuGroup = props => {
-    const { item } = props;
-    return (
-      <List disablePadding>
-        <ListItem disableGutters>
-          <Typography
-            variant="body2"
-            color="primary"
-            className={classes.menuGroupTitle}
-          >
-            {item.groupTitle}
-          </Typography>
-        </ListItem>
-        {item.pages.map((page, i) => (
-          <ListItem disableGutters key={i} className={classes.menuGroupItem}>
-            <Typography
-              variant="body1"
-              component={'a'}
-              href={page.href}
-              className={clsx(classes.navLink, 'submenu-item')}
-              color="textSecondary"
-              onClick={handleClose}
-            >
-              {page.title}
-            </Typography>
-          </ListItem>
-        ))}
-      </List>
-    );
-  };
-
-  const LandingPages = () => {
-    const { services, apps, web } = landings.children;
-    return (
-      <div className={classes.menu}>
-        <div className={classes.menuItem}>
-          <MenuGroup item={services} />
-          <MenuGroup item={apps} />
-        </div>
-        <div className={classes.menuItem}>
-          <MenuGroup item={web} />
-        </div>
-      </div>
-    );
-  };
-
-  const SupportedPages = () => {
-    const {
-      career,
-      helpCenter,
-      company,
-      contact,
-      blog,
-      portfolio,
-    } = supportedPages.children;
-    return (
-      <div className={classes.menu}>
-        <div className={classes.menuItem}>
-          <MenuGroup item={career} />
-          <MenuGroup item={helpCenter} />
-        </div>
-        <div className={classes.menuItem}>
-          <MenuGroup item={company} />
-          <MenuGroup item={contact} />
-        </div>
-        <div className={classes.menuItem}>
-          <MenuGroup item={blog} />
-          <MenuGroup item={portfolio} />
-        </div>
-      </div>
-    );
-  };
-
-  const AccountPages = () => {
-    const { settings, signup, signin, password, error } = account.children;
-    return (
-      <div className={classes.menu}>
-        <div className={classes.menuItem}>
-          <MenuGroup item={settings} />
-        </div>
-        <div className={classes.menuItem}>
-          <MenuGroup item={signup} />
-          <MenuGroup item={signin} />
-        </div>
-        <div className={classes.menuItem}>
-          <MenuGroup item={password} />
-          <MenuGroup item={error} />
-        </div>
-      </div>
-    );
-  };
-
-  const renderPages = id => {
-    if (id === 'landing-pages') {
-      return <LandingPages />;
-    }
-    if (id === 'supported-pages') {
-      return <SupportedPages />;
-    }
-    if (id === 'account') {
-      return <AccountPages />;
-    }
-  };
-
   return (
     <Toolbar disableGutters className={classes.toolbar} {...rest}>
       <div className={classes.logoContainer}>
-        <a href="/" title="thefront">
-          <Image
+        <a href="/" title={data.site.siteMetadata.title}>
+          <Img
             className={classes.logoImage}
-            src={themeMode === 'light' ? 'https://assets.maccarianagency.com/the-front/logos/logo.svg' : 'https://assets.maccarianagency.com/the-front/logos/logo-negative.svg'}
-            alt="thefront"
-            lazy={false}
+            fluid={data.logo.childImageSharp.fluid}
+            alt={data.site.siteMetadata.title}
+            loading="eager"
+            fadeIn={false}
           />
         </a>
       </div>
       <div className={classes.flexGrow} />
       <Hidden smDown>
         <List disablePadding className={classes.navigationContainer}>
-          {[landings, supportedPages, account].map((page, i) => (
-            <div key={page.id}>
-              <ListItem
-                aria-describedby={page.id}
-                onClick={e => handleClick(e, page.id)}
-                className={clsx(
-                  classes.listItem,
-                  openedPopoverId === page.id ? classes.listItemActive : '',
-                )}
-              >
-                <Typography
-                  variant="body1"
-                  color="textPrimary"
-                  className={clsx(classes.listItemText, 'menu-item')}
+          {navigation.map(({ id, children }) => (
+            <div key={id}>
+              {children.length > 0 ? (
+                <>
+                  <ListItem
+                    aria-describedby={id}
+                    onClick={(e) => handleClick(e, id)}
+                    className={clsx(
+                      classes.listItem,
+                      openedPopoverId === id ? classes.listItemActive : '',
+                    )}
+                  >
+                    <Typography
+                      variant="body1"
+                      color="textPrimary"
+                      className={clsx(classes.listItemText, 'menu-item')}
+                    >
+                      {id.replace(/[_-]/g, ' ')}
+                    </Typography>
+                    <ListItemIcon className={classes.listItemIcon}>
+                      <ExpandMoreIcon
+                        className={
+                          openedPopoverId === id ? classes.expandOpen : ''
+                        }
+                        fontSize="small"
+                      />
+                    </ListItemIcon>
+                  </ListItem>
+                  <Popover
+                    elevation={1}
+                    id={id}
+                    open={openedPopoverId === id}
+                    anchorEl={anchorEl}
+                    onClose={handleClose}
+                    anchorOrigin={{
+                      vertical: 'bottom',
+                      horizontal: 'center',
+                    }}
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'center',
+                    }}
+                    classes={{ paper: classes.popover }}
+                  >
+                    <MenuSection
+                      id={id}
+                      children={children}
+                      onClose={handleClose}
+                      classes={classes}
+                    />
+                  </Popover>
+                </>
+              ) : (
+                <ListItem
+                  className={clsx(classes.listItem, 'menu-item--no-dropdown')}
                 >
-                  {page.title}
-                </Typography>
-                <ListItemIcon className={classes.listItemIcon}>
-                  <ExpandMoreIcon
-                    className={
-                      openedPopoverId === page.id ? classes.expandOpen : ''
-                    }
-                    fontSize="small"
-                  />
-                </ListItemIcon>
-              </ListItem>
-              <Popover
-                elevation={1}
-                id={page.id}
-                open={openedPopoverId === page.id}
-                anchorEl={anchorEl}
-                onClose={handleClose}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'center',
-                }}
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'center',
-                }}
-                classes={{ paper: classes.popover }}
-              >
-                <div>{renderPages(page.id)}</div>
-              </Popover>
+                  <Typography
+                    variant="body1"
+                    color="textPrimary"
+                    component="a"
+                    href={`/${id}/`}
+                    className={clsx(classes.listItemText, 'menu-item')}
+                  >
+                    {id.replace(/[_-]/g, ' ')}
+                  </Typography>
+                </ListItem>
+              )}
             </div>
           ))}
-          <ListItem className={clsx(classes.listItem, 'menu-item--no-dropdown')}>
-            <DarkModeToggler themeMode={themeMode} onClick={() => themeToggler()} />
-          </ListItem>
-          <ListItem className={clsx(classes.listItem, 'menu-item--no-dropdown')}>
-            <Button
-              variant="outlined"
-              component="a"
-              href="/documentation"
-            >
-              Documentation
-            </Button>
-          </ListItem>
-          <ListItem className={clsx(classes.listItem, 'menu-item--no-dropdown')}>
+          <ListItem
+            className={clsx(classes.listItem, 'menu-item--no-dropdown')}
+          >
             <Button
               variant="contained"
               color="primary"
               component="a"
               target="blank"
-              href="https://material-ui.com/store/items/the-front-landing-page/"
+              href="/"
               className={classes.listItemButton}
             >
-              Buy Now
+              Sign In
             </Button>
           </ListItem>
         </List>
       </Hidden>
       <Hidden mdUp>
-        <DarkModeToggler themeMode={themeMode} onClick={() => themeToggler()} />
         <IconButton
           className={classes.iconButton}
           onClick={onSidebarOpen}
@@ -337,14 +273,6 @@ const Topbar = ({ themeMode, themeToggler, onSidebarOpen, pages, className, ...r
       </Hidden>
     </Toolbar>
   );
-};
-
-Topbar.propTypes = {
-  className: PropTypes.string,
-  onSidebarOpen: PropTypes.func,
-  pages: PropTypes.object.isRequired,
-  themeToggler: PropTypes.func.isRequired,
-  themeMode: PropTypes.string.isRequired,
 };
 
 export default Topbar;
