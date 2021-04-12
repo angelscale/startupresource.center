@@ -10,6 +10,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: wake up ghost
+        run: curl -I https://startupresource.center/ghost/
       - uses: actions/checkout@v2
       - name: Set env
         run: |
@@ -39,12 +41,11 @@ jobs:
           GHOST_ADMIN_API_URL: ${{ secrets.GHOST_ADMIN_API_URL }}
           GHOST_CONTENT_API_KEY: ${{ secrets.GHOST_ADMIN_API_KEY }}
           GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: true
-          CI: true
       - name: Create archive
         run: |
           mkdir -p ${{ github.workspace }}/artifacts
-          tar -czvg .cache/snapshot-file -f ${{ github.workspace }}/artifacts/src-build-${RELEASE_VERSION}-${BUILD} public
+          tar -czvg .cache/snapshot-file -f ${{ github.workspace }}/artifacts/src-build-${RELEASE_VERSION}-${BUILD}.tgz public
       - uses: actions/upload-artifact@v2
         with:
           name: ${RELEASE_VERSION}-${BUILD}
-          path: ${{ github.workspace }}/artifacts/src-build-${RELEASE_VERSION}-${BUILD}
+          path: ${{ github.workspace }}/artifacts/src-build-${RELEASE_VERSION}-${BUILD}.tgz
