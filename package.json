@@ -21,7 +21,7 @@
   "scripts": {
     "develop": "npx gatsby develop",
     "dev": "npx gatsby develop",
-    "build": "cross-env GENERATE_SOURCEMAP=false npx gatsby build",
+    "build": "npx gatsby build",
     "prettier": "prettier --write '**/*.{js,css,html}'",
     "clean": "npx gatsby clean",
     "clear-all": "rimraf ./.cache ./public ./node_modules",
