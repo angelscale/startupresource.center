@@ -48,4 +48,4 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: ${RELEASE_VERSION}-${BUILD}
-          path: ${{ github.workspace }}/artifacts/src-build-${RELEASE_VERSION}-${BUILD}.tgz
+          path: ${{ github.workspace }}/artifacts/*
