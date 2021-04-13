@@ -40,7 +40,7 @@ jobs:
           GHOST_CONTENT_API_KEY: ${{ secrets.GHOST_ADMIN_API_KEY }}
           GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: true
       - name: Deploy Website
-        uses: easingthemes/ssh-deploy@v2
+        uses: easingthemes/ssh-deploy@v2.1.6
         env:
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
           ARGS: '-rltgoDzvO'
