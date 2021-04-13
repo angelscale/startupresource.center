@@ -15,5 +15,5 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.GHA_TOKEN }}
-          event-type: build
+          event-type: build-staging
           client-payload: '{"ref": "${{ github.ref }}", "url": "staging.${{ secrets.DEPLOY_HOST }}"}'
