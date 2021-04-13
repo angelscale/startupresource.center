@@ -1,9 +1,9 @@
-name: main
+name: staging
 
 on:
   push:
     branches:
-      - main
+      - staging
 
 jobs:
   stage:
@@ -11,9 +11,9 @@ jobs:
     steps:
       - name: wake up ghost
         run: curl -I ${{ secrets.GHOST_ADMIN_API_URL }}/ghost/
-      - name: Repository Dispatch Build - Main
+      - name: Repository Dispatch Build - Staging
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.GHA_TOKEN }}
           event-type: build
-          client-payload: '{"ref": "${{ github.ref }}", "url": "${{ secrets.DEPLOY_HOST }}"}'
+          client-payload: '{"ref": "${{ github.ref }}", "url": "staging.${{ secrets.DEPLOY_HOST }}"}'

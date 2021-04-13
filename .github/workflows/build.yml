@@ -1,0 +1,50 @@
+name: build
+
+on:
+  repository_dispatch:
+    types: [build]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.client_payload.ref }}
+      - name: Set env
+        run: |
+          echo "VERSION=$(cat VERSION)" >> $GITHUB_ENV
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - name: Prepare Gatsby Cache
+        id: gatsby-cache-build
+        uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+            public
+            .cache
+          key: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-gatsby-build-
+      - name: Install Dependencies
+        run: npm install
+        env:
+          NODE_ENV: production
+      - name: Build Gatsby Site
+        run: npm run build
+        env:
+          NODE_ENV: production
+          GHOST_ADMIN_API_URL: ${{ secrets.GHOST_ADMIN_API_URL }}
+          GHOST_CONTENT_API_KEY: ${{ secrets.GHOST_ADMIN_API_KEY }}
+          GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: true
+      - name: Deploy Website
+        uses: easingthemes/ssh-deploy@v2
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+          ARGS: '-rltgoDzvO'
+          SOURCE: 'public/'
+          REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
+          REMOTE_USER: ${{ secrets.DEPLOY_USER }}
+          TARGET: /home/${{ secrets.DEPLOY_USER }}/${{ github.event.client_payload.url }}/public/

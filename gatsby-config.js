@@ -2,7 +2,7 @@ const path = require(`path`);
 
 let siteMetadata = {
   title: `Startup Resource Center`,
-  siteUrl: `https://startupresource.center`, // Site domain. Do not include a trailing slash!
+  siteUrl: `https://www.startupresource.center`, // Site domain. Do not include a trailing slash!
   postsPerPage: 12, // Number of posts shown on paginated pages (changes this requires sometimes to delete the cache)
   siteTitleMeta: `Startup Resource Center`, // This allows an alternative site title for meta data for pages.
   siteDescriptionMeta: `Connecting the dots for your business - Everything you need is here!`, // This allows an alternative site description for meta data for pages.
