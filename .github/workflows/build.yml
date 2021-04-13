@@ -14,7 +14,6 @@ jobs:
       - name: Setup Environment
         run: |
           echo "VERSION=$(cat VERSION)" >> $GITHUB_ENV
-          echo "REF=${{ }} "
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.event.client_payload.ref || 'refs/heads/main' }}
