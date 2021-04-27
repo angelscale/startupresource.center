@@ -5,7 +5,7 @@ import { LearnMoreLink } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 import { Section } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   formContainer: {
     height: '100%',
     display: 'flex',
@@ -26,11 +26,58 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const ServerError = () => {
+const ServerError = ({ pageContext: { code } }) => {
   const classes = useStyles();
 
   const handleClick = () => {
     window.history.back();
+  };
+
+  const status = {
+    400: {
+      title: 'Bad Request',
+      subtitle:
+        'There seems to be something wrong with your request.  If you feel this is an error please',
+      link: {
+        title: 'let us know',
+        href: '/contact',
+      },
+    },
+    401: {
+      title: 'Unauthorized',
+      subtitle:
+        'You do not have permission to view this document.  If you feel this is an error please',
+      link: {
+        title: 'let us know',
+        href: '/contact',
+      },
+    },
+    403: {
+      title: 'Forbidden',
+      subtitle:
+        'You do not have permission to view this document.  If you feel this is an error please',
+      link: {
+        title: 'let us know',
+        href: '/contact',
+      },
+    },
+    404: {
+      title: 'Not Found',
+      subtitle:
+        'That document was not found.  If you feel this is an error please',
+      link: {
+        title: 'let us know',
+        href: '/contact',
+      },
+    },
+    500: {
+      title: 'Internal Server Error',
+      subtitle: 'We are having problems right now.  Please try again later, or',
+      link: {
+        title: 'contact us',
+        href: '/contact',
+      },
+    },
   };
 
   return (
@@ -38,14 +85,14 @@ const ServerError = () => {
       <Section className={classes.section}>
         <div className={classes.formContainer}>
           <SectionHeader
-            label="500"
-            title="Internal Server Error"
+            label={code}
+            title={status[Number(code)].title}
             subtitle={
               <span>
-                There’s nothing here, but if you feel this is an error please{' '}
+                {status[code].subtitle}{' '}
                 <LearnMoreLink
-                  title="let us know"
-                  href="#"
+                  title={status[code].link.title}
+                  href={status[code].link.href}
                   typographyProps={{ variant: 'h6' }}
                 />
               </span>

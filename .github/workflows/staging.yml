@@ -16,4 +16,4 @@ jobs:
         with:
           token: ${{ secrets.GHA_TOKEN }}
           event-type: build-staging
-          client-payload: '{"ref": "${{ github.ref }}", "url": "test.${{ secrets.DEPLOY_HOST }}"}'
+          client-payload: '{"ref": "${{ github.ref }}", "url": "staging.${{ secrets.DEPLOY_HOST }}"}'

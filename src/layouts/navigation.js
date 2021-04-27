@@ -1,100 +1,68 @@
 const navigation = [
   {
     id: 'investigate',
-    children: [
-      {
-        id: 'research',
-        groupTitle: 'Research',
-        tags: [
-          'product_research',
-          'market_research',
-          'competitor_research',
-          'industry_research',
-        ],
-      },
-      {
-        id: 'help',
-        groupTitle: 'Finding Help',
-        tags: ['consultants', 'hiring'],
-      },
-      {
-        id: 'financing',
-        groupTitle: 'Financing',
-        tags: ['pitch_deck', 'financing'],
-      },
-      {
-        id: 'research2',
-        groupTitle: 'Research2',
-        tags: [
-          'product_research2',
-          'market_research2',
-          'competitor_research2',
-          'industry_research2',
-        ],
-      },
-      {
-        id: 'help2',
-        groupTitle: 'Finding Help2',
-        tags: ['consultants2', 'hiring2'],
-      },
+    tags: [
+      'market-research',
+      'competitive-research',
+      'demographic-research',
+      'research-consultants',
+      'business-funding',
     ],
+    // children: [
+    //   {
+    //     id: 'research',
+    //     tags: [],
+    //   },
+    // ],
   },
   {
     id: 'navigate',
-    children: [
-      {
-        id: 'research',
-        groupTitle: 'Research',
-        tags: [
-          'product_research',
-          'market_research',
-          'competitor_research',
-          'industry_research',
-        ],
-      },
+    tags: [
+      'legal',
+      'accounting-finance',
+      'licensing-patents',
+      'creating-your-brand',
+      'product-packaging-design',
+      'business-strategy',
     ],
   },
   {
     id: 'communicate',
-    children: [
-      {
-        id: 'research',
-        groupTitle: 'Research',
-        tags: [
-          'product_research',
-          'market_research',
-          'competitor_research',
-          'industry_research',
-        ],
-      },
+    tags: [
+      'creative-design',
+      'website-development',
+      'digital-media',
+      'influencer-affiliate-marketing',
+      'retail-event-marketing',
+      'ecommerce-online-markets',
     ],
   },
   {
     id: 'operate',
-    children: [
-      {
-        id: 'research',
-        groupTitle: 'Research',
-        tags: [
-          'product_research',
-          'market_research',
-          'competitor_research',
-          'industry_research',
-        ],
-      },
+    tags: [
+      'staffing',
+      'commerce',
+      'inventory-management',
+      'warehouse-solutions',
+      'shipping',
+      'relationship-management',
     ],
   },
   {
     id: 'motivate',
-    children: [],
+    tags: [
+      'daily-dose-of-inspiration',
+      'motivating-customers',
+      'motivating-your-team',
+    ],
   },
   {
     id: 'educate',
-    children: [],
+    href: '/educate',
   },
   {
     id: 'about',
-    children: [],
+    href: '/about',
   },
 ];
 

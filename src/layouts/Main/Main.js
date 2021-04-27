@@ -5,6 +5,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { useMediaQuery, Divider } from '@material-ui/core';
 import { Topbar, Footer, Sidebar } from './components';
 import navigation from 'layouts/navigation';
+import { useStaticQuery, graphql } from 'gatsby';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,6 +21,27 @@ const Main = ({ children, themeToggler, themeMode }) => {
     defaultMatches: true,
   });
 
+  const data = useStaticQuery(graphql`
+    query MainNavigationQuery {
+      allGhostTag {
+        nodes {
+          name
+          slug
+        }
+      }
+    }
+  `);
+
+  const ghostTags = {};
+  data.allGhostTag.nodes.map(({ name, slug }) => (ghostTags[slug] = name));
+
+  // const navItems = navigation.map((navItem) =>
+  //   navItem.tags
+  //     ? navItem.tags.map((tag) =>
+  //         Object.keys(ghostTags).includes(tag) ? ghostTags[tag] : tag,
+  //       )
+  //     : null,
+  // );
   const [openSidebar, setOpenSidebar] = useState(false);
 
   const handleSidebarOpen = () => {

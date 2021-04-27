@@ -70,16 +70,14 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   // Create Error Pages
-  createPage({
-    path: '/404',
-    component: require.resolve(`./src/templates/404.js`),
-    context: {},
-  });
-
-  createPage({
-    path: '/_error',
-    component: require.resolve(`./src/templates/_error.js`),
-    context: {},
+  ['400', '401', '403', '404', '500'].forEach((e) => {
+    createPage({
+      path: e,
+      component: require.resolve(`./src/templates/_error.js`),
+      context: {
+        code: e,
+      },
+    });
   });
 
   // Create tag pages

@@ -106,7 +106,6 @@ const useStyles = makeStyles((theme) => ({
   menuGroupItem: {
     paddingTop: 0,
     marginLeft: theme.spacing(1),
-    textTransform: 'capitalize',
   },
   menuGroupTitle: {
     textTransform: 'uppercase',
@@ -177,9 +176,9 @@ const Topbar = ({
       <div className={classes.flexGrow} />
       <Hidden smDown>
         <List disablePadding className={classes.navigationContainer}>
-          {navigation.map(({ id, children }) => (
+          {navigation.map(({ id, href, tags, children }) => (
             <div key={id}>
-              {children.length > 0 ? (
+              {href === undefined ? (
                 <>
                   <ListItem
                     aria-describedby={id}
@@ -223,6 +222,7 @@ const Topbar = ({
                   >
                     <MenuSection
                       id={id}
+                      tags={tags}
                       children={children}
                       onClose={handleClose}
                       classes={classes}
@@ -237,7 +237,7 @@ const Topbar = ({
                     variant="body1"
                     color="textPrimary"
                     component="a"
-                    href={`/${id}/`}
+                    href={href}
                     className={clsx(classes.listItemText, 'menu-item')}
                   >
                     {id.replace(/[_-]/g, ' ')}
