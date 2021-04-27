@@ -28,9 +28,9 @@ jobs:
             node_modules
             public
             .cache
-          key: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
+          key: ${{ runner.os }}-${{ env.version }}-${{ github.run_id }}
           restore-keys: |
-            ${{ runner.os }}-gatsby-build-
+            ${{ runner.os }}-${{ env.version }}-
       - name: Install Dependencies
         run: npm install
         env:
