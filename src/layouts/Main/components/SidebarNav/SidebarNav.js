@@ -50,7 +50,6 @@ const useStyles = makeStyles((theme) => ({
   menuGroupItem: {
     paddingTop: 0,
     marginLeft: theme.spacing(1),
-    textTransform: 'capitalize',
   },
   menuGroupTitle: {
     textTransform: 'uppercase',
@@ -84,9 +83,9 @@ const SidebarNav = ({ navigation, onClose, className, ...rest }) => {
         </Button>
       </ListItem>
       <>
-        {navigation.map(({ id, children }, idx) => (
+        {navigation.map(({ id, href, tags, children }) => (
           <>
-            {children.length > 0 ? (
+            {href === undefined ? (
               <>
                 <ListItem className={classes.listItem}>
                   <Typography
@@ -99,6 +98,7 @@ const SidebarNav = ({ navigation, onClose, className, ...rest }) => {
                   </Typography>
                   <MenuSection
                     id={id}
+                    tags={tags}
                     children={children}
                     onClose={onClose}
                     classes={classes}
@@ -110,12 +110,7 @@ const SidebarNav = ({ navigation, onClose, className, ...rest }) => {
               </>
             ) : (
               <ListItem className={classes.listItem}>
-                <Button
-                  variant="outlined"
-                  fullWidth
-                  component="a"
-                  href={`/${id}/`}
-                >
+                <Button variant="outlined" fullWidth component="a" href={href}>
                   {id.replace(/[_-]/g, ' ')}
                 </Button>
               </ListItem>

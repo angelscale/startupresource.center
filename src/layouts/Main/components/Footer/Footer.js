@@ -25,8 +25,6 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.background.footer,
   },
   footerContainer: {
-    // maxWidth: theme.layout.contentWidth,
-    // width: '100%',
     margin: '0 auto',
     padding: theme.spacing(0, 2),
     [theme.breakpoints.up('sm')]: {
@@ -39,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
     whiteSpace: 'nowrap',
     textTransform: 'capitalize',
+    fontSize: '1.1em',
   },
   logoContainerItem: {
     width: '100%',
@@ -68,7 +67,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   socialContainer: {
-    // width: '100%',
     padding: 0,
     margin: '0 auto',
   },
@@ -91,7 +89,6 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 0,
     paddingBottom: theme.spacing(1 / 2),
     marginLeft: theme.spacing(1),
-    textTransform: 'capitalize',
     '&:last-child': {
       paddingBottom: 0,
     },
@@ -105,6 +102,7 @@ const useStyles = makeStyles((theme) => ({
   },
   navLink: {
     color: 'rgba(255,255,255,.6)',
+    fontSize: '1em',
   },
   wrapper: {
     margin: 'auto',
@@ -186,9 +184,9 @@ const Footer = ({ navigation, className, ...rest }) => {
               className={classes.menuListContainer}
             >
               <Grid container spacing={0}>
-                {navigation.map(({ id, children }) => (
-                  <Grid item>
-                    {children.length > 0 ? (
+                {navigation.map(({ id, href, tags, children }) => (
+                  <Grid item key={id}>
+                    {href === undefined ? (
                       <Typography
                         variant="body1"
                         color="secondary"
@@ -199,6 +197,7 @@ const Footer = ({ navigation, className, ...rest }) => {
                     ) : null}
                     <MenuSection
                       id={id}
+                      tags={tags}
                       children={children}
                       classes={classes}
                     />

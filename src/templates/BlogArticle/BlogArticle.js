@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
-import Img from 'gatsby-image';
 import rehypeReact from 'rehype-react';
 
 import { Section, SectionAlternate } from 'components/organisms';

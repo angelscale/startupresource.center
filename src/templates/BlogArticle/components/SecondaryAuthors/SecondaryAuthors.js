@@ -9,7 +9,7 @@ import {
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
 
 const SecondaryAuthors = ({ classes, authors }) => {
-  if (authors.secondary) {
+  if (authors.secondary.length > 0) {
     return (
       <List disablePadding>
         <ListItem disableGutters>

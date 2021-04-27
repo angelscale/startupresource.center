@@ -5,15 +5,17 @@ import { List, ListItem, Typography } from '@material-ui/core';
 const MenuGroup = ({ id, tags, onClose, classes }) => {
   return (
     <List disablePadding>
-      <ListItem disableGutters>
-        <Typography
-          variant="body2"
-          color="primary"
-          className={classes.menuGroupTitle}
-        >
-          {id.replace(/[_-]/g, ' ')}
-        </Typography>
-      </ListItem>
+      {id === undefined ? null : (
+        <ListItem disableGutters>
+          <Typography
+            variant="body2"
+            color="primary"
+            className={classes.menuGroupTitle}
+          >
+            {id.replace(/[_-]/g, ' ')}
+          </Typography>
+        </ListItem>
+      )}
       <>
         {tags.map((tag) => (
           <ListItem disableGutters key={tag} className={classes.menuGroupItem}>
