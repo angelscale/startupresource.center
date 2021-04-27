@@ -57,8 +57,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Extract query results
   const tags = result.data.allGhostTag.edges;
-  const authors = result.data.allGhostAuthor.edges;
-  const pages = result.data.allGhostPage.edges;
+  // const authors = result.data.allGhostAuthor.edges;
+  // const pages = result.data.allGhostPage.edges;
   const posts = result.data.allGhostPost.edges;
   const postsPerPage = result.data.site.siteMetadata.postsPerPage;
 
