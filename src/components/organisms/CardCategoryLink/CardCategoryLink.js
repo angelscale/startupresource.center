@@ -7,7 +7,7 @@ import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import { IconAlternate } from 'components/molecules';
 import { CardBase } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     height: '100%',
     width: '100%',
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
  *
  * @param {Object} props
  */
-const CardCategoryLink = props => {
+const CardCategoryLink = (props) => {
   const {
     fontIconClass,
     color,
@@ -56,49 +56,52 @@ const CardCategoryLink = props => {
       {...rest}
     >
       <>
-      <Grid container spacing={2} className="card-category-link__wrapper">
-        <Grid item container justify={justifyGrid} xs={12}>
-          <IconAlternate
-            fontIconClass={fontIconClass}
-            color={color}
-            size="medium"
-            {...iconAlternateProps}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <Typography
-            variant="h6"
-            align={align}
-            className={classes.fontWeight700}
-            {...titleProps}
-          >
-            {title}
-          </Typography>
-        </Grid>
-        {subtitle && (
+        <Grid container spacing={2} className="card-category-link__wrapper">
+          <Grid item container justifyContent={justifyGrid} xs={12}>
+            <IconAlternate
+              fontIconClass={fontIconClass}
+              color={color}
+              size="medium"
+              {...iconAlternateProps}
+            />
+          </Grid>
           <Grid item xs={12}>
             <Typography
-              variant="subtitle1"
+              variant="h6"
               align={align}
-              color="textSecondary"
-              {...subtitleProps}
+              className={classes.fontWeight700}
+              {...titleProps}
             >
-              {subtitle}
+              {title}
             </Typography>
           </Grid>
-        )}
-      </Grid>
-      <a
-        href={href}
-        className={clsx('card-category-link__item', classes.categoryIconButton)}
-      >
-        <IconButton className="card-category-link__icon-button">
-          <ArrowRightAltIcon
-            className="card-category-link__icon"
-            style={{ color: color[500] }}
-          />
-        </IconButton>
-      </a>
+          {subtitle && (
+            <Grid item xs={12}>
+              <Typography
+                variant="subtitle1"
+                align={align}
+                color="textSecondary"
+                {...subtitleProps}
+              >
+                {subtitle}
+              </Typography>
+            </Grid>
+          )}
+        </Grid>
+        <a
+          href={href}
+          className={clsx(
+            'card-category-link__item',
+            classes.categoryIconButton,
+          )}
+        >
+          <IconButton className="card-category-link__icon-button">
+            <ArrowRightAltIcon
+              className="card-category-link__icon"
+              style={{ color: color[500] }}
+            />
+          </IconButton>
+        </a>
       </>
     </CardBase>
   );

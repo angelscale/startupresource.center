@@ -7,7 +7,7 @@ import { useMediaQuery, Grid, Typography } from '@material-ui/core';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   reviewAuthor: {
     fontWeight: 'bold',
     marginTop: theme.spacing(3),
@@ -49,7 +49,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Reviews = props => {
+const Reviews = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -86,17 +86,14 @@ const Reviews = props => {
       <div className={clsx('swiper-container', classes.swiperContainer)}>
         <div className={clsx('swiper-wrapper', classes.swiperWrapper)}>
           {data.map((item, index) => (
-            <div
-              className="swiper-slide"
-              key={index}
-            >
+            <div className="swiper-slide" key={index}>
               <Grid container spacing={isMd ? 4 : 2}>
                 <Grid
                   item
                   xs={12}
                   md={6}
                   container
-                  justify={!isMd ? 'center' : 'flex-start'}
+                  justifyContent={!isMd ? 'center' : 'flex-start'}
                   alignItems="center"
                 >
                   <div className={classes.authorPhoto}>
@@ -110,7 +107,7 @@ const Reviews = props => {
                 <Grid
                   item
                   container
-                  justify={!isMd ? 'center' : 'flex-start'}
+                  justifyContent={!isMd ? 'center' : 'flex-start'}
                   alignItems="center"
                   xs={12}
                   md={6}

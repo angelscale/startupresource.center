@@ -6,7 +6,7 @@ import { useMediaQuery, Grid, Button } from '@material-ui/core';
 import { Image, LearnMoreLink } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   listGrid: {
     overflow: 'hidden',
     marginBottom: theme.spacing(3),
@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Work = props => {
+const Work = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -31,7 +31,7 @@ const Work = props => {
         title="Our Work"
         subtitle="Take a quick glance at some of our past projects. If you would like to see some more great work, get in touch with us to take a look at our private portfolio."
       />
-      <Grid container justify="center">
+      <Grid container justifyContent="center">
         {data.map((item, index) => (
           <Grid
             data-aos="fade-up"
@@ -53,12 +53,12 @@ const Work = props => {
                 disableGutter
               />
             </Grid>
-            <Grid item container justify="center" xs={12} sm={6}>
+            <Grid item container justifyContent="center" xs={12} sm={6}>
               <Image src={item.illustration} alt={item.title} />
             </Grid>
           </Grid>
         ))}
-        <Grid item container justify="center" xs={12}>
+        <Grid item container justifyContent="center" xs={12}>
           <Button variant="contained" color="primary">
             Contact us
           </Button>

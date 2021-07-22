@@ -22,7 +22,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const MobileApp = props => {
+const MobileApp = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -34,14 +34,21 @@ const MobileApp = props => {
   return (
     <div className={className} {...rest}>
       <Grid container spacing={isMd ? 4 : 2}>
-        <Grid item container justify="center" xs={12} md={6} data-aos="fade-up">
+        <Grid
+          item
+          container
+          justifyContent="center"
+          xs={12}
+          md={6}
+          data-aos="fade-up"
+        >
           <Image src="https://assets.maccarianagency.com/the-front/illustrations/dashboard-extended.svg" />
         </Grid>
         <Grid item xs={12} md={6} data-aos="fade-up">
           <Grid
             container
             alignItems="flex-start"
-            justify="center"
+            justifyContent="center"
             direction="column"
           >
             <SectionHeader

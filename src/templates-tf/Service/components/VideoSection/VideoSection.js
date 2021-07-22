@@ -7,7 +7,7 @@ import { Grid, Button, Typography } from '@material-ui/core';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   video: {
     position: 'relative',
   },
@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const VideoSection = props => {
+const VideoSection = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
@@ -50,7 +50,7 @@ const VideoSection = props => {
     <div className={className} data-aos="fade-up" {...rest}>
       <Grid
         container
-        justify="space-between"
+        justifyContent="space-between"
         spacing={isMd ? 4 : 2}
         direction="row-reverse"
       >
@@ -61,7 +61,11 @@ const VideoSection = props => {
                 title={
                   <span>
                     Launch Your Website{' '}
-                    <Typography component="span" variant="inherit" color="primary">
+                    <Typography
+                      component="span"
+                      variant="inherit"
+                      color="primary"
+                    >
                       Marketing Platform
                     </Typography>
                   </span>
@@ -84,13 +88,16 @@ const VideoSection = props => {
         <Grid
           item
           container
-          justify="center"
+          justifyContent="center"
           xs={12}
           md={6}
           data-aos={'fade-up'}
         >
           <div className={classes.video}>
-            <Image src="https://assets.maccarianagency.com/the-front/illustrations/dashboard.svg" alt="Dashboard" />
+            <Image
+              src="https://assets.maccarianagency.com/the-front/illustrations/dashboard.svg"
+              alt="Dashboard"
+            />
             <i
               className={clsx(classes.videoPlayButton, 'fas fa-play-circle')}
             />

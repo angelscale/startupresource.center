@@ -6,7 +6,7 @@ import { Icon } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 import { DescriptionListIcon } from 'components/organisms';
 
-const Story = props => {
+const Story = (props) => {
   const { className, ...rest } = props;
 
   const theme = useTheme();
@@ -46,7 +46,13 @@ const Story = props => {
             align="left"
           />
         </Grid>
-        <Grid item container justify="center" xs={12} data-aos={'fade-up'}>
+        <Grid
+          item
+          container
+          justifyContent="center"
+          xs={12}
+          data-aos={'fade-up'}
+        >
           <Button variant="outlined" color="primary">
             Learn more
           </Button>

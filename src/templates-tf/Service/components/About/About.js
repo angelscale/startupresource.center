@@ -6,13 +6,13 @@ import { Grid, Typography, Button } from '@material-ui/core';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   promoLogo: {
     maxWidth: 100,
   },
 }));
 
-const About = props => {
+const About = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -23,7 +23,7 @@ const About = props => {
 
   return (
     <div className={className} data-aos="fade-up" {...rest}>
-      <Grid container justify="space-between" spacing={isMd ? 4 : 0}>
+      <Grid container justifyContent="space-between" spacing={isMd ? 4 : 0}>
         <Grid item xs={12} md={6} data-aos={'fade-up'}>
           <Grid container spacing={2} alignItems="flex-start">
             <Grid item xs={12}>
@@ -31,7 +31,11 @@ const About = props => {
                 title={
                   <span>
                     Guaranted{' '}
-                    <Typography component="span" variant="inherit" color="primary">
+                    <Typography
+                      component="span"
+                      variant="inherit"
+                      color="primary"
+                    >
                       Company Growth
                     </Typography>{' '}
                     with Targeted Leads
@@ -67,12 +71,12 @@ const About = props => {
               >
                 TRUSTED BY:
               </Typography>
-              <Grid container justify="space-between">
+              <Grid container justifyContent="space-between">
                 {data.map((partner, index) => (
                   <Grid
                     item
                     container
-                    justify="center"
+                    justifyContent="center"
                     xs={6}
                     sm={2}
                     key={index}
@@ -92,7 +96,7 @@ const About = props => {
         <Grid
           item
           container
-          justify="center"
+          justifyContent="center"
           xs={12}
           md={6}
           data-aos={'fade-up'}

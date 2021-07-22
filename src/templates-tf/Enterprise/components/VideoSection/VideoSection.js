@@ -5,7 +5,7 @@ import { useMediaQuery } from '@material-ui/core';
 import { Grid, Button } from '@material-ui/core';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   videoIframe: {
     boxShadow: `0 5px 15px 0 ${theme.palette.cardShadow}`,
     borderRadius: theme.spacing(1),
@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const VideoSection = props => {
+const VideoSection = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -26,7 +26,7 @@ const VideoSection = props => {
 
   return (
     <div className={className} {...rest}>
-      <Grid container justify="space-between" spacing={isMd ? 4 : 2}>
+      <Grid container justifyContent="space-between" spacing={isMd ? 4 : 2}>
         <Grid item xs={12} md={6} data-aos={'fade-up'}>
           <SectionHeader
             title="Launch Your Website Marketing Platform"

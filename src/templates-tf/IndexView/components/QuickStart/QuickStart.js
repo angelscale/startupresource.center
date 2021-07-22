@@ -1,11 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, useTheme, NoSsr, Grid, Button, useMediaQuery, Typography } from '@material-ui/core';
+import {
+  makeStyles,
+  useTheme,
+  NoSsr,
+  Grid,
+  Button,
+  useMediaQuery,
+  Typography,
+} from '@material-ui/core';
 import { SectionHeader } from 'components/molecules';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { vs2015 } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   quickStartSection: {
     '& .section-header__cta-container': {
       [theme.breakpoints.down('xs')]: {
@@ -21,7 +29,7 @@ const useStyles = makeStyles(theme => ({
           },
         },
       },
-    }
+    },
   },
   fontWeightBold: {
     fontWeight: '900',
@@ -29,7 +37,7 @@ const useStyles = makeStyles(theme => ({
   editor: {
     paddingLeft: `${theme.spacing(2)}px !important`,
     paddingRight: `${theme.spacing(2)}px !important`,
-    borderRadius: theme.spacing(1/2),
+    borderRadius: theme.spacing(1 / 2),
     width: '100%',
   },
   logoImg: {
@@ -45,7 +53,13 @@ const QuickStart = ({ className, ...rest }) => {
   });
 
   const docsButton = (
-    <Button size="large" variant="outlined" color="primary" component="a" href="/documentation">
+    <Button
+      size="large"
+      variant="outlined"
+      color="primary"
+      component="a"
+      href="/documentation"
+    >
       Documentation
     </Button>
   );
@@ -64,9 +78,9 @@ const QuickStart = ({ className, ...rest }) => {
 
   return (
     <div className={className} {...rest}>
-      <Grid container justify="space-between" spacing={4}>
+      <Grid container justifyContent="space-between" spacing={4}>
         <Grid item xs={12}>
-          <Grid container justify="space-between" spacing={isMd ? 4 : 2}>
+          <Grid container justifyContent="space-between" spacing={isMd ? 4 : 2}>
             <Grid item xs={12} md={6} data-aos={'fade-right'}>
               <SectionHeader
                 title="Less code. More speed"
@@ -79,9 +93,20 @@ const QuickStart = ({ className, ...rest }) => {
                 className={classes.quickStartSection}
               />
             </Grid>
-            <Grid item container alignItems="center" xs={12} md={6} data-aos={'fade-left'}>
+            <Grid
+              item
+              container
+              alignItems="center"
+              xs={12}
+              md={6}
+              data-aos={'fade-left'}
+            >
               <NoSsr>
-                <SyntaxHighlighter language="javascript" style={vs2015} className={classes.editor}>
+                <SyntaxHighlighter
+                  language="javascript"
+                  style={vs2015}
+                  className={classes.editor}
+                >
                   {`
 > $ npm install
 
@@ -98,29 +123,52 @@ const QuickStart = ({ className, ...rest }) => {
           </Grid>
         </Grid>
         <Grid item xs={12}>
-          <Grid container justify="space-between" spacing={isMd ? 4 : 2} direction={isMd ? 'row': 'column-reverse'}>
-            <Grid item xs={12} container alignItems="center" md={6} data-aos={'fade-right'}>
+          <Grid
+            container
+            justifyContent="space-between"
+            spacing={isMd ? 4 : 2}
+            direction={isMd ? 'row' : 'column-reverse'}
+          >
+            <Grid
+              item
+              xs={12}
+              container
+              alignItems="center"
+              md={6}
+              data-aos={'fade-right'}
+            >
               <Grid container alignItems="center" spacing={2}>
                 <Grid item xs={12} md={6}>
-                  <Typography color="primary" variant="h4" gutterBottom>300+</Typography>
+                  <Typography color="primary" variant="h4" gutterBottom>
+                    300+
+                  </Typography>
                   <Typography color="textPrimary" variant="body1">
-                    300 + component compositions, which will help you to build any page easily.
+                    300 + component compositions, which will help you to build
+                    any page easily.
                   </Typography>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                  <Typography color="primary" variant="h4" gutterBottom>30+</Typography>
+                  <Typography color="primary" variant="h4" gutterBottom>
+                    30+
+                  </Typography>
                   <Typography color="textPrimary" variant="body1">
-                    30 + stand-alone, fully customizable components designed by following Atomic Methodologies.
+                    30 + stand-alone, fully customizable components designed by
+                    following Atomic Methodologies.
                   </Typography>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                  <Typography color="primary" variant="h4" gutterBottom>45+</Typography>
+                  <Typography color="primary" variant="h4" gutterBottom>
+                    45+
+                  </Typography>
                   <Typography color="textPrimary" variant="body1">
-                    45 + landing and supported pages to Build a professional website.
+                    45 + landing and supported pages to Build a professional
+                    website.
                   </Typography>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                  <Typography color="primary" variant="h4" gutterBottom>99%</Typography>
+                  <Typography color="primary" variant="h4" gutterBottom>
+                    99%
+                  </Typography>
                   <Typography color="textPrimary" variant="body1">
                     99% of our customers rated 5-star our themes over 5 years..
                   </Typography>

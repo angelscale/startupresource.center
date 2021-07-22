@@ -15,7 +15,7 @@ import {
 } from '@material-ui/core';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   list: {
     display: 'flex',
     flexDirection: 'column',
@@ -58,7 +58,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Contact = props => {
+const Contact = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
@@ -214,7 +214,7 @@ const Contact = props => {
               rows={4}
             />
           </Grid>
-          <Grid item container justify="center" xs={12}>
+          <Grid item container justifyContent="center" xs={12}>
             <Button
               variant="contained"
               type="submit"

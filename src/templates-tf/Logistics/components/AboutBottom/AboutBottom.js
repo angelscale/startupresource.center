@@ -5,7 +5,7 @@ import { useMediaQuery, Grid } from '@material-ui/core';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   title: {
     fontWeight: 'bold',
   },
@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const AboutBottom = props => {
+const AboutBottom = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
@@ -29,7 +29,7 @@ const AboutBottom = props => {
         <Grid
           item
           container
-          justify={isMd ? 'flex-start' : 'center'}
+          justifyContent={isMd ? 'flex-start' : 'center'}
           xs={12}
           md={6}
         >

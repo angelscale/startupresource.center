@@ -5,7 +5,7 @@ import { useMediaQuery, Grid } from '@material-ui/core';
 import { LearnMoreLink } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   readMoreLink: {
     marginTop: theme.spacing(1),
     [theme.breakpoints.up('md')]: {
@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Advantages = props => {
+const Advantages = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -35,7 +35,7 @@ const Advantages = props => {
 
   return (
     <div className={className} {...rest}>
-      <Grid container justify="center" spacing={isMd ? 4 : 2}>
+      <Grid container justifyContent="center" spacing={isMd ? 4 : 2}>
         {data.map((item, index) => (
           <Grid
             item

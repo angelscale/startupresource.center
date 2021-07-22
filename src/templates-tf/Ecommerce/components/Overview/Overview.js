@@ -6,7 +6,7 @@ import { Grid, Button } from '@material-ui/core';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     background: theme.palette.primary.dark,
     borderRadius: theme.spacing(2),
@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Overview = props => {
+const Overview = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
@@ -80,7 +80,7 @@ const Overview = props => {
             disableGutter
           />
         </Grid>
-        <Grid item container justify="flex-end" xs={12} md={4}>
+        <Grid item container justifyContent="flex-end" xs={12} md={4}>
           <Image
             src="https://assets.maccarianagency.com/the-front/photos/ecommerce/overview-cover-right.png"
             srcSet="https://assets.maccarianagency.com/the-front/photos/ecommerce/overview-cover-right@2x.png 2x"

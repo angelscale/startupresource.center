@@ -4,13 +4,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import { Image } from 'components/atoms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   logoImg: {
     maxWidth: 120,
   },
 }));
 
-const Partners = props => {
+const Partners = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -18,7 +18,7 @@ const Partners = props => {
     <div className={className} {...rest}>
       <Grid
         container
-        justify="space-between"
+        justifyContent="space-between"
         alignItems="center"
         data-aos="fade-up"
       >
@@ -26,7 +26,7 @@ const Partners = props => {
           <Grid
             item
             container
-            justify="center"
+            justifyContent="center"
             alignItems="center"
             xs={6}
             sm={2}

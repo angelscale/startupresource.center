@@ -5,7 +5,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { useMediaQuery, Grid, Button, Avatar } from '@material-ui/core';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   galleryMedia: {
     width: 60,
     height: 60,
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Community = props => {
+const Community = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -49,7 +49,7 @@ const Community = props => {
           </Button>,
         ]}
       />
-      <Grid container justify="center" data-aos="fade-up">
+      <Grid container justifyContent="center" data-aos="fade-up">
         {data.map((item, index) => (
           <Avatar
             key={index}

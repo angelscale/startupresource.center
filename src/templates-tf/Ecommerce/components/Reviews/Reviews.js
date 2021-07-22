@@ -13,7 +13,7 @@ import {
 } from '@material-ui/core';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   textWhite: {
     color: 'white',
   },
@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Reviews = props => {
+const Reviews = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -76,7 +76,7 @@ const Reviews = props => {
               <Grid
                 item
                 container
-                justify={isMd ? 'flex-start' : 'center'}
+                justifyContent={isMd ? 'flex-start' : 'center'}
                 alignItems="center"
                 xs={12}
               >
@@ -99,7 +99,7 @@ const Reviews = props => {
               <Grid
                 item
                 container
-                justify="space-between"
+                justifyContent="space-between"
                 alignItems={isMd ? 'flex-start' : 'center'}
                 xs={12}
               >

@@ -141,7 +141,7 @@ const Footer = ({ navigation, className, ...rest }) => {
     <div {...rest} className={clsx(classes.root, className)}>
       <div className={classes.wrapper}>
         <div className={classes.footerContainer}>
-          <Grid container spacing={4} justify="center">
+          <Grid container spacing={4} justifyContent="center">
             <Grid item sm={12} md={6} lg={4} xl={2}>
               <List disablePadding>
                 <ListItem disableGutters className={classes.logoContainerItem}>

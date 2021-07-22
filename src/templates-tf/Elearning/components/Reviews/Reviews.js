@@ -1,7 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useMediaQuery, Grid, Button, Typography, colors } from '@material-ui/core';
+import {
+  useMediaQuery,
+  Grid,
+  Button,
+  Typography,
+  colors,
+} from '@material-ui/core';
 import { Image } from 'components/atoms';
 import { SectionHeader, IconAlternate } from 'components/molecules';
 import { CardReview } from 'components/organisms';
@@ -12,7 +18,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Reviews = props => {
+const Reviews = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -34,7 +40,9 @@ const Reviews = props => {
         }
         title={
           <span>
-            <Typography component="span" variant="inherit" color="primary">Rated 5 out of 5</Typography>{' '}
+            <Typography component="span" variant="inherit" color="primary">
+              Rated 5 out of 5
+            </Typography>{' '}
             stars by our customers!
           </span>
         }
@@ -69,7 +77,7 @@ const Reviews = props => {
             />
           </Grid>
         ))}
-        <Grid item container xs={12} justify="center">
+        <Grid item container xs={12} justifyContent="center">
           <Button variant="outlined" size="large" color="primary">
             See all reviews
           </Button>

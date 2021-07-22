@@ -11,7 +11,7 @@ import {
   Divider,
 } from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   titleCta: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Notifications = props => {
+const Notifications = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
@@ -100,7 +100,7 @@ const Notifications = props => {
             </div>
           </div>
         </Grid>
-        <Grid item container justify="flex-start" xs={12}>
+        <Grid item container justifyContent="flex-start" xs={12}>
           <Button
             variant="contained"
             type="submit"

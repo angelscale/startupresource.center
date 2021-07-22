@@ -5,7 +5,7 @@ import { useMediaQuery } from '@material-ui/core';
 import { Grid, Typography, Button, Avatar } from '@material-ui/core';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   teamAvatar: {
     maxWidth: 200,
     maxHeight: 200,
@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Team = props => {
+const Team = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -42,7 +42,7 @@ const Team = props => {
         ]}
         fadeUp
       />
-      <Grid container justify="center" spacing={isMd ? 0 : 3}>
+      <Grid container justifyContent="center" spacing={isMd ? 0 : 3}>
         {data.map((item, index) => (
           <Grid
             data-aos="fade-up"

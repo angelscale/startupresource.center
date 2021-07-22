@@ -4,7 +4,7 @@ import { Grid, Button, colors } from '@material-ui/core';
 import { SectionHeader, IconAlternate } from 'components/molecules';
 import { DescriptionListIcon } from 'components/organisms';
 
-const Process = props => {
+const Process = (props) => {
   const { data, className, ...rest } = props;
 
   return (
@@ -33,7 +33,7 @@ const Process = props => {
             />
           </Grid>
         ))}
-        <Grid item container xs={12} justify="center">
+        <Grid item container xs={12} justifyContent="center">
           <Button variant="contained" size="large" color="primary">
             get started
           </Button>

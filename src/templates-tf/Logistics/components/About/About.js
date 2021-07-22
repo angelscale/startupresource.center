@@ -15,7 +15,7 @@ import {
 import { SectionHeader } from 'components/molecules';
 import { CardBase } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   textWhite: {
     color: 'white',
   },
@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const About = props => {
+const About = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
@@ -93,7 +93,7 @@ const About = props => {
         <Grid
           item
           container
-          justify={isMd ? 'flex-start' : 'center'}
+          justifyContent={isMd ? 'flex-start' : 'center'}
           xs={12}
           md={6}
         >

@@ -6,7 +6,7 @@ import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 import { CardBase } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   playIcon: {
     width: 40,
     height: 40,
@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const About = props => {
+const About = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
@@ -50,7 +50,7 @@ const About = props => {
       <CardBase withShadow liftUp variant="outlined" data-aos="fade-up">
         <Grid container spacing={4}>
           <Grid item xs={12}>
-            <Grid container justify="flex-end">
+            <Grid container justifyContent="flex-end">
               <Image
                 className={classes.playIcon}
                 src="https://assets.maccarianagency.com/the-front/illustrations/play-icon.svg"
@@ -60,7 +60,7 @@ const About = props => {
           </Grid>
           <Grid item xs={12}>
             <Grid item xs={12}>
-              <Grid container justify="center">
+              <Grid container justifyContent="center">
                 <Image
                   src="https://assets.maccarianagency.com/the-front/illustrations/design-team.svg"
                   alt="Play Video"

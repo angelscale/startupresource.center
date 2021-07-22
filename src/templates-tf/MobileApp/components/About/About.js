@@ -13,7 +13,7 @@ import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 import { HeroShaped, Section, CardBase } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   appStore: {
     maxWidth: 152,
   },
@@ -63,7 +63,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const About = props => {
+const About = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
@@ -80,7 +80,13 @@ const About = props => {
             title={
               <span>
                 Don't listen to what they say{' '}
-                <Typography color="secondary" variant="inherit" component="span">go and see</Typography>
+                <Typography
+                  color="secondary"
+                  variant="inherit"
+                  component="span"
+                >
+                  go and see
+                </Typography>
               </span>
             }
             subtitle="Travelling with our app is easy. Join the biggest community of travellers."
@@ -119,22 +125,24 @@ const About = props => {
       <Section narrow>
         <Grid container spacing={isMd ? 4 : 2}>
           <Grid item xs={12} sm={6} data-aos="fade-up">
-            <Grid container alignItems="flex-start" justify="center">
+            <Grid container alignItems="flex-start" justifyContent="center">
               <CardBase className={classes.cardBase} withShadow liftUp>
                 <>
-                <Image
-                  src="https://assets.maccarianagency.com/the-front/illustrations/travelers.svg"
-                  alt="..."
-                  lazy={false}
-                />
-                <div className={classes.dots}>
-                  <span className={classes.dot} />
-                  <span className={classes.dot} />
-                  <span className={clsx(classes.dot, classes.dotHighlighted)} />
-                  <span className={classes.dot} />
-                </div>
-                <Typography variant="h6">TRAVEL TOGETHER</Typography>
-                <Divider className={classes.divider} />
+                  <Image
+                    src="https://assets.maccarianagency.com/the-front/illustrations/travelers.svg"
+                    alt="..."
+                    lazy={false}
+                  />
+                  <div className={classes.dots}>
+                    <span className={classes.dot} />
+                    <span className={classes.dot} />
+                    <span
+                      className={clsx(classes.dot, classes.dotHighlighted)}
+                    />
+                    <span className={classes.dot} />
+                  </div>
+                  <Typography variant="h6">TRAVEL TOGETHER</Typography>
+                  <Divider className={classes.divider} />
                 </>
               </CardBase>
             </Grid>
@@ -150,8 +158,14 @@ const About = props => {
             <SectionHeader
               title={
                 <span>
-                  <Typography color="secondary" variant="inherit" component="span">Now available</Typography> on
-                  Google Play Market and Apple App Store
+                  <Typography
+                    color="secondary"
+                    variant="inherit"
+                    component="span"
+                  >
+                    Now available
+                  </Typography>{' '}
+                  on Google Play Market and Apple App Store
                 </span>
               }
               subtitle="Don't listen to what they say go and see. Travelling with our app is easy. Join the biggest community of travellers."

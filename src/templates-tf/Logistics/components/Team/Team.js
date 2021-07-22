@@ -23,7 +23,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Team = props => {
+const Team = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -43,7 +43,7 @@ const Team = props => {
           <Grid
             container
             alignItems="flex-start"
-            justify="center"
+            justifyContent="center"
             direction="column"
           >
             <SectionHeader
@@ -75,7 +75,7 @@ const Team = props => {
         <Grid
           item
           container
-          justify={isMd ? 'flex-end' : 'center'}
+          justifyContent={isMd ? 'flex-end' : 'center'}
           alignItems="center"
           xs={12}
           md={6}

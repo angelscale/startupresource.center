@@ -5,13 +5,13 @@ import { useMediaQuery, Grid } from '@material-ui/core';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   promoLogo: {
     maxWidth: 120,
   },
 }));
 
-const TrustedCompanies = props => {
+const TrustedCompanies = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -37,7 +37,7 @@ const TrustedCompanies = props => {
             <Grid
               item
               container
-              justify="center"
+              justifyContent="center"
               alignItems="center"
               xs={4}
               key={index}

@@ -16,7 +16,7 @@ import {
 import { Icon, Image } from 'components/atoms';
 import { CardProduct, Section, SectionAlternate } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   pagePaddingTop: {
     padding: theme.spacing(3),
     paddingBottom: theme.spacing(3),
@@ -118,7 +118,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Result = props => {
+const Result = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -127,7 +127,7 @@ const Result = props => {
     defaultMatches: true,
   });
 
-  const BlogMediaContent = props => (
+  const BlogMediaContent = (props) => (
     <Image
       {...props}
       className={classes.image}
@@ -135,7 +135,7 @@ const Result = props => {
     />
   );
 
-  const BlogContent = props => (
+  const BlogContent = (props) => (
     <div className={classes.blogContent}>
       <Typography variant="h6" color="textPrimary" gutterBottom>
         {props.title}
@@ -213,7 +213,7 @@ const Result = props => {
               />
             </Grid>
           ))}
-          <Grid item xs={12} container justify="center">
+          <Grid item xs={12} container justifyContent="center">
             <Button
               variant="contained"
               color="primary"

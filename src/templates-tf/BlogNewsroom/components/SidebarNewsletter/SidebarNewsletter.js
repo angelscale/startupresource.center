@@ -2,11 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useMediaQuery, Grid, Typography, TextField, Button } from '@material-ui/core';
+import {
+  useMediaQuery,
+  Grid,
+  Typography,
+  TextField,
+  Button,
+} from '@material-ui/core';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(3, 2),
     border: `1px solid ${theme.palette.alternate.dark}`,
@@ -38,7 +44,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Form = props => {
+const Form = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
@@ -102,7 +108,7 @@ const Form = props => {
               type="email"
             />
           </Grid>
-          <Grid item container justify="center" xs={12}>
+          <Grid item container justifyContent="center" xs={12}>
             <Button
               variant="contained"
               type="submit"
@@ -112,7 +118,7 @@ const Form = props => {
               Subscribe
             </Button>
           </Grid>
-          <Grid item container justify="center" xs={12}>
+          <Grid item container justifyContent="center" xs={12}>
             <Typography variant="caption" color="textSecondary">
               Subscribe to our Newsletter for new blog posts, tips & new photos.
             </Typography>

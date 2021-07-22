@@ -10,14 +10,14 @@ import {
   Divider,
 } from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   inputTitle: {
     fontWeight: 700,
     marginBottom: theme.spacing(1),
   },
 }));
 
-const Billing = props => {
+const Billing = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
@@ -120,7 +120,7 @@ const Billing = props => {
             type="text"
           />
         </Grid>
-        <Grid item container justify="flex-start" xs={12}>
+        <Grid item container justifyContent="flex-start" xs={12}>
           <Button
             variant="contained"
             type="submit"

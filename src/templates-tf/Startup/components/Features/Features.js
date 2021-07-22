@@ -4,7 +4,7 @@ import { Grid, Button, colors } from '@material-ui/core';
 import { SectionHeader, IconAlternate } from 'components/molecules';
 import { CardBase, DescriptionListIcon } from 'components/organisms';
 
-const Features = props => {
+const Features = (props) => {
   const { data, className, ...rest } = props;
 
   return (
@@ -37,7 +37,7 @@ const Features = props => {
             </CardBase>
           </Grid>
         ))}
-        <Grid item container xs={12} justify="center">
+        <Grid item container xs={12} justifyContent="center">
           <Button variant="contained" size="large" color="primary">
             contact us
           </Button>

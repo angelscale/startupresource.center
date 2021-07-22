@@ -5,7 +5,7 @@ import { useMediaQuery, Grid, Typography } from '@material-ui/core';
 import { Image } from 'components/atoms';
 import { SectionHeader, CountUpNumber } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   placementGrid: {
     maxWidth: 320,
     width: '100%',
@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Features = props => {
+const Features = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
@@ -39,7 +39,11 @@ const Features = props => {
                   <span>
                     Stay focused on your business.
                     <br />
-                    <Typography component="span" variant="inherit" color="primary">
+                    <Typography
+                      component="span"
+                      variant="inherit"
+                      color="primary"
+                    >
                       Let us handle the design.
                     </Typography>
                   </span>
@@ -83,7 +87,7 @@ const Features = props => {
         <Grid
           item
           container
-          justify="center"
+          justifyContent="center"
           alignItems="center"
           xs={12}
           md={6}

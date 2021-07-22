@@ -12,7 +12,7 @@ import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 import { Section } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     height: '100%',
     width: '100%',
@@ -102,10 +102,7 @@ const ContactPageCover = () => {
             <div>
               <Grid container spacing={isMd ? 4 : 2}>
                 <Grid item xs={12} data-aos="fade-up">
-                  <Typography
-                    variant="subtitle1"
-                    color="textPrimary"
-                  >
+                  <Typography variant="subtitle1" color="textPrimary">
                     Full name
                   </Typography>
                   <TextField
@@ -118,10 +115,7 @@ const ContactPageCover = () => {
                   />
                 </Grid>
                 <Grid item xs={12} data-aos="fade-up">
-                  <Typography
-                    variant="subtitle1"
-                    color="textPrimary"
-                  >
+                  <Typography variant="subtitle1" color="textPrimary">
                     E-mail
                   </Typography>
                   <TextField
@@ -134,10 +128,7 @@ const ContactPageCover = () => {
                   />
                 </Grid>
                 <Grid item xs={12} data-aos="fade-up">
-                  <Typography
-                    variant="subtitle1"
-                    color="textPrimary"
-                  >
+                  <Typography variant="subtitle1" color="textPrimary">
                     Message
                   </Typography>
                   <TextField
@@ -149,7 +140,7 @@ const ContactPageCover = () => {
                     rows={4}
                   />
                 </Grid>
-                <Grid item container justify="center" xs={12}>
+                <Grid item container justifyContent="center" xs={12}>
                   <Button
                     variant="contained"
                     type="submit"

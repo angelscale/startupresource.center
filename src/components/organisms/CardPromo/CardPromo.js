@@ -6,7 +6,7 @@ import { Grid, Typography, colors } from '@material-ui/core';
 import { IconAlternate } from 'components/molecules';
 import { CardBase } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     height: '100%',
     width: '100%',
@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
  *
  * @param {Object} props
  */
-const CardPromo = props => {
+const CardPromo = (props) => {
   const {
     titleColor,
     fontIconClass,
@@ -55,7 +55,7 @@ const CardPromo = props => {
         <Grid
           item
           container
-          justify={justifyGrid}
+          justifyContent={justifyGrid}
           xs={12}
           className="card-promo__icon-wrapper"
         >

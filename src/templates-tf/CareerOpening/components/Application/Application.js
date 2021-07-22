@@ -1,11 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useMediaQuery, Grid, Typography, TextField, Button } from '@material-ui/core';
+import {
+  useMediaQuery,
+  Grid,
+  Typography,
+  TextField,
+  Button,
+} from '@material-ui/core';
 import { IconText } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   icon: {
     background: 'transparent',
     borderRadius: 0,
@@ -41,7 +47,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Application = props => {
+const Application = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
@@ -155,7 +161,7 @@ const Application = props => {
               rows={4}
             />
           </Grid>
-          <Grid item container justify="center" xs={12}>
+          <Grid item container justifyContent="center" xs={12}>
             <Button
               variant="contained"
               type="submit"

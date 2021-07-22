@@ -28,7 +28,7 @@ const FKTextField = withStyles({
   },
 })(TextField);
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   typed: {
     fontWeight: 'bold',
   },
@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Contact = props => {
+const Contact = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -56,7 +56,7 @@ const Contact = props => {
         <Grid
           item
           container
-          justify="flex-start"
+          justifyContent="flex-start"
           alignItems="center"
           xs={12}
           md={6}
@@ -125,7 +125,7 @@ const Contact = props => {
           item
           container
           alignItems="center"
-          justify="flex-end"
+          justifyContent="flex-end"
           xs={12}
           md={6}
           data-aos="fade-up"
@@ -138,9 +138,21 @@ const Contact = props => {
                   <span>
                     The most useful resource
                     <br />
-                    <Typography color="secondary" variant="inherit" component="span">ever created</Typography>
+                    <Typography
+                      color="secondary"
+                      variant="inherit"
+                      component="span"
+                    >
+                      ever created
+                    </Typography>
                     <br />
-                    <Typography color="secondary" variant="inherit" component="span">for&nbsp;</Typography>
+                    <Typography
+                      color="secondary"
+                      variant="inherit"
+                      component="span"
+                    >
+                      for&nbsp;
+                    </Typography>
                   </span>
                   <TypedText
                     component="span"

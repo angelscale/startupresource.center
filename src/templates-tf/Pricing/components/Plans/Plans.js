@@ -5,7 +5,7 @@ import { useMediaQuery, Grid } from '@material-ui/core';
 import { LearnMoreLink } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const Plans = props => {
+const Plans = (props) => {
   const { data, className, ...rest } = props;
 
   const theme = useTheme();
@@ -19,7 +19,7 @@ const Plans = props => {
         title="Business grade quality for all plans"
         subtitle="After 3 days all of your offers will arrive and you will have another 7 days to select your new company."
       />
-      <Grid container justify="center" spacing={isMd ? 4 : 2}>
+      <Grid container justifyContent="center" spacing={isMd ? 4 : 2}>
         {data.map((item, index) => (
           <Grid
             item
@@ -44,10 +44,7 @@ const Plans = props => {
               disableGutter
             />
             <div style={{ flexGrow: 1 }} />
-            <LearnMoreLink
-              title="Learn more"
-              variant="subtitle1"
-            />
+            <LearnMoreLink title="Learn more" variant="subtitle1" />
           </Grid>
         ))}
       </Grid>

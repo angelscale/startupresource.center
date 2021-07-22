@@ -15,7 +15,7 @@ import {
 import { Image } from 'components/atoms';
 import { SectionHeader, IconAlternate } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   listItemAvatar: {
     marginRight: theme.spacing(2),
   },
@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Features = props => {
+const Features = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -55,7 +55,7 @@ const Features = props => {
             <Grid
               item
               container
-              justify="center"
+              justifyContent="center"
               alignItems="center"
               xs={12}
               md={6}
@@ -73,7 +73,11 @@ const Features = props => {
                 label="get connected"
                 title={
                   <span>
-                    <Typography color="secondary" variant="inherit" component="span">
+                    <Typography
+                      color="secondary"
+                      variant="inherit"
+                      component="span"
+                    >
                       Share your memories
                     </Typography>{' '}
                     with your travel buddies
@@ -114,7 +118,13 @@ const Features = props => {
                 label="popular travellers"
                 title={
                   <span>
-                    <Typography color="secondary" variant="inherit" component="span">Know the people</Typography>{' '}
+                    <Typography
+                      color="secondary"
+                      variant="inherit"
+                      component="span"
+                    >
+                      Know the people
+                    </Typography>{' '}
                     you are going to meet
                   </span>
                 }
@@ -150,7 +160,7 @@ const Features = props => {
             <Grid
               item
               container
-              justify="center"
+              justifyContent="center"
               alignItems="center"
               xs={12}
               md={6}

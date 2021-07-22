@@ -14,7 +14,7 @@ import {
 import { Image, Icon } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   image: {
     [theme.breakpoints.down('sm')]: {
       maxWidth: 400,
@@ -71,7 +71,7 @@ const useStyles = makeStyles(theme => ({
 
 const tags = ['Design', 'Product', 'UI / UX', 'UI Kit', 'Raect', 'Material UI'];
 
-const Hero = props => {
+const Hero = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -82,7 +82,7 @@ const Hero = props => {
 
   return (
     <div className={className} {...rest}>
-      <Grid container justify="space-between" spacing={isMd ? 4 : 2}>
+      <Grid container justifyContent="space-between" spacing={isMd ? 4 : 2}>
         <Grid item xs={12} md={6} data-aos={'fade-up'}>
           <SectionHeader
             title={
@@ -102,7 +102,7 @@ const Hero = props => {
         <Grid
           item
           container
-          justify="center"
+          justifyContent="center"
           xs={12}
           md={6}
           data-aos={'fade-up'}

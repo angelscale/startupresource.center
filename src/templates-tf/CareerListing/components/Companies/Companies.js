@@ -12,7 +12,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Companies = props => {
+const Companies = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -79,7 +79,7 @@ const Companies = props => {
             />
           </Grid>
         ))}
-        <Grid item container justify="center" xs={12} data-aos="fade-up">
+        <Grid item container justifyContent="center" xs={12} data-aos="fade-up">
           <Button variant="contained" color="secondary" size="large">
             See all jobs
           </Button>

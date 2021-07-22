@@ -8,7 +8,7 @@ import { Image } from 'components/atoms';
 import { SectionHeader, IconAlternate } from 'components/molecules';
 import { Section } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   swiperWrapper: {
     display: 'flex',
     alignItems: 'center',
@@ -111,7 +111,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const PromoSwiper = props => {
+const PromoSwiper = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -150,7 +150,7 @@ const PromoSwiper = props => {
                 />
               </Grid>
               {isSm && (
-                <Grid item container xs={12} sm={6} justify="flex-end">
+                <Grid item container xs={12} sm={6} justifyContent="flex-end">
                   <div className={classes.swiperNavigation}>
                     <div className="swiper-button-next"></div>
                     <div className="swiper-button-prev"></div>
@@ -184,7 +184,11 @@ const PromoSwiper = props => {
                     <div className={clsx(classes.cover, 'image-cover')} />
                     <Typography
                       variant="h6"
-                      className={clsx('swiper-text', classes.textWhite, classes.textPadding)}
+                      className={clsx(
+                        'swiper-text',
+                        classes.textWhite,
+                        classes.textPadding,
+                      )}
                     >
                       A Guide To Rocky Mountain Vacations
                     </Typography>

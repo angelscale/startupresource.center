@@ -5,7 +5,7 @@ import { useMediaQuery, Grid, Button, Typography } from '@material-ui/core';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   price: {
     color: theme.palette.text.primary,
     fontSize: 32,
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Hero = props => {
+const Hero = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
@@ -38,7 +38,7 @@ const Hero = props => {
     <div className={className} {...rest}>
       <Grid
         container
-        justify="space-between"
+        justifyContent="space-between"
         spacing={isMd ? 4 : 2}
         direction={isMd ? 'row' : 'column-reverse'}
       >
@@ -64,7 +64,7 @@ const Hero = props => {
         <Grid
           item
           container
-          justify="center"
+          justifyContent="center"
           xs={12}
           md={6}
           data-aos={'fade-up'}

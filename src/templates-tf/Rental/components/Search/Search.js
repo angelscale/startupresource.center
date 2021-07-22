@@ -11,7 +11,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Search = props => {
+const Search = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -49,7 +49,7 @@ const Search = props => {
               <Grid
                 item
                 container
-                justify="flex-end"
+                justifyContent="flex-end"
                 alignItems="center"
                 xs={12}
                 sm={3}
@@ -86,7 +86,7 @@ const Search = props => {
               <Grid
                 item
                 container
-                justify="flex-end"
+                justifyContent="flex-end"
                 alignItems="center"
                 xs={12}
                 sm={3}

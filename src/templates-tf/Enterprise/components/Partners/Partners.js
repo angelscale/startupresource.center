@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Partners = props => {
+const Partners = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -32,9 +32,16 @@ const Partners = props => {
           </Typography>
         </Grid>
         <Grid item xs={12}>
-          <Grid container justify="space-between">
+          <Grid container justifyContent="space-between">
             {data.map((partner, index) => (
-              <Grid item container justify="center" xs={6} sm={2} key={index}>
+              <Grid
+                item
+                container
+                justifyContent="center"
+                xs={6}
+                sm={2}
+                key={index}
+              >
                 <Image
                   src={partner.logo}
                   alt={partner.name}

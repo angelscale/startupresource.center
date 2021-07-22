@@ -7,7 +7,7 @@ import { LearnMoreLink } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 import { CardJob } from 'components/organisms';
 
-const Jobs = props => {
+const Jobs = (props) => {
   const { data, className, ...rest } = props;
 
   const theme = useTheme();
@@ -54,7 +54,7 @@ const Jobs = props => {
             />
           </Grid>
         ))}
-        <Grid item container justify="center" xs={12} data-aos="fade-up">
+        <Grid item container justifyContent="center" xs={12} data-aos="fade-up">
           <Button variant="contained" color="primary" size="large">
             See all jobs
           </Button>

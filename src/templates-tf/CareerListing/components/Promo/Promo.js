@@ -6,7 +6,7 @@ import { useMediaQuery, Grid, Typography } from '@material-ui/core';
 
 import { Image } from 'components/atoms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
   },
@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Promo = props => {
+const Promo = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -47,7 +47,7 @@ const Promo = props => {
         <Grid
           item
           container
-          justify={isMd ? 'center' : 'space-between'}
+          justifyContent={isMd ? 'center' : 'space-between'}
           xs={12}
           md={8}
         >
@@ -55,7 +55,7 @@ const Promo = props => {
             <Grid
               item
               container
-              justify="center"
+              justifyContent="center"
               xs={6}
               sm={2}
               key={index}

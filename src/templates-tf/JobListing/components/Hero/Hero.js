@@ -13,7 +13,7 @@ import {
 import { Image, Icon, IconText } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     position: 'relative',
   },
@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Hero = props => {
+const Hero = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
@@ -59,7 +59,7 @@ const Hero = props => {
       <div className={classes.hero}>
         <Grid
           container
-          justify="space-between"
+          justifyContent="space-between"
           spacing={isMd ? 4 : 2}
           direction={isMd ? 'row' : 'column-reverse'}
         >
@@ -106,7 +106,7 @@ const Hero = props => {
           <Grid
             item
             container
-            justify="center"
+            justifyContent="center"
             alignItems="flex-start"
             xs={12}
             md={6}

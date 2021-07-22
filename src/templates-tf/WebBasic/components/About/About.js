@@ -14,7 +14,7 @@ import {
 import { Image } from 'components/atoms';
 import { SectionHeader, IconAlternate } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   listItemAvatar: {
     marginRight: theme.spacing(2),
   },
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const About = props => {
+const About = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -42,7 +42,9 @@ const About = props => {
             title={
               <span>
                 Welcome to{' '}
-                <Typography component="span" variant="inherit" color="primary">TheFront.</Typography>
+                <Typography component="span" variant="inherit" color="primary">
+                  TheFront.
+                </Typography>
                 <br />
                 <span>Develop anything your business needs.</span>
               </span>
@@ -69,7 +71,7 @@ const About = props => {
         <Grid
           item
           container
-          justify="center"
+          justifyContent="center"
           alignItems="center"
           xs={12}
           md={6}

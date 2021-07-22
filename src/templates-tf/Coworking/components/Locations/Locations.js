@@ -15,7 +15,7 @@ import { LearnMoreLink } from 'components/atoms';
 import { SectionHeader, SwiperImage } from 'components/molecules';
 import { CardProduct } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   swiperNavButton: {
     width: `${theme.spacing(3)}px !important`,
     height: `${theme.spacing(3)}px !important`,
@@ -52,7 +52,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Location = props => {
+const Location = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -129,7 +129,7 @@ const Location = props => {
                       {item.address}
                     </Typography>
                   </Grid>
-                  <Grid item container justify="space-between" xs={12}>
+                  <Grid item container justifyContent="space-between" xs={12}>
                     <Grid item container xs={6} wrap="nowrap">
                       {item.reviews.map((review, index) => (
                         <Avatar
@@ -144,7 +144,7 @@ const Location = props => {
                       item
                       container
                       alignItems="center"
-                      justify="flex-end"
+                      justifyContent="flex-end"
                       xs={6}
                     >
                       <NoSsr>
@@ -173,7 +173,7 @@ const Location = props => {
                       </Typography>
                     </Grid>
                   </Grid>
-                  <Grid item container justify="flex-end" xs={12}>
+                  <Grid item container justifyContent="flex-end" xs={12}>
                     <LearnMoreLink title="Learn more" />
                   </Grid>
                 </Grid>

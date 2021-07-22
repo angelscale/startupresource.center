@@ -12,7 +12,7 @@ import {
 } from '@material-ui/core';
 import { SectionHeader, IconAlternate } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   listItemAvatar: {
     minWidth: 28,
   },
@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Contact = props => {
+const Contact = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -61,7 +61,11 @@ const Contact = props => {
               <>
                 <span>
                   Our friendly support team
-                  <Typography color="secondary" variant="inherit" component="span">
+                  <Typography
+                    color="secondary"
+                    variant="inherit"
+                    component="span"
+                  >
                     {' '}
                     will help you with anything.
                   </Typography>
@@ -98,7 +102,7 @@ const Contact = props => {
           item
           container
           alignItems="center"
-          justify="center"
+          justifyContent="center"
           xs={12}
           data-aos="fade-up"
         >

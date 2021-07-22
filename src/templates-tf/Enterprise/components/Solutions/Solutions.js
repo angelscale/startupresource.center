@@ -7,7 +7,7 @@ import { Grid, Button, Typography } from '@material-ui/core';
 import { Image, LearnMoreLink } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   listGrid: {
     overflow: 'hidden',
     marginBottom: theme.spacing(3),
@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Solutions = props => {
+const Solutions = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -32,13 +32,15 @@ const Solutions = props => {
         title={
           <span>
             Your New Website Marketing{' '}
-            <Typography component="span" variant="inherit" color="primary">Solution Is Here</Typography>
+            <Typography component="span" variant="inherit" color="primary">
+              Solution Is Here
+            </Typography>
           </span>
         }
         subtitle="TheFront Kit offers a completely customizable website landing pages and supported pages management platform. Here’s what makes us different:"
         fadeUp
       />
-      <Grid container justify="center">
+      <Grid container justifyContent="center">
         {data.map((item, index) => (
           <Grid
             key={index}
@@ -47,7 +49,7 @@ const Solutions = props => {
             spacing={isMd ? 4 : 2}
             data-aos={'fade-up'}
             alignItems="center"
-            justify="space-between"
+            justifyContent="space-between"
             direction={index % 2 === 1 ? 'row-reverse' : 'row'}
             className={classes.listGrid}
           >
@@ -62,15 +64,12 @@ const Solutions = props => {
                 disableGutter
               />
             </Grid>
-            <Grid item container justify="center" xs={12} sm={6}>
-              <Image
-                src={item.illustration}
-                alt={item.label}
-              />
+            <Grid item container justifyContent="center" xs={12} sm={6}>
+              <Image src={item.illustration} alt={item.label} />
             </Grid>
           </Grid>
         ))}
-        <Grid item container justify="center" xs={12}>
+        <Grid item container justifyContent="center" xs={12}>
           <Button
             variant="contained"
             color="primary"

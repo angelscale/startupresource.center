@@ -20,7 +20,7 @@ import {
 } from '@material-ui/core';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   card: {
     boxShadow: '0 7px 14px 0 rgba(0, 0, 0, 0.1)',
   },
@@ -65,7 +65,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const FeaturedProperties = props => {
+const FeaturedProperties = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -98,7 +98,9 @@ const FeaturedProperties = props => {
                   </div>
                   <div className={classes.cardCta}>
                     <Typography color="primary" variant="subtitle1">
-                      <NoSsr><i className="far fa-heart" /></NoSsr>
+                      <NoSsr>
+                        <i className="far fa-heart" />
+                      </NoSsr>
                     </Typography>
                   </div>
                 </div>
@@ -129,7 +131,9 @@ const FeaturedProperties = props => {
                     <List disablePadding>
                       <ListItem disableGutters className={classes.listItem}>
                         <ListItemIcon className={classes.listItemIcon}>
-                          <NoSsr><i className="fas fa-home" /></NoSsr>
+                          <NoSsr>
+                            <i className="fas fa-home" />
+                          </NoSsr>
                         </ListItemIcon>
                         <ListItemText primary={item.size} />
                       </ListItem>
@@ -139,19 +143,25 @@ const FeaturedProperties = props => {
                     <List disablePadding className={classes.propertyList}>
                       <ListItem disableGutters className={classes.listItem}>
                         <ListItemIcon className={classes.listItemIcon}>
-                          <NoSsr><i className="fas fa-parking" /></NoSsr>
+                          <NoSsr>
+                            <i className="fas fa-parking" />
+                          </NoSsr>
                         </ListItemIcon>
                         <ListItemText primary={item.garages} />
                       </ListItem>
                       <ListItem disableGutters className={classes.listItem}>
                         <ListItemIcon className={classes.listItemIcon}>
-                          <NoSsr><i className="fas fa-bath" /></NoSsr>
+                          <NoSsr>
+                            <i className="fas fa-bath" />
+                          </NoSsr>
                         </ListItemIcon>
                         <ListItemText primary={item.baths} />
                       </ListItem>
                       <ListItem disableGutters className={classes.listItem}>
                         <ListItemIcon className={classes.listItemIcon}>
-                          <NoSsr><i className="fas fa-door-open" /></NoSsr>
+                          <NoSsr>
+                            <i className="fas fa-door-open" />
+                          </NoSsr>
                         </ListItemIcon>
                         <ListItemText primary={item.rooms} />
                       </ListItem>
@@ -162,7 +172,7 @@ const FeaturedProperties = props => {
             </Card>
           </Grid>
         ))}
-        <Grid item xs={12} container justify="center" data-aos="fade-up">
+        <Grid item xs={12} container justifyContent="center" data-aos="fade-up">
           <Button variant="outlined" color="primary">
             See all list
           </Button>

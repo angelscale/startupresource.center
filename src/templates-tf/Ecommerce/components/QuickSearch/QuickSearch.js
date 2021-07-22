@@ -5,7 +5,7 @@ import { useMediaQuery, Grid, Typography, Button } from '@material-ui/core';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   title: {
     fontWeight: 'bold',
   },
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const QuickSearch = props => {
+const QuickSearch = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
@@ -52,7 +52,7 @@ const QuickSearch = props => {
             <Grid
               item
               container
-              justify={isMd ? 'flex-start' : 'center'}
+              justifyContent={isMd ? 'flex-start' : 'center'}
               alignItems="center"
               xs={12}
               md={6}
@@ -65,7 +65,7 @@ const QuickSearch = props => {
             <Grid
               item
               container
-              justify="space-between"
+              justifyContent="space-between"
               alignItems={isMd ? 'flex-start' : 'center'}
               xs={12}
               md={6}
@@ -103,7 +103,7 @@ const QuickSearch = props => {
             <Grid
               item
               container
-              justify={isMd ? 'flex-start' : 'center'}
+              justifyContent={isMd ? 'flex-start' : 'center'}
               alignItems="center"
               xs={12}
               md={6}
@@ -116,7 +116,7 @@ const QuickSearch = props => {
             <Grid
               item
               container
-              justify="space-between"
+              justifyContent="space-between"
               alignItems={isMd ? 'flex-start' : 'center'}
               xs={12}
               md={6}

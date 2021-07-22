@@ -4,24 +4,24 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import { Image } from 'components/atoms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   promoLogo: {
     maxWidth: 120,
   },
 }));
 
-const Partners = props => {
+const Partners = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
   return (
     <div className={className} {...rest}>
-      <Grid container justify="space-between">
+      <Grid container justifyContent="space-between">
         {data.map((partner, index) => (
           <Grid
             item
             container
-            justify="center"
+            justifyContent="center"
             xs={6}
             sm={2}
             key={index}

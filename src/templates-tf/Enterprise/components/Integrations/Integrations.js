@@ -12,7 +12,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Integrations = props => {
+const Integrations = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -22,7 +22,9 @@ const Integrations = props => {
         title={
           <span>
             Integrated With Your{' '}
-            <Typography color="secondary" variant="inherit" component="span">Favorite Platforms</Typography>
+            <Typography color="secondary" variant="inherit" component="span">
+              Favorite Platforms
+            </Typography>
           </span>
         }
         subtitle="Your data should be connected and portable. TheFront connects with other sources to help you get more done."
@@ -30,7 +32,14 @@ const Integrations = props => {
       />
       <Grid container data-aos="fade-up">
         {data.map((item, index) => (
-          <Grid key={index} item container xs={4} sm={2} justify="center">
+          <Grid
+            key={index}
+            item
+            container
+            xs={4}
+            sm={2}
+            justifyContent="center"
+          >
             <Avatar
               src={item.logo}
               alt={item.name}

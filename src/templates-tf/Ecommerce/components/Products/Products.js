@@ -15,7 +15,7 @@ import {
 import { Image } from 'components/atoms';
 import { SectionHeader, IconAlternate } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   card: {
     boxShadow: '0 9px 18px 0 rgba(0, 0, 0, 0.1)',
     borderRadius: theme.spacing(2),
@@ -54,7 +54,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Products = props => {
+const Products = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -63,7 +63,7 @@ const Products = props => {
     defaultMatches: true,
   });
 
-  const rating = count => {
+  const rating = (count) => {
     const ratingArray = [];
     for (let i = 1; i <= 5; i += 1) {
       ratingArray.push(
@@ -137,7 +137,7 @@ const Products = props => {
             </Card>
           </Grid>
         ))}
-        <Grid item xs={12} container justify="center" data-aos="fade-up">
+        <Grid item xs={12} container justifyContent="center" data-aos="fade-up">
           <Button variant="outlined" color="primary">
             See all list
           </Button>

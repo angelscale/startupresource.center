@@ -6,7 +6,7 @@ import { Grid, Button } from '@material-ui/core';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     position: 'relative',
   },
@@ -22,13 +22,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const FeaturedProducts = props => {
+const FeaturedProducts = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
   return (
     <div className={clsx(classes.root, className)} {...rest}>
-      <Grid container justify="space-between">
+      <Grid container justifyContent="space-between">
         <Grid item xs={12} sm={6} data-aos={'fade-up'}>
           <SectionHeader
             title="Experience your music like never before."

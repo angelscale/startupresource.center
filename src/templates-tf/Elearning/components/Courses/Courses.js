@@ -14,7 +14,7 @@ import { Image, LearnMoreLink } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 import { CardProduct } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   cardProduct: {
     borderRadius: theme.spacing(3),
   },
@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Courses = props => {
+const Courses = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -62,7 +62,10 @@ const Courses = props => {
       <SectionHeader
         title={
           <span>
-            Browse our <Typography color="secondary" variant="inherit" component="span">popular courses</Typography>
+            Browse our{' '}
+            <Typography color="secondary" variant="inherit" component="span">
+              popular courses
+            </Typography>
           </span>
         }
         subtitle="Here are our popular course you might want to learn from your tutor."
@@ -115,7 +118,7 @@ const Courses = props => {
                       {item.address}
                     </Typography>
                   </Grid>
-                  <Grid item container justify="space-between" xs={12}>
+                  <Grid item container justifyContent="space-between" xs={12}>
                     <Grid item container xs={6} wrap="nowrap">
                       {item.reviews.map((review, index) => (
                         <Avatar
@@ -130,7 +133,7 @@ const Courses = props => {
                       item
                       container
                       alignItems="center"
-                      justify="flex-end"
+                      justifyContent="flex-end"
                       xs={6}
                     >
                       <NoSsr>

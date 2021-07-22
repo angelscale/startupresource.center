@@ -5,7 +5,7 @@ import { useMediaQuery, Grid } from '@material-ui/core';
 import { LearnMoreLink } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const Articles = props => {
+const Articles = (props) => {
   const { data, className, ...rest } = props;
 
   const theme = useTheme();
@@ -15,7 +15,7 @@ const Articles = props => {
 
   return (
     <div className={className} {...rest}>
-      <Grid container justify="center" spacing={isMd ? 4 : 2}>
+      <Grid container justifyContent="center" spacing={isMd ? 4 : 2}>
         {data.map((item, index) => (
           <Grid item xs={12} md={4} key={index} data-aos="fade-up">
             <SectionHeader

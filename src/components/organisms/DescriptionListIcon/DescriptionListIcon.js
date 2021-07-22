@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   title: {
     fontWeight: 700,
   },
@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
  *
  * @param {Object} props
  */
-const DescriptionListIcon = props => {
+const DescriptionListIcon = (props) => {
   const {
     title,
     subtitle,
@@ -49,7 +49,7 @@ const DescriptionListIcon = props => {
       <Grid
         item
         container
-        justify={gridJustify}
+        justifyContent={gridJustify}
         xs={12}
         className="description-list-icon__icon-wrapper"
       >

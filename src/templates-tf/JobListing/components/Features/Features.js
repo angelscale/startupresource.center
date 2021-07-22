@@ -13,7 +13,7 @@ import {
 import { Image } from 'components/atoms';
 import { SectionHeader, IconAlternate } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   listItemAvatar: {
     minWidth: 'auto',
     marginRight: theme.spacing(2),
@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Features = props => {
+const Features = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -67,7 +67,7 @@ const Features = props => {
         <Grid
           item
           container
-          justify="center"
+          justifyContent="center"
           alignItems="center"
           xs={12}
           md={6}

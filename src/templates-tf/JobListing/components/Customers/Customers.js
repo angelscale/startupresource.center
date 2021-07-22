@@ -14,7 +14,7 @@ import {
 } from '@material-ui/core';
 import { SectionHeader, IconAlternate } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   swiperContainer: {
     width: '100%',
     maxWidth: 500,
@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Reviews = props => {
+const Reviews = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -44,7 +44,7 @@ const Reviews = props => {
         {data.map((item, index) => (
           <Grid item xs={12} sm={12} md={4} key={index} data-aos="fade-up">
             <Grid container spacing={2} className={classes.gridItem}>
-              <Grid item container justify="center" xs={12}>
+              <Grid item container justifyContent="center" xs={12}>
                 <IconAlternate
                   color={colors.indigo}
                   fontIconClass="fas fa-quote-right"
@@ -57,7 +57,7 @@ const Reviews = props => {
               </Grid>
               <div style={{ flexGrow: 1 }} />
               <Grid item xs={12}>
-                <Grid container justify="center">
+                <Grid container justifyContent="center">
                   <List disablePadding>
                     <ListItem>
                       <ListItemAvatar>

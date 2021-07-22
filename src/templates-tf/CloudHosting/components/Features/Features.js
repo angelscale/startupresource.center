@@ -15,7 +15,7 @@ import {
 import { SectionHeader } from 'components/molecules';
 import { CardBase, DescriptionListIcon } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   checkBox: {
     background: 'transparent',
     borderRadius: 0,
@@ -29,7 +29,8 @@ const useStyles = makeStyles(theme => ({
   featureItems: {
     width: '100%',
     height: '100%',
-    background: 'url(https://assets.maccarianagency.com/the-front/illustrations/bg-shapes.svg) no-repeat top center',
+    background:
+      'url(https://assets.maccarianagency.com/the-front/illustrations/bg-shapes.svg) no-repeat top center',
     backgroundSize: 'contain',
 
     [theme.breakpoints.up('md')]: {
@@ -42,7 +43,8 @@ const useStyles = makeStyles(theme => ({
   iconCover: {
     width: 60,
     height: 60,
-    background: 'url(https://assets.maccarianagency.com/the-front/illustrations/bgicon.svg) no-repeat center center',
+    background:
+      'url(https://assets.maccarianagency.com/the-front/illustrations/bgicon.svg) no-repeat center center',
     backgroundSize: 'contain',
     display: 'flex',
     justifyContent: 'center',
@@ -60,7 +62,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Features = props => {
+const Features = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -85,7 +87,9 @@ const Features = props => {
                         <DescriptionListIcon
                           icon={
                             <div className={classes.iconCover}>
-                              <NoSsr><i className={item.icon} /></NoSsr>
+                              <NoSsr>
+                                <i className={item.icon} />
+                              </NoSsr>
                             </div>
                           }
                           title={item.title}
@@ -106,7 +110,9 @@ const Features = props => {
                           <DescriptionListIcon
                             icon={
                               <div className={classes.iconCover}>
-                                <NoSsr><i className={item.icon} /></NoSsr>
+                                <NoSsr>
+                                  <i className={item.icon} />
+                                </NoSsr>
                               </div>
                             }
                             title={item.title}
@@ -124,7 +130,7 @@ const Features = props => {
           <Grid
             container
             alignItems="flex-start"
-            justify="center"
+            justifyContent="center"
             direction="column"
             className={classes.propsGrid}
           >

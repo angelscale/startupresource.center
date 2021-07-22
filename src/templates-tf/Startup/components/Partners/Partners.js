@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 import { Image } from 'components/atoms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     background: theme.palette.alternate.main,
     width: '100%',
@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Partners = props => {
+const Partners = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -52,7 +52,7 @@ const Partners = props => {
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            <Grid container justify="space-between">
+            <Grid container justifyContent="space-between">
               {data.map((partner, index) => (
                 <Grid item xs={6} sm={2} key={index}>
                   <Image

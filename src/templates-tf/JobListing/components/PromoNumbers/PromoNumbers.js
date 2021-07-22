@@ -6,7 +6,7 @@ import { Image } from 'components/atoms';
 import { SectionHeader, CountUpNumber } from 'components/molecules';
 import { CardBase } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   placementGrid: {
     display: 'flex',
     justifyContent: 'space-around',
@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const PromoNumbers = props => {
+const PromoNumbers = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
@@ -30,7 +30,7 @@ const PromoNumbers = props => {
           <Grid
             item
             container
-            justify="center"
+            justifyContent="center"
             alignItems="center"
             xs={12}
             md={2}
@@ -77,7 +77,7 @@ const PromoNumbers = props => {
             item
             container
             alignItems="flex-end"
-            justify="center"
+            justifyContent="center"
             xs={12}
             md={2}
             data-aos="fade-up"

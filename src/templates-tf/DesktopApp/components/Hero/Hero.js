@@ -5,7 +5,7 @@ import { useMediaQuery, Grid, Button, Typography } from '@material-ui/core';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   image: {
     boxShadow:
       '25px 60px 125px -25px rgba(80,102,144,.1), 16px 40px 75px -40px rgba(0,0,0,.2)',
@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Hero = props => {
+const Hero = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
@@ -29,7 +29,7 @@ const Hero = props => {
     <div className={className} {...rest}>
       <Grid
         container
-        justify="space-between"
+        justifyContent="space-between"
         spacing={4}
         direction={isMd ? 'row' : 'column-reverse'}
       >
@@ -68,7 +68,7 @@ const Hero = props => {
         <Grid
           item
           container
-          justify="flex-start"
+          justifyContent="flex-start"
           alignItems="center"
           xs={12}
           md={6}

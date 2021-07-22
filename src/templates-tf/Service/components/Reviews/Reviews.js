@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Reviews = props => {
+const Reviews = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -35,8 +35,10 @@ const Reviews = props => {
         }
         title={
           <span>
-            <Typography color="secondary" variant="inherit" component="span">Rated 5 out of 5</Typography> stars by
-            our customers!
+            <Typography color="secondary" variant="inherit" component="span">
+              Rated 5 out of 5
+            </Typography>{' '}
+            stars by our customers!
           </span>
         }
         subtitle="Companies from across the globe have had fantastic experiences using TheFront. Here’s what they have to say."
@@ -70,7 +72,7 @@ const Reviews = props => {
             />
           </Grid>
         ))}
-        <Grid item container xs={12} justify="center">
+        <Grid item container xs={12} justifyContent="center">
           <Button
             variant="outlined"
             size={isMd ? 'large' : 'medium'}

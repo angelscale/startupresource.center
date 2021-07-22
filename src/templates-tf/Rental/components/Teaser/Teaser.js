@@ -11,7 +11,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Teaser = props => {
+const Teaser = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
@@ -22,7 +22,7 @@ const Teaser = props => {
 
   return (
     <div className={className} {...rest}>
-      <Grid container justify="space-between" spacing={isMd ? 4 : 2}>
+      <Grid container justifyContent="space-between" spacing={isMd ? 4 : 2}>
         <Grid
           item
           container
@@ -44,7 +44,7 @@ const Teaser = props => {
         <Grid
           item
           container
-          justify="center"
+          justifyContent="center"
           alignItems="flex-start"
           xs={12}
           md={6}

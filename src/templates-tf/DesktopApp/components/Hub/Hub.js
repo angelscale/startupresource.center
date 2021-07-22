@@ -6,7 +6,7 @@ import { Grid, Typography } from '@material-ui/core';
 import { Image } from 'components/atoms';
 import { SectionHeader, CountUpNumber } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
   },
@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Features = props => {
+const Features = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
@@ -36,7 +36,7 @@ const Features = props => {
         <Grid
           item
           container
-          justify="flex-start"
+          justifyContent="flex-start"
           alignItems="center"
           xs={12}
           md={6}
@@ -54,7 +54,7 @@ const Features = props => {
         <Grid
           item
           container
-          justify="center"
+          justifyContent="center"
           alignItems="center"
           xs={12}
           md={6}
@@ -67,7 +67,11 @@ const Features = props => {
                   <span>
                     Use flexible components.
                     <br />
-                    <Typography component="span" variant="inherit" color="primary">
+                    <Typography
+                      component="span"
+                      variant="inherit"
+                      color="primary"
+                    >
                       to build an app quickly.
                     </Typography>
                   </span>

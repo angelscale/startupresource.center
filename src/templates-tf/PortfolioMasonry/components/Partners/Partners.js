@@ -6,7 +6,7 @@ import { Grid } from '@material-ui/core';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
   },
@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Partners = props => {
+const Partners = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -46,7 +46,7 @@ const Partners = props => {
           data-aos="fade-up"
           align="center"
         />
-        <Grid container justify="space-between">
+        <Grid container justifyContent="space-between">
           {data.map((partner, index) => (
             <Grid item xs={6} sm={2} key={index}>
               <Image

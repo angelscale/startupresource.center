@@ -6,7 +6,7 @@ import { useMediaQuery, Grid, Typography, Button } from '@material-ui/core';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   videoIframe: {
     boxShadow: `0 5px 12px 0 ${theme.palette.cardShadow}`,
     borderRadius: theme.spacing(1),
@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const VideoSection = props => {
+const VideoSection = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -32,7 +32,7 @@ const VideoSection = props => {
     <div className={className} {...rest}>
       <Grid
         container
-        justify="space-between"
+        justifyContent="space-between"
         spacing={isMd ? 4 : 2}
         className={classes.listGrid}
       >
@@ -73,12 +73,12 @@ const VideoSection = props => {
                     Our sponsors and partners
                   </Typography>
                 </Grid>
-                <Grid item container justify="space-between" xs={12}>
+                <Grid item container justifyContent="space-between" xs={12}>
                   {data.map((partner, index) => (
                     <Grid
                       item
                       container
-                      justify="center"
+                      justifyContent="center"
                       xs={6}
                       sm={2}
                       key={index}
@@ -97,7 +97,7 @@ const VideoSection = props => {
           </Grid>
         </Grid>
         <Grid item xs={12} md={6} data-aos={'fade-up'}>
-          <Grid container justify="center">
+          <Grid container justifyContent="center">
             <iframe
               className={classes.videoIframe}
               title="video"

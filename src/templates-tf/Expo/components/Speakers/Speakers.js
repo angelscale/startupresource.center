@@ -5,7 +5,7 @@ import { useMediaQuery, Grid, Button, Avatar } from '@material-ui/core';
 import { LearnMoreLink } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   webinarAvatar: {
     width: 200,
     height: 200,
@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Speakers = props => {
+const Speakers = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -45,14 +45,14 @@ const Speakers = props => {
         ]}
         fadeUp
       />
-      <Grid container justify="center">
+      <Grid container justifyContent="center">
         {data.map((item, index) => (
           <Grid
             key={index}
             item
             container
             data-aos={'fade-up'}
-            justify="space-between"
+            justifyContent="space-between"
             spacing={isMd ? 4 : 2}
             className={classes.listGrid}
             direction="row-reverse"
@@ -91,7 +91,7 @@ const Speakers = props => {
               xs={12}
               sm={12}
               md={4}
-              justify={isMd ? 'flex-end' : 'center'}
+              justifyContent={isMd ? 'flex-end' : 'center'}
               alignItems="center"
             >
               <Avatar

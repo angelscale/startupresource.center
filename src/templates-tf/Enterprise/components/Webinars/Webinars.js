@@ -6,7 +6,7 @@ import { Grid, Button, Avatar, Typography } from '@material-ui/core';
 import { LearnMoreLink } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   teamAvatar: {
     width: 250,
     height: 250,
@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Webinars = props => {
+const Webinars = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -38,20 +38,22 @@ const Webinars = props => {
         title={
           <span>
             We’re focused on{' '}
-            <Typography color="secondary" variant="inherit" component="span">your brand, not ours</Typography>
+            <Typography color="secondary" variant="inherit" component="span">
+              your brand, not ours
+            </Typography>
           </span>
         }
         subtitle="Book a place to participate to the upcoming webinars organised by our top management team."
         fadeUp
       />
-      <Grid container justify="center">
+      <Grid container justifyContent="center">
         {data.map((item, index) => (
           <Grid
             key={index}
             item
             container
             data-aos={'fade-up'}
-            justify={isMd ? 'space-between' : 'center'}
+            justifyContent={isMd ? 'space-between' : 'center'}
             spacing={isMd ? 4 : 2}
             className={classes.listGrid}
             direction={index % 2 === 1 ? 'row-reverse' : 'row'}
@@ -76,7 +78,7 @@ const Webinars = props => {
                 disableGutter
               />
             </Grid>
-            <Grid item container justify="center" xs={12} sm={12} md={5}>
+            <Grid item container justifyContent="center" xs={12} sm={12} md={5}>
               <Avatar
                 {...item.authorPhoto}
                 alt={item.authorName}

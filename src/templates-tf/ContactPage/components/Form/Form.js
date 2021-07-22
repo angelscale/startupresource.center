@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   form: {
     maxWidth: 550,
     margin: `0 auto`,
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Form = props => {
+const Form = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
@@ -101,7 +101,7 @@ const Form = props => {
               rows={4}
             />
           </Grid>
-          <Grid item container justify="center" xs={12}>
+          <Grid item container justifyContent="center" xs={12}>
             <Button
               variant="contained"
               type="submit"

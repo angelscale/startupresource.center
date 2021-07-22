@@ -5,13 +5,13 @@ import { useMediaQuery, Grid, Typography } from '@material-ui/core';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   image: {
     maxWidth: 400,
   },
 }));
 
-const AboutTop = props => {
+const AboutTop = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
@@ -22,11 +22,11 @@ const AboutTop = props => {
 
   return (
     <div className={className} {...rest}>
-      <Grid container justify="space-between" spacing={isMd ? 4 : 2}>
+      <Grid container justifyContent="space-between" spacing={isMd ? 4 : 2}>
         <Grid
           item
           container
-          justify="center"
+          justifyContent="center"
           alignItems="flex-start"
           xs={12}
           md={6}

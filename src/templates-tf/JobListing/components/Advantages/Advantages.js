@@ -6,7 +6,7 @@ import { LearnMoreLink } from 'components/atoms';
 import { SectionHeader, IconAlternate } from 'components/molecules';
 import { DescriptionListIcon } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   icon: {
     backgroundColor: 'transparent !important',
     borderRadius: 0,
@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Advantages = props => {
+const Advantages = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -61,7 +61,7 @@ const Advantages = props => {
             />
           </Grid>
         ))}
-        <Grid item container xs={12} justify="center">
+        <Grid item container xs={12} justifyContent="center">
           <Button variant="contained" size="large" color="primary">
             get started
           </Button>
