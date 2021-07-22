@@ -14,7 +14,7 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import PinterestIcon from '@material-ui/icons/Pinterest';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
-import { MenuSection } from '..';
+import { MenuGroup } from '..';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -103,6 +103,9 @@ const useStyles = makeStyles((theme) => ({
   navLink: {
     color: 'rgba(255,255,255,.6)',
     fontSize: '1em',
+    '&:hover': {
+      color: theme.palette.primary.light,
+    },
   },
   wrapper: {
     margin: 'auto',
@@ -184,7 +187,7 @@ const Footer = ({ navigation, className, ...rest }) => {
               className={classes.menuListContainer}
             >
               <Grid container spacing={0}>
-                {navigation.map(({ id, href, tags, children }) => (
+                {Object.values(navigation).map(({ id, name, href, tags }) => (
                   <Grid item key={id}>
                     {href === undefined ? (
                       <Typography
@@ -192,15 +195,10 @@ const Footer = ({ navigation, className, ...rest }) => {
                         color="secondary"
                         className={clsx(classes.listItemText, 'menu-item')}
                       >
-                        {id.replace(/[_-]/g, ' ')}
+                        {name}
                       </Typography>
                     ) : null}
-                    <MenuSection
-                      id={id}
-                      tags={tags}
-                      children={children}
-                      classes={classes}
-                    />
+                    <MenuGroup tags={tags} classes={classes} />
                   </Grid>
                 ))}
               </Grid>

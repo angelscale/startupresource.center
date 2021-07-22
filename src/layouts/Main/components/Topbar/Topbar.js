@@ -16,7 +16,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import { MenuSection } from '..';
+import { MenuGroup } from '..';
 
 const useStyles = makeStyles((theme) => ({
   flexGrow: {
@@ -72,6 +72,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: '0 0.5rem 2rem 2px rgba(116, 123, 144, 0.09)',
     minWidth: 350,
     marginTop: theme.spacing(2),
+    borderRadius: theme.shape.borderRadius,
   },
   iconButton: {
     marginLeft: theme.spacing(1),
@@ -176,7 +177,7 @@ const Topbar = ({
       <div className={classes.flexGrow} />
       <Hidden smDown>
         <List disablePadding className={classes.navigationContainer}>
-          {navigation.map(({ id, href, tags, children }) => (
+          {Object.values(navigation).map(({ id, name, tags, href }) => (
             <div key={id}>
               {href === undefined ? (
                 <>
@@ -193,7 +194,7 @@ const Topbar = ({
                       color="textPrimary"
                       className={clsx(classes.listItemText, 'menu-item')}
                     >
-                      {id.replace(/[_-]/g, ' ')}
+                      {name}
                     </Typography>
                     <ListItemIcon className={classes.listItemIcon}>
                       <ExpandMoreIcon
@@ -220,10 +221,8 @@ const Topbar = ({
                     }}
                     classes={{ paper: classes.popover }}
                   >
-                    <MenuSection
-                      id={id}
+                    <MenuGroup
                       tags={tags}
-                      children={children}
                       onClose={handleClose}
                       classes={classes}
                     />
@@ -240,13 +239,13 @@ const Topbar = ({
                     href={href}
                     className={clsx(classes.listItemText, 'menu-item')}
                   >
-                    {id.replace(/[_-]/g, ' ')}
+                    {name}
                   </Typography>
                 </ListItem>
               )}
             </div>
           ))}
-          <ListItem
+          {/* <ListItem
             className={clsx(classes.listItem, 'menu-item--no-dropdown')}
           >
             <Button
@@ -259,7 +258,7 @@ const Topbar = ({
             >
               Sign In
             </Button>
-          </ListItem>
+          </ListItem> */}
         </List>
       </Hidden>
       <Hidden mdUp>

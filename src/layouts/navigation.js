@@ -1,69 +1,126 @@
-const navigation = [
-  {
-    id: 'investigate',
-    tags: [
-      'market-research',
-      'competitive-research',
-      'demographic-research',
-      'research-consultants',
-      'business-funding',
-    ],
-    // children: [
-    //   {
-    //     id: 'research',
-    //     tags: [],
-    //   },
-    // ],
+const navigation = {
+  research: {
+    id: 'research',
+    name: 'Research',
+    tags: {
+      'competitive-research': {
+        id: 'competitive-research',
+        name: 'Competitive Research',
+      },
+      'demographic-research': {
+        id: 'demographic-research',
+        name: 'Demographic Research',
+      },
+      'research-consultants': {
+        id: 'research-consultants',
+        name: 'Research Consultants',
+      },
+      'business-consultants': {
+        id: 'business-consultants',
+        name: 'Business Consultants',
+      },
+      'business-funding': {
+        id: 'business-funding',
+        name: 'Business Funding',
+      },
+    },
   },
-  {
-    id: 'navigate',
-    tags: [
-      'legal',
-      'accounting-finance',
-      'licensing-patents',
-      'creating-your-brand',
-      'product-packaging-design',
-      'business-strategy',
-    ],
+  'business-setup': {
+    id: 'business-setup',
+    name: 'Business Setup',
+    tags: {
+      legal: {
+        id: 'legal',
+        name: 'Legal',
+      },
+      'accounting-finance': {
+        id: 'accounting-finance',
+        name: 'Accounting and Finance',
+      },
+      'licensing-patents': {
+        id: 'licensing-patents',
+        name: 'Licensing and Patents',
+      },
+      'create-your-brand': {
+        id: 'create-your-brand',
+        name: 'Create Your Brand',
+      },
+      'product-packaging-design': {
+        id: 'product-packaging-design',
+        name: 'Product Packaging and Design',
+      },
+      'business-planning': {
+        id: 'business-planning',
+        name: 'Business Planning',
+      },
+    },
   },
-  {
-    id: 'communicate',
-    tags: [
-      'creative-design',
-      'website-development',
-      'digital-media',
-      'influencer-affiliate-marketing',
-      'retail-event-marketing',
-      'ecommerce-online-markets',
-    ],
+  operations: {
+    id: 'operations',
+    name: 'Operations',
+    tags: {
+      staffing: {
+        id: 'staffing',
+        name: 'Staffing',
+      },
+      'e-commerce': {
+        id: 'e-commerce',
+        name: 'eCommerce',
+      },
+      'inventory-management': {
+        id: 'inventory-management',
+        name: 'Inventory Management',
+      },
+      shipping: {
+        id: 'shipping',
+        name: 'Shipping',
+      },
+      'relationship-management': {
+        id: 'relationship-management',
+        name: 'Relationship Management',
+      },
+    },
   },
-  {
-    id: 'operate',
-    tags: [
-      'staffing',
-      'commerce',
-      'inventory-management',
-      'warehouse-solutions',
-      'shipping',
-      'relationship-management',
-    ],
+  'sales-marketing': {
+    id: 'sales-marketing',
+    name: 'Sales & Marketing',
+    tags: {
+      'creative-design': {
+        id: 'creative-design',
+        name: 'Creative & Design',
+      },
+      'website-development': {
+        id: 'website-development',
+        name: 'Website Development',
+      },
+      'digital-media': {
+        id: 'digital-media',
+        name: 'Digital Media',
+      },
+      'influencer-affiliate-marketing': {
+        id: 'influencer-affiliate-marketing',
+        name: 'Influencer & Affiliate Marketing',
+      },
+      'retail-event-marketing': {
+        id: 'retail-event-marketing',
+        name: 'Retail & Event Marketing',
+      },
+      'ecommerce-online-markets': {
+        id: 'ecommerce-online-markets',
+        name: 'eCommerce & Online Markets',
+      },
+    },
   },
-  {
-    id: 'motivate',
-    tags: [
-      'daily-dose-of-inspiration',
-      'motivating-customers',
-      'motivating-your-team',
-    ],
+  academy: {
+    id: 'academy',
+    name: 'Academy',
+    href: '/academy',
   },
-  {
-    id: 'educate',
-    href: '/educate',
-  },
-  {
+  about: {
     id: 'about',
+    name: 'About Us',
     href: '/about',
   },
-];
+};
 
 export default navigation;

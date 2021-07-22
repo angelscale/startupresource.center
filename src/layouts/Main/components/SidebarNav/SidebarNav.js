@@ -12,7 +12,7 @@ import {
   Button,
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-import { MenuSection } from '..';
+import { MenuGroup } from '..';
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -69,7 +69,7 @@ const SidebarNav = ({ navigation, onClose, className, ...rest }) => {
           <CloseIcon fontSize="small" />
         </ListItemIcon>
       </ListItem>
-      <ListItem className={classes.listItem}>
+      {/* <ListItem className={classes.listItem}>
         <Button
           variant="contained"
           fullWidth
@@ -81,9 +81,9 @@ const SidebarNav = ({ navigation, onClose, className, ...rest }) => {
         >
           Sign In
         </Button>
-      </ListItem>
+      </ListItem> */}
       <>
-        {navigation.map(({ id, href, tags, children }) => (
+        {Object.values(navigation).map(({ id, name, href, tags }) => (
           <>
             {href === undefined ? (
               <>
@@ -94,15 +94,9 @@ const SidebarNav = ({ navigation, onClose, className, ...rest }) => {
                     gutterBottom
                     className={classes.listItemText}
                   >
-                    {id.replace(/[_-]/g, ' ')}
+                    {name}
                   </Typography>
-                  <MenuSection
-                    id={id}
-                    tags={tags}
-                    children={children}
-                    onClose={onClose}
-                    classes={classes}
-                  />
+                  <MenuGroup tags={tags} onClose={onClose} classes={classes} />
                 </ListItem>
                 <ListItem className={classes.listItem}>
                   <Divider className={classes.divider} />
@@ -111,7 +105,7 @@ const SidebarNav = ({ navigation, onClose, className, ...rest }) => {
             ) : (
               <ListItem className={classes.listItem}>
                 <Button variant="outlined" fullWidth component="a" href={href}>
-                  {id.replace(/[_-]/g, ' ')}
+                  {name}
                 </Button>
               </ListItem>
             )}
