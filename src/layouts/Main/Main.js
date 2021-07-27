@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useMediaQuery, Divider } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { Divider } from '@material-ui/core';
 import { Topbar, Footer, Sidebar } from './components';
 import navigation from 'layouts/navigation';
-import { useStaticQuery, graphql } from 'gatsby';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,33 +14,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Main = ({ children, themeToggler, themeMode }) => {
   const classes = useStyles();
-  const theme = useTheme();
 
-  const isMd = useMediaQuery(theme.breakpoints.up('md'), {
-    defaultMatches: true,
-  });
-
-  const data = useStaticQuery(graphql`
-    query MainNavigationQuery {
-      allGhostTag {
-        nodes {
-          name
-          slug
-        }
-      }
-    }
-  `);
-
-  const ghostTags = {};
-  data.allGhostTag.nodes.map(({ name, slug }) => (ghostTags[slug] = name));
-
-  // const navItems = navigation.map((navItem) =>
-  //   navItem.tags
-  //     ? navItem.tags.map((tag) =>
-  //         Object.keys(ghostTags).includes(tag) ? ghostTags[tag] : tag,
-  //       )
-  //     : null,
-  // );
   const [openSidebar, setOpenSidebar] = useState(false);
 
   const handleSidebarOpen = () => {
@@ -51,8 +24,6 @@ const Main = ({ children, themeToggler, themeMode }) => {
   const handleSidebarClose = () => {
     setOpenSidebar(false);
   };
-
-  const open = isMd ? false : openSidebar;
 
   return (
     <div
@@ -68,7 +39,7 @@ const Main = ({ children, themeToggler, themeMode }) => {
       />
       <Sidebar
         onClose={handleSidebarClose}
-        open={open}
+        open={openSidebar}
         variant="temporary"
         navigation={navigation}
       />
