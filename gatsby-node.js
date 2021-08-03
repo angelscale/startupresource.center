@@ -1,4 +1,7 @@
 const { paginate } = require(`gatsby-awesome-pagination`);
+const _ = require(`lodash`);
+
+const { navigation } = require(`./src/layouts/navigation`);
 
 /**
  * Here is the place where Gatsby creates the URLs for all the
@@ -6,61 +9,6 @@ const { paginate } = require(`gatsby-awesome-pagination`);
  */
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-
-  const result = await graphql(`
-    {
-      site {
-        siteMetadata {
-          postsPerPage
-        }
-      }
-      allGhostPost(sort: { order: ASC, fields: published_at }) {
-        edges {
-          node {
-            slug
-          }
-        }
-      }
-      allGhostTag(sort: { order: ASC, fields: name }) {
-        edges {
-          node {
-            slug
-            url
-            postCount
-          }
-        }
-      }
-      allGhostAuthor(sort: { order: ASC, fields: name }) {
-        edges {
-          node {
-            slug
-            url
-            postCount
-          }
-        }
-      }
-      allGhostPage(sort: { order: ASC, fields: published_at }) {
-        edges {
-          node {
-            slug
-            url
-          }
-        }
-      }
-    }
-  `);
-
-  // Check for any errors
-  if (result.errors) {
-    throw new Error(result.errors);
-  }
-
-  // Extract query results
-  const tags = result.data.allGhostTag.edges;
-  // const authors = result.data.allGhostAuthor.edges;
-  // const pages = result.data.allGhostPage.edges;
-  const posts = result.data.allGhostPost.edges;
-  const postsPerPage = result.data.site.siteMetadata.postsPerPage;
 
   // Create Home Page
   createPage({
@@ -80,75 +28,127 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
+  const result = await graphql(`
+    {
+      site {
+        siteMetadata {
+          postsPerPage
+        }
+      }
+      allGhostPost(sort: { order: ASC, fields: published_at }) {
+        edges {
+          node {
+            slug
+            tags {
+              slug
+            }
+          }
+        }
+      }
+      allGhostTag {
+        edges {
+          node {
+            slug
+            count {
+              posts
+            }
+          }
+        }
+      }
+      allGhostAuthor(sort: { order: ASC, fields: name }) {
+        edges {
+          node {
+            slug
+            url
+          }
+        }
+      }
+    }
+  `);
+
+  // Check for any errors
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+
+  // Extract query results
+  const tags = result.data.allGhostTag.edges;
+  const authors = result.data.allGhostAuthor.edges;
+  const posts = result.data.allGhostPost.edges;
+  const postsPerPage = result.data.site.siteMetadata.postsPerPage;
+
   // Create tag pages
-  //   tags.forEach(({ node }) => {
-  //     const totalPosts = node.postCount !== null ? node.postCount : 0;
+  Object.keys(navigation).forEach((category) => {
+    if (!navigation[category].href) {
+      const categoryPostCount = Object.values(navigation[category].tags).reduce(
+        (accumulator, currentValue) =>
+          accumulator +
+          (tags[currentValue.id] ? tags[currentValue.id].postCount : 0),
+      );
+      console.log(category);
+      paginate({
+        createPage,
+        items: Array.from({ length: categoryPostCount || 0 }),
+        itemsPerPage: postsPerPage,
+        component: require.resolve(`./src/templates/category.js`),
+        pathPrefix: ({ pageNumber }) =>
+          pageNumber === 0 ? category : `${category}/page`,
+        context: {
+          category: category,
+        },
+      });
+      Object.keys(navigation[category].tags).forEach((tag) => {
+        console.log(`${category}/${tag}`);
+        paginate({
+          createPage,
+          items: Array.from({ length: tags[tag] ? tags[tag].postCount : 0 }),
+          itemsPerPage: postsPerPage,
+          component: require.resolve(`./src/templates/tag.js`),
+          pathPrefix: ({ pageNumber }) =>
+            pageNumber === 0 ? `${category}/${tag}` : `${category}/${tag}/page`,
+          context: {
+            category: category,
+            tag: tag,
+          },
+        });
+      });
+    }
+  });
 
-  //     // This part here defines, that our tag pages will use
-  //     // a `/tag/:slug/` permalink.
-  //     const url = `/tag/${node.slug}`;
+  // Create author pages
+  authors.forEach(({ node }) => {
+    const totalPosts = node.postCount !== null ? node.postCount : 0;
 
-  //     const items = Array.from({ length: totalPosts });
+    // This part here defines, that our author pages will use
+    // a `/author/:slug/` permalink.
+    const url = `/author/${node.slug}`;
 
-  //     // Create pagination
-  //     paginate({
-  //       createPage,
-  //       items: items,
-  //       itemsPerPage: postsPerPage,
-  //       component: tagsTemplate,
-  //       pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? url : `${url}/page`),
-  //       context: {
-  //         slug: node.slug,
-  //       },
-  //     });
-  //   });
+    const items = Array.from({ length: totalPosts });
 
-  //   // Create author pages
-  //   authors.forEach(({ node }) => {
-  //     const totalPosts = node.postCount !== null ? node.postCount : 0;
+    // Create pagination
+    paginate({
+      createPage,
+      items: items,
+      itemsPerPage: postsPerPage,
+      component: require.resolve(`./src/templates/author.js`),
+      pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? url : `${url}/page`),
+      context: {
+        slug: node.slug,
+      },
+    });
+  });
 
-  //     // This part here defines, that our author pages will use
-  //     // a `/author/:slug/` permalink.
-  //     const url = `/author/${node.slug}`;
-
-  //     const items = Array.from({ length: totalPosts });
-
-  //     // Create pagination
-  //     paginate({
-  //       createPage,
-  //       items: items,
-  //       itemsPerPage: postsPerPage,
-  //       component: authorTemplate,
-  //       pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? url : `${url}/page`),
-  //       context: {
-  //         slug: node.slug,
-  //       },
-  //     });
-  //   });
-
-  //   // Create pages
-  //   pages.forEach(({ node }) => {
-  //     // This part here defines, that our pages will use
-  //     // a `/:slug/` permalink.
-  //     node.url = `/${node.slug}/`;
-
-  //     createPage({
-  //       path: node.url,
-  //       component: pageTemplate,
-  //       context: {
-  //         // Data passed to context is available
-  //         // in page queries as GraphQL variables.
-  //         slug: node.slug,
-  //       },
-  //     });
-  //   });
-
-  // Create post pages
+  // Create article pages
   posts.forEach(({ node }) => {
-    node.url = `/${node.slug}/`;
-
+    const tags = _.map(node.tags, 'slug');
+    const type = tags.includes('hash-article')
+      ? 'article'
+      : tags.includes('hash-review')
+      ? 'review'
+      : 'unknown';
+    console.log(`${type}/${node.slug}`);
     createPage({
-      path: node.url,
+      path: `/${type}/${node.slug}`,
       component: require.resolve(`./src/templates/blog-article.js`),
       context: {
         slug: node.slug,

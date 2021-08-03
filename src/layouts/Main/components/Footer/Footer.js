@@ -198,7 +198,7 @@ const Footer = ({ navigation, className, ...rest }) => {
                         {name}
                       </Typography>
                     ) : null}
-                    <MenuGroup tags={tags} classes={classes} />
+                    <MenuGroup category={id} tags={tags} classes={classes} />
                   </Grid>
                 ))}
               </Grid>

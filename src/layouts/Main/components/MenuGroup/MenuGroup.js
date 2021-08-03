@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { List, ListItem, Typography } from '@material-ui/core';
 
-const MenuGroup = ({ tags, onClose, classes }) => {
+const MenuGroup = ({ category, tags, onClose, classes }) => {
   return (
     <List disablePadding>
       <>
@@ -12,7 +12,7 @@ const MenuGroup = ({ tags, onClose, classes }) => {
               <Typography
                 variant="body1"
                 component={'a'}
-                href={`/tags/${id}`}
+                href={`/${category}/${id}`}
                 className={clsx(classes.navLink, 'submenu-item')}
                 color="textSecondary"
                 onClick={onClose}

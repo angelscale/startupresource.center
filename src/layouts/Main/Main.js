@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { useMediaQuery, Divider } from '@material-ui/core';
 import { Topbar, Footer, Sidebar } from './components';
-import navigation from 'layouts/navigation';
+import { navigation } from 'layouts/navigation';
 import { useStaticQuery, graphql } from 'gatsby';
 
 const useStyles = makeStyles((theme) => ({

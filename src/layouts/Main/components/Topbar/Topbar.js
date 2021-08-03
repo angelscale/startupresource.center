@@ -222,6 +222,7 @@ const Topbar = ({
                     classes={{ paper: classes.popover }}
                   >
                     <MenuGroup
+                      category={id}
                       tags={tags}
                       onClose={handleClose}
                       classes={classes}
