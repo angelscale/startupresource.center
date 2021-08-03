@@ -15,11 +15,11 @@ import {
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { StaticImage } from 'gatsby-plugin-image';
 import { MenuGroup } from '..';
 
 const useStyles = makeStyles((theme) => ({
-  flexGrow: {
+  spacer: {
     flexGrow: 1,
   },
   navigationContainer: {
@@ -137,14 +137,6 @@ const Topbar = ({
           siteIcon
         }
       }
-      logo: file(relativePath: { eq: "StartupResourceCenter.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 250) {
-            ...GatsbyImageSharpFluid
-            ...GatsbyImageSharpFluidLimitPresentationSize
-          }
-        }
-      }
     }
   `);
 
@@ -165,16 +157,15 @@ const Topbar = ({
     <Toolbar disableGutters className={classes.toolbar} {...rest}>
       <div className={classes.logoContainer}>
         <a href="/" title={data.site.siteMetadata.title}>
-          <Img
+          <StaticImage
             className={classes.logoImage}
-            fluid={data.logo.childImageSharp.fluid}
+            src="../../../../assets/images/StartupResourceCenter.png"
             alt={data.site.siteMetadata.title}
             loading="eager"
-            fadeIn={false}
           />
         </a>
       </div>
-      <div className={classes.flexGrow} />
+      <div className={classes.spacer} />
       <Hidden smDown>
         <List disablePadding className={classes.navigationContainer}>
           {Object.values(navigation).map(({ id, name, tags, href }) => (
