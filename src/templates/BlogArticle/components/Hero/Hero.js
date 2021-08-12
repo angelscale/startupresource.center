@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   sectionWrapper: {
     height: 400,
-    backgroundColor: theme.palette.primary.main + '80',
+    backgroundColor: '#00000020',
   },
   textWhite: {
     color: 'white',

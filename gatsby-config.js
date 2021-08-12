@@ -80,7 +80,15 @@ module.exports = {
         name: `images`,
       },
     },
-    `gatsby-plugin-sharp`,
+    `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        // Defaults used for gatsbyImageData and StaticImage
+        defaults: {},
+        failOnError: false,
+      },
+    },
     {
       resolve: `gatsby-plugin-ghost-images`,
       options: {

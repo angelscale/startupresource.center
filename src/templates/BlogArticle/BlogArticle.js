@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid } from '@material-ui/core';
+import { Grid, Divider } from '@material-ui/core';
 import rehypeReact from 'rehype-react';
 
 import { Section, SectionAlternate } from 'components/organisms';
@@ -16,12 +16,6 @@ import { MetaData } from 'components/meta';
 
 import { sidebarArticles, similarStories } from './data';
 
-const renderAst = new rehypeReact({
-  Fragment: React.Fragment,
-  createElement: React.createElement,
-  components: { 'img-sharp-inline': GhostInlineImage },
-}).Compiler;
-
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100%',
@@ -36,7 +30,29 @@ const useStyles = makeStyles((theme) => ({
   footerNewsletterSection: {
     background: theme.palette.primary.dark,
   },
+  paragraph: {
+    marginBottom: theme.spacing(2),
+  },
 }));
+
+const Paragraph = ({ children, ...rest }) => {
+  const classes = useStyles();
+  return (
+    <p className={classes.paragraph} {...rest}>
+      {children}
+    </p>
+  );
+};
+
+const renderAst = new rehypeReact({
+  Fragment: React.Fragment,
+  createElement: React.createElement,
+  components: {
+    'img-sharp-inline': GhostInlineImage,
+    p: Paragraph,
+    hr: Divider,
+  },
+}).Compiler;
 
 const BlogArticle = ({ data, location }) => {
   const classes = useStyles();
