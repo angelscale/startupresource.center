@@ -13,12 +13,11 @@ const useStyles = makeStyles((theme) => ({
 
 const BlogTagView = ({ data }) => {
   const classes = useStyles();
-  console.log(data);
   return (
     <div className={classes.root}>
       <Grid container spacing={4}>
         {data.allGhostPost.edges.map((post, index) => (
-          <Grid key={index} item xs={12} md={4} lg={3}>
+          <Grid key={index} item xs={12} md={4}>
             <VerticalCard key={index} item={post.node} />
           </Grid>
         ))}

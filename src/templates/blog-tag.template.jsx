@@ -21,6 +21,7 @@ export const postQuery = graphql`
   query ($tag: String!, $skip: Int!, $limit: Int!) {
     allGhostPost(
       filter: { tags: { elemMatch: { slug: { eq: $tag } } } }
+      sort: { fields: published_at, order: ASC }
       skip: $skip
       limit: $limit
     ) {

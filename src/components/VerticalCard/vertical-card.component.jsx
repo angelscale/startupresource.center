@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import _ from 'lodash';
 import { makeStyles } from '@material-ui/core/styles';
 import { Avatar, Typography, Divider } from '@material-ui/core';
 import { Image } from 'components/atoms';
 import BlogCard from 'components/BlogCard/blog-card.component';
+import clsx from 'clsx';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,21 +17,20 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     height: '100%',
-    borderRadius: theme.spacing(1),
-    cursor: 'pointer',
-    '& .card-product__content': {
-      paddingTop: theme.spacing(2),
-      paddingBottom: theme.spacing(2),
-    },
+  },
+  imageContainer: {
+    height: 300,
   },
   image: {
-    objectFit: 'cover',
+    objectFit: 'contain',
     borderRadius: theme.spacing(0, 0, 20, 0),
+    background: 'white',
   },
   blogContent: {
     display: 'flex',
     flexDirection: 'column',
     height: '100%',
+    width: '100%',
   },
   list: {
     display: 'flex',
@@ -88,14 +87,18 @@ const VerticalCard = ({ item }) => {
     ? 'article'
     : tags.includes('hash-review')
     ? 'review'
+    : tags.includes('hash-overview')
+    ? 'overview'
     : 'unknown';
 
   const BlogMediaContent = (props) => (
-    <Image
-      {...props}
-      className={classes.image}
-      lazyProps={{ width: '100%', height: '100%' }}
-    />
+    <div className={classes.imageContainer}>
+      <Image
+        {...props}
+        className={classes.image}
+        lazyProps={{ width: '100%', height: '100%' }}
+      />
+    </div>
   );
 
   const BlogContent = ({ title, subtitle, author, date, tags }) => (
@@ -103,15 +106,13 @@ const VerticalCard = ({ item }) => {
       <Typography variant="h6" color="textPrimary" gutterBottom>
         {title}
       </Typography>
-      <Typography variant="body1" color="textSecondary">
+      <Typography variant="body1" color="textSecondary" gutterBottom>
         {subtitle}
       </Typography>
       <div className={classes.tags}>
         {tags.map((tag, index) =>
           tag.visibility === 'public' ? (
             <Typography
-              component={Link}
-              to={`/${tag.category}/${tag.slug}`}
               variant="caption"
               color="primary"
               className={classes.tag}
@@ -140,9 +141,6 @@ const VerticalCard = ({ item }) => {
 
   return (
     <BlogCard
-      withShadow
-      liftUp
-      className={classes.cardProduct}
       to={`/${type}/${item.slug}`}
       mediaContent={
         <BlogMediaContent src={item.feature_image} alt={item.title} />
@@ -150,7 +148,7 @@ const VerticalCard = ({ item }) => {
       cardContent={
         <BlogContent
           title={item.title}
-          subtitle={item.custom_excerpt}
+          subtitle={item.custom_excerpt || item.meta_description}
           author={{
             name: item.primary_author.name,
             src: item.primary_author.profile_image,

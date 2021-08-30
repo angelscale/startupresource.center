@@ -11,11 +11,11 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   // Create Home Page
-  createPage({
-    path: '/',
-    component: require.resolve(`./src/templates/home-page.js`),
-    context: {},
-  });
+  // createPage({
+  //   path: '/',
+  //   component: require.resolve(`./src/templates/home-page.js`),
+  //   context: {},
+  // });
 
   // Create Error Pages
   ['400', '401', '403', '404', '500'].forEach((e) => {
@@ -90,11 +90,14 @@ exports.createPages = async ({ graphql, actions }) => {
         createPage,
         items: Array.from({ length: categoryPostCount || 0 }),
         itemsPerPage: postsPerPage,
-        component: require.resolve(`./src/templates/category.js`),
+        component: require.resolve(
+          `./src/templates/blog-category.template.jsx`,
+        ),
         pathPrefix: ({ pageNumber }) =>
           pageNumber === 0 ? category : `${category}/page`,
         context: {
           category: category,
+          tags: Object.keys(navigation[category].tags),
         },
       });
       Object.keys(navigation[category].tags).forEach((tag) => {
@@ -145,6 +148,8 @@ exports.createPages = async ({ graphql, actions }) => {
       ? 'article'
       : tags.includes('hash-review')
       ? 'review'
+      : tags.includes('hash-overview')
+      ? 'overview'
       : 'unknown';
     console.log(`Article: ${type}/${node.slug}`);
     createPage({
@@ -155,19 +160,4 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
-
-  // Create pagination
-  // paginate({
-  //   createPage,
-  //   items: posts,
-  //   itemsPerPage: postsPerPage,
-  //   component: indexTemplate,
-  //   pathPrefix: ({ pageNumber }) => {
-  //     if (pageNumber === 0) {
-  //       return `/`;
-  //     } else {
-  //       return `/page`;
-  //     }
-  //   },
-  // });
 };

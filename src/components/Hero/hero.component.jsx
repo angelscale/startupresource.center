@@ -1,0 +1,62 @@
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { Section } from 'components/organisms';
+import { SectionHeader } from 'components/molecules';
+import { BgImage } from 'gbimage-bridge';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+    borderRadius: theme.shape.borderRadius,
+    borderBottomRightRadius: '150px',
+    overflow: 'hidden',
+  },
+  heroWrapper: {
+    width: '100%',
+    color: 'white',
+    backgroundColor: '#00000020',
+  },
+  heroImage: {
+    width: '100%',
+    height: '100%',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+  },
+  title: {
+    color: 'white',
+    fontWeight: 'bold',
+  },
+  subtitle: {
+    color: 'white',
+  },
+}));
+
+const Hero = ({ title, subtitle, children, image }) => {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+      <BgImage image={image} className={classes.heroImage}>
+        <div className={classes.heroWrapper}>
+          <Section>
+            <SectionHeader
+              title={title}
+              subtitle={subtitle}
+              align="left"
+              titleProps={{
+                className: classes.title,
+                variant: 'h3',
+              }}
+              subtitleProps={{
+                className: classes.subtitle,
+              }}
+            />
+            {children}
+          </Section>
+        </div>
+      </BgImage>
+    </div>
+  );
+};
+
+export default Hero;

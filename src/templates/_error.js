@@ -1,5 +1,5 @@
 import React from 'react';
-import ServerError from './ServerError';
+import ServerError from 'views/server-error.view';
 import Main from 'layouts/Main';
 import WithLayout from 'WithLayout';
 

@@ -1,11 +1,10 @@
 import React from 'react';
 import clsx from 'clsx';
-import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { colors } from '@material-ui/core';
 import { Section } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     position: 'relative',
     display: 'flex',
@@ -39,12 +38,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-/**
- * Component to display the background hero
- *
- * @param {Object} props
- */
-const HeroBackground = props => {
+const HeroBackground = (props) => {
   const {
     children,
     disbaleCoverOpacity,
@@ -104,37 +98,6 @@ const HeroBackground = props => {
       />
     </div>
   );
-};
-
-HeroBackground.propTypes = {
-  /**
-   * External classes
-   */
-  className: PropTypes.string,
-  /**
-   * Children to placed inside the hero
-   */
-  children: PropTypes.node,
-  /**
-   * Background image of the hero
-   */
-  backgroundImg: PropTypes.string,
-  /**
-   * Background color of the hero
-   */
-  backgroundColor: PropTypes.string,
-  /**
-   * Background position of the hero
-   */
-  backgroundPosition: PropTypes.string,
-  /**
-   * Custom classes for the content section
-   */
-  contentSectionClassName: PropTypes.string,
-  /**
-   * Should disable here cover opacity
-   */
-  disbaleCoverOpacity: PropTypes.bool,
 };
 
 export default HeroBackground;

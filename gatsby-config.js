@@ -2,10 +2,11 @@ const path = require(`path`);
 
 let siteMetadata = {
   title: `Startup Resource Center`,
+  description: `Helping you connect the dots for your Startup!`,
   siteUrl: `https://www.startupresource.center`, // Site domain. Do not include a trailing slash!
-  postsPerPage: 12, // Number of posts shown on paginated pages (changes this requires sometimes to delete the cache)
   siteTitleMeta: `Startup Resource Center`, // This allows an alternative site title for meta data for pages.
-  siteDescriptionMeta: `Connecting the dots for your business - Everything you need is here!`, // This allows an alternative site description for meta data for pages.
+  siteDescriptionMeta: `Helping you connect the dots for your Startup!`, // This allows an alternative site description for meta data for pages.
+  postsPerPage: 12, // Number of posts shown on paginated pages (changes this requires sometimes to delete the cache)
   shareImageWidth: 1000, // Change to the width of your default share image
   shareImageHeight: 523, // Change to the height of your default share image
   shortTitle: `SRC`, // Used for App manifest e.g. Mobile Home Screen

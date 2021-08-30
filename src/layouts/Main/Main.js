@@ -10,6 +10,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     height: '100%',
   },
+  content: {
+    margin: '0 auto',
+    maxWidth: theme.layout.contentWidth,
+  },
 }));
 
 const Main = ({ children, themeToggler, themeMode }) => {
@@ -43,10 +47,8 @@ const Main = ({ children, themeToggler, themeMode }) => {
         variant="temporary"
         navigation={navigation}
       />
-      <main>
-        <Divider />
-        {children}
-      </main>
+      <Divider />
+      <main className={classes.content}>{children}</main>
       <Footer navigation={navigation} />
     </div>
   );
