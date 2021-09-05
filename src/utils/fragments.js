@@ -18,6 +18,11 @@ export const ghostTagFields = graphql`
     name
     visibility
     feature_image
+    featureImageSharp {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
     description
     meta_title
     meta_description
@@ -48,6 +53,11 @@ export const ghostPostFields = graphql`
     slug
     featured
     feature_image
+    featureImageSharp {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
     excerpt
     custom_excerpt
     visibility
@@ -142,6 +152,11 @@ export const ghostPageFields = graphql`
     slug
     featured
     feature_image
+    featureImageSharp {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
     excerpt
     custom_excerpt
     visibility

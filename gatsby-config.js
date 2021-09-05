@@ -51,6 +51,12 @@ if (
 
 module.exports = {
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [`G-6ES18498KK`],
+      },
+    },
     `gatsby-plugin-top-layout`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-helmet`,
@@ -96,15 +102,7 @@ module.exports = {
         lookup: [
           {
             type: `GhostPost`,
-            imgTags: [`feature_image`],
-          },
-          {
-            type: `GhostPage`,
-            imgTags: [`feature_image`],
-          },
-          {
-            type: `GhostSettings`,
-            imgTags: [`cover_image`],
+            imgTags: [`feature_image`, `img`],
           },
         ],
         exclude: (node) => node.ghostId === undefined,

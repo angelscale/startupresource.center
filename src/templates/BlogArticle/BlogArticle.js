@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Divider } from '@material-ui/core';
 import rehypeReact from 'rehype-react';
 
+import 'assets/css/ghost.css';
+
 import { Section, SectionAlternate } from 'components/organisms';
 import {
   FooterNewsletter,
@@ -13,6 +15,7 @@ import {
 } from './components';
 import GhostInlineImage from 'components/GhostInlineImage';
 import { MetaData } from 'components/meta';
+import BlockQuote from 'components/BlockQuote/block-quote.component';
 
 import { sidebarArticles, similarStories } from './data';
 
@@ -29,6 +32,10 @@ const useStyles = makeStyles((theme) => ({
   },
   footerNewsletterSection: {
     background: theme.palette.primary.dark,
+  },
+  section: {
+    paddingTop: theme.spacing(2),
+    fontSize: '1.5em',
   },
   paragraph: {
     marginBottom: theme.spacing(2),
@@ -49,6 +56,7 @@ const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
     'img-sharp-inline': GhostInlineImage,
+    blockquote: BlockQuote,
     p: Paragraph,
     hr: Divider,
   },
@@ -77,34 +85,41 @@ const BlogArticle = ({ data, location }) => {
     }
   });
 
+  console.log(post);
   return (
     <div className={classes.root}>
       <MetaData data={data} location={location} type="article" />
       <Hero
-        cover={post.feature_image}
+        cover={
+          post.featureImageSharp
+            ? post.featureImageSharp.childImageSharp.gatsbyImageData
+            : null
+        }
         title={post.title}
-        subtitle={post.excerpt}
+        subtitle={post.custom_excerpt || post.meta_description}
         authors={authors}
         published={post.published_at_pretty}
         updated={post.updated_at_pretty}
       />
-      <Section>
+      <Section className={classes.section}>
         <Grid container spacing={4}>
           <Grid item xs={12} md={8}>
-            {renderAst(post.childHtmlRehype.htmlAst)}
+            <div className="gh-canvas gh-content">
+              {renderAst(post.childHtmlRehype.htmlAst)}
+            </div>
           </Grid>
           <Grid item xs={12} md={4}>
             <SidebarArticles data={sidebarArticles} />
-            <SidebarNewsletter className={classes.sidebarNewsletter} />
+            {/* <SidebarNewsletter className={classes.sidebarNewsletter} /> */}
           </Grid>
         </Grid>
       </Section>
-      <SectionAlternate>
+      {/* <SectionAlternate>
         <SimilarStories data={similarStories} />
       </SectionAlternate>
       <SectionAlternate className={classes.footerNewsletterSection}>
         <FooterNewsletter />
-      </SectionAlternate>
+      </SectionAlternate> */}
     </div>
   );
 };

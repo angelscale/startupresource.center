@@ -36,7 +36,11 @@ const Hero = ({ title, subtitle, children, image }) => {
 
   return (
     <div className={classes.root}>
-      <BgImage image={image} className={classes.heroImage}>
+      <BgImage
+        image={image}
+        className={classes.heroImage}
+        backgroundColor={`#040e18`}
+      >
         <div className={classes.heroWrapper}>
           <Section>
             <SectionHeader

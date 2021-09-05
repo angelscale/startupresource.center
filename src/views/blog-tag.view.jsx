@@ -18,7 +18,7 @@ const BlogTagView = ({ data }) => {
       <Grid container spacing={4}>
         {data.allGhostPost.edges.map((post, index) => (
           <Grid key={index} item xs={12} md={4}>
-            <VerticalCard key={index} item={post.node} />
+            <VerticalCard key={index} item={post.node} index={index} />
           </Grid>
         ))}
       </Grid>

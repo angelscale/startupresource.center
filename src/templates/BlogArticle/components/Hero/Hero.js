@@ -10,21 +10,25 @@ import {
   Grid,
 } from '@material-ui/core';
 import { SectionHeader } from 'components/molecules';
-import { Section, Parallax } from 'components/organisms';
+import { Section } from 'components/organisms';
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 
 import SecondaryAuthors from '../SecondaryAuthors';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
+    maxWdith: theme.layout.contentWidth,
     height: '100%',
+    maxHeight: '400px',
     position: 'relative',
     background: 'white',
     overflow: 'hidden',
+    borderRadius: theme.spacing(1),
   },
   sectionWrapper: {
     height: 400,
-    backgroundColor: '#00000020',
+    backgroundColor: '#00000050',
   },
   textWhite: {
     color: 'white',
@@ -51,6 +55,18 @@ const useStyles = makeStyles((theme) => ({
     height: 40,
     width: 40,
   },
+  imageContainer: {
+    position: 'absolute',
+    top: '0%',
+    right: '0%',
+    padding: 0,
+    // zIndex: -1,
+  },
+  image: {
+    objectFit: 'cover',
+    objectPosition: '50% 0px',
+    // zIndex: -1,
+  },
 }));
 
 const Hero = (props) => {
@@ -67,57 +83,74 @@ const Hero = (props) => {
   const classes = useStyles();
 
   return (
-    <div className={clsx(classes.root, className)} {...rest}>
-      <Parallax backgroundImage={cover}>
-        <div className={classes.sectionWrapper}>
-          <Section className={classes.section}>
-            <>
-              <SectionHeader
-                title={title}
-                subtitle={subtitle}
-                align="left"
-                titleProps={{
-                  className: clsx(classes.title, classes.textWhite),
-                  variant: 'h3',
-                }}
-                subtitleProps={{
-                  className: classes.textWhite,
-                }}
-              />
-              <Grid container>
-                <Grid item xs={12} md={4}>
-                  <List disablePadding>
-                    <ListItem disableGutters>
-                      <ListItemAvatar className={classes.listItemAvatar}>
-                        <Avatar
-                          src={authors.primary.photo}
-                          alt={authors.primary.name}
-                          className={classes.avatar}
-                        />
-                      </ListItemAvatar>
-                      <ListItemText
-                        primary={`By ${authors.primary.name}`}
-                        secondary={`Last updated at ${updated}`}
-                        primaryTypographyProps={{
-                          className: classes.textWhite,
-                          variant: 'subtitle1',
-                        }}
-                        secondaryTypographyProps={{
-                          className: classes.textWhite,
-                          variant: 'subtitle1',
-                        }}
+    <div className={classes.root} {...rest}>
+      {cover ? (
+        <GatsbyImage
+          image={cover}
+          alt={title}
+          className={classes.imageContainer}
+          imgClassName={classes.image}
+          loading="eager"
+          layout="constrained"
+        />
+      ) : (
+        <StaticImage
+          src="../../../../assets/images/placeholder.png"
+          alt={title}
+          className={classes.imageContainer}
+          imgClassName={classes.image}
+          loading="eager"
+          layout="constrained"
+        />
+      )}
+      <div className={classes.sectionWrapper}>
+        <Section className={classes.section}>
+          <>
+            <SectionHeader
+              title={title}
+              subtitle={subtitle}
+              align="left"
+              titleProps={{
+                className: clsx(classes.title, classes.textWhite),
+                variant: 'h3',
+              }}
+              subtitleProps={{
+                className: classes.textWhite,
+              }}
+            />
+            <Grid container>
+              <Grid item xs={12} md={4}>
+                <List disablePadding>
+                  <ListItem disableGutters>
+                    <ListItemAvatar className={classes.listItemAvatar}>
+                      <Avatar
+                        src={authors.primary.photo}
+                        alt={authors.primary.name}
+                        className={classes.avatar}
                       />
-                    </ListItem>
-                  </List>
-                </Grid>
-                <Grid item xs={12} md={8}>
-                  <SecondaryAuthors classes={classes} authors={authors} />
-                </Grid>
+                    </ListItemAvatar>
+                    <ListItemText
+                      primary={`By ${authors.primary.name}`}
+                      secondary={`Last updated at ${updated}`}
+                      primaryTypographyProps={{
+                        className: classes.textWhite,
+                        variant: 'subtitle1',
+                      }}
+                      secondaryTypographyProps={{
+                        className: classes.textWhite,
+                        variant: 'subtitle1',
+                      }}
+                    />
+                  </ListItem>
+                </List>
               </Grid>
-            </>
-          </Section>
-        </div>
-      </Parallax>
+              <Grid item xs={12} md={8}>
+                <SecondaryAuthors classes={classes} authors={authors} />
+              </Grid>
+            </Grid>
+          </>
+        </Section>
+      </div>
     </div>
   );
 };

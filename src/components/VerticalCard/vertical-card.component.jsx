@@ -2,9 +2,9 @@ import React from 'react';
 import _ from 'lodash';
 import { makeStyles } from '@material-ui/core/styles';
 import { Avatar, Typography, Divider } from '@material-ui/core';
-import { Image } from 'components/atoms';
+// import { Image } from 'components/atoms';
+import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import BlogCard from 'components/BlogCard/blog-card.component';
-import clsx from 'clsx';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -79,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const VerticalCard = ({ item }) => {
+const VerticalCard = ({ item, index }) => {
   const classes = useStyles();
 
   const tags = _.map(item.tags, 'slug');
@@ -90,16 +90,6 @@ const VerticalCard = ({ item }) => {
     : tags.includes('hash-overview')
     ? 'overview'
     : 'unknown';
-
-  const BlogMediaContent = (props) => (
-    <div className={classes.imageContainer}>
-      <Image
-        {...props}
-        className={classes.image}
-        lazyProps={{ width: '100%', height: '100%' }}
-      />
-    </div>
-  );
 
   const BlogContent = ({ title, subtitle, author, date, tags }) => (
     <div className={classes.blogContent}>
@@ -143,7 +133,27 @@ const VerticalCard = ({ item }) => {
     <BlogCard
       to={`/${type}/${item.slug}`}
       mediaContent={
-        <BlogMediaContent src={item.feature_image} alt={item.title} />
+        item.featureImageSharp ? (
+          <GatsbyImage
+            alt={item.title}
+            loading={index < 6 ? 'eager' : 'lazy'}
+            image={getImage(item.featureImageSharp)}
+            className={classes.imageContainer}
+            imgClassName={classes.image}
+            objectFit="cover"
+            objectPosition="right"
+          />
+        ) : (
+          <StaticImage
+            alt={item.title}
+            loading={index < 6 ? 'eager' : 'lazy'}
+            src="../../assets/images/placeholder.png"
+            className={classes.imageContainer}
+            imgClassName={classes.image}
+            objectFit="cover"
+            objectPosition="right"
+          />
+        )
       }
       cardContent={
         <BlogContent

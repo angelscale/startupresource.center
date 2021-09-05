@@ -2,8 +2,9 @@ import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
+import { BgImage } from 'gbimage-bridge';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     position: 'relative',
   },
@@ -19,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     zIndex: -1,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    backgroundPosition: 'center center',
+    backgroundPosition: 'top left',
   },
 }));
 
@@ -28,7 +29,7 @@ const useStyles = makeStyles(theme => ({
  *
  * @param {Object} props
  */
-const Parallax = props => {
+const Parallax = (props) => {
   const { backgroundImage, children, className, ...rest } = props;
 
   const classes = useStyles();
@@ -50,10 +51,10 @@ const Parallax = props => {
       data-speed="0.2"
       {...rest}
     >
-      <div
+      <BgImage
         className={clsx('jarallax-img', 'parallax__image', classes.image)}
-        style={{ backgroundImage: `url(${backgroundImage})` }}
-        alt="..."
+        image={backgroundImage}
+        alt="Feature Image"
       />
       {children}
     </div>

@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { Typography, colors } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Hero from 'components/Hero/hero.component';
+import BlockQuote from 'components/BlockQuote/block-quote.component';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,13 +48,11 @@ const HomeView = () => {
         title={data.site.siteMetadata.title}
         subtitle={data.site.siteMetadata.description}
       ></Hero>
-      <div className={classes.heading}>
-        <Typography variant="h4">
-          A "Brilliant Idea" should be enough to ensure a successful business
-          startup, but entrepreneurs learn again and again that it takes so much
-          more.{' '}
-        </Typography>
-      </div>
+      <BlockQuote>
+        A "Brilliant Idea" should be enough to ensure a successful business
+        startup, but entrepreneurs learn again and again that it takes so much
+        more.{' '}
+      </BlockQuote>
       <div className={classes.text}>
         <Typography variant="h6">
           Make "StartUp Resource Center" your own free, personal Consultant so
