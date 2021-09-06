@@ -111,11 +111,11 @@ exports.navigation = {
       },
     },
   },
-  academy: {
-    id: 'academy',
-    name: 'Academy',
-    href: '/academy',
-  },
+  // academy: {
+  //   id: 'academy',
+  //   name: 'Academy',
+  //   href: '/academy',
+  // },
   about: {
     id: 'about',
     name: 'About Us',

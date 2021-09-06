@@ -125,7 +125,7 @@ export const ghostPostFields = graphql`
     }
 
     # Content
-    plaintext
+    html
     childHtmlRehype {
       html
       htmlAst

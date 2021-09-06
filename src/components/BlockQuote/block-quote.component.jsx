@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, colors, makeStyles } from '@material-ui/core';
+import { Typography, colors, makeStyles, Paper } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,15 +13,16 @@ const useStyles = makeStyles((theme) => ({
   content: {
     fontWeight: 600,
     fontSize: '1.5rem',
+    fontStyle: 'italic',
   },
 }));
 
 const BlockQuote = ({ children }) => {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <Paper elevation={2} className={classes.root}>
       <Typography className={classes.content}>{children}</Typography>
-    </div>
+    </Paper>
   );
 };
 

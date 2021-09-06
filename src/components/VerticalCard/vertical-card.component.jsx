@@ -132,6 +132,7 @@ const VerticalCard = ({ item, index }) => {
   return (
     <BlogCard
       to={`/${type}/${item.slug}`}
+      type={type}
       mediaContent={
         item.featureImageSharp ? (
           <GatsbyImage

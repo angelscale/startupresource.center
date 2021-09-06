@@ -27,7 +27,14 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: theme.spacing(1),
   },
   sectionWrapper: {
+    // display: 'flex',
+    // flex: 'column nowrap',
     height: 400,
+    width: '100%',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
     backgroundColor: '#00000050',
   },
   textWhite: {
@@ -37,12 +44,17 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'bold',
   },
   section: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    paddingTop: 0,
+    display: 'flex',
+    flexFlow: 'column nowrap',
+    paddingTop: theme.spacing(2),
     paddingBottom: 0,
+    height: '100%',
+  },
+  spacer: {
+    flexGrow: 1,
+  },
+  byline: {
+    marginBottom: theme.spacing(4),
   },
   listItemAvatar: {
     marginRight: theme.spacing(2),
@@ -50,6 +62,7 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     height: 60,
     width: 60,
+    backgroundColor: '#FFFFFF50',
   },
   secondaryAvatar: {
     height: 40,
@@ -105,50 +118,49 @@ const Hero = (props) => {
       )}
       <div className={classes.sectionWrapper}>
         <Section className={classes.section}>
-          <>
-            <SectionHeader
-              title={title}
-              subtitle={subtitle}
-              align="left"
-              titleProps={{
-                className: clsx(classes.title, classes.textWhite),
-                variant: 'h3',
-              }}
-              subtitleProps={{
-                className: classes.textWhite,
-              }}
-            />
-            <Grid container>
-              <Grid item xs={12} md={4}>
-                <List disablePadding>
-                  <ListItem disableGutters>
-                    <ListItemAvatar className={classes.listItemAvatar}>
-                      <Avatar
-                        src={authors.primary.photo}
-                        alt={authors.primary.name}
-                        className={classes.avatar}
-                      />
-                    </ListItemAvatar>
-                    <ListItemText
-                      primary={`By ${authors.primary.name}`}
-                      secondary={`Last updated at ${updated}`}
-                      primaryTypographyProps={{
-                        className: classes.textWhite,
-                        variant: 'subtitle1',
-                      }}
-                      secondaryTypographyProps={{
-                        className: classes.textWhite,
-                        variant: 'subtitle1',
-                      }}
+          <SectionHeader
+            title={title}
+            subtitle={subtitle}
+            align="left"
+            titleProps={{
+              className: clsx(classes.title, classes.textWhite),
+              variant: 'h3',
+            }}
+            subtitleProps={{
+              className: classes.textWhite,
+            }}
+          />
+          <div className={classes.spacer} />
+          <Grid container className={classes.byline}>
+            <Grid item xs={12} md={4}>
+              <List disablePadding>
+                <ListItem disableGutters>
+                  <ListItemAvatar className={classes.listItemAvatar}>
+                    <Avatar
+                      src={authors.primary.photo}
+                      alt={authors.primary.name}
+                      className={classes.avatar}
                     />
-                  </ListItem>
-                </List>
-              </Grid>
-              <Grid item xs={12} md={8}>
-                <SecondaryAuthors classes={classes} authors={authors} />
-              </Grid>
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary={`By ${authors.primary.name}`}
+                    secondary={`Last updated at ${updated}`}
+                    primaryTypographyProps={{
+                      className: classes.textWhite,
+                      variant: 'subtitle1',
+                    }}
+                    secondaryTypographyProps={{
+                      className: classes.textWhite,
+                      variant: 'subtitle1',
+                    }}
+                  />
+                </ListItem>
+              </List>
             </Grid>
-          </>
+            <Grid item xs={12} md={8}>
+              <SecondaryAuthors classes={classes} authors={authors} />
+            </Grid>
+          </Grid>
         </Section>
       </div>
     </div>
