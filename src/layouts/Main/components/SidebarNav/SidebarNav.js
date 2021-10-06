@@ -96,7 +96,12 @@ const SidebarNav = ({ navigation, onClose, className, ...rest }) => {
                   >
                     {name}
                   </Typography>
-                  <MenuGroup tags={tags} onClose={onClose} classes={classes} />
+                  <MenuGroup
+                    category={id}
+                    tags={tags}
+                    onClose={onClose}
+                    classes={classes}
+                  />
                 </ListItem>
                 <ListItem className={classes.listItem}>
                   <Divider className={classes.divider} />

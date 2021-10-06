@@ -143,6 +143,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-advanced-sitemap`,
   ],
   siteMetadata: siteMetadata,
 };

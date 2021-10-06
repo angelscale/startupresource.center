@@ -46,16 +46,13 @@ const useStyles = makeStyles((theme) => ({
   section: {
     display: 'flex',
     flexFlow: 'column nowrap',
-    paddingTop: theme.spacing(2),
-    paddingBottom: 0,
+    padding: theme.spacing(4),
     height: '100%',
   },
   spacer: {
     flexGrow: 1,
   },
-  byline: {
-    marginBottom: theme.spacing(4),
-  },
+  byline: {},
   listItemAvatar: {
     marginRight: theme.spacing(2),
   },

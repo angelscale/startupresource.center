@@ -108,9 +108,9 @@ const HomeView = () => {
         </Grid>
       </div>
       <Typography className={classes.text}>
-        Make "StartUp Resource Center" your own free, personal Consultant so
-        that you can receive expert guidance in all aspects of starting and
-        growing your own business.
+        Make StartupResource.Center your own free, personal consultant so that
+        you can receive expert guidance in all aspects of starting and growing
+        your own business.
       </Typography>
     </div>
   );

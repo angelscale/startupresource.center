@@ -85,7 +85,6 @@ exports.createPages = async ({ graphql, actions }) => {
           accumulator +
           (tags[currentValue.id] ? tags[currentValue.id].postCount : 0),
       );
-      console.log(`Category: ${category}`);
       paginate({
         createPage,
         items: Array.from({ length: categoryPostCount || 0 }),
@@ -101,7 +100,6 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       });
       Object.keys(navigation[category].tags).forEach((tag) => {
-        console.log(`Tag: ${category}/${tag}`);
         paginate({
           createPage,
           items: Array.from({ length: tags[tag] ? tags[tag].postCount : 0 }),
@@ -128,7 +126,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
     const items = Array.from({ length: totalPosts });
 
-    console.log(`Author: ${url}`);
     paginate({
       createPage,
       items: items,
@@ -151,7 +148,6 @@ exports.createPages = async ({ graphql, actions }) => {
       : tags.includes('hash-overview')
       ? 'overview'
       : 'unknown';
-    console.log(`Article: ${type}/${node.slug}`);
     createPage({
       path: `/${type}/${node.slug}`,
       component: require.resolve(`./src/templates/blog-article.js`),

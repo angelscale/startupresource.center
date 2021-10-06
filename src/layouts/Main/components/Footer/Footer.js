@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
   logoContainerItem: {
     width: '100%',
+    color: 'rgba(255,255,255,.6)',
   },
   logoContainer: {
     margin: '0 auto',
@@ -171,6 +172,9 @@ const Footer = ({ navigation }) => {
                     <Pinterest className={classes.icon} />
                   </IconButton>
                 </div>
+              </ListItem>
+              <ListItem disableGutters className={classes.logoContainerItem}>
+                Copyright &copy; 2021 Angel Scale LLC
               </ListItem>
             </List>
           </Grid>

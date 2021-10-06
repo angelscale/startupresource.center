@@ -50,17 +50,23 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     padding: theme.spacing(1, 2),
+    // height: 300,
+  },
+  header: {
+    margin: 0,
+    padding: theme.spacing(0, 2),
   },
   overview: {
-    backgroundImage:
-      'linear-gradient(#9fa8daFF 10%, #9fa8da50 20%, #9fa8da00 30%)',
+    backgroundColor: theme.palette.primary.light,
+    color: theme.palette.primary.contrastText,
   },
   review: {
-    backgroundImage:
-      'linear-gradient(#ab47bcFF 10%, #ab47bc50 20%, #00000000 30%)',
+    backgroundColor: theme.palette.secondary.light,
+    color: theme.palette.secondary.contrastText,
   },
   article: {
-    backgroundImage: 'linear-gradient(#1976d250, #1976d2FF)',
+    backgroundColor: theme.palette.primary.light,
+    color: theme.palette.primary.contrastText,
   },
 }));
 
@@ -70,9 +76,9 @@ const BlogCard = (props) => {
   const classes = useStyles();
 
   const typePretty = {
-    overview: 'Partner Article',
-    review: 'SRC Review',
-    article: 'SRC Article',
+    overview: 'SRC Blog',
+    review: 'SRC Resource Review',
+    article: 'SRC Blog',
   };
 
   const Wrapper = ({ to, children }) => {
@@ -94,9 +100,17 @@ const BlogCard = (props) => {
   return (
     <Card className={classes.root} {...rest}>
       <Wrapper to={to}>
+        <CardHeader
+          className={clsx(classes.header, {
+            [classes.overview]: type === 'overview',
+            [classes.review]: type === 'review',
+            [classes.article]: type === 'article',
+          })}
+          title={typePretty[type]}
+        />
         <CardMedia className={classes.media}>
           {mediaContent}
-          <div
+          {/* <div
             className={clsx(classes.typeContainer, {
               [classes.overview]: type === 'overview',
               [classes.review]: type === 'review',
@@ -104,7 +118,7 @@ const BlogCard = (props) => {
             })}
           >
             <div className={classes.type}>{typePretty[type]}</div>
-          </div>
+          </div> */}
         </CardMedia>
         <CardContent className={classes.content}>{cardContent}</CardContent>
       </Wrapper>

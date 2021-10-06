@@ -31,11 +31,13 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     height: '100%',
     width: '100%',
+    // backgroundColor: 'yellow',
   },
   list: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+    // backgroundColor: 'red',
   },
   avatarContainer: {
     display: 'flex',
@@ -99,7 +101,7 @@ const VerticalCard = ({ item, index }) => {
       <Typography variant="body1" color="textSecondary" gutterBottom>
         {subtitle}
       </Typography>
-      <div className={classes.tags}>
+      {/* <div className={classes.tags}>
         {tags.map((tag, index) =>
           tag.visibility === 'public' ? (
             <Typography
@@ -112,9 +114,9 @@ const VerticalCard = ({ item, index }) => {
             </Typography>
           ) : null,
         )}
-      </div>
-      <div style={{ flexGrow: 1 }} />
-      <Divider className={classes.divider} />
+      </div> */}
+      {/* <div style={{ flexGrow: 1, backgroundColor: 'blue', height: '1px' }} /> */}
+      {/* <Divider className={classes.divider} />
       <div className={classes.list}>
         <div className={classes.avatarContainer}>
           <Avatar {...author.photo} className={classes.avatar} />
@@ -125,7 +127,7 @@ const VerticalCard = ({ item, index }) => {
         <Typography variant="overline" color="textSecondary">
           {date}
         </Typography>
-      </div>
+      </div> */}
     </div>
   );
 

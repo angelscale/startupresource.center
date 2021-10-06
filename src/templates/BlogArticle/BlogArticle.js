@@ -30,6 +30,11 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(4),
     fontSize: '1.5em',
   },
+  affiliateNotice: {
+    fontSize: '1em',
+    fontStyle: 'italic',
+    marginBottom: theme.spacing(8),
+  },
 }));
 
 const renderAst = new rehypeReact({
@@ -83,6 +88,13 @@ const BlogArticle = ({ data, location }) => {
           {renderAst(post.childHtmlRehype.htmlAst)}
         </div>
       </Section>
+      <p className={classes.affiliateNotice}>
+        At StartupResource.Center we select and write about topics that we
+        believe will be helpful to you at any point in your startup journey. If
+        you buy a product or sign up for a service that we have recommended, we
+        may receive affiliate commission, which in turn supports our work, and
+        helps us bring more value to you.
+      </p>
     </div>
   );
 };
