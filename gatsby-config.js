@@ -153,6 +153,18 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Startup Resource Center`,
+        short_name: `SRC`,
+        start_url: `/`,
+        background_color: `#e9e9e9`,
+        theme_color: `#15171A`,
+        display: `standalone`,
+        icon: 'src/assets/images/icon.svg',
+      },
+    },
     `gatsby-plugin-advanced-sitemap`,
   ],
   siteMetadata: siteMetadata,
