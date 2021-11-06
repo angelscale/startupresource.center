@@ -47,8 +47,9 @@ jobs:
           path: public
   deploy-feature:
     runs-on: ubuntu-latest
+    needs: build
     environment:
-      name: union
+      name: ${{ github.ref }}
       url: ${{ steps.deploy.outputs.url }}
     steps:
       - name: Checkout Repository
