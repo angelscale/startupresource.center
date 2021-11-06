@@ -93,7 +93,7 @@ jobs:
       - name: Deploy
         uses: joinflux/firebase-action@master
         with:
-          args: hosting:stage
+          args: deploy --only hosting:stage
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
   deploy-production:
