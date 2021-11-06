@@ -1,0 +1,14 @@
+backend:
+  name: github
+  repo: angelscale/startupresource.center
+  branch: main
+
+publish_mode: editorial_workflow
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "plan"
+    label: "Plan"
+    folder: "_posts/plan"
+    create: true

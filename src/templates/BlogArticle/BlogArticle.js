@@ -1,9 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Divider } from '@material-ui/core';
 import rehypeReact from 'rehype-react';
-
-import 'assets/css/ghost.css';
 
 import { Section } from 'components/organisms';
 import { Hero } from './components';

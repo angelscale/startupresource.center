@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
-import 'leaflet/dist/leaflet.css';
+// import 'leaflet/dist/leaflet.css';
 import 'assets/css/ghost.css';
 import 'assets/css/index.css';
 
@@ -42,9 +42,14 @@ export default function TopLayout(props) {
           href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap"
           rel="stylesheet"
         />
-        <script
+        {/* <script
           src="https://kit.fontawesome.com/4c273e6d43.js"
           crossOrigin="anonymous"
+        ></script> */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6553710160365970"
+          crossorigin="anonymous"
         ></script>
       </Helmet>
       {props.children}

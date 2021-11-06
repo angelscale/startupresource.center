@@ -51,10 +51,20 @@ if (
 
 module.exports = {
   plugins: [
+    `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [`G-6ES18498KK`],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-MVDJJGZ',
+        includeInDevelopment: false,
+        defaultDataLayer: { platform: 'gatsby' },
+        enableWebVitalsTracking: true,
       },
     },
     `gatsby-plugin-top-layout`,

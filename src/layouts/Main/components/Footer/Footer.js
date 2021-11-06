@@ -15,7 +15,7 @@ import {
   LinkedIn,
 } from '@material-ui/icons';
 
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { MenuGroup } from '..';
 
@@ -156,7 +156,7 @@ const Footer = ({ navigation }) => {
               </ListItem>
               <ListItem disableGutters className={classes.logoContainerItem}>
                 <div className={classes.logoContainer}>
-                  <IconButton className={classes.socialIcon}>
+                  <IconButton className={classes.socialIcon} component={Link}>
                     <Facebook className={classes.icon} />
                   </IconButton>
                   <IconButton className={classes.socialIcon}>
