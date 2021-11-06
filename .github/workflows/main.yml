@@ -70,10 +70,10 @@ jobs:
         with:
           name: public
           path: public
-      - name: Deploy Staging
+      - name: Deploy
         uses: joinflux/firebase-action@master
         with:
-          args: deploy --only hosting:union-startupresourcecenter
+          args: deploy --only hosting:union
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
   deploy-stage:
@@ -90,10 +90,10 @@ jobs:
         with:
           name: public
           path: public
-      - name: Deploy Stage
+      - name: Deploy
         uses: joinflux/firebase-action@master
         with:
-          args: deploy --only hosting:stage-startupresourcecenter
+          args: hosting:stage
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
   deploy-production:
@@ -110,9 +110,9 @@ jobs:
         with:
           name: public
           path: public
-      - name: Deploy Production
+      - name: Deploy
         uses: joinflux/firebase-action@master
         with:
-          args: deploy --only hosting:startupresourcecenter
+          args: deploy --only hosting:production
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
