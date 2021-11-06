@@ -45,6 +45,7 @@ jobs:
           path: |
             ~/.npm
             .cache/
+            public/
             node_modules/
           key: ${{ runner.os }}-build-${{ hashFiles('yarn.lock') }}
           restore-keys: |
