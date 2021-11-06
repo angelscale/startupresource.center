@@ -42,6 +42,7 @@ jobs:
           path: public
   deploy-union:
     runs-on: ubuntu-latest
+    needs: build
     environment:
       name: union
       url: https://union-startupresourcecenter.web.app
@@ -61,6 +62,7 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
   deploy-stage:
     runs-on: ubuntu-latest
+    needs: deploy-union
     environment:
       name: stage
       url: https://stage-startupresource-center.web.app
@@ -80,6 +82,7 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
   deploy-production:
     runs-on: ubuntu-latest
+    needs: deploy-stage
     environment:
       name: production
       url: https://startupresource.center
