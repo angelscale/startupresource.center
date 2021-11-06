@@ -62,7 +62,7 @@ jobs:
       - name: Deploy Staging
         uses: joinflux/firebase-action@master
         with:
-          args: deploy --only hosting:union-startupresourcecenter --message \"${{ github.event.head_commit.message }}\"
+          args: deploy --only hosting:union-startupresourcecenter
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
   deploy-stage:
@@ -82,7 +82,7 @@ jobs:
       - name: Deploy Stage
         uses: joinflux/firebase-action@master
         with:
-          args: deploy --only hosting:stage-startupresourcecenter --message \"${{ github.event.head_commit.message }}\"
+          args: deploy --only hosting:stage-startupresourcecenter
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
   deploy-production:
@@ -102,6 +102,6 @@ jobs:
       - name: Deploy Production
         uses: joinflux/firebase-action@master
         with:
-          args: deploy --only hosting:startupresourcecenter --message \"${{ github.event.head_commit.message }}\"
+          args: deploy --only hosting:startupresourcecenter
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

@@ -66,7 +66,7 @@ jobs:
         id: deploy
         uses: joinflux/firebase-action@master
         with:
-          args: hosting:channel:deploy \"${{ github.ref }}"  --message \"${{ github.event.head_commit.message }}\" > output.txt && echo "::set-output name=url::$(awk '/Channel URL/ { print $NF; }' output.txt)"
+          args: hosting:channel:deploy \"${{ github.ref }}" > output.txt && echo "::set-output name=url::$(awk '/Channel URL/ { print $NF; }' output.txt)"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
       - name: Comment on PR
