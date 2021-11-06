@@ -1,0 +1,35 @@
+name: cleanup-feature
+
+on:
+  pull_request:
+    types:
+      - closed
+
+concurrency: 
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  destroy-feature:
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.head_ref }}
+    steps:
+      - name: Destroy Deployment
+        id: destroy-deployment
+        uses: joinflux/firebase-action@master
+        with:
+          args: hosting:channel:delete --force ${{ github.head_ref }}
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - name: Destroy Environment
+        id: destroy-environment
+        uses: actions/github-script@v5
+        with:
+          script: |
+            github.rest.repos.deleteAnEnvironment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              environment_name: ${{ github.head_ref }}
+            })
+  
