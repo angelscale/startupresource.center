@@ -4,9 +4,6 @@ on:
   push:
     branches-ignore:
       - main
-  pull_request:
-    branches:
-      - main
 
 concurrency: 
   group: ${{ github.ref }}
@@ -80,15 +77,4 @@ jobs:
           args: hosting:channel:deploy ${{ github.ref }} | tee output.txt && echo \"::set-output name=url::$(grep output.txt -o \'https://[^ ]*\')\"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-      - name: Comment on PR
-        if: github.event_name	== 'pull_request'
-        uses: actions/github-script@v5
-        with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'Build Complete - Temporary Environment can be viewed at this URL: ${{ steps.deploy.outputs.url }}'
-            })
   
