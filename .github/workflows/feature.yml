@@ -74,7 +74,7 @@ jobs:
         id: deploy
         uses: joinflux/firebase-action@master
         with:
-          args: hosting:channel:deploy ${{ github.ref }} | tee output.txt && echo \"::set-output name=url::$(grep -o \'https://[^ ]*\' output.txt)\"
+          args: hosting:channel:deploy ${{ github.ref }} | tee output.txt && echo \"::set-output name=url::$(grep -o 'https://[^ ]*' output.txt)\"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
   
