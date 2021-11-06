@@ -1,0 +1,60 @@
+name: main
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Prepare Node
+        uses: actions/setup-node@v2
+        with: 
+          node-version: 14.x
+      - name: Prepare Dependencies
+        run: yarn install
+      - name: Lint
+        run: yarn lint
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Prepare Node
+        uses: actions/setup-node@v2
+        with: 
+          node-version: 14.x
+      - name: Prepare Dependencies
+        run: yarn install
+      - name: Build
+        run: yarn build
+      - name: Upload Package
+        uses: actions/upload-artifact@v2
+        with:
+          name: public
+          path: public
+  deploy-feature:
+    runs-on: ubuntu-latest
+    environment:
+      name: union
+      url: ${{ steps.deploy.outputs.url }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Download Package
+        uses: actions/download-artifact@v2
+        with:
+          name: public
+          path: public
+      - name: Deploy Feature
+        id: deploy
+        uses: joinflux/firebase-action@master
+        with:
+          args: hosting:channel:deploy \"${{ github.ref }}"  --message \"${{ github.event.head_commit.message }}\" > output.txt && echo "::set-output name=url::$(awk '/Channel URL/ { print $NF; }' output.txt)"
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+  

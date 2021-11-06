@@ -4,16 +4,96 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  stage:
+  lint:
     runs-on: ubuntu-latest
     steps:
-      - name: wake up ghost
-        run: curl -I ${{ secrets.GHOST_ADMIN_API_URL }}/ghost/
-      - name: Repository Dispatch Build - Main
-        uses: peter-evans/repository-dispatch@v1
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Prepare Node
+        uses: actions/setup-node@v2
+        with: 
+          node-version: 14.x
+      - name: Prepare Dependencies
+        run: yarn install
+      - name: Lint
+        run: yarn lint
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Prepare Node
+        uses: actions/setup-node@v2
+        with: 
+          node-version: 14.x
+      - name: Prepare Dependencies
+        run: yarn install
+      - name: Build
+        run: yarn build
+      - name: Upload Package
+        uses: actions/upload-artifact@v2
         with:
-          token: ${{ secrets.GHA_TOKEN }}
-          event-type: build-production
-          client-payload: '{"ref": "${{ github.ref }}", "url": "${{ secrets.DEPLOY_HOST }}"}'
+          name: public
+          path: public
+  deploy-union:
+    runs-on: ubuntu-latest
+    environment:
+      name: union
+      url: https://union-startupresourcecenter.web.app
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Download Package
+        uses: actions/download-artifact@v2
+        with:
+          name: public
+          path: public
+      - name: Deploy Staging
+        uses: joinflux/firebase-action@master
+        with:
+          args: deploy --only hosting:union-startupresourcecenter --message \"${{ github.event.head_commit.message }}\"
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+  deploy-stage:
+    runs-on: ubuntu-latest
+    environment:
+      name: stage
+      url: https://stage-startupresource-center.web.app
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Download Package
+        uses: actions/download-artifact@v2
+        with:
+          name: public
+          path: public
+      - name: Deploy Stage
+        uses: joinflux/firebase-action@master
+        with:
+          args: deploy --only hosting:stage-startupresourcecenter --message \"${{ github.event.head_commit.message }}\"
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+  deploy-production:
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://startupresource.center
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Download Package
+        uses: actions/download-artifact@v2
+        with:
+          name: public
+          path: public
+      - name: Deploy Production
+        uses: joinflux/firebase-action@master
+        with:
+          args: deploy --only hosting:startupresourcecenter --message \"${{ github.event.head_commit.message }}\"
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
