@@ -10,11 +10,13 @@
 	.st4{fill:#0047BA;stroke:#231F20;stroke-miterlimit:10;}
 	.st5{fill:#9EADE5;stroke:#231F20;stroke-miterlimit:10;}
 </style>
-<path class="st0" d="M96.1,120H24.4c-13,0-23.6-10.6-23.6-23.6V24.7c0-13,10.6-23.6,23.6-23.6h71.7c13,0,23.6,10.6,23.6,23.6v71.7
-	C119.7,109.4,109.2,120,96.1,120z"/>
-<polyline class="st1" points="27.5,56.3 70.9,100.9 49.9,26 100.3,62.8 110.3,67.3 "/>
-<ellipse class="st2" cx="20.1" cy="62.1" rx="16.1" ry="16.3"/>
-<ellipse class="st3" cx="71.6" cy="100.9" rx="13.8" ry="14.1"/>
-<ellipse class="st4" cx="101" cy="63" rx="15.1" ry="15.2"/>
-<ellipse class="st5" cx="47.7" cy="19.8" rx="14.7" ry="14.8"/>
+<path class="st0" d="M96.2,119.5H24.5c-13,0-23.6-10.6-23.6-23.6V24.2c0-13,10.6-23.6,23.6-23.6h71.7c13,0,23.6,10.6,23.6,23.6v71.7
+	C119.8,108.9,109.3,119.5,96.2,119.5z"/>
+<g>
+	<polyline class="st1" points="29.9,56.5 70.6,98.3 50.9,28.1 98.1,62.6 107.5,66.8 	"/>
+	<ellipse class="st2" cx="22.9" cy="62" rx="15.1" ry="15.3"/>
+	<ellipse class="st3" cx="71.2" cy="98.3" rx="12.9" ry="13.2"/>
+	<ellipse class="st4" cx="98.8" cy="62.8" rx="14.2" ry="14.2"/>
+	<ellipse class="st5" cx="48.8" cy="22.3" rx="13.8" ry="13.9"/>
+</g>
 </svg>
