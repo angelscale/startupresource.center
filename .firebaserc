@@ -5,12 +5,6 @@
   "targets": {
     "startupresourcecenter": {
       "hosting": {
-        "union": [
-          "union-startupresourcecenter"
-        ],
-        "stage": [
-          "stage-startupresourcecenter"
-        ],
         "production": [
           "startupresourcecenter"
         ]

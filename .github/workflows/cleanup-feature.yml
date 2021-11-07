@@ -12,16 +12,21 @@ concurrency:
 jobs:
   destroy-feature:
     runs-on: ubuntu-latest
-    environment:
-      name: ${{ github.head_ref }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+      - name: get-env-name
+        id: get-env
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const branch = context.head_ref.replace('refs/heads/','')
+            core.setOutput('env_name',branch)
       - name: Destroy Deployment
         id: destroy-deployment
         uses: joinflux/firebase-action@master
         with:
-          args: hosting:channel:delete --force ${{ github.head_ref }}
+          args: hosting:channel:delete --force ${{ steps.get-env.outputs.env_name }}
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
       - name: Destroy Environment
@@ -32,6 +37,6 @@ jobs:
             github.rest.repos.deleteAnEnvironment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              environment_name: ${{ github.head_ref }}
+              environment_name: ${{ steps.get-env.outputs.env_name }}
             })
   
