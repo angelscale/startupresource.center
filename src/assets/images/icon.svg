@@ -12,9 +12,9 @@
 </style>
 <path class="st0" d="M96.1,120H24.4c-13,0-23.6-10.6-23.6-23.6V24.7c0-13,10.6-23.6,23.6-23.6h71.7c13,0,23.6,10.6,23.6,23.6v71.7
 	C119.7,109.4,109.2,120,96.1,120z"/>
-<polyline class="st1" points="36.9,57.4 68.6,89.8 53.3,35.4 90.2,62.1 97.5,65.4 "/>
-<circle class="st2" cx="31.5" cy="61.6" r="11.8"/>
-<ellipse class="st3" cx="69.2" cy="89.8" rx="10.1" ry="10.2"/>
-<circle class="st4" cx="90.7" cy="62.3" r="11"/>
-<circle class="st5" cx="51.7" cy="30.9" r="10.8"/>
+<polyline class="st1" points="27.5,56.3 70.9,100.9 49.9,26 100.3,62.8 110.3,67.3 "/>
+<ellipse class="st2" cx="20.1" cy="62.1" rx="16.1" ry="16.3"/>
+<ellipse class="st3" cx="71.6" cy="100.9" rx="13.8" ry="14.1"/>
+<ellipse class="st4" cx="101" cy="63" rx="15.1" ry="15.2"/>
+<ellipse class="st5" cx="47.7" cy="19.8" rx="14.7" ry="14.8"/>
 </svg>
