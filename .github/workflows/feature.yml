@@ -83,7 +83,7 @@ jobs:
         id: deploy
         uses: joinflux/firebase-action@master
         with:
-          args: hosting:channel:deploy ${{ env.branch }} | tee output.txt && echo \"::set-output name=url::$(grep 'Channel URL' output.txt | grep -o 'https://[^ ]*')\"
+          args: hosting:channel:deploy ${{ needs.build.outputs.env_name }} | tee output.txt && echo \"::set-output name=url::$(grep 'Channel URL' output.txt | grep -o 'https://[^ ]*')\"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
   
