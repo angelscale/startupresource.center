@@ -73,7 +73,7 @@ jobs:
       - name: Deploy
         uses: joinflux/firebase-action@master
         with:
-          args: deploy --only hosting:union
+          args: hosting:channel:deploy --only production --expires 30d union-startupresourcecenter
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
   deploy-stage:
@@ -93,7 +93,7 @@ jobs:
       - name: Deploy
         uses: joinflux/firebase-action@master
         with:
-          args: deploy --only hosting:stage
+          args: hosting:channel:deploy --only production --expires 30d stage-startupresourcecenter
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
   deploy-production:
