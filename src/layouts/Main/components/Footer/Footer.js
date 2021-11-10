@@ -44,8 +44,7 @@ const useStyles = makeStyles((theme) => ({
     color: 'rgba(255,255,255,.6)',
   },
   logoContainer: {
-    margin: '0 auto',
-    width: 300,
+    width: 280,
     height: 'auto',
   },
   logoImage: {
@@ -81,7 +80,10 @@ const useStyles = makeStyles((theme) => ({
   },
   menuList: {
     width: 'auto',
-    margin: '0 auto',
+    margin: theme.spacing(2),
+    [theme.breakpoints.up('md')]: {
+      margin: '0 auto',
+    },
   },
   menu: {
     display: 'flex',
@@ -95,7 +97,6 @@ const useStyles = makeStyles((theme) => ({
   menuGroupItem: {
     paddingTop: 0,
     paddingBottom: theme.spacing(1 / 2),
-    marginLeft: theme.spacing(1),
     '&:last-child': {
       paddingBottom: 0,
     },
@@ -139,7 +140,7 @@ const Footer = ({ navigation }) => {
   return (
     <div className={classes.root}>
       <div className={classes.footerContainer}>
-        <Grid container spacing={4} justifyContent="center">
+        <Grid container spacing={4}>
           <Grid item sm={12} md={6} lg={4}>
             <List disablePadding>
               <ListItem disableGutters className={classes.logoContainerItem}>
@@ -188,7 +189,7 @@ const Footer = ({ navigation }) => {
             justifyContent="center"
           >
             <div className={classes.menuList}>
-              <Grid container spacing={0}>
+              <Grid container spacing={2}>
                 {Object.values(navigation).map(({ id, name, href, tags }) => (
                   <Grid item key={id}>
                     {href === undefined ? (

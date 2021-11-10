@@ -166,6 +166,19 @@ module.exports = {
       },
     },
     `gatsby-plugin-advanced-sitemap`,
+    {
+      resolve: 'gatsby-omni-font-loader',
+      options: {
+        enableListener: true,
+        preconnect: ['https://font.gstatic.com'],
+        web: [
+          {
+            name: 'Lato',
+            file: 'https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap',
+          },
+        ],
+      },
+    },
   ],
   siteMetadata: siteMetadata,
 };
