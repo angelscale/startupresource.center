@@ -3,7 +3,8 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { Typography, colors, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Hero from 'components/Hero/hero.component';
-import { Icon } from 'components/atoms';
+
+import ServiceSectionView from './home/service-section';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,52 +62,7 @@ const HomeView = () => {
         title={data.site.siteMetadata.title}
         subtitle={data.site.siteMetadata.description}
       />
-      <div className={classes.heading}>
-        <Grid container>
-          <Grid
-            item
-            container
-            xs={2}
-            md={1}
-            alignContent="flex-start"
-            justifyContent="flex-start"
-          >
-            <Icon
-              fontIconClass="fas fa-quote-left"
-              fontIconColor={colors.grey[700]}
-              size="large"
-            />
-          </Grid>
-          <Grid
-            item
-            container
-            xs={8}
-            md={10}
-            alignContent="center"
-            justifyContent="center"
-          >
-            <Typography className={classes.header}>
-              A 'Brilliant Idea' should be enough to ensure a successful
-              business startup, but entrepreneurs learn again and again that it
-              takes so much more.
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            container
-            xs={2}
-            md={1}
-            alignContent="flex-end"
-            justifyContent="flex-end"
-          >
-            <Icon
-              fontIconClass="fas fa-quote-right"
-              fontIconColor={colors.grey[700]}
-              size="large"
-            />
-          </Grid>
-        </Grid>
-      </div>
+      <ServiceSectionView />
       <Typography className={classes.text}>
         Make StartupResource.Center your own free, personal consultant so that
         you can receive expert guidance in all aspects of starting and growing
