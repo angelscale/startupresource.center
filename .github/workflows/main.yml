@@ -61,7 +61,7 @@ jobs:
     needs: build
     environment:
       name: union
-      url: https://union-startupresourcecenter.web.app
+      url: ${{ steps.deploy.outputs.url }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -71,9 +71,10 @@ jobs:
           name: public
           path: public
       - name: Deploy
+        id: deploy
         uses: joinflux/firebase-action@master
         with:
-          args: hosting:channel:deploy --only production --expires 30d union-startupresourcecenter
+          args: hosting:channel:deploy --only production --expires 30d union | tee output.txt && echo \"::set-output name=url::$(grep 'Channel URL' output.txt | grep -o 'https://[^ ]*')\"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
   deploy-stage:
@@ -81,7 +82,7 @@ jobs:
     needs: deploy-union
     environment:
       name: stage
-      url: https://stage-startupresource-center.web.app
+      url: ${{ steps.deploy.outputs.url }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -93,7 +94,7 @@ jobs:
       - name: Deploy
         uses: joinflux/firebase-action@master
         with:
-          args: hosting:channel:deploy --only production --expires 30d stage-startupresourcecenter
+          args: hosting:channel:deploy --only production --expires 30d stage | tee output.txt && echo \"::set-output name=url::$(grep 'Channel URL' output.txt | grep -o 'https://[^ ]*')\"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
   deploy-production:
