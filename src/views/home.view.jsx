@@ -1,9 +1,9 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Typography, colors } from '@material-ui/core';
+import { colors } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Hero from 'components/Hero/hero.component';
 
+import Hero from 'templates/IndexView/components/Hero';
 import ServiceSectionView from './home/service-section';
 import ArticlesSectionView from './home/article-section';
 
@@ -58,11 +58,7 @@ const HomeView = () => {
 
   return (
     <div className={classes.root}>
-      <Hero
-        image={data.file.childImageSharp.gatsbyImageData}
-        title={data.site.siteMetadata.title}
-        subtitle={data.site.siteMetadata.description}
-      />
+      <Hero />
       <ServiceSectionView />
       <ArticlesSectionView />
     </div>
