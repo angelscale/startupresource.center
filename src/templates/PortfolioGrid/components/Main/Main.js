@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   gridContainer: {
+    marginTop: theme.spacing(2),
     padding: theme.spacing(0, 2),
     [theme.breakpoints.up('lg')]: {
       padding: theme.spacing(0),
@@ -49,7 +50,7 @@ const Main = (props) => {
 
   return (
     <div className={className} {...rest}>
-      <Grid container spacing={2} className={classes.gridContainer}>
+      <Grid container spacing={4} className={classes.gridContainer}>
         {gridData.map((item, index) => (
           <Grid key={index} item xs={12} md={6} lg={3}>
             <div className={classes.folioItem} data-aos="fade-up">
