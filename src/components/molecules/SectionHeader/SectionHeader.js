@@ -49,6 +49,7 @@ const SectionHeader = (props) => {
     labelProps,
     titleProps,
     subtitleProps,
+    whitespace,
     ...rest
   } = props;
 
@@ -113,7 +114,13 @@ const SectionHeader = (props) => {
         </Typography>
       </Grid>
       {subtitle && (
-        <Grid item xs={12} className="section-header__subtitle-wrapper">
+        <Grid
+          item
+          xs={12}
+          className={`section-header__subtitle-wrapper ${
+            whitespace ? 'ws' : ''
+          }`}
+        >
           <Typography
             variant={subtitleVariant || 'h6'}
             align={align || 'center'}

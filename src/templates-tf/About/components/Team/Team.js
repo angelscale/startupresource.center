@@ -12,7 +12,7 @@ import {
 import { SectionHeader } from 'components/molecules';
 import { CardBase } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   cardBase: {
     boxShadow: 'none',
     background: theme.palette.alternate.main,
@@ -23,6 +23,7 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(3),
       },
     },
+    cursor: 'pointer',
   },
   avatar: {
     width: 110,
@@ -56,7 +57,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Team = props => {
+const Team = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -68,8 +69,8 @@ const Team = props => {
   return (
     <div className={className} {...rest}>
       <SectionHeader
-        title="Meet our team"
-        subtitle="After 3 days all of your offers will arrive and you will have another 7 days to select your new company."
+        title="Meet the Team"
+        // subtitle="After 3 days all of your offers will arrive and you will have another 7 days to select your new company."
       />
       <Grid container spacing={isMd ? 2 : 1}>
         {data.map((item, index) => (
@@ -77,7 +78,12 @@ const Team = props => {
             <CardBase className={classes.cardBase} liftUp>
               <ListItem disableGutters className={classes.listItem}>
                 <ListItemAvatar className={classes.listItemAvatar}>
-                  <Avatar {...item.authorPhoto} className={classes.avatar} />
+                  <Avatar
+                    {...item.authorPhoto}
+                    className={`${classes.avatar} ${
+                      item?.posTop ? 'obj-top' : ''
+                    }`}
+                  />
                 </ListItemAvatar>
                 <ListItemText
                   className={classes.listItemText}

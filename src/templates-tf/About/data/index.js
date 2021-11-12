@@ -1,9 +1,17 @@
+// assets
+import Person1 from '../../../assets/images/about/allen.jpeg';
+import Person2 from '../../../assets/images/about/brett.jpg';
+import Person3 from '../../../assets/images/about/michael.jpg';
+import Person4 from '../../../assets/images/about/nathan.jpeg';
+import Person5 from '../../../assets/images/about/tasha.jpeg';
+
 export const team = [
   {
     title: 'UI/UX Designer',
     authorPhoto: {
       src: 'https://assets.maccarianagency.com/the-front/photos/people/kate-segelson.jpg',
-      srcSet: 'https://assets.maccarianagency.com/the-front/photos/people/kate-segelson@2x.jpg 2x',
+      srcSet:
+        'https://assets.maccarianagency.com/the-front/photos/people/kate-segelson@2x.jpg 2x',
     },
     authorName: 'Kate Segelson',
   },
@@ -11,7 +19,8 @@ export const team = [
     title: 'Web Backend Developer',
     authorPhoto: {
       src: 'https://assets.maccarianagency.com/the-front/photos/people/alex-johnson.jpg',
-      srcSet: 'https://assets.maccarianagency.com/the-front/photos/people/alex-johnson@2x.jpg 2x',
+      srcSet:
+        'https://assets.maccarianagency.com/the-front/photos/people/alex-johnson@2x.jpg 2x',
     },
     authorName: 'Alex Johnson',
   },
@@ -19,7 +28,8 @@ export const team = [
     title: 'Web Frontend Developer',
     authorPhoto: {
       src: 'https://assets.maccarianagency.com/the-front/photos/people/valeria-kogan.jpg',
-      srcSet: 'https://assets.maccarianagency.com/the-front/photos/people/valeria-kogan@2x.jpg 2x',
+      srcSet:
+        'https://assets.maccarianagency.com/the-front/photos/people/valeria-kogan@2x.jpg 2x',
     },
     authorName: 'Valeria Kogan',
   },
@@ -27,7 +37,8 @@ export const team = [
     title: 'CEO / Co-Founder',
     authorPhoto: {
       src: 'https://assets.maccarianagency.com/the-front/photos/people/akachi-luccini.jpg',
-      srcSet: 'https://assets.maccarianagency.com/the-front/photos/people/akachi-luccini@2x.jpg 2x',
+      srcSet:
+        'https://assets.maccarianagency.com/the-front/photos/people/akachi-luccini@2x.jpg 2x',
     },
     authorName: 'Akachi Luccini',
   },
@@ -35,7 +46,8 @@ export const team = [
     title: 'CTO / Co-Founder',
     authorPhoto: {
       src: 'https://assets.maccarianagency.com/the-front/photos/people/jack-smith.jpg',
-      srcSet: 'https://assets.maccarianagency.com/the-front/photos/people/jack-smith@2x.jpg 2x',
+      srcSet:
+        'https://assets.maccarianagency.com/the-front/photos/people/jack-smith@2x.jpg 2x',
     },
     authorName: 'Jack Smith',
   },
@@ -43,7 +55,8 @@ export const team = [
     title: 'Consultant',
     authorPhoto: {
       src: 'https://assets.maccarianagency.com/the-front/photos/people/veronica-adams.jpg',
-      srcSet: 'https://assets.maccarianagency.com/the-front/photos/people/veronica-adams@2x.jpg 2x',
+      srcSet:
+        'https://assets.maccarianagency.com/the-front/photos/people/veronica-adams@2x.jpg 2x',
     },
     authorName: 'Veronica Adams',
   },
@@ -127,7 +140,8 @@ export const gallery = [
   {
     image: {
       src: 'https://assets.maccarianagency.com/the-front/photos/expo-gallery/gallery1.jpg',
-      srcSet: 'https://assets.maccarianagency.com/the-front/photos/expo-gallery/gallery1@2x.jpg 2x',
+      srcSet:
+        'https://assets.maccarianagency.com/the-front/photos/expo-gallery/gallery1@2x.jpg 2x',
     },
     title: 'gallery',
     cols: 1,
@@ -135,7 +149,8 @@ export const gallery = [
   {
     image: {
       src: 'https://assets.maccarianagency.com/the-front/photos/expo-gallery/gallery3.jpg',
-      srcSet: 'https://assets.maccarianagency.com/the-front/photos/expo-gallery/gallery3@2x.jpg 2x',
+      srcSet:
+        'https://assets.maccarianagency.com/the-front/photos/expo-gallery/gallery3@2x.jpg 2x',
     },
     title: 'gallery',
     cols: 3,
@@ -143,7 +158,8 @@ export const gallery = [
   {
     image: {
       src: 'https://assets.maccarianagency.com/the-front/photos/expo-gallery/gallery2.jpg',
-      srcSet: 'https://assets.maccarianagency.com/the-front/photos/expo-gallery/gallery2@2x.jpg 2x',
+      srcSet:
+        'https://assets.maccarianagency.com/the-front/photos/expo-gallery/gallery2@2x.jpg 2x',
     },
     title: 'gallery',
     cols: 3,
@@ -151,9 +167,63 @@ export const gallery = [
   {
     image: {
       src: 'https://assets.maccarianagency.com/the-front/photos/coworking/place3.jpg',
-      srcSet: 'https://assets.maccarianagency.com/the-front/photos/coworking/place3@2x.jpg 2x',
+      srcSet:
+        'https://assets.maccarianagency.com/the-front/photos/coworking/place3@2x.jpg 2x',
     },
     title: 'gallery',
     cols: 1,
+  },
+];
+
+export const paragraphs = {
+  our_story:
+    "Angel Scale, LLC, and Startup Resource Center (SRC) were created to support those who are relatively new to starting, owning, and running a successful business. Founded in March of 2021, Angel Scale began by helping five new businesses hit the ground running: Grey and Bash Teas -- a loose-leaf tea company, Honey Sweet Collective -- a company that manufactures and sells fun coffee mugs, Insomnia PJ -- a high-end line of women's loungewear, Hot Fit NYC -- a Mixed Martial Arts fitness facility in NYC, and Medical Doorway -- an International Education firm that helps high school graduates enroll in Medical schools in six countries throughout Europe and Asia.  Each of these companies is now thriving, thanks to the resources, insight, and support offered by Angel Scale’s business experts.",
+  who_are_we:
+    'Angel Scale is committed to helping startup and pre-startup entrepreneurs navigate the path from ideation to activation; from startup, to profitability, and beyond. Startup Resource Center was created as part of Angel Scale’s arsenal of resources to expedite entrepreneurs to success, offering new entrepreneurs the information, data, and actual resources needed to take their idea to market, all through an easy-to-access digital site. SRC further recognizes that great ideas are only a starting point, and thus aims to connect entrepreneurs with people and companies that can provide the tools, software, and expertise needed to pave the way to success.',
+  our_process:
+    'Angel Scale and SRC are run by a small team of experts with first-hand experience in entrepreneurial pursuits. As business owners, we understand the excitement, concerns, and challenges new startups face, and we want to help. Angel Scale is committed to taking young entrepreneurs through the process of starting and growing a business.  We offer different levels of support, from valuable content and product/service reviews, to one-on-one consulting relationships. Each of us have been there, facing the obstacles that come with starting and developing new businesses, so we know what to expect and can serve as navigators for those entering what could otherwise be a bumpy road.  We fully believe in the path from living room to CEO suite, and that, with proper guidance, any strong idea can become a successful business entity.',
+};
+
+export const newTeam = [
+  {
+    title: 'Partner',
+    authorPhoto: {
+      src: Person3,
+      srcSet: Person3,
+    },
+    authorName: 'Michael Platt',
+  },
+  {
+    title: 'Partner',
+    authorPhoto: {
+      src: Person4,
+      srcSet: Person4,
+    },
+    authorName: 'Nathan Cerny',
+  },
+  {
+    title: 'Partner',
+    authorPhoto: {
+      src: Person1,
+      srcSet: Person1,
+    },
+    authorName: 'Allen Harkleroad',
+  },
+  {
+    title: 'Partner',
+    authorPhoto: {
+      src: Person2,
+      srcSet: Person2,
+    },
+    authorName: 'Brett Ozar',
+  },
+  {
+    title: 'Partner',
+    authorPhoto: {
+      src: Person5,
+      srcSet: Person5,
+    },
+    authorName: 'Tasha Cerny',
+    posTop: true,
   },
 ];

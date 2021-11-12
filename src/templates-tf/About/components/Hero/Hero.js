@@ -6,7 +6,10 @@ import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 import { Section } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+// assets
+import HeroImg from '../../../../assets/images/about/hero.jpg';
+
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     height: '100%',
@@ -18,10 +21,14 @@ const useStyles = makeStyles(theme => ({
     objectFit: 'cover',
     [theme.breakpoints.down('sm')]: {
       width: 'auto',
+      // minHeight: 250,
     },
   },
   textWhite: {
     color: 'white',
+  },
+  textDarkGray: {
+    color: '#1a202c',
   },
   title: {
     fontWeight: 'bold',
@@ -36,12 +43,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Hero = props => {
+const Hero = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
   return (
     <div className={clsx(classes.root, className)} {...rest}>
       <Image
+        // src={HeroImg}
+        // srcSet={HeroImg}
         src="https://assets.maccarianagency.com/the-front/photos/about/hero-image.png"
         srcSet="https://assets.maccarianagency.com/the-front/photos/about/hero-image.png 2x"
         alt="About"
@@ -54,7 +63,7 @@ const Hero = props => {
       <Section className={classes.section}>
         <SectionHeader
           title="About us"
-          subtitle="We are founded by a leading academic and researcher in the field of Industrial Systems Engineering."
+          // subtitle="We are founded by a leading academic and researcher in the field of Industrial Systems Engineering."
           align="left"
           data-aos="fade-up"
           disableGutter
@@ -64,6 +73,7 @@ const Hero = props => {
           }}
           subtitleProps={{
             className: classes.textWhite,
+            // className: classes.textDarkGray,
           }}
         />
       </Section>

@@ -3,17 +3,70 @@
 // We are constantly sharing the most tried-and-true strategies and resources, as well the newest ideas being used by successful startups worldwide.  From the actual act of creating and structuring your business, to the most effective marketing practices, SRC puts everything you'll need to succeed, right at your fingertips.
 
 import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { Section, SectionAlternate } from 'components/organisms';
+import {
+  Contact,
+  Gallery,
+  Hero,
+  Partners,
+  Story,
+  Team,
+  WhoWeAre,
+} from '../templates-tf/About/components';
+
+import {
+  team,
+  companies,
+  mapData,
+  gallery,
+  paragraphs,
+  newTeam,
+} from '../templates-tf/About/data';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    height: '100%',
+    width: '100%',
+  },
+  sectionNoPaddingTop: {
+    paddingTop: 0,
+  },
+  sectionPartners: {
+    boxShadow: '0 5px 20px 0 rgba(90, 202, 157, 0.05)',
+    '& .section-alternate__content': {
+      paddingTop: theme.spacing(5),
+      paddingBottom: theme.spacing(5),
+    },
+  },
+}));
 
 const AboutUsView = () => {
+  const classes = useStyles();
+
   return (
-    <Box sx={{ height: 'calc(100vh - 311px)' }}>
-      <Box sx={{ pt: 4 }}>
-        <Typography variant="h5" component="h2">
-          About Us View
-        </Typography>
-      </Box>
-    </Box>
+    <div className={classes.root}>
+      <Hero />
+      <Section>
+        <Story content={paragraphs.our_story} />
+      </Section>
+      <Section className={classes.sectionNoPaddingTop}>
+        <WhoWeAre
+          contentOne={paragraphs.who_are_we}
+          contentTwo={paragraphs.our_process}
+        />
+      </Section>
+      <Section className={classes.sectionNoPaddingTop}>
+        <Team data={newTeam} />
+      </Section>
+      <SectionAlternate className={classes.sectionPartners}>
+        <Partners data={companies} />
+      </SectionAlternate>
+      {/* <Contact data={mapData} /> */}
+      {/* <SectionAlternate>
+        <Gallery data={gallery} />
+      </SectionAlternate> */}
+    </div>
   );
 };
 

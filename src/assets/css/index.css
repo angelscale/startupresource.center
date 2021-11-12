@@ -32,3 +32,11 @@ p {
   font-size: 1rem;
   font-weight: 400;
 }
+
+.ws {
+  white-space: break-spaces;
+}
+
+.obj-top img {
+  object-position: top;
+}
