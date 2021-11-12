@@ -52,7 +52,7 @@ const Main = (props) => {
     <div className={className} {...rest}>
       <Grid container spacing={4} className={classes.gridContainer}>
         {gridData.map((item, index) => (
-          <Grid key={index} item xs={12} md={6} lg={3}>
+          <Grid key={index} item xs={12} sm={6} md={6} lg={3}>
             <div className={classes.folioItem} data-aos="fade-up">
               <div className={classes.folioIcon}>{item.icon}</div>
               <div
