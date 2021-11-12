@@ -6,10 +6,18 @@ import { featured, articles } from 'templates/BlogReachView/data';
 
 const useStyles = makeStyles((theme) => ({
   featuredContainer: {
+    margin: theme.spacing(0, 2),
     padding: theme.spacing(4, 0),
+    [theme.breakpoints.up('md')]: {
+      margin: theme.spacing(0),
+    },
   },
   articlesContainer: {
+    margin: theme.spacing(0, 2),
     padding: theme.spacing(0, 0, 4, 0),
+    [theme.breakpoints.up('md')]: {
+      margin: theme.spacing(0),
+    },
   },
 }));
 
