@@ -1,10 +1,11 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Typography, colors, Grid } from '@material-ui/core';
+import { Typography, colors } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Hero from 'components/Hero/hero.component';
 
 import ServiceSectionView from './home/service-section';
+import ArticlesSectionView from './home/article-section';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,11 +53,7 @@ const HomeView = () => {
         subtitle={data.site.siteMetadata.description}
       />
       <ServiceSectionView />
-      <Typography className={classes.text}>
-        Make StartupResource.Center your own free, personal consultant so that
-        you can receive expert guidance in all aspects of starting and growing
-        your own business.
-      </Typography>
+      <ArticlesSectionView />
     </div>
   );
 };
