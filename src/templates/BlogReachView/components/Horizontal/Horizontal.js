@@ -5,6 +5,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {
   useMediaQuery,
   Avatar,
+  Box,
   Typography,
   Grid,
   Divider,
@@ -12,14 +13,13 @@ import {
 import { Image } from 'components/atoms';
 import { CardProduct } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   cardProduct: {
     display: 'flex',
     height: '100%',
     borderRadius: theme.spacing(1),
     '& .card-product__content, & .card-product__media': {
       flex: '1 1 50%',
-      height: '100%',
     },
     [theme.breakpoints.down('xs')]: {
       flexDirection: 'column !important',
@@ -36,7 +36,10 @@ const useStyles = makeStyles(theme => ({
   },
   image: {
     objectFit: 'cover',
-    borderRadius: theme.spacing(0, 0, 20, 0),
+  },
+  imageContainer: {
+    position: 'relative',
+    overflow: 'hidden',
   },
   blogContent: {
     display: 'flex',
@@ -74,9 +77,24 @@ const useStyles = makeStyles(theme => ({
       margin: theme.spacing(0, 2, 2, 0),
     },
   },
+  svg: {
+    position: 'absolute',
+    bottom: 0,
+    top: '150%',
+    right: 0,
+    color: theme.palette.background.paper,
+    transform: 'scale(2) rotate(180deg)',
+    height: '100%',
+    width: 'auto',
+    transformOrigin: 'top center',
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'block',
+    },
+  },
 }));
 
-const Horizontal = props => {
+const Horizontal = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -85,15 +103,29 @@ const Horizontal = props => {
     defaultMatches: true,
   });
 
-  const BlogMediaContent = props => (
-    <Image
-      {...props}
-      className={classes.image}
-      lazyProps={{ width: '100%', height: '100%' }}
-    />
+  const BlogMediaContent = (props) => (
+    <div className={classes.imageContainer}>
+      <Image
+        {...props}
+        className={classes.image}
+        lazyProps={{ width: '100%', height: '100%' }}
+      />
+      <Box
+        component={'svg'}
+        viewBox="0 0 112 690"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className={classes.svg}
+      >
+        <path
+          d="M0 0h62.759v172C38.62 384 112 517 112 517v173H0V0z"
+          fill="currentColor"
+        />
+      </Box>
+    </div>
   );
 
-  const BlogContent = props => (
+  const BlogContent = (props) => (
     <div className={classes.blogContent}>
       <Typography variant="h5" color="textPrimary" gutterBottom>
         {props.title}

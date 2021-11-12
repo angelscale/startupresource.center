@@ -1,21 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import {
-  useMediaQuery,
-  Avatar,
-  Typography,
-  Grid,
-  Divider,
-} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { Avatar, Box, Typography, Grid, Divider } from '@material-ui/core';
 import { Image } from 'components/atoms';
 import { CardProduct } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     [theme.breakpoints.down('sm')]: {
-      maxWidth: 400,
       margin: '0 auto',
     },
   },
@@ -31,7 +24,6 @@ const useStyles = makeStyles(theme => ({
   },
   image: {
     objectFit: 'cover',
-    borderRadius: theme.spacing(0, 0, 20, 0),
   },
   blogContent: {
     display: 'flex',
@@ -68,26 +60,55 @@ const useStyles = makeStyles(theme => ({
     color: 'white',
     fontWeight: 300,
   },
+  media: {
+    objectFit: 'cover',
+  },
+  mediaContainer: {
+    position: 'relative',
+    overflow: 'hidden',
+  },
+  svg: {
+    position: 'absolute',
+    bottom: '0.5rem',
+    left: 0,
+    color: theme.palette.background.paper,
+    transform: 'scale(2)',
+    height: 'auto',
+    width: '100%',
+    transformOrigin: 'center top',
+    display: 'block',
+  },
 }));
 
-const Vertical = props => {
+const Vertical = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
-  const theme = useTheme();
-  const isMd = useMediaQuery(theme.breakpoints.up('md'), {
-    defaultMatches: true,
-  });
-
-  const BlogMediaContent = props => (
-    <Image
-      {...props}
-      className={classes.image}
-      lazyProps={{ width: '100%', height: '100%' }}
-    />
+  const BlogMediaContent = (props) => (
+    <div className={classes.mediaContainer}>
+      <Image
+        {...props}
+        className={classes.media}
+        lazyProps={{ width: '100%', height: '100%' }}
+      />
+      <Box
+        component={'svg'}
+        viewBox="0 0 2880 480"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className={classes.svg}
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M2160 0C1440 240 720 240 720 240H0v240h2880V0h-720z"
+          fill="currentColor"
+        />
+      </Box>
+    </div>
   );
 
-  const BlogContent = props => (
+  const BlogContent = (props) => (
     <div className={classes.blogContent}>
       <Typography variant="h6" color="textPrimary" gutterBottom>
         {props.title}
@@ -113,9 +134,17 @@ const Vertical = props => {
 
   return (
     <div className={clsx(classes.root, className)} {...rest}>
-      <Grid container spacing={isMd ? 4 : 2}>
+      <Grid container spacing={4}>
         {data.map((item, index) => (
-          <Grid item xs={12} md={4} key={index} data-aos="fade-up">
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={6}
+            lg={4}
+            key={index}
+            data-aos="fade-up"
+          >
             <CardProduct
               withShadow
               liftUp
