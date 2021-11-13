@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     height: 450,
   },
   folioInfoWrapper: {
-    padding: theme.spacing(4, 2),
+    padding: theme.spacing(4),
   },
   folioTitle: {
     fontWeight: 'bold',

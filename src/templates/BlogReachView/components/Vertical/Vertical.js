@@ -99,8 +99,8 @@ const Vertical = (props) => {
         className={classes.svg}
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M2160 0C1440 240 720 240 720 240H0v240h2880V0h-720z"
           fill="currentColor"
         />
