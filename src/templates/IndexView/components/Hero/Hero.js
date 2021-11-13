@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Typography } from '@material-ui/core';
 
+import homeImage from '../../../../assets/images/home-image.jpg';
 import { SectionHeader, TypedText } from 'components/molecules';
 import { HeroShaped } from 'components/organisms';
 
@@ -42,19 +43,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   imageAnimation: {
-    background: `url("https://assets.maccarianagency.com/the-front/web-screens/home/home-hero-bg-light.png")`,
-    backgroundRepeat: 'repeat',
-    backgroundAttachment: 'scroll',
-    backgroundSize: '400px auto',
-    width: '600%',
-    height: '600%',
+    background: `url(${homeImage})`,
+    backgroundPosition: 'right',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    width: '100%',
+    height: '100%',
     backgroundColor: theme.palette.alternate.dark,
-    top: '-25%',
-    left: '-100%',
-    position: 'absolute',
-    [theme.breakpoints.up('sm')]: {
-      backgroundSize: '800px auto',
-    },
   },
 }));
 

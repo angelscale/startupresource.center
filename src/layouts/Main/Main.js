@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import { Divider } from '@material-ui/core';
 import { Topbar, Footer, Sidebar } from './components';
-import { navigation } from 'layouts/navigation';
+import { navigation, navigationNew } from 'layouts/navigation';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,7 +33,7 @@ const Main = ({ children, themeToggler, themeMode }) => {
     >
       <Topbar
         onSidebarOpen={handleSidebarOpen}
-        navigation={navigation}
+        navigation={navigationNew}
         themeMode={themeMode}
         themeToggler={themeToggler}
       />
