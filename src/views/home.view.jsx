@@ -26,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
   intro: {
     background: colors.blueGrey[100] + '40',
   },
+  content: {
+    margin: '0 auto',
+    maxWidth: theme.layout.contentWidth,
+  },
 }));
 
 const HomeView = () => {
@@ -49,8 +53,10 @@ const HomeView = () => {
   return (
     <div className={classes.root}>
       <Hero />
-      <ServiceSectionView />
-      <ArticlesSectionView />
+      <div className={classes.content}>
+        <ServiceSectionView />
+        <ArticlesSectionView />
+      </div>
     </div>
   );
 };
