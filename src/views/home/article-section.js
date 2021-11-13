@@ -26,11 +26,11 @@ const ArticleSection = () => {
   const classes = useStyles();
   return (
     <>
-      <SectionLabel
-        title="Latest Stories"
-        subtitle="Amet occaecat velit quis id elit et velit officia aliqua aute ipsum."
-      />
       <div className={classes.featuredContainer}>
+        <SectionLabel
+          title="Latest Stories"
+          subtitle="Amet occaecat velit quis id elit et velit officia aliqua aute ipsum."
+        />
         <Horizontal data={featured} />
       </div>
       <div className={classes.articlesContainer}>

@@ -46,7 +46,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: 'repeat',
     backgroundAttachment: 'scroll',
     backgroundSize: '400px auto',
-    animation: `$slideshow 50s linear infinite`,
     width: '600%',
     height: '600%',
     backgroundColor: theme.palette.alternate.dark,
@@ -55,17 +54,6 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     [theme.breakpoints.up('sm')]: {
       backgroundSize: '800px auto',
-    },
-  },
-  imageAnimationDark: {
-    background: `url("https://assets.maccarianagency.com/the-front/web-screens/home/home-hero-bg-dark.png")`,
-  },
-  '@keyframes slideshow': {
-    '0%': {
-      transform: 'rotate(-13deg) translateY(-25%)',
-    },
-    '100%': {
-      transform: 'rotate(-13deg) translateY(-80%)',
     },
   },
 }));
@@ -94,7 +82,7 @@ const Hero = ({ className, ...rest }) => {
   const subtitle =
     'Sunt quis dolor est anim reprehenderit esse pariatur. Ex ad ut veniam consectetur adipisicing occaecat.';
 
-  const buyButton = (
+  const ctaButton = (
     <Button
       size="large"
       variant="contained"
@@ -115,7 +103,7 @@ const Hero = ({ className, ...rest }) => {
         variant: 'h2',
         color: 'textPrimary',
       }}
-      ctaGroup={[buyButton]}
+      ctaGroup={[ctaButton]}
       data-aos="fade-right"
       disableGutter
       className={classes.leftSideContent}

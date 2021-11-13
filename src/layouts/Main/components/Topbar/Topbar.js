@@ -10,7 +10,6 @@ import {
   Popover,
   Typography,
   IconButton,
-  Button,
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -33,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     margin: '0 auto',
     padding: theme.spacing(0, 2),
+    [theme.breakpoints.up('md')]: {
+      padding: theme.spacing(0, 4),
+    },
   },
   navLink: {
     '&:hover': {

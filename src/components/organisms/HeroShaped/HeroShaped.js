@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Divider } from '@material-ui/core';
 import { Section } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     height: '100%',
     width: '100%',
@@ -23,6 +23,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   heroLeftSide: {
+    padding: theme.spacing(12, 4),
     [theme.breakpoints.down('sm')]: {
       padding: theme.spacing(3, 8),
     },
