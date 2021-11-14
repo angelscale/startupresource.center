@@ -59,9 +59,9 @@ const AboutUsView = () => {
       <Section className={classes.sectionNoPaddingTop}>
         <Team data={newTeam} />
       </Section>
-      <SectionAlternate className={classes.sectionPartners}>
+      {/* <SectionAlternate className={classes.sectionPartners}>
         <Partners data={companies} />
-      </SectionAlternate>
+      </SectionAlternate> */}
       {/* <Contact data={mapData} /> */}
       {/* <SectionAlternate>
         <Gallery data={gallery} />

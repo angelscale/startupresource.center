@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {
@@ -11,6 +11,7 @@ import {
 } from '@material-ui/core';
 import { SectionHeader } from 'components/molecules';
 import { CardBase } from 'components/organisms';
+import Modal from 'components/custom/Modal';
 
 const useStyles = makeStyles((theme) => ({
   cardBase: {
@@ -66,6 +67,14 @@ const Team = (props) => {
     defaultMatches: true,
   });
 
+  const [isOpen, setIsOpen] = useState(false);
+  const [personData, setPersonData] = useState(null);
+
+  const handleClick = (_data) => {
+    setPersonData(_data);
+    setIsOpen(true);
+  };
+
   return (
     <div className={className} {...rest}>
       <SectionHeader
@@ -74,7 +83,15 @@ const Team = (props) => {
       />
       <Grid container spacing={isMd ? 2 : 1}>
         {data.map((item, index) => (
-          <Grid item xs={6} sm={6} md={4} key={index} data-aos="fade-up">
+          <Grid
+            item
+            xs={6}
+            sm={6}
+            md={4}
+            key={index}
+            data-aos="fade-up"
+            onClick={() => handleClick(item)}
+          >
             <CardBase className={classes.cardBase} liftUp>
               <ListItem disableGutters className={classes.listItem}>
                 <ListItemAvatar className={classes.listItemAvatar}>
@@ -104,6 +121,7 @@ const Team = (props) => {
           </Grid>
         ))}
       </Grid>
+      <Modal open={isOpen} setOpen={setIsOpen} content={personData} />
     </div>
   );
 };
