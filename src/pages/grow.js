@@ -5,6 +5,7 @@ import GrowView from 'views/grow.view';
 
 const Grow = () => {
   return <WithLayout component={GrowView} layout={Main} />;
+  // return <GrowView />;
 };
 
 export default Grow;

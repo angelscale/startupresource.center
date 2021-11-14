@@ -13,6 +13,7 @@ import {
   Story,
   Team,
   WhoWeAre,
+  WorkWithus,
 } from '../templates-tf/About/components';
 
 import {
@@ -48,6 +49,9 @@ const AboutUsView = () => {
     <div className={classes.root}>
       <Hero />
       <Section>
+        <WorkWithus />
+      </Section>
+      <Section>
         <Story content={paragraphs.our_story} />
       </Section>
       <Section className={classes.sectionNoPaddingTop}>
@@ -59,13 +63,6 @@ const AboutUsView = () => {
       <Section className={classes.sectionNoPaddingTop}>
         <Team data={newTeam} />
       </Section>
-      {/* <SectionAlternate className={classes.sectionPartners}>
-        <Partners data={companies} />
-      </SectionAlternate> */}
-      {/* <Contact data={mapData} /> */}
-      {/* <SectionAlternate>
-        <Gallery data={gallery} />
-      </SectionAlternate> */}
     </div>
   );
 };

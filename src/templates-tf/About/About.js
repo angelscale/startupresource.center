@@ -13,7 +13,7 @@ import {
 
 import { team, companies, mapData, gallery } from './data';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     height: '100%',
     width: '100%',
