@@ -166,6 +166,12 @@ module.exports = {
       },
     },
     `gatsby-plugin-advanced-sitemap`,
+    {
+      resolve: `gatsby-plugin-google-adsense`,
+      options: {
+        publisherId: `ca-pub-6553710160365970`,
+      },
+    },
   ],
   siteMetadata: siteMetadata,
 };
