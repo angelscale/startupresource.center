@@ -1,4 +1,5 @@
 import React from 'react';
+import { navigate } from 'gatsby';
 import PropTypes from 'prop-types';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { useMediaQuery, Grid, Button } from '@material-ui/core';
@@ -48,7 +49,12 @@ const WorkWithus = (props) => {
                 variant: 'body1',
               }}
               ctaGroup={[
-                <Button color="primary" variant="contained" size="large">
+                <Button
+                  color="primary"
+                  variant="contained"
+                  size="large"
+                  onClick={() => navigate('/about-us/src-consulting')}
+                >
                   SRC Consulting
                 </Button>,
               ]}

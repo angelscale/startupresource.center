@@ -7,7 +7,7 @@ import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 import { HeroShaped } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     background:
       'url(https://assets.maccarianagency.com/the-front/illustrations/patterns-bg.svg) no-repeat left bottom',
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Hero = props => {
+const Hero = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
 
