@@ -58,8 +58,8 @@ const Team = (props) => {
         }
         subtitle={
           <span className={classes.textWhite}>
-            We have business professionals with a wide range of expertise to
-            match your startup needs.
+            Depending on those specific needs, you will work with one or more of
+            our business experts:
           </span>
         }
         titleVariant="h5"
