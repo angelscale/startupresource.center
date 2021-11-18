@@ -20,7 +20,8 @@ jobs:
         uses: actions/github-script@v5
         with:
           script: |
-            const branch = context.head_ref.replace('refs/heads/','')
+            console.log(context)
+            const branch = context.ref.replace('refs/heads/','')
             core.setOutput('env_name',branch)
       - name: Destroy Deployment
         id: destroy-deployment
