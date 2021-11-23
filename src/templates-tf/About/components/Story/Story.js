@@ -39,7 +39,7 @@ const Story = (props) => {
         >
           <div>
             <SectionHeader
-              title="Our story"
+              title="Who are we?"
               subtitle={content}
               align="left"
               disableGutter

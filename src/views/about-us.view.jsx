@@ -49,16 +49,16 @@ const AboutUsView = () => {
     <div className={classes.root}>
       <Hero />
       <Section>
-        <WorkWithus />
-      </Section>
-      <Section>
-        <Story content={paragraphs.our_story} />
+        <Story content={paragraphs.who_are_we} />
       </Section>
       <Section className={classes.sectionNoPaddingTop}>
         <WhoWeAre
-          contentOne={paragraphs.who_are_we}
-          contentTwo={paragraphs.our_process}
+          contentOne={paragraphs.our_process}
+          contentTwo={paragraphs.our_story}
         />
+      </Section>
+      <Section className={classes.sectionNoPaddingTop}>
+        <WorkWithus />
       </Section>
       <Section className={classes.sectionNoPaddingTop}>
         <Team data={newTeam} />

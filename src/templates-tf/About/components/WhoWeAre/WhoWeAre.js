@@ -17,7 +17,7 @@ const WhoWeAre = (props) => {
       <Grid container spacing={isMd ? 4 : 2}>
         <Grid item xs={12} sm={6} data-aos="fade-up">
           <SectionHeader
-            title="Who are we?"
+            title="Our process"
             subtitle={contentOne}
             disableGutter
             align="left"
@@ -29,7 +29,7 @@ const WhoWeAre = (props) => {
         </Grid>
         <Grid item xs={12} sm={6} data-aos="fade-up">
           <SectionHeader
-            title="Our process"
+            title="Our story"
             subtitle={contentTwo}
             disableGutter
             align="left"

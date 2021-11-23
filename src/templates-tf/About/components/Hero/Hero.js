@@ -17,10 +17,12 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
   },
   image: {
-    minHeight: 400,
+    // minHeight: 400,
+    maxHeight: 400,
     objectFit: 'cover',
+    objectPosition: 'top center',
     [theme.breakpoints.down('sm')]: {
-      width: 'auto',
+      // width: 'auto',
       // minHeight: 250,
     },
   },
@@ -51,8 +53,10 @@ const Hero = (props) => {
       <Image
         // src={HeroImg}
         // srcSet={HeroImg}
-        src="https://assets.maccarianagency.com/the-front/photos/about/hero-image.png"
-        srcSet="https://assets.maccarianagency.com/the-front/photos/about/hero-image.png 2x"
+        src="https://assets.maccarianagency.com/backgrounds/img1.jpg"
+        srcSet="https://assets.maccarianagency.com/backgrounds/img1.jpg"
+        // src="https://assets.maccarianagency.com/the-front/photos/about/hero-image.png"
+        // srcSet="https://assets.maccarianagency.com/the-front/photos/about/hero-image.png"
         alt="About"
         className={classes.image}
         lazyProps={{
