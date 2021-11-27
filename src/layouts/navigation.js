@@ -1,4 +1,4 @@
-export const navigation = {
+exports.navigation = {
   research: {
     id: 'research',
     name: 'Research',
@@ -123,7 +123,7 @@ export const navigation = {
   },
 };
 
-export const navigationNew = [
+exports.navigationNew = [
   {
     title: 'Plan',
     slug: 'plan',
