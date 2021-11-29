@@ -57,6 +57,7 @@
     "@tryghost/helpers-gatsby": "^1.0.56",
     "@types/react": ">=16",
     "aos": "^2.3.4",
+    "axios": "^0.24.0",
     "cheerio": "^1.0.0-rc.10",
     "clsx": "^1.1.1",
     "gatsby": "^3.11.1",
