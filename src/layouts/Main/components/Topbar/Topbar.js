@@ -208,19 +208,6 @@ const Topbar = ({
     }
   `);
 
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [openedPopoverId, setOpenedPopoverId] = useState(null);
-
-  const handleClick = (event, popoverId) => {
-    setAnchorEl(event.target);
-    setOpenedPopoverId(popoverId);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-    setOpenedPopoverId(null);
-  };
-
   return (
     <Toolbar disableGutters className={classes.toolbar} {...rest}>
       <Box className={classes.logoContainer}>
