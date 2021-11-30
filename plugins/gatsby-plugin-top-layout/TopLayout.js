@@ -42,11 +42,6 @@ export default function TopLayout(props) {
           src="https://kit.fontawesome.com/4c273e6d43.js"
           crossOrigin="anonymous"
         ></script> */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6553710160365970"
-          crossorigin="anonymous"
-        ></script>
       </Helmet>
       {props.children}
     </React.Fragment>

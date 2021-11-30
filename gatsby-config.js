@@ -165,6 +165,12 @@ module.exports = {
         icon: 'src/assets/images/icon.svg',
       },
     },
+    {
+      resolve: `gatsby-plugin-google-adsense`,
+      options: {
+        publisherId: `ca-pub-6553710160365970`,
+      },
+    },
     `gatsby-plugin-advanced-sitemap`,
     {
       resolve: 'gatsby-omni-font-loader',
