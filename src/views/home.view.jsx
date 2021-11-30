@@ -7,12 +7,12 @@ import { Icon } from 'components/atoms';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    minHeight: '45rem',
     width: '100%',
   },
   heading: {
     // width: '100%',
-    margin: theme.spacing(2),
-    marginLeft: theme.spacing(8),
+    margin: theme.spacing(4),
     padding: theme.spacing(4),
     borderTopLeftRadius: theme.spacing(10),
     borderBottomLeftRadius: theme.spacing(2),

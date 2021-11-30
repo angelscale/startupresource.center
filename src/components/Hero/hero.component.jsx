@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import { Section } from 'components/organisms';
 import { SectionHeader } from 'components/molecules';
@@ -29,6 +30,10 @@ const useStyles = makeStyles((theme) => ({
   subtitle: {
     color: 'white',
   },
+  buttonCta: {
+    borderColor: 'white',
+    color: 'white',
+  },
 }));
 
 const Hero = ({ title, subtitle, children, image }) => {
@@ -56,6 +61,13 @@ const Hero = ({ title, subtitle, children, image }) => {
               }}
             />
             {children}
+            <Button
+              variant="outlined"
+              size="large"
+              className={classes.buttonCta}
+            >
+              Learn more
+            </Button>
           </Section>
         </div>
       </BgImage>
