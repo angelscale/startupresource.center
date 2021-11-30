@@ -262,11 +262,6 @@ const Topbar = ({
               </IconButton>
             </Box>
             <Box>
-              <Link href="/about-us">
-                <Button variant="text">About Us</Button>
-              </Link>
-            </Box>
-            <Box>
               <div className={classes.search}>
                 <div className={classes.searchIcon}>
                   <SearchIcon />

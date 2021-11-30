@@ -27,10 +27,7 @@ const ArticleSection = () => {
   return (
     <>
       <div className={classes.featuredContainer}>
-        <SectionLabel
-          title="Latest Stories"
-          subtitle="Amet occaecat velit quis id elit et velit officia aliqua aute ipsum."
-        />
+        <SectionLabel title="Featured Resources" />
         <Horizontal data={featured} />
       </div>
       <div className={classes.articlesContainer}>
