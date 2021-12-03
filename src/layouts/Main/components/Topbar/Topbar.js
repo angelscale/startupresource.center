@@ -1,22 +1,28 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+import { alpha, makeStyles } from '@material-ui/core/styles';
 import {
+  Box,
+  Button,
   Toolbar,
   Hidden,
+  InputBase,
   List,
   ListItem,
-  ListItemIcon,
-  Popover,
   Typography,
   IconButton,
-  Button,
 } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Pinterest,
+  LinkedIn,
+} from '@material-ui/icons';
+import SearchIcon from '@material-ui/icons/Search';
 import MenuIcon from '@material-ui/icons/Menu';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import { MenuGroup } from '..';
 
 const useStyles = makeStyles((theme) => ({
   spacer: {
@@ -28,11 +34,16 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   toolbar: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    margin: '0 auto',
     zIndex: 999,
     maxWidth: theme.layout.contentWidth,
     width: '100%',
-    margin: '0 auto',
     padding: theme.spacing(0, 2),
+    [theme.breakpoints.up('md')]: {
+      padding: theme.spacing(0, 4),
+    },
   },
   navLink: {
     '&:hover': {
@@ -86,9 +97,11 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.primary.dark,
   },
   logoContainer: {
-    flexShrink: 0,
-    width: 250,
-    height: 'auto',
+    padding: theme.spacing(2, 0),
+    maxWidth: '12.5rem',
+    [theme.breakpoints.up('md')]: {
+      maxWidth: '15rem',
+    },
   },
   logoImage: {
     width: '100%',
@@ -111,6 +124,61 @@ const useStyles = makeStyles((theme) => ({
   menuGroupTitle: {
     textTransform: 'uppercase',
   },
+  socialContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: theme.spacing(4, 0),
+    [theme.breakpoints.up('md')]: {
+      justifyContent: 'flex-end',
+      margin: 0,
+    },
+    '& div > a': {
+      color: theme.palette.text.secondary,
+    },
+  },
+  navigation: {
+    padding: theme.spacing(1, 0),
+  },
+  search: {
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    '&:hover': {
+      backgroundColor: alpha(theme.palette.common.white, 0.25),
+    },
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(1),
+      width: 'auto',
+    },
+  },
+  searchIcon: {
+    padding: theme.spacing(0, 2),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  inputRoot: {
+    color: 'inherit',
+  },
+  inputInput: {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: '12ch',
+      '&:focus': {
+        width: '20ch',
+      },
+    },
+  },
 }));
 
 const Topbar = ({
@@ -123,7 +191,7 @@ const Topbar = ({
 }) => {
   const classes = useStyles();
   const data = useStaticQuery(graphql`
-    query HeaderQuery {
+    query HeaderAltQuery {
       site {
         siteMetadata {
           title
@@ -140,22 +208,9 @@ const Topbar = ({
     }
   `);
 
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [openedPopoverId, setOpenedPopoverId] = useState(null);
-
-  const handleClick = (event, popoverId) => {
-    setAnchorEl(event.target);
-    setOpenedPopoverId(popoverId);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-    setOpenedPopoverId(null);
-  };
-
   return (
     <Toolbar disableGutters className={classes.toolbar} {...rest}>
-      <div className={classes.logoContainer}>
+      <Box className={classes.logoContainer}>
         <a href="/" title={data.site.siteMetadata.title}>
           <StaticImage
             className={classes.logoImage}
@@ -164,95 +219,71 @@ const Topbar = ({
             loading="eager"
           />
         </a>
-      </div>
-      <div className={classes.spacer} />
-      <Hidden smDown>
-        <List disablePadding className={classes.navigationContainer}>
-          {Object.values(navigation).map(({ id, name, tags, href }) => (
-            <div key={id}>
-              {href === undefined ? (
-                <>
-                  <ListItem
-                    aria-describedby={id}
-                    onClick={(e) => handleClick(e, id)}
-                    className={clsx(
-                      classes.listItem,
-                      openedPopoverId === id ? classes.listItemActive : '',
-                    )}
-                  >
-                    <Typography
-                      variant="body1"
-                      color="textPrimary"
-                      className={clsx(classes.listItemText, 'menu-item')}
-                    >
-                      {name}
-                    </Typography>
-                    <ListItemIcon className={classes.listItemIcon}>
-                      <ExpandMoreIcon
-                        className={
-                          openedPopoverId === id ? classes.expandOpen : ''
-                        }
-                        fontSize="small"
-                      />
-                    </ListItemIcon>
-                  </ListItem>
-                  <Popover
-                    elevation={1}
-                    id={id}
-                    open={openedPopoverId === id}
-                    anchorEl={anchorEl}
-                    onClose={handleClose}
-                    anchorOrigin={{
-                      vertical: 'bottom',
-                      horizontal: 'center',
-                    }}
-                    transformOrigin={{
-                      vertical: 'top',
-                      horizontal: 'center',
-                    }}
-                    classes={{ paper: classes.popover }}
-                  >
-                    <MenuGroup
-                      category={id}
-                      tags={tags}
-                      onClose={handleClose}
-                      classes={classes}
-                    />
-                  </Popover>
-                </>
-              ) : (
-                <ListItem
-                  className={clsx(classes.listItem, 'menu-item--no-dropdown')}
+      </Box>
+      <Box className={classes.navigation}>
+        <Hidden smDown>
+          <Box className={classes.socialContainer}>
+            <Box>
+              <IconButton component={Link} href="https://facebook.com">
+                <Facebook />
+              </IconButton>
+            </Box>
+            <Box>
+              <IconButton component={Link} href="https://facebook.com">
+                <LinkedIn />
+              </IconButton>
+            </Box>
+            <Box>
+              <IconButton component={Link} href="https://facebook.com">
+                <Instagram />
+              </IconButton>
+            </Box>
+            <Box>
+              <IconButton component={Link} href="https://facebook.com">
+                <Twitter />
+              </IconButton>
+            </Box>
+            <Box>
+              <IconButton component={Link} href="https://facebook.com">
+                <Pinterest />
+              </IconButton>
+            </Box>
+            <Box>
+              <div className={classes.search}>
+                <div className={classes.searchIcon}>
+                  <SearchIcon />
+                </div>
+                <InputBase
+                  placeholder="Search…"
+                  classes={{
+                    root: classes.inputRoot,
+                    input: classes.inputInput,
+                  }}
+                  inputProps={{ 'aria-label': 'search' }}
+                />
+              </div>
+            </Box>
+          </Box>
+          <List disablePadding className={classes.navigationContainer}>
+            {navigation.map(({ slug, title, href }) => (
+              <ListItem
+                key={slug}
+                className={clsx(classes.listItem, 'menu-item--no-dropdown')}
+              >
+                <Typography
+                  variant="body1"
+                  color="textPrimary"
+                  component="a"
+                  href={href}
+                  className={clsx(classes.listItemText, 'menu-item')}
                 >
-                  <Typography
-                    variant="body1"
-                    color="textPrimary"
-                    component="a"
-                    href={href}
-                    className={clsx(classes.listItemText, 'menu-item')}
-                  >
-                    {name}
-                  </Typography>
-                </ListItem>
-              )}
-            </div>
-          ))}
-          {/* <ListItem
-            className={clsx(classes.listItem, 'menu-item--no-dropdown')}
-          >
-            <Button
-              variant="contained"
-              color="primary"
-              component="a"
-              target="blank"
-              href="/"
-              className={classes.listItemButton}
-            >
-              Sign In
-            </Button>
-          </ListItem> */}
-        </List>
-      </Hidden>
+                  <Button variant="text">{title}</Button>
+                </Typography>
+              </ListItem>
+            ))}
+          </List>
+        </Hidden>
+      </Box>
       <Hidden mdUp>
         <IconButton
           className={classes.iconButton}
