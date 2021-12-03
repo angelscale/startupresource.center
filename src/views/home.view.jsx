@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+// import { graphql, useStaticQuery } from 'gatsby';
 import { colors } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -33,21 +33,21 @@ const useStyles = makeStyles((theme) => ({
 
 const HomeView = () => {
   const classes = useStyles();
-  const data = useStaticQuery(graphql`
-    query HomeQuery {
-      file(name: { eq: "home-image" }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: BLURRED)
-        }
-      }
-      site {
-        siteMetadata {
-          title
-          description
-        }
-      }
-    }
-  `);
+  // const data = useStaticQuery(graphql`
+  //   query HomeQuery {
+  //     file(name: { eq: "home-image" }) {
+  //       childImageSharp {
+  //         gatsbyImageData(placeholder: BLURRED)
+  //       }
+  //     }
+  //     site {
+  //       siteMetadata {
+  //         title
+  //         description
+  //       }
+  //     }
+  //   }
+  // `);
 
   return (
     <div className={classes.root}>

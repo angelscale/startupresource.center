@@ -10,9 +10,13 @@ const useStyles = makeStyles((theme) => ({
   root: {
     height: '100%',
   },
+  content: {
+    margin: '0 auto',
+    maxWidth: theme.layout.contentWidth,
+  },
 }));
 
-const Main = ({ children, themeToggler, themeMode }) => {
+const Main = ({ children, themeToggler, themeMode, fullWidth }) => {
   const classes = useStyles();
 
   const [openSidebar, setOpenSidebar] = useState(false);
@@ -24,6 +28,8 @@ const Main = ({ children, themeToggler, themeMode }) => {
   const handleSidebarClose = () => {
     setOpenSidebar(false);
   };
+
+  console.log('from main', fullWidth);
 
   return (
     <div
@@ -44,7 +50,7 @@ const Main = ({ children, themeToggler, themeMode }) => {
         navigation={navigation}
       />
       <Divider />
-      <main>{children}</main>
+      <main className={!fullWidth ? classes.content : ''}>{children}</main>
       <Footer navigation={navigation} />
     </div>
   );
