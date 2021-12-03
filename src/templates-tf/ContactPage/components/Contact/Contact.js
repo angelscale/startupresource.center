@@ -21,7 +21,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Contact = props => {
+const Contact = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
@@ -32,7 +32,7 @@ const Contact = props => {
           <div>
             <SectionHeader
               title="Contact details"
-              subtitle="Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions."
+              subtitle="At Angel-Scale, we’re always here to support your business journey. Fill out the form below and someone will get back to you ASAP!"
               subtitleProps={{
                 variant: 'body1',
                 color: 'textPrimary',
@@ -41,7 +41,10 @@ const Contact = props => {
               align="left"
             />
             <List disablePadding>
-              <ListItem disableGutters data-aos="fade-up">
+              {/* <ListItem
+                disableGutters
+                data-aos="fade-up"
+              >
                 <ListItemAvatar>
                   <Avatar
                     src="https://assets.maccarianagency.com/the-front/illustrations/contact-icon-phone.png"
@@ -61,7 +64,7 @@ const Contact = props => {
                     color: 'textPrimary',
                   }}
                 />
-              </ListItem>
+              </ListItem> */}
               <ListItem disableGutters data-aos="fade-up">
                 <ListItemAvatar>
                   <Avatar
@@ -72,7 +75,7 @@ const Contact = props => {
                 </ListItemAvatar>
                 <ListItemText
                   primary="Email"
-                  secondary="hi@maccarianagency.com"
+                  secondary="contact@startupresource.center"
                   primaryTypographyProps={{
                     variant: 'subtitle1',
                     color: 'textSecondary',
@@ -83,7 +86,7 @@ const Contact = props => {
                   }}
                 />
               </ListItem>
-              <ListItem disableGutters data-aos="fade-up">
+              {/* <ListItem disableGutters data-aos="fade-up">
                 <ListItemAvatar>
                   <Avatar
                     src="https://assets.maccarianagency.com/the-front/illustrations/contact-icon-pin.png"
@@ -103,15 +106,16 @@ const Contact = props => {
                     color: 'textPrimary',
                   }}
                 />
-              </ListItem>
+              </ListItem> */}
             </List>
           </div>
         }
         rightSide={
           <Map
-            center={[45.464211, 9.011383]}
-            pins={data}
+            center={[39.099724, -94.578331]}
+            // pins={data}
             className={classes.map}
+            zoom={11}
           />
         }
       />

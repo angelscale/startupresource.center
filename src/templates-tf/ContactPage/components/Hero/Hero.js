@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { SectionHeader } from 'components/molecules';
 import { Section } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     height: '100%',
@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Hero = props => {
+const Hero = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
   return (
@@ -49,7 +49,7 @@ const Hero = props => {
       <Section className={classes.section}>
         <SectionHeader
           title="Contact us"
-          subtitle="We are founded by a leading academic and researcher in the field of Industrial Systems Engineering."
+          subtitle="Have questions or requests? Our business experts are here to help!"
           align="left"
           data-aos="fade-up"
           disableGutter

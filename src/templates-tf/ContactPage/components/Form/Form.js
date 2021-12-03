@@ -11,8 +11,13 @@ import {
 import { SectionHeader } from 'components/molecules';
 import { red } from '@material-ui/core/colors';
 
+import { toast } from 'react-toastify';
+
 // request
 import { sendMail } from 'utils/request';
+
+// assets
+import LoaderGif from 'assets/images/loader.gif';
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -32,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
   errorText: {
     color: red[500],
   },
+  btn: {
+    transition: 'all .25s ease',
+  },
 }));
 
 const Form = (props) => {
@@ -49,6 +57,8 @@ const Form = (props) => {
     email: { value: '', isError: false },
     message: { value: '', isError: false },
   });
+
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = () => {
     if (
@@ -71,6 +81,7 @@ const Form = (props) => {
         },
       });
     } else {
+      setLoading(true);
       let data = {
         from: formData.email.value,
         to: 'shahroonfarooqi@gmail.com',
@@ -81,9 +92,13 @@ const Form = (props) => {
       sendMail(data)
         .then((res) => {
           console.log(res);
+          toast.success('request submitted!');
+          setLoading(false);
         })
         .catch((err) => {
           console.log(err);
+          toast.error('request not submitted');
+          setLoading(false);
         });
     }
   };
@@ -91,8 +106,8 @@ const Form = (props) => {
   return (
     <div className={className} {...rest}>
       <SectionHeader
-        title="Can't find the answer you need?"
-        subtitle="Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions."
+        title="Contact SRC"
+        // subtitle="Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions."
         subtitleProps={{
           variant: 'body1',
           color: 'textPrimary',
@@ -204,9 +219,10 @@ const Form = (props) => {
               type="submit"
               color="primary"
               size="large"
+              className={classes.btn}
               onClick={handleSubmit}
             >
-              submit
+              {!loading ? 'submit' : 'submitting...'}
             </Button>
           </Grid>
         </Grid>

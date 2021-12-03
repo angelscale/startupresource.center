@@ -1,5 +1,9 @@
 import React from 'react';
 import { Box, Typography, Divider } from '@material-ui/core';
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { Section, SectionAlternate } from 'components/organisms';
 import {
   Contact,
@@ -22,6 +26,7 @@ const ContactUsView = () => {
         <Newsletter />
       </Section>
       <Divider />
+      <ToastContainer />
     </div>
   );
 };

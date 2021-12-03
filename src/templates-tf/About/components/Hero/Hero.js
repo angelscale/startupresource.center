@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     // minHeight: 400,
     maxHeight: 400,
     objectFit: 'cover',
-    objectPosition: 'top center',
+    objectPosition: 'center',
     [theme.breakpoints.down('sm')]: {
       // width: 'auto',
       // minHeight: 250,
@@ -51,12 +51,12 @@ const Hero = (props) => {
   return (
     <div className={clsx(classes.root, className)} {...rest}>
       <Image
-        // src={HeroImg}
-        // srcSet={HeroImg}
-        src="https://assets.maccarianagency.com/backgrounds/img1.jpg"
-        srcSet="https://assets.maccarianagency.com/backgrounds/img1.jpg"
-        // src="https://assets.maccarianagency.com/the-front/photos/about/hero-image.png"
-        // srcSet="https://assets.maccarianagency.com/the-front/photos/about/hero-image.png"
+        // src="https://assets.maccarianagency.com/backgrounds/img1.jpg"
+        // srcSet="https://assets.maccarianagency.com/backgrounds/img1.jpg"
+        src="https://logobly.com/wp-content/uploads/97_amazing_freebie_sites_for_founders_logobly_03.jpg"
+        srcSet="https://logobly.com/wp-content/uploads/97_amazing_freebie_sites_for_founders_logobly_03.jpg"
+        // src="https://assets.maccarianagency.com/backgrounds/img25.jpg"
+        // srcSet="https://assets.maccarianagency.com/backgrounds/img25.jpg"
         alt="About"
         className={classes.image}
         lazyProps={{
