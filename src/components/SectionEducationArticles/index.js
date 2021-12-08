@@ -45,7 +45,7 @@ const SectionEducationArticles = (props) => {
             justifyContent="center"
             className={classes.titleContainer}
           >
-            <Create />
+            <Create fontSize="large" />
             <Typography
               variant="h6"
               align="center"
@@ -67,7 +67,7 @@ const SectionEducationArticles = (props) => {
             justifyContent="center"
             className={classes.titleContainer}
           >
-            <FlightTakeoff />
+            <FlightTakeoff fontSize="large" />
             <Typography
               variant="h6"
               align="center"
@@ -89,7 +89,7 @@ const SectionEducationArticles = (props) => {
             justifyContent="center"
             className={classes.titleContainer}
           >
-            <DeviceHub />
+            <DeviceHub fontSize="large" />
             <Typography
               variant="h6"
               align="center"
@@ -111,7 +111,7 @@ const SectionEducationArticles = (props) => {
             justifyContent="center"
             className={classes.titleContainer}
           >
-            <TrendingUp />
+            <TrendingUp fontSize="large" />
             <Typography
               variant="h6"
               align="center"
