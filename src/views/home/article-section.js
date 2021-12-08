@@ -1,19 +1,20 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { Horizontal, Vertical } from 'templates/BlogReachView/components';
 import { featured, articles } from 'templates/BlogReachView/data';
+import ArticleFeatured from 'components/ArticleFeatured';
+import ArticleGrid from 'components/ArticleGrid';
 import SectionLabel from 'components/SectionLabel';
 
 const useStyles = makeStyles((theme) => ({
-  featuredContainer: {
+  featured: {
     margin: theme.spacing(0, 2),
     padding: theme.spacing(2, 0, 4, 0),
     [theme.breakpoints.up('md')]: {
       margin: theme.spacing(0),
     },
   },
-  articlesContainer: {
+  articles: {
     margin: theme.spacing(0, 2),
     padding: theme.spacing(0, 0, 4, 0),
     [theme.breakpoints.up('md')]: {
@@ -26,12 +27,12 @@ const ArticleSection = () => {
   const classes = useStyles();
   return (
     <>
-      <div className={classes.featuredContainer}>
+      <div className={classes.featured}>
         <SectionLabel title="Featured Resources" />
-        <Horizontal data={featured} />
+        <ArticleFeatured data={featured} />
       </div>
-      <div className={classes.articlesContainer}>
-        <Vertical data={articles} />
+      <div className={classes.articles}>
+        <ArticleGrid data={articles} />
       </div>
     </>
   );
