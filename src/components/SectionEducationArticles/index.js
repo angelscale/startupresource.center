@@ -22,11 +22,15 @@ const useStyles = makeStyles((theme) => ({
   categoryTitle: {
     fontWeight: 700,
   },
+  circle: {
+    background: theme.palette.primary.main,
+    marginRight: theme.spacing(1),
+  },
   titleContainer: {
     marginBottom: theme.spacing(2),
     '& svg': {
-      color: theme.palette.primary.main,
-      marginRight: theme.spacing(1),
+      color: 'white',
+      margin: theme.spacing(1),
     },
   },
 }));
@@ -45,7 +49,15 @@ const SectionEducationArticles = (props) => {
             justifyContent="center"
             className={classes.titleContainer}
           >
-            <Create fontSize="large" />
+            <Box
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              borderRadius="50%"
+              className={classes.circle}
+            >
+              <Create fontSize="large" />
+            </Box>
             <Typography
               variant="h6"
               align="center"
@@ -67,7 +79,15 @@ const SectionEducationArticles = (props) => {
             justifyContent="center"
             className={classes.titleContainer}
           >
-            <FlightTakeoff fontSize="large" />
+            <Box
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              borderRadius="50%"
+              className={classes.circle}
+            >
+              <FlightTakeoff fontSize="large" />
+            </Box>
             <Typography
               variant="h6"
               align="center"
@@ -89,7 +109,15 @@ const SectionEducationArticles = (props) => {
             justifyContent="center"
             className={classes.titleContainer}
           >
-            <DeviceHub fontSize="large" />
+            <Box
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              borderRadius="50%"
+              className={classes.circle}
+            >
+              <DeviceHub fontSize="large" />
+            </Box>
             <Typography
               variant="h6"
               align="center"
@@ -111,7 +139,15 @@ const SectionEducationArticles = (props) => {
             justifyContent="center"
             className={classes.titleContainer}
           >
-            <TrendingUp fontSize="large" />
+            <Box
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              borderRadius="50%"
+              className={classes.circle}
+            >
+              <TrendingUp fontSize="large" />
+            </Box>
             <Typography
               variant="h6"
               align="center"
