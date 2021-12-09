@@ -17,9 +17,10 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     display: 'flex',
     maxWidth: theme.layout.contentWidth,
-    margin: '0 auto',
+    margin: '1rem auto',
     [theme.breakpoints.down('sm')]: {
-      flexDirection: 'column-reverse',
+      flexDirection: 'column',
+      padding: '0 1rem',
     },
   },
   heroLeftSide: {
@@ -32,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   heroRightSide: {
-    maxWidth: '50%',
+    // maxWidth: '60%',
     flex: '0 0 50%',
     position: 'relative',
     [theme.breakpoints.down('sm')]: {
@@ -55,23 +56,18 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
   },
   heroImage: {
-    position: 'absolute',
-    left: '0%',
-    width: '100%',
-    height: '100%',
-    [theme.breakpoints.up('md')]: {
-      shapeOutside: 'polygon(10% 0%, 100% 0, 100% 100%, 0% 100%)',
-      clipPath: 'polygon(10% 0%, 100% 0, 100% 100%, 0% 100%)',
-    },
+    // position: 'absolute',
+    // left: '0%',
+    // width: '100%',
+    // height: '100%',
+    // [theme.breakpoints.up('md')]: {
+    //   shapeOutside: 'polygon(10% 0%, 100% 0, 100% 100%, 0% 100%)',
+    //   clipPath: 'polygon(10% 0%, 100% 0, 100% 100%, 0% 100%)',
+    // },
   },
 }));
 
-/**
- * Component to display the shaped hero
- *
- * @param {Object} props
- */
-const HeroShaped = (props) => {
+const LeftRightContainer = (props) => {
   const { leftSide, rightSide, className, ...rest } = props;
 
   const classes = useStyles();
@@ -104,7 +100,7 @@ const HeroShaped = (props) => {
   );
 };
 
-HeroShaped.propTypes = {
+LeftRightContainer.propTypes = {
   /**
    * External classes
    */
@@ -119,4 +115,4 @@ HeroShaped.propTypes = {
   leftSide: PropTypes.node.isRequired,
 };
 
-export default HeroShaped;
+export default LeftRightContainer;

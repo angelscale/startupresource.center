@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Section, SectionAlternate } from 'components/organisms';
 import {
   Contact,
+  ContactWithForm,
   Form,
   Hero,
   Newsletter,
@@ -18,10 +19,11 @@ const ContactUsView = () => {
   return (
     <div>
       <Hero />
-      <Contact data={mapData} />
-      <SectionAlternate>
+      {/* <Contact data={mapData} /> */}
+      <ContactWithForm data={mapData} />
+      {/* <SectionAlternate>
         <Form />
-      </SectionAlternate>
+      </SectionAlternate> */}
       <Section>
         <Newsletter />
       </Section>
