@@ -5,7 +5,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import EducationArticleCard from 'components/EducationArticleCard';
-import { Typography } from '@material-ui/core';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import Typography from '@material-ui/core/Typography';
 import {
   Create,
   DeviceHub,
@@ -19,12 +22,24 @@ const useStyles = makeStyles((theme) => ({
       margin: '0 auto',
     },
   },
+  accordion: {
+    border: 0,
+    boxShadow: 'none',
+    justifyContent: 'center',
+  },
   categoryTitle: {
+    cursor: 'pointer',
     fontWeight: 700,
   },
   circle: {
     background: theme.palette.primary.main,
+    cursor: 'pointer',
     marginRight: theme.spacing(1),
+  },
+  details: {
+    '&> div': {
+      display: 'block',
+    },
   },
   titleContainer: {
     marginBottom: theme.spacing(2),
@@ -35,6 +50,49 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const ArticleByCategory = ({ cat, data, icon }) => {
+  const classes = useStyles();
+
+  return (
+    <Accordion className={classes.accordion}>
+      <AccordionSummary className={classes.details}>
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          className={classes.titleContainer}
+        >
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            borderRadius="50%"
+            className={classes.circle}
+          >
+            {icon}
+          </Box>
+          <Typography
+            variant="h6"
+            align="center"
+            className={classes.categoryTitle}
+          >
+            {cat}
+          </Typography>
+        </Box>
+      </AccordionSummary>
+      <AccordionDetails>
+        <Box>
+          {data
+            .filter(({ category }) => category === cat)
+            .map((item, index) => (
+              <EducationArticleCard key={index} data={item} />
+            ))}
+        </Box>
+      </AccordionDetails>
+    </Accordion>
+  );
+};
+
 const SectionEducationArticles = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
@@ -43,124 +101,32 @@ const SectionEducationArticles = (props) => {
     <div className={clsx(classes.root, className)} {...rest}>
       <Grid container spacing={4}>
         <Grid item xs={12} sm={6} md={6} lg={3} data-aos="fade-up">
-          <Box
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            className={classes.titleContainer}
-          >
-            <Box
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              borderRadius="50%"
-              className={classes.circle}
-            >
-              <Create fontSize="large" />
-            </Box>
-            <Typography
-              variant="h6"
-              align="center"
-              className={classes.categoryTitle}
-            >
-              Plan
-            </Typography>
-          </Box>
-          {data
-            .filter(({ category }) => category === 'Plan')
-            .map((item, index) => (
-              <EducationArticleCard key={index} data={item} />
-            ))}
+          <ArticleByCategory
+            cat="Plan"
+            data={data}
+            icon={<Create fontSize="large" />}
+          />
         </Grid>
         <Grid item xs={12} sm={6} md={6} lg={3} data-aos="fade-up">
-          <Box
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            className={classes.titleContainer}
-          >
-            <Box
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              borderRadius="50%"
-              className={classes.circle}
-            >
-              <FlightTakeoff fontSize="large" />
-            </Box>
-            <Typography
-              variant="h6"
-              align="center"
-              className={classes.categoryTitle}
-            >
-              Launch
-            </Typography>
-          </Box>
-          {data
-            .filter(({ category }) => category === 'Launch')
-            .map((item, index) => (
-              <EducationArticleCard key={index} data={item} />
-            ))}
+          <ArticleByCategory
+            cat="Launch"
+            data={data}
+            icon={<FlightTakeoff fontSize="large" />}
+          />
         </Grid>
         <Grid item xs={12} sm={6} md={6} lg={3} data-aos="fade-up">
-          <Box
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            className={classes.titleContainer}
-          >
-            <Box
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              borderRadius="50%"
-              className={classes.circle}
-            >
-              <DeviceHub fontSize="large" />
-            </Box>
-            <Typography
-              variant="h6"
-              align="center"
-              className={classes.categoryTitle}
-            >
-              Manage
-            </Typography>
-          </Box>
-          {data
-            .filter(({ category }) => category === 'Manage')
-            .map((item, index) => (
-              <EducationArticleCard key={index} data={item} />
-            ))}
+          <ArticleByCategory
+            cat="Manage"
+            data={data}
+            icon={<DeviceHub fontSize="large" />}
+          />
         </Grid>
         <Grid item xs={12} sm={6} md={6} lg={3} data-aos="fade-up">
-          <Box
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            className={classes.titleContainer}
-          >
-            <Box
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              borderRadius="50%"
-              className={classes.circle}
-            >
-              <TrendingUp fontSize="large" />
-            </Box>
-            <Typography
-              variant="h6"
-              align="center"
-              className={classes.categoryTitle}
-            >
-              Grow
-            </Typography>
-          </Box>
-          {data
-            .filter(({ category }) => category === 'Grow')
-            .map((item, index) => (
-              <EducationArticleCard key={index} data={item} />
-            ))}
+          <ArticleByCategory
+            cat="Grow"
+            data={data}
+            icon={<TrendingUp fontSize="large" />}
+          />
         </Grid>
       </Grid>
     </div>
