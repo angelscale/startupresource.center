@@ -11,24 +11,23 @@ export const mockServices = [
     icon: <Create />,
     title: 'Plan',
     subtitle:
-      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.',
+      'Got an idea for a business, but don’t know where to start? In our Plan section, you’ll find everything you need to know to get your business off the ground.',
   },
   {
     icon: <FlightTakeoff />,
     title: 'Launch',
     subtitle:
-      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.',
+      'In our Launch hub, you’ll find everything you need to get your new business running, broken down into easy-to-navigate categories.',
   },
   {
     icon: <DeviceHub />,
     title: 'Manage',
-    subtitle:
-      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.',
+    subtitle: 'Keep your business operating smoothly with our expert advice.',
   },
   {
     icon: <TrendingUp />,
     title: 'Grow',
     subtitle:
-      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.',
+      'Building your business brand and market it for maximum growth with these tips. ',
   },
 ];

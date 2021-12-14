@@ -18,9 +18,9 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
     boxShadow: `0 1.5rem 4rem rgba(22,28,45,.05)`,
     borderRadius: theme.spacing(2),
+    minHeight: '360px',
   },
   subtitle: {
-    textTransform: 'capitalize',
     margin: theme.spacing(1, 0),
   },
   title: {
