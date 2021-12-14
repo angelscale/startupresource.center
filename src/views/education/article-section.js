@@ -28,7 +28,7 @@ const ArticleSection = () => {
     <>
       <div className={classes.featuredContainer}>
         <SectionLabel
-          title="Classes by Categories"
+          title="Courses by Categories"
           subtitle="Id cupidatat incididunt exercitation deserunt ipsum dolor non."
         />
       </div>

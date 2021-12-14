@@ -2,26 +2,25 @@ export const platforms = [
   {
     title: 'Coursera',
     logo: 'platforms/coursera-logo.png',
-    subtitle:
-      'Amet ullamco eiusmod elit culpa laboris nostrud proident pariatur deserunt. Pariatur cillum mollit ad dolore aliqua consequat ad nisi incididunt ullamco.',
+    subtitle: 'Learn any topic from 170+ leading universities and companies.',
   },
   {
     title: 'Skillshare',
     logo: 'platforms/skillshare-logo.png',
     subtitle:
-      'Fugiat cillum velit veniam ad officia est mollit aliquip exercitation proident aute. Amet consequat non aliquip est deserunt amet culpa ipsum quis sunt nulla labore.',
+      'Skillshare teachers are icons, experts, and industry rock stars excited to share their experience, wisdom, and trusted tools with you.',
   },
   {
     title: 'LinkedIn Learning',
     logo: 'platforms/linkedin-learning-logo.jpg',
     subtitle:
-      'Excepteur consectetur officia occaecat culpa officia cupidatat elit lorem tempor. Reprehenderit aliqua occaecat non id reprehenderit duis aute enim proident.',
+      'Subjects and courses for every step of your career. Instructors with real-world experience.',
   },
   {
     title: 'Udemy',
     logo: 'platforms/udemy-logo.png',
     subtitle:
-      'Proident ullamco fugiat ullamco adipisicing eu culpa exercitation sir amet voluptua dolorsint labore. Officia anim cupidatat id nulla pariatur duis ipsum.',
+      'Choose from 183,000 online video courses with new additions published every month.',
   },
 ];
 

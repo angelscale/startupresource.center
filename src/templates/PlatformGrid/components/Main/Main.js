@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'bold',
   },
   folioSubtitle: {
-    textTransform: 'capitalize',
     margin: theme.spacing(1, 0),
   },
   folioIcon: {
