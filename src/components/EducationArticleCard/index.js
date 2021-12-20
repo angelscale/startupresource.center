@@ -1,5 +1,6 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, alpha } from '@material-ui/core/styles';
+import Box from '@material-ui/core/Box';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
@@ -22,22 +23,41 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.text.primary,
     },
   },
+  hours: {
+    fontSize: '0.875rem',
+    fontWeight: 600,
+  },
+  cost: {
+    fontSize: '1.25rem',
+    fontWeight: 900,
+  },
 }));
 
 const EducationArticleCard = ({ data }) => {
-  const { title, link } = data;
+  const { title, link, hours, cost } = data;
   const classes = useStyles();
 
   return (
     <Card className={classes.educationArticle}>
       <CardContent>
-        <Typography
-          className={classes.title}
-          color="textPrimary"
-          align="center"
-        >
+        <Typography className={classes.title} color="textPrimary" align="left">
           <a href={link}>{title}</a>
         </Typography>
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+          mt={3}
+        >
+          <Typography
+            className={classes.hours}
+            color="secondary"
+          >{`${hours} hour${hours > 1 ? 's' : ''}`}</Typography>
+          <Typography
+            className={classes.cost}
+            color="primary"
+          >{`$${cost}`}</Typography>
+        </Box>
       </CardContent>
     </Card>
   );
