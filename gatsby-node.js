@@ -3,6 +3,19 @@ const _ = require(`lodash`);
 
 const { navigation } = require(`./src/layouts/navigation`);
 
+// mockup products
+const products = [
+  {
+    slug: 'constant-contact',
+  },
+  {
+    slug: 'routee',
+  },
+  {
+    slug: 'bitrix24',
+  },
+];
+
 /**
  * Here is the place where Gatsby creates the URLs for all the
  * posts, tags, pages and authors that we fetched from the Ghost site.
@@ -153,6 +166,17 @@ exports.createPages = async ({ graphql, actions }) => {
       component: require.resolve(`./src/templates/blog-article.js`),
       context: {
         slug: node.slug,
+      },
+    });
+  });
+
+  // Create product page
+  products.forEach((item) => {
+    createPage({
+      path: `/product/${item.slug}`,
+      component: require.resolve(`./src/templates/product.template.jsx`),
+      context: {
+        slug: item.slug,
       },
     });
   });
