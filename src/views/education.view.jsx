@@ -1,17 +1,13 @@
 import React from 'react';
-
-import { graphql, useStaticQuery } from 'gatsby';
 import { colors } from '@material-ui/core';
-
 import { makeStyles } from '@material-ui/core/styles';
 
-import Hero from 'templates/IndexView/components/Hero';
-import ServiceSectionView from './home/service-section';
-import ArticlesSectionView from './home/article-section';
+import Hero from './education/hero';
+import PlatformSectionView from './education/platform-section';
+import ArticlesSectionView from './education/article-section';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minHeight: '45rem',
     width: '100%',
   },
   header: {
@@ -28,10 +24,6 @@ const useStyles = makeStyles((theme) => ({
   intro: {
     background: colors.blueGrey[100] + '40',
   },
-  main: {
-    margin: '0 auto',
-    maxWidth: theme.layout.contentWidth,
-  },
   content: {
     margin: '0 auto',
     maxWidth: theme.layout.contentWidth,
@@ -44,8 +36,8 @@ const HomeView = () => {
   return (
     <div className={classes.root}>
       <Hero />
-      <div className={classes.main}>
-        <ServiceSectionView />
+      <div className={classes.content}>
+        <PlatformSectionView />
         <ArticlesSectionView />
       </div>
     </div>

@@ -1,9 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { Horizontal, Vertical } from 'templates/BlogReachView/components';
-import { featured, articles } from 'templates/BlogReachView/data';
+import { articles } from './data';
 import SectionLabel from 'components/SectionLabel';
+import SectionEducationArticles from 'components/SectionEducationArticles';
 
 const useStyles = makeStyles((theme) => ({
   featuredContainer: {
@@ -28,13 +28,12 @@ const ArticleSection = () => {
     <>
       <div className={classes.featuredContainer}>
         <SectionLabel
-          title="Latest Stories"
-          subtitle="Amet occaecat velit quis id elit et velit officia aliqua aute ipsum."
+          title="Courses by Categories"
+          subtitle="Id cupidatat incididunt exercitation deserunt ipsum dolor non."
         />
-        <Horizontal data={featured} />
       </div>
       <div className={classes.articlesContainer}>
-        <Vertical data={articles} />
+        <SectionEducationArticles data={articles} />
       </div>
     </>
   );
