@@ -5,16 +5,21 @@ import { makeStyles } from '@material-ui/core/styles';
 import { SectionHeader } from 'components/molecules';
 import { Section } from 'components/organisms';
 
-const useStyles = makeStyles(theme => ({
+import Test from 'assets/images/people.jpg';
+
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     height: '100%',
     position: 'relative',
-    background: `url(https://assets.maccarianagency.com/the-front/illustrations/contact-cover.svg) no-repeat #3F50B5`,
+    // background: `url(https://assets.maccarianagency.com/the-front/illustrations/contact-cover.svg) no-repeat #3F50B5`,
+    background: `url(${Test}) no-repeat #3F50B5`,
     overflow: 'hidden',
     minHeight: 400,
+    backgroundSize: 'cover',
     [theme.breakpoints.up('md')]: {
       backgroundPosition: 'right -400px top',
+      backgroundSize: 'contain',
     },
     [theme.breakpoints.up('lg')]: {
       backgroundPosition: 'right -250px top',
@@ -33,6 +38,10 @@ const useStyles = makeStyles(theme => ({
     transform: 'translate(-50%, -50%)',
     paddingTop: 0,
     paddingBottom: 0,
+    background: 'rgba(0,0,0,.4)',
+    [theme.breakpoints.up('md')]: {
+      background: 'none',
+    },
   },
   sectionHeader: {
     [theme.breakpoints.up('sm')]: {
@@ -41,7 +50,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Hero = props => {
+const Hero = (props) => {
   const { className, ...rest } = props;
   const classes = useStyles();
   return (
@@ -49,7 +58,7 @@ const Hero = props => {
       <Section className={classes.section}>
         <SectionHeader
           title="Contact us"
-          subtitle="We are founded by a leading academic and researcher in the field of Industrial Systems Engineering."
+          subtitle="Have questions or requests? Our business experts are here to help!"
           align="left"
           data-aos="fade-up"
           disableGutter

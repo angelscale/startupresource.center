@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {
@@ -9,6 +9,15 @@ import {
   Button,
 } from '@material-ui/core';
 import { SectionHeader } from 'components/molecules';
+import { red } from '@material-ui/core/colors';
+
+import { toast } from 'react-toastify';
+
+// request
+import { sendMail } from 'utils/request';
+
+// assets
+import LoaderGif from 'assets/images/loader.gif';
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -25,6 +34,12 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     marginBottom: theme.spacing(1),
   },
+  errorText: {
+    color: red[500],
+  },
+  btn: {
+    transition: 'all .25s ease',
+  },
 }));
 
 const Form = (props) => {
@@ -36,11 +51,63 @@ const Form = (props) => {
     defaultMatches: true,
   });
 
+  // state
+  const [formData, setFormData] = useState({
+    name: { value: '', isError: false },
+    email: { value: '', isError: false },
+    message: { value: '', isError: false },
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = () => {
+    if (
+      formData.name.value === '' ||
+      formData.email.value === '' ||
+      formData.message.value === ''
+    ) {
+      setFormData({
+        name: {
+          ...formData.name,
+          isError: formData.name.value === '',
+        },
+        email: {
+          ...formData.email,
+          isError: formData.email.value === '',
+        },
+        message: {
+          ...formData.message,
+          isError: formData.message.value === '',
+        },
+      });
+    } else {
+      setLoading(true);
+      let data = {
+        from: formData.email.value,
+        to: 'shahroonfarooqi@gmail.com',
+        subject: `Request from ${formData.name.value}`,
+        text: formData.message.value,
+      };
+
+      sendMail(data)
+        .then((res) => {
+          console.log(res);
+          toast.success('request submitted!');
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          toast.error('request not submitted');
+          setLoading(false);
+        });
+    }
+  };
+
   return (
     <div className={className} {...rest}>
       <SectionHeader
-        title="Can't find the answer you need?"
-        subtitle="Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions."
+        title="Contact SRC"
+        // subtitle="Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions."
         subtitleProps={{
           variant: 'body1',
           color: 'textPrimary',
@@ -65,7 +132,22 @@ const Form = (props) => {
               name="fullname"
               fullWidth
               type="text"
+              value={formData.name.value}
+              onChange={(e) => {
+                setFormData({
+                  ...formData,
+                  name: {
+                    value: e.target.value,
+                    isError: false,
+                  },
+                });
+              }}
             />
+            {formData.name.isError && (
+              <Typography variant="caption" className={classes.errorText}>
+                Please enter your name.
+              </Typography>
+            )}
           </Grid>
           <Grid item xs={12} data-aos="fade-up">
             <Typography
@@ -82,7 +164,22 @@ const Form = (props) => {
               name="email"
               fullWidth
               type="email"
+              value={formData.email.value}
+              onChange={(e) => {
+                setFormData({
+                  ...formData,
+                  email: {
+                    value: e.target.value,
+                    isError: false,
+                  },
+                });
+              }}
             />
+            {formData.email.isError && (
+              <Typography variant="caption" className={classes.errorText}>
+                Please enter your valid email.
+              </Typography>
+            )}
           </Grid>
           <Grid item xs={12} data-aos="fade-up">
             <Typography
@@ -99,7 +196,22 @@ const Form = (props) => {
               fullWidth
               multiline
               rows={4}
+              value={formData.message.value}
+              onChange={(e) => {
+                setFormData({
+                  ...formData,
+                  message: {
+                    value: e.target.value,
+                    isError: false,
+                  },
+                });
+              }}
             />
+            {formData.message.isError && (
+              <Typography variant="caption" className={classes.errorText}>
+                Please enter your message.
+              </Typography>
+            )}
           </Grid>
           <Grid item container justifyContent="center" xs={12}>
             <Button
@@ -107,8 +219,10 @@ const Form = (props) => {
               type="submit"
               color="primary"
               size="large"
+              className={classes.btn}
+              onClick={handleSubmit}
             >
-              submit
+              {!loading ? 'submit' : 'submitting...'}
             </Button>
           </Grid>
         </Grid>

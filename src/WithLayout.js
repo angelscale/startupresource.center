@@ -10,7 +10,7 @@ export const useDarkMode = () => {
   const [themeMode, setTheme] = useState('light');
   const [mountedComponent, setMountedComponent] = useState(false);
 
-  const setMode = mode => {
+  const setMode = (mode) => {
     window.localStorage.setItem('themeMode', mode);
     setTheme(mode);
   };
@@ -33,7 +33,12 @@ export const useDarkMode = () => {
   return [themeMode, themeToggler, mountedComponent];
 };
 
-export default function WithLayout({ component: Component, layout: Layout, ...rest }) {
+export default function WithLayout({
+  component: Component,
+  layout: Layout,
+  fullWidth,
+  ...rest
+}) {
   React.useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
@@ -59,7 +64,11 @@ export default function WithLayout({ component: Component, layout: Layout, ...re
       {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
       <CssBaseline />
       <Paper elevation={0}>
-        <Layout themeMode={themeMode} themeToggler={themeToggler}>
+        <Layout
+          themeMode={themeMode}
+          themeToggler={themeToggler}
+          fullWidth={fullWidth}
+        >
           <Component themeMode={themeMode} {...rest} />
         </Layout>
       </Paper>

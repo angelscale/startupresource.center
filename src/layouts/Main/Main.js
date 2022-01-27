@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Main = ({ children, themeToggler, themeMode }) => {
+const Main = ({ children, themeToggler, themeMode, fullWidth }) => {
   const classes = useStyles();
 
   const [openSidebar, setOpenSidebar] = useState(false);
@@ -24,6 +24,8 @@ const Main = ({ children, themeToggler, themeMode }) => {
   const handleSidebarClose = () => {
     setOpenSidebar(false);
   };
+
+  console.log('from main', fullWidth);
 
   return (
     <div
@@ -44,7 +46,8 @@ const Main = ({ children, themeToggler, themeMode }) => {
         navigation={navigation}
       />
       <Divider />
-      <main>{children}</main>
+      {/* TODO: classes.content doesn't exist */}
+      <main className={!fullWidth ? classes.content : ''}>{children}</main>
       <Footer navigation={navigation} />
     </div>
   );

@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
  *
  * @param {Object} props
  */
-const HeroShaped = props => {
+const HeroShaped = (props) => {
   const { leftSide, rightSide, className, ...rest } = props;
 
   const classes = useStyles();

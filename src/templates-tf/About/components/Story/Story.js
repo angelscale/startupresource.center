@@ -12,7 +12,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Story = (props) => {
-  const { className, ...rest } = props;
+  const { className, content, ...rest } = props;
   const classes = useStyles();
 
   const theme = useTheme();
@@ -39,10 +39,11 @@ const Story = (props) => {
         >
           <div>
             <SectionHeader
-              title="Our story"
-              subtitle="If we're no longer the right solution for you, we'll allow you to export and take your data at anytime for any reason. If we're no longer the right solution for you, we'll allow you to export and take your data at anytime for any reason.If we're no longer the right solution for you, we'll allow you to export and take your data at anytime for any reason.If we're no longer the right solution for you, we'll allow you to export and take your data at anytime for any reason.If we're no longer the right solution for you, we'll allow you to export and take your data at anytime for any reason."
+              title="Who are we?"
+              subtitle={content}
               align="left"
               disableGutter
+              whitespace
               subtitleProps={{
                 color: 'textPrimary',
                 variant: 'body1',

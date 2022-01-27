@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { graphql, useStaticQuery } from 'gatsby';
 import { colors } from '@material-ui/core';
-
 import { makeStyles } from '@material-ui/core/styles';
 
 import Hero from 'templates/IndexView/components/Hero';

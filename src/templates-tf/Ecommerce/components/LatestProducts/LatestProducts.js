@@ -13,7 +13,7 @@ import {
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   card: {
     borderRadius: theme.spacing(2),
   },
@@ -49,7 +49,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const LatestProducts = props => {
+const LatestProducts = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
