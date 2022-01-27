@@ -1,6 +1,6 @@
 import React from 'react';
-import { colors } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { colors } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 
 import Hero from './education/hero';
 import PlatformSectionView from './education/platform-section';

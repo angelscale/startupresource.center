@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useMediaQuery, GridList, GridListTile } from '@material-ui/core';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import { useMediaQuery, ImageList, ImageListItem } from '@mui/material';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
@@ -28,9 +29,9 @@ const Gallery = props => {
         subtitle="After 3 days all of your offers will arrive and you will have another 7 days to select your new company."
         data-aos="fade-up"
       />
-      <GridList cellHeight={isMd ? 360 : 260} cols={4} spacing={isMd ? 24 : 8}>
+      <ImageList cellHeight={isMd ? 360 : 260} cols={4} spacing={isMd ? 24 : 8}>
         {data.map((item, index) => (
-          <GridListTile key={index} cols={isMd ? item.cols : 4 || 1}>
+          <ImageListItem key={index} cols={isMd ? item.cols : 4 || 1}>
             <Image
               {...item.image}
               alt={item.location}
@@ -40,9 +41,9 @@ const Gallery = props => {
                 height: '100%',
               }}
             />
-          </GridListTile>
+          </ImageListItem>
         ))}
-      </GridList>
+      </ImageList>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
-import { alpha, makeStyles } from '@material-ui/core/styles';
+import { alpha } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import {
   Box,
   Button,
@@ -11,16 +12,16 @@ import {
   ListItem,
   Typography,
   IconButton,
-} from '@material-ui/core';
+} from '@mui/material';
 import {
   Facebook,
   Twitter,
   Instagram,
   Pinterest,
   LinkedIn,
-} from '@material-ui/icons';
-import SearchIcon from '@material-ui/icons/Search';
-import MenuIcon from '@material-ui/icons/Menu';
+} from '@mui/icons-material';
+import SearchIcon from '@mui/icons-material/Search';
+import MenuIcon from '@mui/icons-material/Menu';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
@@ -169,7 +170,7 @@ const useStyles = makeStyles((theme) => ({
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('sm')]: {
@@ -221,30 +222,30 @@ const Topbar = ({
         </a>
       </Box>
       <Box className={classes.navigation}>
-        <Hidden smDown>
+        <Hidden lgDown>
           <Box className={classes.socialContainer}>
             <Box>
-              <IconButton component={Link} href="https://facebook.com">
+              <IconButton component={Link} href="https://facebook.com" size="large">
                 <Facebook />
               </IconButton>
             </Box>
             <Box>
-              <IconButton component={Link} href="https://facebook.com">
+              <IconButton component={Link} href="https://facebook.com" size="large">
                 <LinkedIn />
               </IconButton>
             </Box>
             <Box>
-              <IconButton component={Link} href="https://facebook.com">
+              <IconButton component={Link} href="https://facebook.com" size="large">
                 <Instagram />
               </IconButton>
             </Box>
             <Box>
-              <IconButton component={Link} href="https://facebook.com">
+              <IconButton component={Link} href="https://facebook.com" size="large">
                 <Twitter />
               </IconButton>
             </Box>
             <Box>
-              <IconButton component={Link} href="https://facebook.com">
+              <IconButton component={Link} href="https://facebook.com" size="large">
                 <Pinterest />
               </IconButton>
             </Box>
@@ -294,7 +295,7 @@ const Topbar = ({
           className={classes.iconButton}
           onClick={onSidebarOpen}
           aria-label="Menu"
-        >
+          size="large">
           <MenuIcon />
         </IconButton>
       </Hidden>

@@ -5,8 +5,8 @@ import {
   ListItemAvatar,
   ListItemText,
   Avatar,
-} from '@material-ui/core';
-import AvatarGroup from '@material-ui/lab/AvatarGroup';
+} from '@mui/material';
+import AvatarGroup from '@mui/material/AvatarGroup';
 
 const SecondaryAuthors = ({ classes, authors }) => {
   if (authors.secondary.length > 0) {

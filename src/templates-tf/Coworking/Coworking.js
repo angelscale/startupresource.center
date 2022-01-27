@@ -1,13 +1,13 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import {
   AppBar,
   Toolbar,
   Drawer,
   IconButton,
   Divider,
-} from '@material-ui/core';
-import ForumIcon from '@material-ui/icons/Forum';
+} from '@mui/material';
+import ForumIcon from '@mui/icons-material/Forum';
 import { Section, SectionAlternate, ContactForm } from 'components/organisms';
 import {
   Advantages,
@@ -118,7 +118,7 @@ const Coworking = () => {
           <IconButton
             className={classes.chatIconButton}
             onClick={handleBottombarOpen}
-          >
+            size="large">
             <ForumIcon className={classes.forumIcon} />
           </IconButton>
           <Drawer

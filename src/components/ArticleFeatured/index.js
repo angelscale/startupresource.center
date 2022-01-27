@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useMediaQuery, Grid } from '@material-ui/core';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import { useMediaQuery, Grid } from '@mui/material';
 
 import Content from './Content';
 import MediaContent from './MediaContent';
@@ -16,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     '& .card-product__content, & .card-product__media': {
       flex: '1 1 50%',
     },
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('md')]: {
       flexDirection: 'column !important',
       '& .card-product__content, & .card-product__media': {
         flex: '1 1 100%',

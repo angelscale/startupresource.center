@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Grid, useMediaQuery, Typography } from '@material-ui/core';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import { Grid, useMediaQuery, Typography } from '@mui/material';
 import { SectionHeader, CountUpNumber } from 'components/molecules';
 
 const useStyles = makeStyles(theme => ({
@@ -13,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   placementGridItemMiddle: {
-    margin: `0 ${theme.spacing(3)}px`,
+    margin: `0 ${theme.spacing(3)}`,
   },
 }));
 

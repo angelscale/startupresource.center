@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import { Section, SectionAlternate } from 'components/organisms';
 import { Hero, Team, Form } from 'templates-tf/SRCConsulting';
 

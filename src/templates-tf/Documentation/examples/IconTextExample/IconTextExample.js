@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, colors } from '@material-ui/core';
+import { Box, colors } from '@mui/material';
 import { Headline, CodeHighlighter, PropsHighlighter, SectionBox } from '../../components';
 import { IconText } from 'components/atoms';
 
@@ -43,7 +43,7 @@ const dataProperties = [{
 
 const exampleCode = `
 import React from 'react';
-import { Box, colors } from '@material-ui/core';
+import { Box, colors } from '@mui/material';
 import { IconText } from 'components/atoms';
 
 export default function IconExample() {

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import withStyles from '@mui/styles/withStyles';
 import {
   Grid,
   ListItem,
@@ -9,7 +10,7 @@ import {
   TextField,
   Button,
   colors,
-} from '@material-ui/core';
+} from '@mui/material';
 import { Image } from 'components/atoms';
 import { SectionHeader, IconAlternate, TypedText } from 'components/molecules';
 import { CardProduct } from 'components/organisms';

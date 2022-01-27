@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 import { Section } from 'components/organisms';
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: 400,
     objectFit: 'cover',
     objectPosition: 'center',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       // width: 'auto',
       // minHeight: 250,
     },

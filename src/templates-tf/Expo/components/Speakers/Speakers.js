@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useMediaQuery, Grid, Button, Avatar } from '@material-ui/core';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import { useMediaQuery, Grid, Button, Avatar } from '@mui/material';
 import { LearnMoreLink } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
@@ -9,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   webinarAvatar: {
     width: 200,
     height: 200,
-    border: `${theme.spacing(1)}px solid ${theme.palette.background.paper}`,
+    border: `${theme.spacing(1)} solid ${theme.palette.background.paper}`,
     boxShadow: `0 2px 10px 0 ${theme.palette.cardShadow}`,
     borderRadius: theme.spacing(2),
   },

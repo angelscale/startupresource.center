@@ -1,5 +1,5 @@
 import React from 'react';
-import { Divider } from '@material-ui/core';
+import { Divider } from '@mui/material';
 import { Section, SectionAlternate } from 'components/organisms';
 
 import { About, Features, Community, Pricings, Download } from './components';

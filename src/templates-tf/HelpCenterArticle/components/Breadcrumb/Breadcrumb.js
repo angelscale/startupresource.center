@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Breadcrumbs, Typography, Link } from '@material-ui/core';
+import { Breadcrumbs, Typography, Link } from '@mui/material';
 
 const Breadcrumb = props => {
   const { data, className, ...rest } = props;
@@ -13,7 +13,7 @@ const Breadcrumb = props => {
             {item.isActive ? (
               <Typography color="textPrimary">{item.title}</Typography>
             ) : (
-              <Link href={item.href}>{item.title}</Link>
+              <Link href={item.href} underline="hover">{item.title}</Link>
             )}
           </span>
         ))}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import { Headline, CodeHighlighter, PropsHighlighter, SectionBox } from '../../components';
 import { Map } from 'components/organisms';
 
@@ -33,7 +33,7 @@ const dataProperties = [{
 
 const exampleCode = `
 import React from 'react';
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import { Map } from 'components/organisms';
 
 const mapData = [

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography } from '@mui/material';
 import { Headline, CodeHighlighter, PropsHighlighter, SectionBox } from '../../components';
 import { CardBase } from 'components/organisms';
 
@@ -58,7 +58,7 @@ const dataProperties = [{
 
 const exampleCode1 = `
 import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography } from '@mui/material';
 import { CardBase } from 'components/organisms';
 
 export default function Example() {
@@ -74,7 +74,7 @@ export default function Example() {
 
 const exampleCode2 = `
 import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography } from '@mui/material';
 import { CardBase } from 'components/organisms';
 
 export default function Example() {
@@ -90,7 +90,7 @@ export default function Example() {
 
 const exampleCode3 = `
 import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography } from '@mui/material';
 import { CardBase } from 'components/organisms';
 
 export default function Example() {
@@ -106,7 +106,7 @@ export default function Example() {
 
 const exampleCode4 = `
 import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography } from '@mui/material';
 import { CardBase } from 'components/organisms';
 
 export default function Example() {
@@ -122,7 +122,7 @@ export default function Example() {
 
 const exampleCode5 = `
 import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography } from '@mui/material';
 import { CardBase } from 'components/organisms';
 
 export default function Example() {

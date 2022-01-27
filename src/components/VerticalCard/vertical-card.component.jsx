@@ -1,14 +1,14 @@
 import React from 'react';
 import _ from 'lodash';
-import { makeStyles } from '@material-ui/core/styles';
-import { Avatar, Typography, Divider } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { Avatar, Typography, Divider } from '@mui/material';
 // import { Image } from 'components/atoms';
 import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import BlogCard from 'components/BlogCard/blog-card.component';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       maxWidth: 400,
       margin: '0 auto',
     },

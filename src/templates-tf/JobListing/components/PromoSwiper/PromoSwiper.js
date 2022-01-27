@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import Swiper from 'swiper';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useMediaQuery, Typography, Grid, colors } from '@material-ui/core';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import { useMediaQuery, Typography, Grid, colors } from '@mui/material';
 import { Image } from 'components/atoms';
 import { SectionHeader, IconAlternate } from 'components/molecules';
 import { Section } from 'components/organisms';
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(-10),
     marginRight: theme.spacing(-10),
     padding: '50px 100px',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       width: 300,
       height: '100%',
       marginLeft: theme.spacing(0),

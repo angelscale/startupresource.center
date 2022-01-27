@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import { Divider } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { Divider } from '@mui/material';
 import { Image } from 'components/atoms';
 import { Section } from 'components/organisms';
 import { Contact, Locations, Story, Team } from './components';
@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
   },
   section: {
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       paddingTop: 0,
     },
   },

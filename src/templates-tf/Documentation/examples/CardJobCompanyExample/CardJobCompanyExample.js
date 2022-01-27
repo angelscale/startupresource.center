@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grid } from '@material-ui/core';
+import { Box, Grid } from '@mui/material';
 import { Headline, CodeHighlighter, PropsHighlighter, SectionBox } from '../../components';
 import { CardJobCompany } from 'components/organisms';
 
@@ -48,7 +48,7 @@ const dataProperties = [{
 
 const exampleCode1 = `
 import React from 'react';
-import { Box, Grid } from '@material-ui/core';
+import { Box, Grid } from '@mui/material';
 import { CardJobCompany } from 'components/organisms';
 
 export default function Example() {
@@ -93,7 +93,7 @@ export default function Example() {
 
 const exampleCode2 = `
 import React from 'react';
-import { Box, Grid } from '@material-ui/core';
+import { Box, Grid } from '@mui/material';
 import { CardJobCompany } from 'components/organisms';
 
 export default function Example() {
@@ -141,7 +141,7 @@ export default function Example() {
 
 const exampleCode3 = `
 import React from 'react';
-import { Box, Grid } from '@material-ui/core';
+import { Box, Grid } from '@mui/material';
 import { CardJobCompany } from 'components/organisms';
 
 export default function Example() {

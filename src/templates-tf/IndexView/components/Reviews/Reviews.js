@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid, Card, CardContent, List, ListItem, ListItemText, makeStyles } from '@material-ui/core';
+import { Grid, Card, CardContent, List, ListItem, ListItemText } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { SectionHeader } from 'components/molecules';
 
 const useStyles = makeStyles((theme) => ({

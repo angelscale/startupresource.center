@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import { Headline, CodeHighlighter, PropsHighlighter, SectionBox } from '../../components';
 import { LearnMoreLink } from 'components/atoms';
 
@@ -53,7 +53,7 @@ const dataProperties = [{
 
 const exampleCode = `
 import React from 'react';
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import { LearnMoreLink } from 'components/atoms';
 
 export default function Example() {

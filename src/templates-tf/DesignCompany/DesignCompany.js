@@ -1,6 +1,6 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Divider } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { Divider } from '@mui/material';
 import { Section, SectionAlternate } from 'components/organisms';
 
 import {
@@ -17,7 +17,7 @@ import { integrations, reviews } from './data';
 
 const useStyles = makeStyles(theme => ({
   hero: {
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       marginTop: theme.spacing(-9),
     },
   },

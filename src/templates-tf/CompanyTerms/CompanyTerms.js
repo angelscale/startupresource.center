@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import {
   useMediaQuery,
   Grid,
@@ -11,7 +12,7 @@ import {
   ListItem,
   ListItemAvatar,
   Avatar,
-} from '@material-ui/core';
+} from '@mui/material';
 import { SectionHeader, DescriptionCta } from 'components/molecules';
 import { Section, CardBase } from 'components/organisms';
 

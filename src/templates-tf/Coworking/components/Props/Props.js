@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@mui/material/styles';
 
-import { useMediaQuery, Grid, Button } from '@material-ui/core';
+import { useMediaQuery, Grid, Button } from '@mui/material';
 import { IconText } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 

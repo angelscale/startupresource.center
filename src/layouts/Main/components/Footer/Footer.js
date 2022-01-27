@@ -1,19 +1,19 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import {
   Typography,
   IconButton,
   Grid,
   List,
   ListItem,
-} from '@material-ui/core';
+} from '@mui/material';
 import {
   Facebook,
   Twitter,
   Instagram,
   Pinterest,
   LinkedIn,
-} from '@material-ui/icons';
+} from '@mui/icons-material';
 
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
@@ -157,19 +157,19 @@ const Footer = ({ navigation }) => {
               </ListItem>
               <ListItem disableGutters className={classes.logoContainerItem}>
                 <div className={classes.logoContainer}>
-                  <IconButton className={classes.socialIcon} component={Link}>
+                  <IconButton className={classes.socialIcon} component={Link} size="large">
                     <Facebook className={classes.icon} />
                   </IconButton>
-                  <IconButton className={classes.socialIcon}>
+                  <IconButton className={classes.socialIcon} size="large">
                     <LinkedIn className={classes.icon} />
                   </IconButton>
-                  <IconButton className={classes.socialIcon}>
+                  <IconButton className={classes.socialIcon} size="large">
                     <Instagram className={classes.icon} />
                   </IconButton>
-                  <IconButton className={classes.socialIcon}>
+                  <IconButton className={classes.socialIcon} size="large">
                     <Twitter className={classes.icon} />
                   </IconButton>
-                  <IconButton className={classes.socialIcon}>
+                  <IconButton className={classes.socialIcon} size="large">
                     <Pinterest className={classes.icon} />
                   </IconButton>
                 </div>

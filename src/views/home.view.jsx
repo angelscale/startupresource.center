@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { colors } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { colors } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 
 import Hero from 'templates/IndexView/components/Hero';
 import ServiceSectionView from './home/service-section';

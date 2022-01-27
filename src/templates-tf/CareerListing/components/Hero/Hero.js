@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import {
   TextField,
   InputAdornment,
@@ -10,7 +11,7 @@ import {
   Button,
   NoSsr,
   colors,
-} from '@material-ui/core';
+} from '@mui/material';
 
 import { Section, CardBase } from 'components/organisms';
 

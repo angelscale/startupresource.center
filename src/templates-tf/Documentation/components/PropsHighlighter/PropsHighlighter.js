@@ -7,7 +7,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-} from '@material-ui/core';
+} from '@mui/material';
 
 const PropsHighlighter = ({ dataProperties, className, ...rest }) => (
   <div className={className} {...rest}>

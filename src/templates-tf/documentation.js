@@ -4,7 +4,7 @@
  * You may delete this file and its occurrences from the project filesystem if you are using react-scripts
  */
 import React from 'react';
-import NoSsr from '@material-ui/core/NoSsr';
+import NoSsr from '@mui/material/NoSsr';
 import Documentation from './Documentation';
 import DocsLayout from 'layouts/DocsLayout';
 import WithLayout from 'WithLayout';

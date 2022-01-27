@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useMediaQuery, GridList, GridListTile } from '@material-ui/core';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import { useMediaQuery, ImageList, ImageListItem } from '@mui/material';
 
 import { Image } from 'components/atoms';
 
@@ -22,18 +23,18 @@ const Gallery = props => {
 
   return (
     <div className={className} {...rest}>
-      <GridList cellHeight={isMd ? 300 : 100} cols={4} spacing={0}>
+      <ImageList cellHeight={isMd ? 300 : 100} cols={4} spacing={0}>
         {data.map((item, index) => (
-          <GridListTile key={index} cols={item.cols || 1}>
+          <ImageListItem key={index} cols={item.cols || 1}>
             <Image
               {...item.image}
               alt={item.title}
               lazyProps={{ width: '100%', height: '100%' }}
               className={classes.image}
             />
-          </GridListTile>
+          </ImageListItem>
         ))}
-      </GridList>
+      </ImageList>
     </div>
   );
 };

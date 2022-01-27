@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, colors, List, Typography, Box } from '@material-ui/core';
+import { colors, List, Typography, Box } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { SectionHeader } from 'components/molecules';
 import { IconText } from 'components/atoms';
 

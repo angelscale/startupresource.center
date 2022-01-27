@@ -1,8 +1,8 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 
 // components
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 import Title from '../Title';
 import Text from '../Text';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 
 import { Horizontal, Vertical } from 'templates/BlogReachView/components';
 import { featured, articles } from 'templates/BlogReachView/data';

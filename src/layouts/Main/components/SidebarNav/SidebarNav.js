@@ -2,7 +2,7 @@
 /* eslint-disable react/display-name */
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import {
   List,
   ListItem,
@@ -10,8 +10,8 @@ import {
   ListItemIcon,
   Divider,
   Button,
-} from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
+} from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 import { MenuGroup } from '..';
 
 const useStyles = makeStyles((theme) => ({

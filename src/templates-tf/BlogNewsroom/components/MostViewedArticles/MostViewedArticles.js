@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import { colors, Button, Typography, Grid } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { colors, Button, Typography, Grid } from '@mui/material';
 import { Image, LearnMoreLink } from 'components/atoms';
 import { DescriptionCta } from 'components/molecules';
 import { CardProduct } from 'components/organisms';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('md')]: {
       marginLeft: theme.spacing(-2),
       marginRight: theme.spacing(-2),
     },
@@ -51,7 +51,7 @@ const useStyles = makeStyles(theme => ({
         },
       },
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       flexDirection: 'column !important',
       '& .card-product__content': {
         flex: '1 1 100%',

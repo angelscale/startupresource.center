@@ -1,19 +1,10 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import {
-  AppBar,
-  Box,
-  Hidden,
-  IconButton,
-  Toolbar,
-  List,
-  ListItem,
-  Button,
-  makeStyles
-} from '@material-ui/core';
+import { AppBar, Box, Hidden, IconButton, Toolbar, List, ListItem, Button } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { Image, DarkModeToggler } from 'components/atoms';
-import MenuIcon from '@material-ui/icons/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -83,7 +74,7 @@ const TopBar = ({
         </div>
         <Box flexGrow={1} />
         <DarkModeToggler themeMode={themeMode} onClick={() => themeToggler()} />
-        <Hidden smDown>
+        <Hidden lgDown>
           <List disablePadding className={classes.navigationContainer}>
             <ListItem className={clsx(classes.listItem, 'menu-item--no-dropdown')}>
               <Button
@@ -115,7 +106,7 @@ const TopBar = ({
             onClick={onMobileNavOpen}
             className={classes.iconButton}
             disableRipple
-          >
+            size="large">
             <MenuIcon />
           </IconButton>
         </Hidden>

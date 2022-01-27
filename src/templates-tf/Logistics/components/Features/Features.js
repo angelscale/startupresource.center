@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useTheme } from '@material-ui/core/styles';
-import { useMediaQuery, Grid, colors } from '@material-ui/core';
+import { useTheme } from '@mui/material/styles';
+import { useMediaQuery, Grid, colors } from '@mui/material';
 import { Icon } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 import { DescriptionListIcon, CardBase } from 'components/organisms';

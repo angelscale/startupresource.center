@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@mui/material/styles';
 
-import { useMediaQuery, Grid, Button, Avatar } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+
+import { useMediaQuery, Grid, Button, Avatar } from '@mui/material';
 import { SectionHeader } from 'components/molecules';
 
 const useStyles = makeStyles((theme) => ({

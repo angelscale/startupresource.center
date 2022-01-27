@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import {
   Box,
   Container,
@@ -7,14 +7,14 @@ import {
   IconButton,
   List,
   ListItem,
-} from '@material-ui/core';
+} from '@mui/material';
 import {
   Facebook,
   Twitter,
   Instagram,
   Pinterest,
   LinkedIn,
-} from '@material-ui/icons';
+} from '@mui/icons-material';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
@@ -189,27 +189,27 @@ const FooterNew = () => {
             </List>
             <Box className={classes.socialContainer}>
               <Box>
-                <IconButton component={Link} href="https://facebook.com">
+                <IconButton component={Link} href="https://facebook.com" size="large">
                   <Facebook />
                 </IconButton>
               </Box>
               <Box>
-                <IconButton component={Link} href="https://facebook.com">
+                <IconButton component={Link} href="https://facebook.com" size="large">
                   <LinkedIn />
                 </IconButton>
               </Box>
               <Box>
-                <IconButton component={Link} href="https://facebook.com">
+                <IconButton component={Link} href="https://facebook.com" size="large">
                   <Instagram />
                 </IconButton>
               </Box>
               <Box>
-                <IconButton component={Link} href="https://facebook.com">
+                <IconButton component={Link} href="https://facebook.com" size="large">
                   <Twitter />
                 </IconButton>
               </Box>
               <Box>
-                <IconButton component={Link} href="https://facebook.com">
+                <IconButton component={Link} href="https://facebook.com" size="large">
                   <Pinterest />
                 </IconButton>
               </Box>

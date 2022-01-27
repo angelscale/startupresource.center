@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Divider } from '@material-ui/core';
+import { Box, Typography, Divider } from '@mui/material';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, List, Typography } from '@material-ui/core';
+import { List, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { SectionHeader } from 'components/molecules';
 
 import { CodeHighlighter } from '../../components';

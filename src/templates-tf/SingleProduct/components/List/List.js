@@ -1,12 +1,12 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import clsx from 'clsx';
 
 // components
-import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import Text from '../Text';
 
-import FMRIcon from '@material-ui/icons/FiberManualRecord';
+import FMRIcon from '@mui/icons-material/FiberManualRecord';
 
 const useStyles = makeStyles((theme) => ({
   list: {},

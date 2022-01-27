@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Typography, Grid, Box, Button } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { Typography, Grid, Box, Button } from '@mui/material';
 import { Image } from 'components/atoms';
-import { Rating } from '@material-ui/lab';
+import { Rating } from '@mui/material';
 import { Link } from 'gatsby';
 import clsx from 'clsx';
 
 import scrollToElement from 'scroll-to-element';
 
-import LaunchIcon from '@material-ui/icons/Launch';
+import LaunchIcon from '@mui/icons-material/Launch';
 
 const useStyles = makeStyles((theme) => ({
   root: {

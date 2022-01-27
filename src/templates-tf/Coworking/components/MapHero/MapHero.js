@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography } from '@mui/material';
 import { SectionHeader, CountUpNumber } from 'components/molecules';
 import { HeroShaped, Map } from 'components/organisms';
 
@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
   },
   placementGridItemMiddle: {
-    margin: `0 ${theme.spacing(3)}px`,
+    margin: `0 ${theme.spacing(3)}`,
   },
   map: {
     zIndex: 9,

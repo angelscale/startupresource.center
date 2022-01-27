@@ -1,15 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Box,
-  Button,
-  Drawer,
-  Hidden,
-  List,
-  Typography,
-  ListItem,
-  makeStyles
-} from '@material-ui/core';
+import { Box, Button, Drawer, Hidden, List, Typography, ListItem } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import NavItem from './components/NavItem';
 import { components } from './data';
 
@@ -103,31 +95,29 @@ const Navbar = ({ onMobileClose, openMobile }) => {
     </Box>
   );
 
-  return (
-    <>
-      <Hidden mdUp>
-        <Drawer
-          anchor="left"
-          classes={{ paper: classes.mobileDrawer }}
-          onClose={onMobileClose}
-          open={openMobile}
-          variant="temporary"
-        >
-          {content}
-        </Drawer>
-      </Hidden>
-      <Hidden smDown>
-        <Drawer
-          anchor="left"
-          classes={{ paper: classes.desktopDrawer }}
-          open
-          variant="persistent"
-        >
-          {content}
-        </Drawer>
-      </Hidden>
-    </>
-  );
+  return <>
+    <Hidden mdUp>
+      <Drawer
+        anchor="left"
+        classes={{ paper: classes.mobileDrawer }}
+        onClose={onMobileClose}
+        open={openMobile}
+        variant="temporary"
+      >
+        {content}
+      </Drawer>
+    </Hidden>
+    <Hidden lgDown>
+      <Drawer
+        anchor="left"
+        classes={{ paper: classes.desktopDrawer }}
+        open
+        variant="persistent"
+      >
+        {content}
+      </Drawer>
+    </Hidden>
+  </>;
 };
 
 Navbar.propTypes = {

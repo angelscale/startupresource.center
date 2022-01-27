@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import Swiper from 'swiper';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useMediaQuery, Grid, Typography } from '@material-ui/core';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import { useMediaQuery, Grid, Typography } from '@mui/material';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
   },
   swiperWrapper: {
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('md')]: {
       marginBottom: theme.spacing(7),
     },
   },
@@ -57,7 +58,7 @@ const Reviews = (props) => {
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
   });
-  const isXs = useMediaQuery(theme.breakpoints.down('xs'), {
+  const isXs = useMediaQuery(theme.breakpoints.down('md'), {
     defaultMatches: true,
   });
 

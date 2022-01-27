@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useTheme, makeStyles } from '@material-ui/core/styles';
-import { useMediaQuery, Grid, Typography, colors } from '@material-ui/core';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import { useMediaQuery, Grid, Typography, colors } from '@mui/material';
 import { IconAlternate, SectionHeader } from 'components/molecules';
 import { DescriptionListIcon, Section } from 'components/organisms';
 

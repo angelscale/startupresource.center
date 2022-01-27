@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Button } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { Grid, Button } from '@mui/material';
 import { Image } from 'components/atoms';
 import { SectionHeader, CountUpNumber } from 'components/molecules';
 import { CardBase } from 'components/organisms';
@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-around',
   },
   placementGridItemMiddle: {
-    margin: `0 ${theme.spacing(3)}px`,
+    margin: `0 ${theme.spacing(3)}`,
   },
   image: {
     maxWidth: 400,

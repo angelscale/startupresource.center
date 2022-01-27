@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import { Button, Typography } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { Button, Typography } from '@mui/material';
 
 import homeImage from '../../../../assets/images/home-image.jpg';
 import { SectionHeader, TypedText } from 'components/molecules';
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
   leftSideContent: {
     '& .section-header__cta-container': {
-      [theme.breakpoints.down('xs')]: {
+      [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
         '& .section-header__cta-item-wrapper': {
           width: '100%',
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     '& .hero-shaped__image': {
       backgroundColor: theme.palette.alternate.main,
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       '& .hero-shaped__image': {
         position: 'relative',
       },

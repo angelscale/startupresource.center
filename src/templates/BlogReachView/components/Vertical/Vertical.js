@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import { Avatar, Box, Typography, Grid, Divider } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { Avatar, Box, Typography, Grid, Divider } from '@mui/material';
 import { Image } from 'components/atoms';
 import { CardProduct } from 'components/organisms';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       margin: '0 auto',
     },
   },

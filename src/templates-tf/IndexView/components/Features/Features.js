@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid, colors, makeStyles } from '@material-ui/core';
+import { Grid, colors } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { SectionHeader, IconAlternate } from 'components/molecules';
 import { CardBase, DescriptionListIcon } from 'components/organisms';
 
