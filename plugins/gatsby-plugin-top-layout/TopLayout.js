@@ -38,19 +38,10 @@ export default function TopLayout(props) {
           content="Connecting the dots on what you need for your Startup."
         />
         <meta property="og:url" content="https://www.startupresource.center/" />
-        <link
-          href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap"
-          rel="stylesheet"
-        />
         {/* <script
           src="https://kit.fontawesome.com/4c273e6d43.js"
           crossOrigin="anonymous"
         ></script> */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6553710160365970"
-          crossorigin="anonymous"
-        ></script>
       </Helmet>
       {props.children}
     </React.Fragment>

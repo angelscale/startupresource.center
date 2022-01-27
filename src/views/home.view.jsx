@@ -9,6 +9,7 @@ import ArticlesSectionView from './home/article-section';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    minHeight: '45rem',
     width: '100%',
   },
   header: {
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   intro: {
     background: colors.blueGrey[100] + '40',
   },
-  content: {
+  main: {
     margin: '0 auto',
     maxWidth: theme.layout.contentWidth,
   },
@@ -33,26 +34,11 @@ const useStyles = makeStyles((theme) => ({
 
 const HomeView = () => {
   const classes = useStyles();
-  // const data = useStaticQuery(graphql`
-  //   query HomeQuery {
-  //     file(name: { eq: "home-image" }) {
-  //       childImageSharp {
-  //         gatsbyImageData(placeholder: BLURRED)
-  //       }
-  //     }
-  //     site {
-  //       siteMetadata {
-  //         title
-  //         description
-  //       }
-  //     }
-  //   }
-  // `);
 
   return (
     <div className={classes.root}>
       <Hero />
-      <div className={classes.content}>
+      <div className={classes.main}>
         <ServiceSectionView />
         <ArticlesSectionView />
       </div>

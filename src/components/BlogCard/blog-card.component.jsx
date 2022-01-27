@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
   },
   header: {
     margin: 0,
-    padding: theme.spacing(0, 2),
+    padding: theme.spacing(2, 4),
   },
   overview: {
     backgroundColor: theme.palette.primary.light,
