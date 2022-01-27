@@ -123,4 +123,37 @@ exports.navigation = {
   },
 };
 
+exports.navigationNew = [
+  {
+    title: 'Plan',
+    slug: 'plan',
+    href: '/plan',
+  },
+  {
+    title: 'Launch',
+    slug: 'launch',
+    href: '/launch',
+  },
+  {
+    title: 'Manage',
+    slug: 'manage',
+    href: '/manage',
+  },
+  {
+    title: 'Grow',
+    slug: 'grow',
+    href: '/grow',
+  },
+  {
+    title: 'Lifestyle',
+    slug: 'lifestyle',
+    href: '/lifestyle',
+  },
+  {
+    title: 'Startup Training',
+    slug: 'startup-training',
+    href: '/startup-training',
+  },
+];
+
 // export default navigation;
