@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
   intro: {
     background: colors.blueGrey[100] + '40',
+  },
   main: {
     margin: '0 auto',
     maxWidth: theme.layout.contentWidth,
