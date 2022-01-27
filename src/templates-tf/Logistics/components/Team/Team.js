@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import {
   useMediaQuery,
   Grid,
@@ -8,7 +9,7 @@ import {
   ListItemAvatar,
   Typography,
   Avatar,
-} from '@material-ui/core';
+} from '@mui/material';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 

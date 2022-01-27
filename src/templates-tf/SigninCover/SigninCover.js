@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import { Form } from './components';
 import { Image } from 'components/atoms';
 import { LearnMoreLink } from 'components/atoms';
@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       maxWidth: 500,
       margin: `0 auto`,
     },

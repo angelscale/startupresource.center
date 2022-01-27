@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import rehypeReact from 'rehype-react';
 
 import { Section } from 'components/organisms';
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   sidebarNewsletter: {
     marginTop: theme.spacing(4),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       marginTop: theme.spacing(2),
     },
   },

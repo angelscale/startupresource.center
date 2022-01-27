@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import { Headline, CodeHighlighter, PropsHighlighter, SectionBox } from '../../components';
 import { TypedText } from 'components/molecules';
 
@@ -23,7 +23,7 @@ const dataProperties = [{
 
 const exampleCode = `
 import React from 'react';
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import { TypedText } from 'components/molecules';
 
 export default function Example() {

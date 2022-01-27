@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useMediaQuery, Button, Typography, Grid } from '@material-ui/core';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import { useMediaQuery, Button, Typography, Grid } from '@mui/material';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 import { CardProduct } from 'components/organisms';
@@ -24,7 +25,7 @@ const useStyles = makeStyles(theme => ({
       height: '100%',
       flex: '1 1 50%',
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       flexDirection: 'column !important',
       '& .card-product__content': {
         flex: '1 1 100%',

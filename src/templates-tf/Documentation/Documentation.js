@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { parse } from 'query-string';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import { Section } from 'components/organisms';
 import { Loading } from './components';
 

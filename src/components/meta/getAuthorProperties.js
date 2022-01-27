@@ -17,7 +17,7 @@ export const getAuthorProperties = (primaryAuthor) => {
         sameAsArray: authorProfiles.length ? `["${_.join(authorProfiles, `", "`)}"]` : null,
         image: primaryAuthor.profile_image || null,
         facebookUrl: primaryAuthor.facebook ? `https://www.facebook.com/${primaryAuthor.facebook.replace(/^\//, ``)}/` : null,
-    }
+    };
 }
 
 getAuthorProperties.defaultProps = {

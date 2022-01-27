@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import { Headline, CodeHighlighter, PropsHighlighter, SectionBox } from '../../components';
 import { SwiperNumber } from 'components/molecules';
 
@@ -33,9 +33,9 @@ const dataProperties = [{
 
 const exampleCode = `
 import React from 'react';
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import { SwiperNumber } from 'components/molecules';
-import 'swiper/css/swiper.min.css';
+import 'swiper/css/bundle';
 
 export default function Example() {
   return (

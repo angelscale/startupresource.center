@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@mui/material/styles';
 
-import { useMediaQuery, Grid } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+
+import { useMediaQuery, Grid } from '@mui/material';
 import { LearnMoreLink, Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 import { CardBase } from 'components/organisms';

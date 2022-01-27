@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import {
   List,
   ListItem,
   ListItemAvatar,
   ListItemText,
   Avatar,
-} from '@material-ui/core';
+} from '@mui/material';
 import { SectionHeader } from 'components/molecules';
 import { HeroShaped, Map } from 'components/organisms';
 import { LeftRightContainer } from 'components/custom';

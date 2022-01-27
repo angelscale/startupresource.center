@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Button } from '@material-ui/core';
+import { Box, Typography, Button } from '@mui/material';
 import { Headline, CodeHighlighter, PropsHighlighter, SectionBox } from '../../components';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
@@ -94,7 +94,7 @@ const dataProperties = [{
 
 const exampleCode1 = `
 import React from 'react';
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import { SectionHeader } from 'components/molecules';
 
 export default function Example() {
@@ -111,7 +111,7 @@ export default function Example() {
 
 const exampleCode2 = `
 import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography } from '@mui/material';
 import { SectionHeader } from 'components/molecules';
 
 export default function Example() {
@@ -128,7 +128,7 @@ export default function Example() {
 
 const exampleCode3 = `
 import React from 'react';
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import { SectionHeader } from 'components/molecules';
 
 export default function Example() {
@@ -147,7 +147,7 @@ export default function Example() {
 
 const exampleCode4 = `
 import React from 'react';
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import { SectionHeader } from 'components/molecules';
 
 export default function Example() {
@@ -163,7 +163,7 @@ export default function Example() {
 
 const exampleCode5 = `
 import React from 'react';
-import { Box, Button } from '@material-ui/core';
+import { Box, Button } from '@mui/material';
 import { SectionHeader } from 'components/molecules';
 
 export default function Example() {
@@ -185,7 +185,7 @@ export default function Example() {
 
 const exampleCode6 = `
 import React from 'react';
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import { SectionHeader } from 'components/molecules';
 
 export default function Example() {
@@ -207,7 +207,7 @@ export default function Example() {
 
 const exampleCode7 = `
 import React from 'react';
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import { SectionHeader } from 'components/molecules';
 
 export default function Example() {
@@ -230,7 +230,7 @@ export default function Example() {
 
 const exampleCode8 = `
 import React from 'react';
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 

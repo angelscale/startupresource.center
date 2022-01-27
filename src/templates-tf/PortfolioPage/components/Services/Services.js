@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid, Button, colors } from '@material-ui/core';
+import { Grid, Button, colors } from '@mui/material';
 import { SectionHeader, IconAlternate } from 'components/molecules';
 import { DescriptionListIcon } from 'components/organisms';
 

@@ -2,7 +2,9 @@ import React from 'react';
 import clsx from 'clsx';
 import { parse } from 'query-string';
 import PropTypes from 'prop-types';
-import { Typography, ListItem, makeStyles } from '@material-ui/core';
+import { Typography, ListItem } from '@mui/material';
+
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles(theme => ({
   item: {

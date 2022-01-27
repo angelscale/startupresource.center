@@ -1,8 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
 import { parse } from 'query-string';
-import { makeStyles } from '@material-ui/core/styles';
-import { Box, List, ListItem, Grid, Typography } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { Box, List, ListItem, Grid, Typography } from '@mui/material';
 import { SectionAlternate, CardBase } from 'components/organisms';
 import { Hero, General, Security, Notifications, Billing } from './components';
 

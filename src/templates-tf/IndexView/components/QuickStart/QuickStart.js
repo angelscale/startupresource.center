@@ -1,14 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  makeStyles,
-  useTheme,
-  NoSsr,
-  Grid,
-  Button,
-  useMediaQuery,
-  Typography,
-} from '@material-ui/core';
+import { useTheme, NoSsr, Grid, Button, useMediaQuery, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { SectionHeader } from 'components/molecules';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { vs2015 } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
@@ -16,7 +9,7 @@ import { vs2015 } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 const useStyles = makeStyles((theme) => ({
   quickStartSection: {
     '& .section-header__cta-container': {
-      [theme.breakpoints.down('xs')]: {
+      [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
         '& .section-header__cta-item-wrapper': {
           width: '100%',
@@ -35,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: '900',
   },
   editor: {
-    paddingLeft: `${theme.spacing(2)}px !important`,
-    paddingRight: `${theme.spacing(2)}px !important`,
+    paddingLeft: `${theme.spacing(2)} !important`,
+    paddingRight: `${theme.spacing(2)} !important`,
     borderRadius: theme.spacing(1 / 2),
     width: '100%',
   },

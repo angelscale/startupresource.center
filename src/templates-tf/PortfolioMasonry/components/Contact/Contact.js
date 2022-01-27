@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import {
   useMediaQuery,
   Grid,
@@ -12,7 +13,7 @@ import {
   Avatar,
   TextField,
   Button,
-} from '@material-ui/core';
+} from '@mui/material';
 import { SectionHeader } from 'components/molecules';
 
 const useStyles = makeStyles((theme) => ({

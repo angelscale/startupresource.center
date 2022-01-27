@@ -1,6 +1,7 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useMediaQuery, Grid } from '@material-ui/core';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import { useMediaQuery, Grid } from '@mui/material';
 import { Section, SectionAlternate } from 'components/organisms';
 import {
   Archive,
@@ -31,7 +32,7 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
   },
   sidebarNewsletter: {
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       marginTop: theme.spacing(3),
     },
   },

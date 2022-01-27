@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, Divider } from '@material-ui/core';
+import { Divider } from '@mui/material';
+
+import makeStyles from '@mui/styles/makeStyles';
 
 import {
   Features,

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Button } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { Grid, Button } from '@mui/material';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
@@ -72,7 +72,7 @@ const Overview = (props) => {
               </span>
             }
             ctaGroup={[
-              <Button variant="contained" color="default" size="large">
+              <Button variant="contained" size="large">
                 Learn more
               </Button>,
             ]}

@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import {
   List,
   ListItem,
@@ -8,7 +8,7 @@ import {
   ListItemText,
   Avatar,
   Grid,
-} from '@material-ui/core';
+} from '@mui/material';
 import { SectionHeader } from 'components/molecules';
 import { Section } from 'components/organisms';
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';

@@ -4,7 +4,7 @@ import {
   DeviceHub,
   FlightTakeoff,
   TrendingUp,
-} from '@material-ui/icons';
+} from '@mui/icons-material';
 
 export const mockServices = [
   {

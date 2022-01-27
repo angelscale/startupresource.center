@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import {
   colors,
   Grid,
   FormControl,
   OutlinedInput,
   InputAdornment,
-} from '@material-ui/core';
+} from '@mui/material';
 import { Icon, Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 

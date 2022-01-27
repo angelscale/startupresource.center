@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Typography } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { Grid, Typography } from '@mui/material';
 
 import { SectionHeader, CountUpNumber } from 'components/molecules';
 
@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(3),
   },
   placementGridItemMiddle: {
-    margin: `0 ${theme.spacing(3)}px`,
+    margin: `0 ${theme.spacing(3)}`,
   },
 }));
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography } from '@mui/material';
 import { Headline, CodeHighlighter, PropsHighlighter, SectionBox } from '../../components';
 import { Parallax } from 'components/organisms';
 import { SectionHeader } from 'components/molecules';
@@ -30,7 +30,7 @@ const dataProperties = [{
 
 const exampleCode = `
 import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography } from '@mui/material';
 import { Parallax } from 'components/organisms';
 import { SectionHeader } from 'components/molecules';
 import { CardBase } from 'components/organisms';

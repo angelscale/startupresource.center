@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@mui/material/styles';
 
-import { useMediaQuery, Grid, Typography, Button } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+
+import { useMediaQuery, Grid, Typography, Button } from '@mui/material';
 import { Icon, LearnMoreLink } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 import { CardPricingStandard } from 'components/organisms';

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, List, Chip } from '@material-ui/core';
+import { List, Chip } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { SectionHeader } from 'components/molecules';
 
 const useStyles = makeStyles(theme => ({

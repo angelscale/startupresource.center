@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import { Button } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { Button } from '@mui/material';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 import { Section } from 'components/organisms';
@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
   image: {
     position: 'relative',
     bottom: theme.spacing(-1),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       display: 'none',
     },
   },

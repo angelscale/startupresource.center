@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import {
   useMediaQuery,
   colors,
@@ -17,7 +18,7 @@ import {
   ListItemText,
   Button,
   NoSsr,
-} from '@material-ui/core';
+} from '@mui/material';
 import { SectionHeader } from 'components/molecules';
 
 const useStyles = makeStyles((theme) => ({

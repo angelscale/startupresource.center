@@ -1,8 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import { Divider } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { Divider } from '@mui/material';
 import { Section } from 'components/organisms';
 
 const useStyles = makeStyles((theme) => ({
@@ -18,16 +18,16 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     maxWidth: theme.layout.contentWidth,
     margin: '0 auto',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       flexDirection: 'column-reverse',
     },
   },
   heroLeftSide: {
     padding: theme.spacing(12, 4),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       padding: theme.spacing(3, 8),
     },
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('md')]: {
       padding: theme.spacing(3, 2),
     },
   },
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '50%',
     flex: '0 0 50%',
     position: 'relative',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       maxWidth: '100%',
       flex: '0 0 100%',
       height: '300px',
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     width: '50vw',
     height: '100%',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       width: '100%',
     },
   },

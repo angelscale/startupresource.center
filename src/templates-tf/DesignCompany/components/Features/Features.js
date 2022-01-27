@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 import { Icon } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 import { CardBase, DescriptionListIcon } from 'components/organisms';

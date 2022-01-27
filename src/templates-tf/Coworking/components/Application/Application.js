@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@mui/material/styles';
 
-import { useMediaQuery, Button, Typography } from '@material-ui/core';
+import { useMediaQuery, Button, Typography } from '@mui/material';
 import { SectionHeader, DescriptionCta } from 'components/molecules';
 
 const Application = props => {

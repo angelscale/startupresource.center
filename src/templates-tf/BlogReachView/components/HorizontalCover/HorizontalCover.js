@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import {
   useMediaQuery,
   Avatar,
   Typography,
   Grid,
   Divider,
-} from '@material-ui/core';
+} from '@mui/material';
 import { Image } from 'components/atoms';
 import { CardProduct } from 'components/organisms';
 
@@ -57,7 +58,7 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
     zIndex: 3,
     maxWidth: '50%',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('md')]: {
       maxWidth: '100%',
     },
   },

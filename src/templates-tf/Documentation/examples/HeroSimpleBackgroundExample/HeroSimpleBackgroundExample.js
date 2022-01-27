@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button } from '@material-ui/core';
+import { Box, Button } from '@mui/material';
 import { Headline, CodeHighlighter, PropsHighlighter, SectionBox } from '../../components';
 import { HeroSimpleBackground } from 'components/organisms';
 import { SectionHeader } from 'components/molecules';
@@ -40,7 +40,7 @@ const dataProperties = [{
 
 const exampleCode1 = `
 import React from 'react';
-import { Box, Button } from '@material-ui/core';
+import { Box, Button } from '@mui/material';
 import { HeroSimpleBackground } from 'components/organisms';
 import { SectionHeader } from 'components/molecules';
 import { Section } from 'components/organisms';

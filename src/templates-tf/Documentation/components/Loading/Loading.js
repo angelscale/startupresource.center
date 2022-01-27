@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { List, ListItem } from '@material-ui/core';
-import Skeleton from '@material-ui/lab/Skeleton';
+import { List, ListItem } from '@mui/material';
+import Skeleton from '@mui/material/Skeleton';
 
 const Loading = ({ className, ...rest }) => (
   <List className={className} {...rest}>
@@ -9,25 +9,25 @@ const Loading = ({ className, ...rest }) => (
       <Skeleton variant="text" width={250} />
     </ListItem>
     <ListItem>
-      <Skeleton variant="rect" width={200} height={25} />
+      <Skeleton variant="rectangular" width={200} height={25} />
     </ListItem>
     <ListItem>
       <Skeleton variant="text" width={250} />
     </ListItem>
     <ListItem>
-      <Skeleton variant="rect" width={350} height={20} />
+      <Skeleton variant="rectangular" width={350} height={20} />
     </ListItem>
     <ListItem>
       <Skeleton variant="text" width={250} />
     </ListItem>
     <ListItem>
-      <Skeleton variant="rect" width={'100%'} height={300} />
+      <Skeleton variant="rectangular" width={'100%'} height={300} />
     </ListItem>
     <ListItem>
       <Skeleton variant="text" width={250} />
     </ListItem>
     <ListItem>
-      <Skeleton variant="rect" width={'100%'} height={350} />
+      <Skeleton variant="rectangular" width={'100%'} height={350} />
     </ListItem>
   </List>
 );

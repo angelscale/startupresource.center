@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, colors } from '@material-ui/core';
+import { Box, colors } from '@mui/material';
 import { Headline, CodeHighlighter, PropsHighlighter, SectionBox } from '../../components';
 import { DescriptionListIcon } from 'components/organisms';
 import { Icon } from "components/atoms";
@@ -60,7 +60,7 @@ const dataProperties = [{
 
 const exampleCode1 = `
 import React from 'react';
-import { Box, colors } from '@material-ui/core';
+import { Box, colors } from '@mui/material';
 import { DescriptionListIcon } from 'components/organisms';
 import { Icon } from "components/atoms";
 
@@ -79,7 +79,7 @@ export default function Example() {
 
 const exampleCode2 = `
 import React from 'react';
-import { Box, colors } from '@material-ui/core';
+import { Box, colors } from '@mui/material';
 import { DescriptionListIcon } from 'components/organisms';
 import { IconAlternate } from "components/molecules";
 
@@ -98,7 +98,7 @@ export default function Example() {
 
 const exampleCode3 = `
 import React from 'react';
-import { Box, colors } from '@material-ui/core';
+import { Box, colors } from '@mui/material';
 import { DescriptionListIcon } from 'components/organisms';
 import { IconAlternate } from "components/molecules";
 
@@ -118,7 +118,7 @@ export default function Example() {
 
 const exampleCode4 = `
 import React from 'react';
-import { Box, colors } from '@material-ui/core';
+import { Box, colors } from '@mui/material';
 import { DescriptionListIcon } from 'components/organisms';
 import { IconAlternate } from "components/molecules";
 

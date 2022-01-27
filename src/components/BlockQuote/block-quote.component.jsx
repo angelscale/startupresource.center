@@ -1,5 +1,7 @@
 import React from 'react';
-import { Typography, colors, makeStyles, Paper } from '@material-ui/core';
+import { Typography, colors, Paper } from '@mui/material';
+
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) => ({
   root: {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { ThemeProvider } from '@material-ui/core/styles';
-import { Paper } from '@material-ui/core';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
+import { Paper } from '@mui/material';
+import CssBaseline from '@mui/material/CssBaseline';
 import getTheme from 'theme';
 
 import AOS from 'aos';
@@ -60,18 +60,20 @@ export default function WithLayout({
   }, [mountedComponent]);
 
   return (
-    <ThemeProvider theme={getTheme(themeMode)}>
-      {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-      <CssBaseline />
-      <Paper elevation={0}>
-        <Layout
-          themeMode={themeMode}
-          themeToggler={themeToggler}
-          fullWidth={fullWidth}
-        >
-          <Component themeMode={themeMode} {...rest} />
-        </Layout>
-      </Paper>
-    </ThemeProvider>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={getTheme(themeMode)}>
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <CssBaseline />
+        <Paper elevation={0}>
+          <Layout
+            themeMode={themeMode}
+            themeToggler={themeToggler}
+            fullWidth={fullWidth}
+          >
+            <Component themeMode={themeMode} {...rest} />
+          </Layout>
+        </Paper>
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 }

@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { useMediaQuery } from '@material-ui/core';
-import { Grid, Typography, Button, Avatar } from '@material-ui/core';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import { useMediaQuery } from '@mui/material';
+import { Grid, Typography, Button, Avatar } from '@mui/material';
 import { SectionHeader } from 'components/molecules';
 
 const useStyles = makeStyles((theme) => ({
@@ -11,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: 200,
     width: '100%',
     height: '100%',
-    border: `${theme.spacing(1)}px solid ${theme.palette.background.paper}`,
+    border: `${theme.spacing(1)} solid ${theme.palette.background.paper}`,
     boxShadow: `0 2px 10px 0 ${theme.palette.cardShadow}`,
     marginTop: theme.spacing(1 / 2),
   },

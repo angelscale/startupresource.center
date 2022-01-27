@@ -1,13 +1,13 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import {
   AppBar,
   Toolbar,
   IconButton,
   Divider,
   Drawer,
-} from '@material-ui/core';
-import ForumIcon from '@material-ui/icons/Forum';
+} from '@mui/material';
+import ForumIcon from '@mui/icons-material/Forum';
 import { Section, ContactForm } from 'components/organisms';
 import {
   About,
@@ -121,7 +121,7 @@ const Service = () => {
           <IconButton
             className={classes.chatIconButton}
             onClick={handleBottombarOpen}
-          >
+            size="large">
             <ForumIcon className={classes.forumIcon} />
           </IconButton>
           <Drawer

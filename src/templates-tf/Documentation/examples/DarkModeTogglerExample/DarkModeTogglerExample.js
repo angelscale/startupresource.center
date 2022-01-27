@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import { Headline, CodeHighlighter, PropsHighlighter, SectionBox } from '../../components';
 import { DarkModeToggler } from 'components/atoms';
 
@@ -28,7 +28,7 @@ const dataProperties = [{
 
 const exampleCode = `
 import React, { useState } from 'react';
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import { DarkModeToggler } from 'components/atoms';
 
 export default function DarkModeTogglerExample() {

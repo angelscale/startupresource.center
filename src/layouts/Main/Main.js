@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import { Divider } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { Divider } from '@mui/material';
 import { Topbar, Footer, Sidebar } from './components';
 import { navigation, navigationNew } from 'layouts/navigation';
 

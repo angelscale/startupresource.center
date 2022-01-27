@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Button, Avatar, Typography } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { Grid, Button, Avatar, Typography } from '@mui/material';
 import { SectionHeader } from 'components/molecules';
 import { HeroSimpleBackground } from 'components/organisms';
 
@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
   avatar: {
     width: 60,
     height: 60,
-    border: `${theme.spacing(1)}px solid ${theme.palette.background.paper}`,
+    border: `${theme.spacing(1)} solid ${theme.palette.background.paper}`,
     boxShadow: `0 2px 10px 0 ${theme.palette.cardShadow}`,
     marginTop: theme.spacing(1 / 2),
     [theme.breakpoints.up('sm')]: {

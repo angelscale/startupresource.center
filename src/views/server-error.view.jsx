@@ -1,6 +1,6 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Button } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { Button } from '@mui/material';
 import { LearnMoreLink } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 import { Section } from 'components/organisms';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grid, Typography } from '@material-ui/core';
+import { Box, Grid, Typography } from '@mui/material';
 import { Headline, CodeHighlighter, PropsHighlighter, SectionBox } from '../../components';
 import { CardProduct } from 'components/organisms';
 import { SwiperImage } from 'components/molecules';
@@ -64,7 +64,7 @@ const dataProperties = [{
 
 const exampleCode1 = `
 import React from 'react';
-import { Box, Grid, Typography } from '@material-ui/core';
+import { Box, Grid, Typography } from '@mui/material';
 import { CardProduct } from 'components/organisms';
 import { SwiperImage } from 'components/molecules';
 
@@ -121,7 +121,7 @@ export default function Example() {
 
 const exampleCode2 = `
 import React from 'react';
-import { Box, Grid, Typography } from '@material-ui/core';
+import { Box, Grid, Typography } from '@mui/material';
 import { CardProduct } from 'components/organisms';
 import { SwiperImage } from 'components/molecules';
 
@@ -179,7 +179,7 @@ export default function Example() {
 
 const exampleCode3 = `
 import React from 'react';
-import { Box, Grid, Typography } from '@material-ui/core';
+import { Box, Grid, Typography } from '@mui/material';
 import { CardProduct } from 'components/organisms';
 import { SwiperImage } from 'components/molecules';
 
@@ -238,7 +238,7 @@ export default function Example() {
 
 const exampleCode4 = `
 import React from 'react';
-import { Box, Grid, Typography } from '@material-ui/core';
+import { Box, Grid, Typography } from '@mui/material';
 import { CardProduct } from 'components/organisms';
 import { SwiperImage } from 'components/molecules';
 
@@ -297,7 +297,7 @@ export default function Example() {
 
 const exampleCode5 = `
 import React from 'react';
-import { Box, Grid, Typography } from '@material-ui/core';
+import { Box, Grid, Typography } from '@mui/material';
 import { CardProduct } from 'components/organisms';
 import { SwiperImage } from 'components/molecules';
 

@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import { NoSsr } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { NoSsr } from '@mui/material';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { vs2015 } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 const useStyles = makeStyles(theme => ({
   editor: {
-    paddingLeft: `${theme.spacing(2)}px !important`,
-    paddingRight: `${theme.spacing(2)}px !important`,
+    paddingLeft: `${theme.spacing(2)} !important`,
+    paddingRight: `${theme.spacing(2)} !important`,
     borderRadius: theme.spacing(1/2),
   },
 }));

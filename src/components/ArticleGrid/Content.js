@@ -1,8 +1,8 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
+import makeStyles from '@mui/styles/makeStyles';
+import Avatar from '@mui/material/Avatar';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 
 const useStyles = makeStyles((theme) => ({
   avatar: {

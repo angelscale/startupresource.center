@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, colors, Grid, Button, Typography } from '@material-ui/core';
+import { Box, colors, Grid, Button, Typography } from '@mui/material';
 import { Headline, CodeHighlighter, PropsHighlighter, SectionBox } from '../../components';
 import { CardPricingStandard } from 'components/organisms';
 import { Icon } from 'components/atoms';
@@ -74,7 +74,7 @@ const dataProperties = [{
 
 const exampleCode1 = `
 import React from 'react';
-import { Box, colors, Grid, Button, Typography } from '@material-ui/core';
+import { Box, colors, Grid, Button, Typography } from '@mui/material';
 import { CardPricingStandard } from 'components/organisms';
 import { Icon } from 'components/atoms';
 
@@ -138,7 +138,7 @@ export default function Example() {
 
 const exampleCode2 = `
 import React from 'react';
-import { Box, colors, Grid, Button, Typography } from '@material-ui/core';
+import { Box, colors, Grid, Button, Typography } from '@mui/material';
 import { CardPricingStandard } from 'components/organisms';
 import { Icon } from 'components/atoms';
 
@@ -205,7 +205,7 @@ export default function Example() {
 
 const exampleCode3 = `
 import React from 'react';
-import { Box, colors, Grid, Button, Typography } from '@material-ui/core';
+import { Box, colors, Grid, Button, Typography } from '@mui/material';
 import { CardPricingStandard } from 'components/organisms';
 import { Icon } from 'components/atoms';
 

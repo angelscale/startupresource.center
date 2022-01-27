@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography } from '@mui/material';
 import { Headline, CodeHighlighter, PropsHighlighter, SectionBox } from '../../components';
 import { Section } from 'components/organisms';
 
@@ -38,7 +38,7 @@ const dataProperties = [{
 
 const exampleCode = `
 import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography } from '@mui/material';
 import { Section } from 'components/organisms';
 
 export default function Example() {

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Button } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { Grid, Button } from '@mui/material';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     bottom: '-164px',
     right: 0,
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'none',
     },
   },
@@ -35,7 +35,7 @@ const FeaturedProducts = (props) => {
             subtitle="If we're no longer the right solution for you, we'll allow you to export and take your data at anytime for any reason."
             subtitleColor="textPrimary"
             ctaGroup={[
-              <Button variant="contained" color="default" size="large">
+              <Button variant="contained" size="large">
                 Buy now
               </Button>,
             ]}

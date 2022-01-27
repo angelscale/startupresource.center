@@ -3,7 +3,7 @@
 // We are constantly sharing the most tried-and-true strategies and resources, as well the newest ideas being used by successful startups worldwide.  From the actual act of creating and structuring your business, to the most effective marketing practices, SRC puts everything you'll need to succeed, right at your fingertips.
 
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import { Section, SectionAlternate } from 'components/organisms';
 import {
   Contact,

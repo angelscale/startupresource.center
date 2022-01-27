@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Grid, Typography, useMediaQuery } from '@material-ui/core';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import { Grid, Typography, useMediaQuery } from '@mui/material';
 
 const useStyles = makeStyles(() => ({
   title: {

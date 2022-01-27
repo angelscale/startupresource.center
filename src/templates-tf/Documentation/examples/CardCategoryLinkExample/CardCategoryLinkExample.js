@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, colors, Grid } from '@material-ui/core';
+import { Box, colors, Grid } from '@mui/material';
 import { Headline, CodeHighlighter, PropsHighlighter, SectionBox } from '../../components';
 import { CardCategoryLink } from 'components/organisms';
 
@@ -63,7 +63,7 @@ const dataProperties = [{
 
 const exampleCode1 = `
 import React from 'react';
-import { Box, colors, Grid } from '@material-ui/core';
+import { Box, colors, Grid } from '@mui/material';
 import { CardCategoryLink } from 'components/organisms';
 
 export default function Example() {
@@ -102,7 +102,7 @@ export default function Example() {
 
 const exampleCode2 = `
 import React from 'react';
-import { Box, colors, Grid } from '@material-ui/core';
+import { Box, colors, Grid } from '@mui/material';
 import { CardCategoryLink } from 'components/organisms';
 
 export default function Example() {
@@ -144,7 +144,7 @@ export default function Example() {
 
 const exampleCode3 = `
 import React from 'react';
-import { Box, colors, Grid } from '@material-ui/core';
+import { Box, colors, Grid } from '@mui/material';
 import { CardCategoryLink } from 'components/organisms';
 
 export default function Example() {
@@ -189,7 +189,7 @@ export default function Example() {
 
 const exampleCode4 = `
 import React from 'react';
-import { Box, colors, Grid } from '@material-ui/core';
+import { Box, colors, Grid } from '@mui/material';
 import { CardCategoryLink } from 'components/organisms';
 
 export default function Example() {

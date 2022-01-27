@@ -1,7 +1,7 @@
 import React from 'react';
-import { Breadcrumbs, Typography } from '@material-ui/core';
+import { Breadcrumbs, Typography } from '@mui/material';
 import { Link } from 'gatsby';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import clsx from 'clsx';
 
 const useStyles = makeStyles((theme) => ({

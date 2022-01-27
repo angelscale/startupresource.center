@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import { Icon, Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 
@@ -12,9 +13,9 @@ import {
   Box,
   Backdrop,
   useMediaQuery,
-} from '@material-ui/core';
+} from '@mui/material';
 
-import CloseIcon from '@material-ui/icons/Close';
+import CloseIcon from '@mui/icons-material/Close';
 
 const useStyles = makeStyles(() => ({
   image: {

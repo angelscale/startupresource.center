@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useTheme } from '@material-ui/core/styles';
-import { useMediaQuery } from '@material-ui/core';
-import { Grid, Button, TextField } from '@material-ui/core';
+import { useTheme } from '@mui/material/styles';
+import { useMediaQuery } from '@mui/material';
+import { Grid, Button, TextField } from '@mui/material';
 import { SectionHeader } from 'components/molecules';
 import { CardBase } from 'components/organisms';
 

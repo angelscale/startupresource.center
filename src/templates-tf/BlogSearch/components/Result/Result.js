@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import {
   colors,
   useMediaQuery,
@@ -12,7 +13,7 @@ import {
   Typography,
   Grid,
   Divider,
-} from '@material-ui/core';
+} from '@mui/material';
 import { Icon, Image } from 'components/atoms';
 import { CardProduct, Section, SectionAlternate } from 'components/organisms';
 
@@ -56,14 +57,14 @@ const useStyles = makeStyles((theme) => ({
     '& .MuiOutlinedInput-input': {
       padding: 0,
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       padding: theme.spacing(1),
     },
   },
   searchButton: {
     maxHeight: 45,
     minWidth: 135,
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       minWidth: 'auto',
     },
   },

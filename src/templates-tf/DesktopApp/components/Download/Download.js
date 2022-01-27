@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import makeStyles from '@mui/styles/makeStyles';
 
-import { Button } from '@material-ui/core';
+import { Button } from '@mui/material';
 import { SectionHeader } from 'components/molecules';
 import { CardBase } from 'components/organisms';
 

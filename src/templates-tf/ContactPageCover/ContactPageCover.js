@@ -1,5 +1,6 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import {
   useMediaQuery,
   Grid,
@@ -7,7 +8,7 @@ import {
   TextField,
   Button,
   Divider,
-} from '@material-ui/core';
+} from '@mui/material';
 import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 import { Section } from 'components/organisms';
@@ -19,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
   },
   section: {
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       paddingTop: 0,
     },
   },

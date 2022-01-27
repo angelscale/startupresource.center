@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import {
   useMediaQuery,
   colors,
@@ -11,7 +12,7 @@ import {
   ListItem,
   ListItemAvatar,
   ListItemText,
-} from '@material-ui/core';
+} from '@mui/material';
 import { SectionHeader, IconAlternate } from 'components/molecules';
 
 const useStyles = makeStyles((theme) => ({

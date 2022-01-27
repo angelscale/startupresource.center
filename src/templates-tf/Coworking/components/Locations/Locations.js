@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
 import {
   useMediaQuery,
   Grid,
@@ -10,16 +11,16 @@ import {
   colors,
   Avatar,
   NoSsr,
-} from '@material-ui/core';
+} from '@mui/material';
 import { LearnMoreLink } from 'components/atoms';
 import { SectionHeader, SwiperImage } from 'components/molecules';
 import { CardProduct } from 'components/organisms';
 
 const useStyles = makeStyles((theme) => ({
   swiperNavButton: {
-    width: `${theme.spacing(3)}px !important`,
-    height: `${theme.spacing(3)}px !important`,
-    padding: `${theme.spacing(2)}px !important`,
+    width: `${theme.spacing(3)} !important`,
+    height: `${theme.spacing(3)} !important`,
+    padding: `${theme.spacing(2)} !important`,
   },
   locationCardPrice: {
     padding: theme.spacing(1),

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import { Grid, TextField, Button } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { Grid, TextField, Button } from '@mui/material';
 import { SectionHeader } from 'components/molecules';
 import { CardBase } from 'components/organisms';
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import { Typography, Button } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { Typography, Button } from '@mui/material';
 import { Image } from 'components/atoms';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       marginRight: theme.spacing(-2),
       marginLeft: theme.spacing(-2),
     },

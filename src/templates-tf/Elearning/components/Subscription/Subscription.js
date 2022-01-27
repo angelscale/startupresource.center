@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TextField, Grid, Button } from '@material-ui/core';
+import { TextField, Grid, Button } from '@mui/material';
 import { SectionHeader } from 'components/molecules';
 import { CardBase } from 'components/organisms';
 
