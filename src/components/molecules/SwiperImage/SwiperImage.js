@@ -2,8 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import makeStyles from '@mui/styles/makeStyles';
-import Swiper from 'swiper';
-
+import { Swiper } from 'swiper/react';
 import { Image } from 'components/atoms';
 
 const useStyles = makeStyles(theme => ({

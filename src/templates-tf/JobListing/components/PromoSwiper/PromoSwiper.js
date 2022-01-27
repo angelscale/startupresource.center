@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import Swiper from 'swiper';
 import { useTheme } from '@mui/material/styles';
 import makeStyles from '@mui/styles/makeStyles';
 import { useMediaQuery, Typography, Grid, colors } from '@mui/material';
 import { Image } from 'components/atoms';
 import { SectionHeader, IconAlternate } from 'components/molecules';
 import { Section } from 'components/organisms';
+import { Swiper } from 'swiper/react';
 
 const useStyles = makeStyles((theme) => ({
   swiperWrapper: {

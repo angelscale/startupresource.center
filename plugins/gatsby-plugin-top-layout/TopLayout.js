@@ -5,7 +5,7 @@ import 'react-lazy-load-image-component/src/effects/opacity.css';
 import 'assets/css/ghost.css';
 import 'assets/css/index.css';
 
-import 'swiper/swiper-bundle.min.css';
+import 'swiper/css/bundle';
 import 'aos/dist/aos.css';
 
 export default function TopLayout(props) {

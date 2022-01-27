@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import Swiper from 'swiper';
 import makeStyles from '@mui/styles/makeStyles';
 import { colors } from '@mui/material';
 import { SectionHeader, IconAlternate } from 'components/molecules';
 import { CardReview } from 'components/organisms';
+import { Swiper } from 'swiper/react';
+
 
 const useStyles = makeStyles(theme => ({
   swiperContainer: {
