@@ -10,8 +10,8 @@
     "url": "git+https://github.com/angelscale/startupresource.center.git"
   },
   "resolutions": {
-    "sharp": "^0.28.3",
-    "gatsby-plugin-sharp": "^3.11.0"
+    "sharp": "^0.29",
+    "chalk": "^4.1"
   },
   "engines": {
     "node": ">= 12.0"
