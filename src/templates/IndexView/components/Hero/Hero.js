@@ -74,8 +74,7 @@ const Hero = ({ className, ...rest }) => {
     </Typography>
   );
 
-  const subtitle =
-    'Sunt quis dolor est anim reprehenderit esse pariatur. Ex ad ut veniam consectetur adipisicing occaecat.';
+  const subtitle = 'Everything you need to get your business idea off the ground, just a click away';
 
   const ctaButton = (
     <Button

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import { alpha, makeStyles } from '@material-ui/core/styles';
 import {
@@ -207,19 +207,6 @@ const Topbar = ({
       }
     }
   `);
-
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [openedPopoverId, setOpenedPopoverId] = useState(null);
-
-  const handleClick = (event, popoverId) => {
-    setAnchorEl(event.target);
-    setOpenedPopoverId(popoverId);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-    setOpenedPopoverId(null);
-  };
 
   return (
     <Toolbar disableGutters className={classes.toolbar} {...rest}>

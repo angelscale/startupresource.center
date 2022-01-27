@@ -145,6 +145,11 @@ exports.navigationNew = [
     href: '/grow',
   },
   {
+    title: 'Lifestyle',
+    slug: 'lifestyle',
+    href: '/lifestyle',
+  },
+  {
     title: 'Startup Training',
     slug: 'startup-training',
     href: '/startup-training',

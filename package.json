@@ -27,7 +27,8 @@
     "clear-all": "rimraf ./.cache ./public ./node_modules",
     "serve": "npx gatsby build && NODE_ENV=production npx gatsby serve",
     "lint": "eslint . --ext .js --cache",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "husky:install": "npx husky install && npx husky add .husky/pre-commit \"npx lint-staged\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -133,10 +134,22 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "fs-extra": "^10.0.0",
+    "husky": "^7.0.0",
+    "lint-staged": "^12.1.2",
     "prettier": "^2.3.2",
     "prettier-eslint": "^13.0.0",
     "prettier-eslint-cli": "^5.0.1",
+    "pretty-quick": "^3.1.2",
     "rimraf": "^3.0.2",
     "typescript": "^4.3.5"
+  },
+  "lint-staged": {
+    "*.+(js|jsx|json)": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.+(css|md)": [
+      "prettier --write"
+    ]
   }
 }

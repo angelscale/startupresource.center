@@ -1,6 +1,8 @@
 import React from 'react';
+
 import { graphql, useStaticQuery } from 'gatsby';
 import { colors } from '@material-ui/core';
+
 import { makeStyles } from '@material-ui/core/styles';
 
 import Hero from 'templates/IndexView/components/Hero';
@@ -25,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
   },
   intro: {
     background: colors.blueGrey[100] + '40',
+  main: {
+    margin: '0 auto',
+    maxWidth: theme.layout.contentWidth,
   },
   content: {
     margin: '0 auto',
@@ -34,26 +39,11 @@ const useStyles = makeStyles((theme) => ({
 
 const HomeView = () => {
   const classes = useStyles();
-  const data = useStaticQuery(graphql`
-    query HomeQuery {
-      file(name: { eq: "home-image" }) {
-        childImageSharp {
-          gatsbyImageData(placeholder: BLURRED)
-        }
-      }
-      site {
-        siteMetadata {
-          title
-          description
-        }
-      }
-    }
-  `);
 
   return (
     <div className={classes.root}>
       <Hero />
-      <div className={classes.content}>
+      <div className={classes.main}>
         <ServiceSectionView />
         <ArticlesSectionView />
       </div>
