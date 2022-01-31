@@ -47,8 +47,6 @@ jobs:
           key: ${{ runner.os }}-node-14-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-14-
-      - name: TEMP--clean
-        run: yarn clean
       - name: Prepare Dependencies
         run: yarn install
       - name: Build
