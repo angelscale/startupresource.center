@@ -44,9 +44,9 @@ jobs:
             .cache/
             public/
             node_modules/
-          key: ${{ runner.os }}-build-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-node-14-${{ hashFiles('yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-build-
+            ${{ runner.os }}-node-14-
       - name: Prepare Dependencies
         run: yarn install
       - name: Build
