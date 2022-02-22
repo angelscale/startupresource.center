@@ -17,10 +17,10 @@ const BlogArticlePage = ({ data, location }) => {
 
 export default BlogArticlePage;
 
-export const postQuery = graphql`
-  query ($slug: String!) {
-    ghostPost(slug: { eq: $slug }) {
-      ...GhostPostFields
-    }
-  }
-`;
+// export const postQuery = graphql`
+//   query ($slug: String!) {
+//     ghostPost(slug: { eq: $slug }) {
+//       ...GhostPostFields
+//     }
+//   }
+// `;
