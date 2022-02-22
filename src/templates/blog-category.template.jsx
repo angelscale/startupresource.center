@@ -17,19 +17,19 @@ const BlogCategoryTemplate = ({ data, location }) => {
 
 export default BlogCategoryTemplate;
 
-export const postQuery = graphql`
-  query ($tags: [String!], $skip: Int!, $limit: Int!) {
-    allGhostPost(
-      filter: { tags: { elemMatch: { slug: { in: $tags } } } }
-      sort: { fields: published_at, order: ASC }
-      skip: $skip
-      limit: $limit
-    ) {
-      edges {
-        node {
-          ...GhostPostFields
-        }
-      }
-    }
-  }
-`;
+// export const postQuery = graphql`
+//   query ($tags: [String!], $skip: Int!, $limit: Int!) {
+//     allGhostPost(
+//       filter: { tags: { elemMatch: { slug: { in: $tags } } } }
+//       sort: { fields: published_at, order: ASC }
+//       skip: $skip
+//       limit: $limit
+//     ) {
+//       edges {
+//         node {
+//           ...GhostPostFields
+//         }
+//       }
+//     }
+//   }
+// `;

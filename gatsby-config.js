@@ -15,43 +15,8 @@ let siteMetadata = {
   themeColor: `#15171A`, // Used for Offline Manifest
 };
 
-let ghostConfig;
-
-try {
-  ghostConfig = require(`./.ghost`);
-} catch (e) {
-  ghostConfig = {
-    production: {
-      apiUrl: process.env.GHOST_API_URL,
-      contentApiKey: process.env.GHOST_CONTENT_API_KEY,
-    },
-  };
-} finally {
-  const { apiUrl, contentApiKey } =
-    process.env.NODE_ENV === `development`
-      ? ghostConfig.development
-      : ghostConfig.production;
-
-  if (!apiUrl || !contentApiKey || contentApiKey.match(/<key>/)) {
-    throw new Error(
-      `GHOST_API_URL and GHOST_CONTENT_API_KEY are required to build. Check the README.`,
-    ); // eslint-disable-line
-  }
-}
-
-if (
-  process.env.NODE_ENV === `production` &&
-  siteMetadata.siteUrl === `http://localhost:8000` &&
-  !process.env.SITEURL
-) {
-  throw new Error(
-    `siteUrl can't be localhost and needs to be configured in siteConfig. Check the README.`,
-  ); // eslint-disable-line
-}
-
 module.exports = {
   plugins: [
-    `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
@@ -97,53 +62,7 @@ module.exports = {
         failOnError: false,
       },
     },
-    {
-      resolve: `gatsby-plugin-ghost-images`,
-      options: {
-        lookup: [
-          {
-            type: `GhostPost`,
-            imgTags: [`feature_image`],
-          },
-        ],
-        exclude: (node) => node.ghostId === undefined,
-        verbose: false,
-        disable: false,
-      },
-    },
     `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-source-try-ghost`,
-      options: {
-        ghostConfig: {
-          apiUrl: ghostConfig.production.apiUrl,
-          contentApiKey: ghostConfig.production.contentApiKey,
-        },
-        cacheResponse: true,
-        verbose: false,
-      },
-    },
-    {
-      resolve: `gatsby-transformer-rehype`,
-      options: {
-        filter: (node) => node.internal.type === `GhostPost`,
-        source: (node) => node.html,
-        fragment: true,
-        space: `html`,
-        emitParseErrors: true,
-        verbose: true,
-        plugins: [
-          { resolve: `gatsby-rehype-ghost-links` },
-          {
-            resolve: `gatsby-rehype-inline-images`,
-            options: {
-              withWebp: true,
-              useImageCache: true,
-            },
-          },
-        ],
-      },
-    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
