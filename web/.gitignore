@@ -72,7 +72,7 @@ typings/
 
 # Docs Custom
 .cache/
-build
+public
 yarn-error.log
 .netlify/
 
