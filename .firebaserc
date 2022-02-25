@@ -5,7 +5,10 @@
   "targets": {
     "startupresourcecenter": {
       "hosting": {
-        "production": [
+        "cms": [
+          "startupresourcecenter-cms"
+        ],
+        "web": [
           "startupresourcecenter"
         ]
       }
