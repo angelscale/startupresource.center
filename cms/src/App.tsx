@@ -28,14 +28,10 @@ const onFirebaseInit = () => {
   getAnalytics();
 
   if (window.location.hostname === 'localhost') {
-    const firestore = getFirestore();
-    connectFirestoreEmulator(firestore, 'localhost', 8080);
-    const auth = getAuth();
-    connectAuthEmulator(auth, 'http://localhost:9099');
-    const functions = getFunctions();
-    connectFunctionsEmulator(functions, 'localhost', 5051);
-    const storage = getStorage();
-    connectStorageEmulator(storage, 'localhost', 9199);
+    connectFirestoreEmulator(getFirestore(), 'localhost', 8080);
+    connectAuthEmulator(getAuth(), 'http://localhost:9099');
+    connectFunctionsEmulator(getFunctions(), 'localhost', 5051);
+    connectStorageEmulator(getStorage(), 'localhost', 9199);
   }
 };
 const client: SearchClient | undefined = algoliasearch(

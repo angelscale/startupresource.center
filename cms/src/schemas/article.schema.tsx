@@ -5,14 +5,44 @@ import {
   EntityReference,
 } from '@camberi/firecms';
 
-import { categories } from './data';
+export const categories: { [index: string]: any } = {
+  plan: new Map([
+    ['research', 'Research'],
+    ['business_funding', 'Business Funding'],
+    ['legal', 'Legal'],
+    ['accounting_and_finance', 'Accounting & Finance'],
+    ['licensing_and_patents', 'Licensing & Patents'],
+    ['business_consultants', 'Business Consultants'],
+  ]),
+  launch: new Map([
+    ['business_planning', 'Business Planning'],
+    ['create_your_brand', 'Create Your Brand'],
+    ['product_packaging_and_design', 'Product Packaging & Design'],
+    ['ecommerce_website', 'eCommerce Website'],
+    ['website_development', 'Webiste Development'],
+    ['networking', 'Networking'],
+  ]),
+  manage: new Map([
+    ['staffing_and_hiring', 'Staffing & Hiring'],
+    ['inventory_management', 'Inventory Management'],
+    ['shipping', 'Shipping'],
+    ['relationship_management', 'Relationship Management'],
+    ['operating_software', 'Operating Software'],
+  ]),
+  grow: new Map([
+    ['creative_and_design', 'Creative & Design'],
+    ['digital_marketing', 'Digital Marketing'],
+    ['influencer_and_affiliate_marketing', 'Influencer & Affiliate Marketing'],
+    ['retail_and_event_marketing', 'Retail & Event Marketing'],
+    ['ecommerce_and_online_markets', 'eCommerce & Online Markets'],
+    ['website_management_and_seo', 'Website Management & SEO'],
+  ]),
+};
 
 type Article = {
   status: string;
-  category: {
-    primary: string;
-    secondary: string;
-  };
+  category: string;
+  subcategory: string;
   name: string;
   authors: EntityReference[];
   header_image: string;
@@ -40,74 +70,29 @@ const ArticleSchema = buildSchema<Article>({
         },
       },
     },
-    category: ({ values }) => {
-      const properties = buildProperties<any>({
-        primary: {
-          title: 'Category',
-          dataType: 'string',
-          config: {
-            previewAsTag: false,
-            enumValues: {
-              plan: 'Plan',
-              launch: 'Launch',
-              manage: 'Manage',
-              grow: 'Grow',
-            },
-          },
+    category: {
+      title: 'Category',
+      dataType: 'string',
+      config: {
+        previewAsTag: true,
+        enumValues: {
+          plan: 'Plan',
+          launch: 'Launch',
+          manage: 'Manage',
+          grow: 'Grow',
         },
-        secondary: {
-          title: 'SubCategory',
-          dataType: 'string',
-          config: {
-            previewAsTag: false,
-          },
-        },
-      });
-      if (values.category) {
-        if ((values.category as any).primary === 'plan') {
-          properties['secondary'] = buildProperty({
-            title: 'SubCategory',
-            dataType: 'string',
-            config: {
-              previewAsTag: false,
-              enumValues: categories['plan'],
-            },
-          });
-        } else if ((values.category as any).primary === 'launch') {
-          properties['secondary'] = buildProperty({
-            title: 'SubCategory',
-            dataType: 'string',
-            config: {
-              previewAsTag: false,
-              enumValues: categories['launch'],
-            },
-          });
-        } else if ((values.category as any).primary === 'manage') {
-          properties['secondary'] = buildProperty({
-            title: 'SubCategory',
-            dataType: 'string',
-            config: {
-              previewAsTag: false,
-              enumValues: categories['manage'],
-            },
-          });
-        } else if ((values.category as any).primary === 'grow') {
-          properties['secondary'] = buildProperty({
-            title: 'SubCategory',
-            dataType: 'string',
-            config: {
-              previewAsTag: false,
-              enumValues: categories['grow'],
-            },
-          });
-        }
-      }
-      return {
-        dataType: 'map',
-        title: 'category',
-        properties: properties,
-      };
+      },
     },
+    subcategory: ({ values }) => ({
+      title: 'SubCategory',
+      dataType: 'string',
+      config: {
+        previewAsTag: true,
+        enumValues: values.category
+          ? Object.fromEntries(categories[values.category])
+          : {},
+      },
+    }),
     name: {
       title: 'Name',
       validation: { required: true },
