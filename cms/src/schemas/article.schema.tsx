@@ -1,9 +1,4 @@
-import {
-  buildProperty,
-  buildProperties,
-  buildSchema,
-  EntityReference,
-} from '@camberi/firecms';
+import { buildProperty, buildSchema, EntityReference } from '@camberi/firecms';
 
 export const categories: { [index: string]: any } = {
   plan: new Map([

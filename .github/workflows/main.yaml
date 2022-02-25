@@ -20,13 +20,10 @@ jobs:
         with:
           node-version: 14.x
       - name: Prepare Dependencies
-        run: yarn install
+        run: cd web && yarn install
       - name: Lint
-        run: yarn lint
+        run: cd web && yarn lint
   lint-cms:
-    defaults:
-      run:
-        working-directory: cms
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -36,9 +33,9 @@ jobs:
         with:
           node-version: 14.x
       - name: Prepare Dependencies
-        run: yarn install
+        run: cd cms && yarn install
       - name: Lint
-        run: yarn lint
+        run: cd cms && yarn lint
   build:
     runs-on: ubuntu-latest
     steps:
@@ -53,26 +50,23 @@ jobs:
         with:
           path: |
             ~/.npm
-            .cache/
-            public/
-            node_modules/
-          key: ${{ runner.os }}-build-${{ hashFiles('yarn.lock') }}
+            web/.cache/
+            web/public/
+            web/node_modules/
+          key: ${{ runner.os }}-web-${{ hashFiles('web/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-build-
+            ${{ runner.os }}-web-
       - name: Prepare Dependencies
-        run: yarn install
+        run: cd web && yarn install
       - name: Build
-        run: yarn build
-      - name: Upload Package
+        run: cd web && yarn build
+      - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
           name: web
-          path: public
+          path: web/public
   build-cms:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: cms
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -88,14 +82,14 @@ jobs:
             cms/.cache/
             cms/build/
             cms/node_modules/
-          key: ${{ runner.os }}-build-cms-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-cms-${{ hashFiles('cms/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-build-cms-
+            ${{ runner.os }}-cms-
       - name: Prepare Dependencies
-        run: yarn install
+        run: cd cms && yarn install
       - name: Build
-        run: yarn build
-      - name: Upload Package
+        run: cd cms && yarn build
+      - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
           name: cms
@@ -111,12 +105,12 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-      - name: Download Package
+      - name: Download Web Artifact
         uses: actions/download-artifact@v2
         with:
           name: web
-          path: public
-      - name: Download Package
+          path: web/public
+      - name: Download CMS Artifact
         uses: actions/download-artifact@v2
         with:
           name: cms
@@ -137,12 +131,12 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-      - name: Download Package
+      - name: Download Web Artifact
         uses: actions/download-artifact@v2
         with:
           name: web
-          path: public
-      - name: Download Package
+          path: web/public
+      - name: Download CMS Artifact
         uses: actions/download-artifact@v2
         with:
           name: cms
@@ -162,12 +156,12 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-      - name: Download Package
+      - name: Download Web Artifact
         uses: actions/download-artifact@v2
         with:
           name: web
-          path: public
-      - name: Download Package
+          path: web/public
+      - name: Download CMS Artifact
         uses: actions/download-artifact@v2
         with:
           name: cms

@@ -33,7 +33,7 @@
     "clean": "npx gatsby clean",
     "clear-all": "rimraf ./.cache ./public ./node_modules",
     "serve": "npx gatsby build && NODE_ENV=production npx gatsby serve",
-    "lint": "eslint . --ext .js --cache",
+    "lint": "eslint . --ext .tsx --ext .ts --ext .jsx --ext .js --cache",
     "test": "echo \"Error: no test specified\" && exit 1",
     "husky:install": "npx husky install && npx husky add .husky/pre-commit \"npx lint-staged\""
   },
