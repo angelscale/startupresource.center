@@ -1,11 +1,10 @@
 name: cleanup-feature
 
 on:
-  push:
-    branches:
-      - fix-cleanup-feature
   pull_request:
     types:
+      - opened
+      - synchronized
       - closed
 
 concurrency:
