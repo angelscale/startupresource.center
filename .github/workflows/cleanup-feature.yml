@@ -5,7 +5,7 @@ on:
     types:
       - closed
 
-concurrency: 
+concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 
@@ -20,7 +20,8 @@ jobs:
         uses: actions/github-script@v5
         with:
           script: |
-            console.log(context)
+            console.log(context.pull_request.base)
+            console.log(context.pull_request.head)
             const branch = context.ref.replace('refs/heads/','')
             core.setOutput('env_name',branch)
       - name: Destroy Deployment
@@ -41,4 +42,3 @@ jobs:
               repo: context.repo.repo,
               environment_name: ${{ steps.get-env.outputs.env_name }}
             })
-  
