@@ -6,7 +6,7 @@ on:
       - closed
 
 concurrency:
-  group: ${{ github.ref }}
+  group: ${{ github.base_ref }}
   cancel-in-progress: true
 
 jobs:
@@ -20,9 +20,7 @@ jobs:
         uses: actions/github-script@v5
         with:
           script: |
-            console.log(context.pull_request.base)
-            console.log(context.pull_request.head)
-            const branch = context.ref.replace('refs/heads/','')
+            const branch = context.base_ref.replace('refs/heads/','')
             core.setOutput('env_name',branch)
       - name: Destroy Deployment
         continue-on-error: true
