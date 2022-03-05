@@ -1,4 +1,10 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 const path = require(`path`);
+
+const firebaseCredentials = require(`./credentials.json`);
 
 let siteMetadata = {
   title: `Startup Resource Center`,
@@ -93,6 +99,16 @@ module.exports = {
             file: 'https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap',
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-source-firestore-easy`,
+      options: {
+        adminCredential: {
+          credential: firebaseCredentials,
+          databaseURL: process.env.GATSBY_FIREBASE_DATABASE_URL,
+        },
+        collections: ['articles', 'products'],
       },
     },
   ],
