@@ -41,6 +41,38 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
+  const result = await graphql(`
+    {
+      allArticles {
+        nodes {
+          id
+          name
+        }
+      }
+    }
+  `);
+
+  // Check for any errors
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+
+  const articles = result.data.allArticles.nodes;
+
+  // Create article pages
+  articles.forEach((node) => {
+    const slug = node.name.replace(/[^A-Z0-9]+/gi, '-');
+
+    createPage({
+      path: `/blog/${slug}`,
+      component: require.resolve(`./src/templates/blog-article.js`),
+      context: {
+        id: node.id,
+        slug,
+      },
+    });
+  });
+
   // const result = await graphql(`
   //   {
   //     site {

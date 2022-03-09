@@ -5,6 +5,7 @@ import WithLayout from 'WithLayout';
 import { graphql } from 'gatsby';
 
 const BlogArticlePage = ({ data, location }) => {
+  console.log(data);
   return (
     <WithLayout
       data={data}
@@ -24,3 +25,20 @@ export default BlogArticlePage;
 //     }
 //   }
 // `;
+
+export const postQuery = graphql`
+  query ($id: String!) {
+    allArticles(filter: { id: { eq: $id } }) {
+      nodes {
+        name
+        status
+        subcategory
+        id
+        header_image
+        content
+        category
+        create_date
+      }
+    }
+  }
+`;
