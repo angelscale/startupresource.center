@@ -93,13 +93,18 @@ const useStyles = makeStyles((theme) => ({
 
 const ProductCard = ({ data }) => {
   const classes = useStyles();
+
+  const getSlug = () => {
+    return data.name.replace(/[^A-Z0-9]+/gi, '-');
+  };
+
   return (
-    <Link to={`/product/${data.slug}`}>
+    <Link to={`/product/${getSlug()}`}>
       <Card className={clsx(classes.product_card, 'productCard-root')}>
         <CardMedia className={clsx(classes.card_img)}>
           <Image
-            src={data.imgPath}
-            alt="card"
+            src={data.logo}
+            alt={data.name}
             lazyProps={{
               width: '100%',
               height: '100%',
@@ -109,25 +114,25 @@ const ProductCard = ({ data }) => {
         <CardContent className={clsx(classes.card_content)}>
           <div>
             <Typography variant="h3" className={clsx(classes.title)}>
-              {data.title}
+              {data.tinametle}
             </Typography>
             <Typography
               variant="body1"
               className={clsx(classes.overview, 'productCard-overview')}
             >
-              {data.tagLine}
+              {data.description}
             </Typography>
             <div className={clsx(classes.footer)}>
               <Rating
                 name="read-only"
                 precision={0.5}
-                value={data.rating}
+                value={data?.rating || 0}
                 readOnly
                 size="small"
               />
               <div className={clsx(classes.category_wrapper)}>
                 <Typography variant="body1" className={clsx(classes.label)}>
-                  {data.option}
+                  {data.category}
                 </Typography>
                 <span className={clsx('productCard-dot')}></span>
                 <Link>
@@ -138,14 +143,14 @@ const ProductCard = ({ data }) => {
                       'productCard-category__label',
                     )}
                   >
-                    {data.category}
+                    {data.subcategory}
                   </Typography>
                 </Link>
               </div>
             </div>
           </div>
           <a
-            href={data.url}
+            href={data?.url || 'https://www.google.com/'}
             className={clsx(classes.icon_wrapper, 'productCard-link')}
             target="_blank"
             rel="noopener noreferrer"

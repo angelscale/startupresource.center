@@ -1,17 +1,16 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
 
 import { Products } from 'templates-tf/Products';
 import { Section } from 'components/organisms';
 
 // products
-import { products } from 'templates-tf/Products/data';
+// import { products } from 'templates-tf/Products/data';
 
-const ProductsView = () => {
+const ProductsView = ({ data }) => {
   return (
     <div>
       <Section>
-        <Products productList={products} />
+        <Products productList={data} />
       </Section>
     </div>
   );

@@ -2,10 +2,13 @@ import React from 'react';
 import makeStyles from '@mui/styles/makeStyles';
 
 // components
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import Gallery from './Gallery';
 import Title from '../Title';
 import Text from '../Text';
+
+// mockup data
+import { products } from 'templates-tf/Products/data';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,23 +31,16 @@ const Overview = ({ data }) => {
       <Grid container spacing={4} className={classes.wrapper}>
         <Grid item xs={12} md={6}>
           <div>
-            <Title text={`What is ${data.title}?`} />
-            <Text text={data.content.description} />
-            <Typography variant="body1" className={classes.text}>
-              Businesses use email marketing as a digital strategy to advertise
-              products and services while also nurturing client connections. One
-              of the most widely used email marketing services, Constant Contact
-              provides solutions to help small company owners maintain and build
-              their online platforms and presence.
-            </Typography>
+            <Title text={`What is ${data.name}?`} />
+            <Text text={data.description} />
           </div>
           <div className={classes['mt-4']}>
-            <Title text={`Use of ${data.title}?`} />
-            <Text text={data.content.use} />
+            <Title text={`Use of ${data.name}?`} />
+            <Text text={products[0].content.use} />
           </div>
         </Grid>
         <Grid item xs={12} md={6}>
-          <Gallery images={data.gallery || []} />
+          <Gallery images={products[0].gallery || []} />
         </Grid>
       </Grid>
     </div>

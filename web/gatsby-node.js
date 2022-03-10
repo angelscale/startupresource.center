@@ -49,6 +49,12 @@ exports.createPages = async ({ graphql, actions }) => {
           name
         }
       }
+      allProducts {
+        nodes {
+          name
+          id
+        }
+      }
     }
   `);
 
@@ -58,14 +64,31 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   const articles = result.data.allArticles.nodes;
+  const products = result.data.allProducts.nodes;
 
-  // Create article pages
+  // Create article template pages
+  /* NOTE: path and slug is just a work-around to support template page. */
   articles.forEach((node) => {
     const slug = node.name.replace(/[^A-Z0-9]+/gi, '-');
 
     createPage({
       path: `/blog/${slug}`,
       component: require.resolve(`./src/templates/blog-article.js`),
+      context: {
+        id: node.id,
+        slug,
+      },
+    });
+  });
+
+  // Create product template pages
+  /* NOTE: path and slug is just a work-around to support template page. */
+  products.forEach((node) => {
+    const slug = node.name.replace(/[^A-Z0-9]+/gi, '-');
+
+    createPage({
+      path: `/product/${slug}`,
+      component: require.resolve(`./src/templates/product.template.jsx`),
       context: {
         id: node.id,
         slug,

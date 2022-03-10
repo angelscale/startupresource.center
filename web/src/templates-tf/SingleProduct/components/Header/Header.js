@@ -168,8 +168,8 @@ const Header = ({ data, location }) => {
         <Grid container className={classes.content} justifyContent="center">
           <Grid item xs={'auto'} className={classes.img_wrapper}>
             <Image
-              src={data.imgPath}
-              alt="card"
+              src={data.logo}
+              alt={data.name}
               lazyProps={{
                 width: '100%',
                 height: '100%',
@@ -179,23 +179,23 @@ const Header = ({ data, location }) => {
           <Grid item xs={12} sm className={classes.info_wrapper}>
             <div>
               <Typography variant="h2" className={classes.title}>
-                {data.title}
+                {data.name}
               </Typography>
               <Box className={classes.rating}>
                 <Rating
                   name="read-only"
                   precision={0.5}
-                  value={data.rating}
+                  value={data?.rating || 0}
                   readOnly
                   size="small"
                 />
                 <Typography variant="body1">
-                  <strong>{data.rating}</strong> / <span>5</span>
+                  <strong>{data?.rating || 0}</strong> / <span>5</span>
                 </Typography>
               </Box>
             </div>
             <a
-              href={data.url}
+              href={data?.url || 'https://www.google.com/'}
               target="_blank"
               rel="noopener noreferrer"
               className={classes.link}

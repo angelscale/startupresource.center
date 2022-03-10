@@ -4,6 +4,7 @@ import clsx from 'clsx';
 
 // components
 import { Breadcrumb, Header, Overview, About, Pricing } from './components';
+import { products } from 'templates-tf/Products/data';
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -20,15 +21,17 @@ const useStyles = makeStyles((theme) => ({
 const SingleProduct = ({ data, location }) => {
   const classes = useStyles();
 
+  if (!data) return null;
+
   return (
     <div className={classes.root}>
-      <Breadcrumb title={data.title || ''} />
+      <Breadcrumb title={data.name || ''} />
       <Header data={data} location={location} />
       <div className={clsx(classes.content)}>
         <div className={classes.container}>
           <Overview data={data} />
-          <About data={data} />
-          <Pricing data={data} />
+          <About data={products[0]} />
+          <Pricing data={products[0]} />
         </div>
       </div>
     </div>

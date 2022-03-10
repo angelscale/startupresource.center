@@ -5,6 +5,7 @@ import makeStyles from '@mui/styles/makeStyles';
 import { Divider } from '@mui/material';
 import { Topbar, Footer, Sidebar } from './components';
 import { navigation, navigationNew } from 'layouts/navigation';
+import Container from 'components/Container';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,12 +34,14 @@ const Main = ({ children, themeToggler, themeMode, fullWidth }) => {
         [classes.root]: true,
       })}
     >
-      <Topbar
-        onSidebarOpen={handleSidebarOpen}
-        navigation={navigationNew}
-        themeMode={themeMode}
-        themeToggler={themeToggler}
-      />
+      <Container paddingY={0} paddingX={0}>
+        <Topbar
+          onSidebarOpen={handleSidebarOpen}
+          navigation={navigationNew}
+          themeMode={themeMode}
+          themeToggler={themeToggler}
+        />
+      </Container>
       <Sidebar
         onClose={handleSidebarClose}
         open={openSidebar}
@@ -47,7 +50,14 @@ const Main = ({ children, themeToggler, themeMode, fullWidth }) => {
       />
       <Divider />
       {/* TODO: classes.content doesn't exist */}
-      <main className={!fullWidth ? classes.content : ''}>{children}</main>
+      {/* <main className={!fullWidth ? classes.content : ''}>{children}</main> */}
+      {fullWidth ? (
+        <main>{children}</main>
+      ) : (
+        <Container paddingY={0} paddingX={0}>
+          <main>{children}</main>
+        </Container>
+      )}
       <Footer navigation={navigation} />
     </div>
   );

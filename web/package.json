@@ -65,6 +65,7 @@
     "algoliasearch": "^4.12.1",
     "aos": "^2.3.4",
     "axios": "^0.25.0",
+    "browserslist": ">=4.16.5",
     "cheerio": "^1.0.0-rc.10",
     "clsx": "^1.1.1",
     "firebase": "^9",
@@ -117,12 +118,13 @@
     "redux": "^4",
     "rehype-react": "^7.0.0",
     "scroll-to-element": "^2.0.3",
-    "sharp": "^0.29.3",
+    "sharp": ">=0.29",
     "start": "^5.1.0",
     "styled-components": "^5.3.3",
     "swiper": "^7.4.1",
     "url": "^0.11.0",
-    "validate.js": "^0.13.1"
+    "validate.js": "^0.13.1",
+    "ws": ">=7.4.6"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.10.1",
