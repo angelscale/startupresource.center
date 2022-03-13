@@ -5,32 +5,25 @@ import Grid from '@mui/material/Grid';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 import Container from 'components/Container';
-import {
-  Content,
-  FooterNewsletter,
-  Hero,
-  SidebarArticles,
-  SidebarNewsletter,
-  SimilarStories,
-} from './components';
+import { Content, Hero, SidebarArticles, SimilarStories } from './components';
 
-import { article } from './data';
-
-const BlogArticle = () => {
+const BlogArticle = ({ data }) => {
   const theme = useTheme();
 
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
   });
 
+  if (!data) return null;
+
   return (
     <div>
       <Box>
-        <Hero data={article} />
+        <Hero data={data} />
         <Container>
           <Grid container spacing={4}>
             <Grid item xs={12} md={8}>
-              <Content />
+              <Content data={data} />
             </Grid>
             <Grid item xs={12} md={4}>
               {isMd ? (

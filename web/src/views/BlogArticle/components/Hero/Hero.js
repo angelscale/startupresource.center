@@ -4,10 +4,11 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import ListItemText from '@mui/material/ListItemText';
 import Avatar from '@mui/material/Avatar';
-import DateFnsAdapter from '@date-io/date-fns';
-import MomentAdapter from '@date-io/moment';
 
 import Container from 'components/Container';
+
+// util
+import { getFormattedDate } from 'views/BlogArticle/data/utils';
 
 const Hero = ({ data }) => {
   useEffect(() => {
@@ -23,13 +24,6 @@ const Hero = ({ data }) => {
 
     jarallaxInit();
   });
-
-  const formateDate = () => {
-    const dateMoment = new MomentAdapter();
-    const toDate = dateMoment.date(data.create_date);
-
-    return toDate.format('MMMM DD, YYYY');
-  };
 
   return (
     <Box
@@ -61,6 +55,7 @@ const Hero = ({ data }) => {
           backgroundPosition: 'center center',
           backgroundImage:
             'url(https://assets.maccarianagency.com/backgrounds/img3.jpg)',
+          // backgroundImage: data.header_image,
         }}
       />
       <Box
@@ -96,7 +91,7 @@ const Hero = ({ data }) => {
             <ListItemText
               sx={{ margin: 0 }}
               primary={'Guest User'}
-              secondary={formateDate()}
+              secondary={getFormattedDate(data.create_date)}
               primaryTypographyProps={{
                 variant: 'h6',
                 sx: { color: 'common.white' },

@@ -1,21 +1,22 @@
 import React from 'react';
-import Main from 'layouts/Main';
-import WithLayout from 'WithLayout';
-import ProductView from 'views/product.view';
 import { graphql } from 'gatsby';
+import WithLayout from 'WithLayout';
 
-const ProductTemplate = ({ data, location }) => {
+import Main from 'layouts/Main';
+import SingleProduct from 'views/SingleProduct';
+
+const SingleProductTemplate = ({ data, location }) => {
   return (
     <WithLayout
       data={{ productData: data?.allProducts?.nodes[0] || null, location }}
-      component={ProductView}
+      component={SingleProduct}
       layout={Main}
       fullWidth
     />
   );
 };
 
-export default ProductTemplate;
+export default SingleProductTemplate;
 
 export const postQuery = graphql`
   query ($id: String!) {

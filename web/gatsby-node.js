@@ -3,19 +3,6 @@ const _ = require(`lodash`);
 
 const { navigation } = require(`./src/layouts/navigation`);
 
-// mockup products
-const products = [
-  {
-    slug: 'constant-contact',
-  },
-  {
-    slug: 'routee',
-  },
-  {
-    slug: 'bitrix24',
-  },
-];
-
 /**
  * Here is the place where Gatsby creates the URLs for all the
  * posts, tags, pages and authors that we fetched from the Ghost site.
@@ -47,12 +34,16 @@ exports.createPages = async ({ graphql, actions }) => {
         nodes {
           id
           name
+          category
+          subcategory
         }
       }
       allProducts {
         nodes {
           name
           id
+          category
+          subcategory
         }
       }
     }
@@ -67,13 +58,13 @@ exports.createPages = async ({ graphql, actions }) => {
   const products = result.data.allProducts.nodes;
 
   // Create article template pages
-  /* NOTE: path and slug is just a work-around to support template page. */
   articles.forEach((node) => {
     const slug = node.name.replace(/[^A-Z0-9]+/gi, '-');
+    const _path = `${node.category}/${node.subcategory}/${slug}`;
 
     createPage({
-      path: `/blog/${slug}`,
-      component: require.resolve(`./src/templates/blog-article.js`),
+      path: _path,
+      component: require.resolve(`./src/templates/blog-article.template.jsx`),
       context: {
         id: node.id,
         slug,
@@ -82,13 +73,13 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   // Create product template pages
-  /* NOTE: path and slug is just a work-around to support template page. */
   products.forEach((node) => {
     const slug = node.name.replace(/[^A-Z0-9]+/gi, '-');
+    const _path = `${node.category}/${node.subcategory}/core-four/${slug}`;
 
     createPage({
-      path: `/product/${slug}`,
-      component: require.resolve(`./src/templates/product.template.jsx`),
+      path: _path,
+      component: require.resolve(`./src/templates/single-product.template.jsx`),
       context: {
         id: node.id,
         slug,

@@ -94,12 +94,15 @@ const useStyles = makeStyles((theme) => ({
 const ProductCard = ({ data }) => {
   const classes = useStyles();
 
-  const getSlug = () => {
-    return data.name.replace(/[^A-Z0-9]+/gi, '-');
+  const getPath = () => {
+    const slug = data.name.replace(/[^A-Z0-9]+/gi, '-');
+    const path = `/${data.category}/${data.subcategory}/core-four/${slug}`;
+
+    return path;
   };
 
   return (
-    <Link to={`/product/${getSlug()}`}>
+    <Link to={getPath()}>
       <Card className={clsx(classes.product_card, 'productCard-root')}>
         <CardMedia className={clsx(classes.card_img)}>
           <Image
