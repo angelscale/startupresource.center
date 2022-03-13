@@ -41,6 +41,13 @@ export default function TopLayout(props) {
           src="https://kit.fontawesome.com/4c273e6d43.js"
           crossOrigin="anonymous"
         ></script> */}
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+          rel="stylesheet"
+        />
       </Helmet>
       {props.children}
     </React.Fragment>

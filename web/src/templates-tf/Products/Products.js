@@ -5,7 +5,6 @@ import { ProductCard } from './components';
 import { SectionHeader } from 'components/molecules';
 
 const Products = ({ productList }) => {
-  console.log(productList);
   return (
     <div>
       <SectionHeader title="Products" data-aos="fade-up" align="left" />

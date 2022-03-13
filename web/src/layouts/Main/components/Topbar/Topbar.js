@@ -225,27 +225,47 @@ const Topbar = ({
         <Hidden lgDown>
           <Box className={classes.socialContainer}>
             <Box>
-              <IconButton component={Link} href="https://facebook.com" size="large">
+              <IconButton
+                component={Link}
+                href="https://facebook.com"
+                size="large"
+              >
                 <Facebook />
               </IconButton>
             </Box>
             <Box>
-              <IconButton component={Link} href="https://facebook.com" size="large">
+              <IconButton
+                component={Link}
+                href="https://facebook.com"
+                size="large"
+              >
                 <LinkedIn />
               </IconButton>
             </Box>
             <Box>
-              <IconButton component={Link} href="https://facebook.com" size="large">
+              <IconButton
+                component={Link}
+                href="https://facebook.com"
+                size="large"
+              >
                 <Instagram />
               </IconButton>
             </Box>
             <Box>
-              <IconButton component={Link} href="https://facebook.com" size="large">
+              <IconButton
+                component={Link}
+                href="https://facebook.com"
+                size="large"
+              >
                 <Twitter />
               </IconButton>
             </Box>
             <Box>
-              <IconButton component={Link} href="https://facebook.com" size="large">
+              <IconButton
+                component={Link}
+                href="https://facebook.com"
+                size="large"
+              >
                 <Pinterest />
               </IconButton>
             </Box>
@@ -295,7 +315,8 @@ const Topbar = ({
           className={classes.iconButton}
           onClick={onSidebarOpen}
           aria-label="Menu"
-          size="large">
+          size="large"
+        >
           <MenuIcon />
         </IconButton>
       </Hidden>
