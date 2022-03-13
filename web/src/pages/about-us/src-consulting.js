@@ -1,7 +1,7 @@
 import React from 'react';
 import Main from 'layouts/Main';
 import WithLayout from 'WithLayout';
-import SRCConsultingView from 'views/src-consulting.view';
+import SRCConsultingView from 'views/SrcConsulting';
 
 const SRCConsulting = () => {
   return <WithLayout component={SRCConsultingView} layout={Main} />;

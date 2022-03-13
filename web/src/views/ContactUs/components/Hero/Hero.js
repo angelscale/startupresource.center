@@ -2,35 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import makeStyles from '@mui/styles/makeStyles';
-import { Image } from 'components/atoms';
 import { SectionHeader } from 'components/molecules';
 import { Section } from 'components/organisms';
 
-// assets
-// import HeroImg from '../../../../assets/images/about/hero.jpg';
+import Test from 'assets/images/people.jpg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     height: '100%',
     position: 'relative',
+    // background: `url(https://assets.maccarianagency.com/the-front/illustrations/contact-cover.svg) no-repeat #3F50B5`,
+    background: `url(${Test}) no-repeat #3F50B5`,
     overflow: 'hidden',
-  },
-  image: {
-    // minHeight: 400,
-    maxHeight: 400,
-    objectFit: 'cover',
-    objectPosition: 'center',
-    [theme.breakpoints.down('lg')]: {
-      // width: 'auto',
-      // minHeight: 250,
+    minHeight: 400,
+    backgroundSize: 'cover',
+    [theme.breakpoints.up('md')]: {
+      backgroundPosition: 'right -400px top',
+      backgroundSize: 'contain',
+    },
+    [theme.breakpoints.up('lg')]: {
+      backgroundPosition: 'right -250px top',
     },
   },
   textWhite: {
     color: 'white',
-  },
-  textDarkGray: {
-    color: '#1a202c',
   },
   title: {
     fontWeight: 'bold',
@@ -42,6 +38,15 @@ const useStyles = makeStyles((theme) => ({
     transform: 'translate(-50%, -50%)',
     paddingTop: 0,
     paddingBottom: 0,
+    background: 'rgba(0,0,0,.4)',
+    [theme.breakpoints.up('md')]: {
+      background: 'none',
+    },
+  },
+  sectionHeader: {
+    [theme.breakpoints.up('sm')]: {
+      width: '50%',
+    },
   },
 }));
 
@@ -50,20 +55,10 @@ const Hero = (props) => {
   const classes = useStyles();
   return (
     <div className={clsx(classes.root, className)} {...rest}>
-      <Image
-        src="https://logobly.com/wp-content/uploads/97_amazing_freebie_sites_for_founders_logobly_03.jpg"
-        srcSet="https://logobly.com/wp-content/uploads/97_amazing_freebie_sites_for_founders_logobly_03.jpg"
-        alt="About"
-        className={classes.image}
-        lazyProps={{
-          width: '100%',
-          height: '100%',
-        }}
-      />
       <Section className={classes.section}>
         <SectionHeader
-          title="About us"
-          // subtitle="We are founded by a leading academic and researcher in the field of Industrial Systems Engineering."
+          title="Contact us"
+          subtitle="Have questions or requests? Our business experts are here to help!"
           align="left"
           data-aos="fade-up"
           disableGutter
@@ -73,8 +68,8 @@ const Hero = (props) => {
           }}
           subtitleProps={{
             className: classes.textWhite,
-            // className: classes.textDarkGray,
           }}
+          className={classes.sectionHeader}
         />
       </Section>
     </div>

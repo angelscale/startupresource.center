@@ -1,8 +1,9 @@
 import React from 'react';
-import Main from 'layouts/Main';
-import WithLayout from 'WithLayout';
-import ProductsView from 'views/products.view';
 import { graphql } from 'gatsby';
+import WithLayout from 'WithLayout';
+
+import Main from 'layouts/Main';
+import ProductsView from 'views/Products';
 
 const Products = ({ data }) => {
   return (
