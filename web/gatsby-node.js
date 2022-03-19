@@ -2,6 +2,7 @@
  * Here is the place where Gatsby creates the URLs for all the
  * posts, tags, pages and authors that we fetched from the Ghost site.
  */
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 

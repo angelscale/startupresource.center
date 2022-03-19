@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from 'react';
+import React, { useEffect, useState, createElement, Fragment } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -10,6 +10,11 @@ import ImageListItem from '@mui/material/ImageListItem';
 import Divider from '@mui/material/Divider';
 import Avatar from '@mui/material/Avatar';
 
+import rehypeReact from 'rehype-react';
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+
 // icons
 import IconButton from '@mui/material/IconButton';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -19,39 +24,55 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 // utils
 import { getFormattedDate } from 'views/BlogArticle/data/utils';
 
+const photos = [
+  {
+    src: 'https://assets.maccarianagency.com/backgrounds/img25.jpg',
+    rows: 1,
+    cols: 2,
+  },
+  {
+    src: 'https://assets.maccarianagency.com/backgrounds/img22.jpg',
+    rows: 1,
+    cols: 1,
+  },
+  {
+    src: 'https://assets.maccarianagency.com/backgrounds/img24.jpg',
+    rows: 1,
+    cols: 1,
+  },
+  {
+    src: 'https://assets.maccarianagency.com/backgrounds/img21.jpg',
+    rows: 1,
+    cols: 2,
+  },
+];
+
 const Content = ({ data }) => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
   });
 
-  const photos = [
-    {
-      src: 'https://assets.maccarianagency.com/backgrounds/img25.jpg',
-      rows: 1,
-      cols: 2,
-    },
-    {
-      src: 'https://assets.maccarianagency.com/backgrounds/img22.jpg',
-      rows: 1,
-      cols: 1,
-    },
-    {
-      src: 'https://assets.maccarianagency.com/backgrounds/img24.jpg',
-      rows: 1,
-      cols: 1,
-    },
-    {
-      src: 'https://assets.maccarianagency.com/backgrounds/img21.jpg',
-      rows: 1,
-      cols: 2,
-    },
-  ];
+  const [content, setContent] = useState(null);
+
+  useEffect(() => {
+    if (data) {
+      unified()
+        .use(remarkParse)
+        .use(remarkRehype)
+        .use(rehypeReact, { createElement, Fragment })
+        .process(data.content)
+        .then((file) => {
+          console.log('result', { file });
+          setContent(file.result);
+        });
+    }
+  }, [data]);
 
   return (
     <Box>
       <Box paddingX={{ xs: 0, sm: 4, md: 6 }}>
-        <Typography variant={'subtitle1'}>{data.content}</Typography>
+        <Typography variant={'subtitle1'}>{content}</Typography>
       </Box>
       <Box marginY={4}>
         <ImageList

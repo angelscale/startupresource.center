@@ -6,6 +6,7 @@ import Main from 'layouts/Main';
 import BlogArticle from 'views/BlogArticle';
 
 const SingleBlogArticleTemplate = ({ data }) => {
+  console.log(data);
   return (
     <WithLayout
       data={data?.allArticles?.nodes[0] || null}
