@@ -117,7 +117,7 @@ const ProductCard = ({ data }) => {
         <CardContent className={clsx(classes.card_content)}>
           <div>
             <Typography variant="h3" className={clsx(classes.title)}>
-              {data.tinametle}
+              {data.name}
             </Typography>
             <Typography
               variant="body1"

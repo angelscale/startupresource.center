@@ -1,5 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect, createElement, Fragment } from 'react';
 import makeStyles from '@mui/styles/makeStyles';
+
+import rehypeReact from 'rehype-react';
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
 
 // components
 import { Grid } from '@mui/material';
@@ -25,6 +30,21 @@ const useStyles = makeStyles((theme) => ({
 
 const Overview = ({ data }) => {
   const classes = useStyles();
+  const [content, setContent] = useState(null);
+
+  useEffect(() => {
+    if (data) {
+      unified()
+        .use(remarkParse)
+        .use(remarkRehype)
+        .use(rehypeReact, { createElement, Fragment })
+        .process(data.description)
+        .then((file) => {
+          console.log('result', { file });
+          setContent(file.result);
+        });
+    }
+  }, [data]);
 
   return (
     <div id="overview" className={classes.root}>
@@ -32,7 +52,7 @@ const Overview = ({ data }) => {
         <Grid item xs={12} md={6}>
           <div>
             <Title text={`What is ${data.name}?`} />
-            <Text text={data.description} />
+            <Text text={content} />
           </div>
           <div className={classes['mt-4']}>
             <Title text={`Use of ${data.name}?`} />
