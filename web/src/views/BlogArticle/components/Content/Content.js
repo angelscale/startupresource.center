@@ -1,5 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
-import React, { useEffect, useState, createElement, Fragment } from 'react';
+import React, { useState, useEffect, createElement, Fragment } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -14,6 +13,7 @@ import rehypeReact from 'rehype-react';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
+import rehypeStringify from 'rehype-stringify';
 
 // icons
 import IconButton from '@mui/material/IconButton';
@@ -48,6 +48,7 @@ const photos = [
 ];
 
 const Content = ({ data }) => {
+  console.log(data);
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
@@ -60,6 +61,7 @@ const Content = ({ data }) => {
       unified()
         .use(remarkParse)
         .use(remarkRehype)
+        .use(rehypeStringify)
         .use(rehypeReact, { createElement, Fragment })
         .process(data.content)
         .then((file) => {

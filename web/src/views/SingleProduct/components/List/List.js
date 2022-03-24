@@ -3,8 +3,7 @@ import makeStyles from '@mui/styles/makeStyles';
 import clsx from 'clsx';
 
 // components
-import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
-import Text from '../Text';
+import { List, ListItem, ListItemIcon } from '@mui/material';
 
 import FMRIcon from '@mui/icons-material/FiberManualRecord';
 
@@ -31,16 +30,18 @@ const MyList = ({ list, className }) => {
   return (
     <div className={clsx(classes.list, className)}>
       <List>
-        {list.map((item, i) => (
-          <ListItem key={i} disablePadding className={classes.item}>
-            <ListItemIcon className={classes.icon_wrapper}>
-              <FMRIcon className={classes.icon} />
-            </ListItemIcon>
-            <ListItemText>
-              <Text text={item} className={classes.item_text} />
-            </ListItemText>
-          </ListItem>
-        ))}
+        {list.props.children.map((item, i) => {
+          return (
+            item !== '\n' && (
+              <ListItem key={i} disablePadding className={classes.item}>
+                <ListItemIcon className={classes.icon_wrapper}>
+                  <FMRIcon className={classes.icon} />
+                </ListItemIcon>
+                {item}
+              </ListItem>
+            )
+          );
+        })}
       </List>
     </div>
   );

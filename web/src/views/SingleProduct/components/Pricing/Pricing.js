@@ -4,7 +4,7 @@ import makeStyles from '@mui/styles/makeStyles';
 // components
 import { Grid } from '@mui/material';
 import Title from '../Title';
-import Text from '../Text';
+import List from '../List';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,15 +17,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Pricing = ({ data }) => {
+const Pricing = ({ productData, content }) => {
   const classes = useStyles();
 
   return (
     <div id="pricing" className={classes.root}>
       <Grid container spacing={4}>
         <Grid item xs={12} md={6}>
-          <Title text={`${data.title} Pricing`} />
-          <Text text={data.content.pricing} />
+          <Title text={`${productData.name} Pricing`} />
+          <List list={content.pricing} />
         </Grid>
       </Grid>
     </div>

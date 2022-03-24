@@ -59,17 +59,6 @@ module.exports = {
         name: `images`,
       },
     },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        // Footnotes mode (default: true)
-        footnotes: true,
-        // GitHub Flavored Markdown mode (default: true)
-        gfm: true,
-        // Plugins configs
-        plugins: [],
-      },
-    },
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-sharp`,

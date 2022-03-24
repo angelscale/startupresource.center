@@ -4,7 +4,6 @@ import makeStyles from '@mui/styles/makeStyles';
 // components
 import { Grid } from '@mui/material';
 import Title from '../Title';
-import Text from '../Text';
 import List from '../List';
 
 const useStyles = makeStyles((theme) => ({
@@ -18,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const About = ({ data }) => {
+const About = ({ productData, content }) => {
   const classes = useStyles();
 
   return (
@@ -26,20 +25,20 @@ const About = ({ data }) => {
       <Grid container spacing={4}>
         <Grid item xs={12} md={6}>
           <Title text="About Company" />
-          <Text text={data.content.about_company} />
+          {content.about}
         </Grid>
         <Grid item xs={12} md={6}>
-          <Title text={`What does ${data.title} do?`} />
-          <Text text={data.content.do} />
+          <Title text={`What does ${productData.name} do?`} />
+          {content.do}
         </Grid>
         <Grid item xs={12} md={6}>
-          <Title text={`What does ${data.title} offer?`} />
-          <Text text={data.content.offer.label} />
-          <List list={data.content.offer.list} />
+          <Title text={`What does ${productData.name} offer?`} />
+          {/* <Text text={data.content.offer.label} /> */}
+          <List list={content.offer} />
         </Grid>
         <Grid item xs={12} md={6}>
-          <Title text={`What's unique about ${data.title}?`} />
-          <Text text={data.content.unique} />
+          <Title text={`What's unique about ${productData.name}?`} />
+          {content.unique}
         </Grid>
       </Grid>
     </div>

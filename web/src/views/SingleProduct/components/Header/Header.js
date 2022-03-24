@@ -123,7 +123,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = ({ data, location }) => {
+const Header = ({ data, content, location }) => {
   const classes = useStyles();
 
   const [isSticky, setIsSticky] = useState(false);
@@ -195,7 +195,7 @@ const Header = ({ data, location }) => {
               </Box>
             </div>
             <a
-              href={data?.url || 'https://www.google.com/'}
+              href={content.link.props.href}
               target="_blank"
               rel="noopener noreferrer"
               className={classes.link}
