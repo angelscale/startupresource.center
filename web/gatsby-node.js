@@ -10,23 +10,23 @@ exports.createPages = async ({ graphql, actions }) => {
   ['400', '401', '403', '404', '500'].forEach((e) => {
     createPage({
       path: e,
-      component: require.resolve(`./src/templates/_error.js`),
+      component: require.resolve(`./src/templates/error.template.jsx`),
       context: {
         code: e,
       },
     });
   });
 
+  // allArticles {
+  //         nodes {
+  //           id
+  //           name
+  //           category
+  //           subcategory
+  //         }
+  //       }
   const result = await graphql(`
     {
-      allArticles {
-        nodes {
-          id
-          name
-          category
-          subcategory
-        }
-      }
       allProducts {
         nodes {
           name
@@ -43,23 +43,23 @@ exports.createPages = async ({ graphql, actions }) => {
     throw new Error(result.errors);
   }
 
-  const articles = result.data.allArticles.nodes;
+  // const articles = result.data.allArticles.nodes;
   const products = result.data.allProducts.nodes;
 
   // Create article template pages
-  articles.forEach((node) => {
-    const slug = node.name.replace(/[^A-Z0-9]+/gi, '-');
-    const _path = `${node.category}/${node.subcategory}/${slug}`;
+  // articles.forEach((node) => {
+  //   const slug = node.name.replace(/[^A-Z0-9]+/gi, '-');
+  //   const _path = `${node.category}/${node.subcategory}/${slug}`;
 
-    createPage({
-      path: _path,
-      component: require.resolve(`./src/templates/blog-article.template.jsx`),
-      context: {
-        id: node.id,
-        slug,
-      },
-    });
-  });
+  //   createPage({
+  //     path: _path,
+  //     component: require.resolve(`./src/templates/blog-article.template.jsx`),
+  //     context: {
+  //       id: node.id,
+  //       slug,
+  //     },
+  //   });
+  // });
 
   // Create product template pages
   products.forEach((node) => {
@@ -68,7 +68,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
     createPage({
       path: _path,
-      component: require.resolve(`./src/templates/single-product.template.jsx`),
+      component: require.resolve(`./src/templates/product.template.jsx`),
       context: {
         id: node.id,
         slug,

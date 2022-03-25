@@ -38,7 +38,6 @@ module.exports = {
         enableWebVitalsTracking: true,
       },
     },
-    `gatsby-plugin-top-layout`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-force-trailing-slashes`,
@@ -50,13 +49,6 @@ module.exports = {
       resolve: `gatsby-plugin-react-leaflet`,
       options: {
         linkStyles: true, // (default: true) Enable/disable loading stylesheets via CDN
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: path.join(__dirname, `src`, `assets`, `images`),
-        name: `images`,
       },
     },
     `gatsby-plugin-image`,
