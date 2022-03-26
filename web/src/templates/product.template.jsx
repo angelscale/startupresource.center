@@ -1,11 +1,9 @@
-import React, { useState, useEffect, createElement, Fragment } from 'react';
+import React, { createElement, Fragment } from 'react';
 import makeStyles from '@mui/styles/makeStyles';
 import clsx from 'clsx';
 import { graphql } from 'gatsby';
-
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
-import remarkHtml from 'remark-html';
 import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
 import rehypeReact from 'rehype-react';
@@ -21,6 +19,7 @@ const Text = styled(Typography)(
     font-weight: 400;
     letter-spacing: 0.4px;
     white-space: pre-line;
+    margin-bottom: 1.5em;
 `,
 );
 
@@ -31,7 +30,6 @@ const Itemtext = styled(ListItemText)(
     font-weight: 600;
     letter-spacing: 0.4px;
     white-space: pre-line;
-
 
     span {
       all: inherit;
@@ -61,64 +59,29 @@ const useStyles = makeStyles((theme) => ({
 const ProductTemplate = ({ data, location }) => {
   const classes = useStyles();
 
-  const [content, setContent] = useState(null);
+  const { name, logo, description } = data.allProducts.nodes[0];
 
-  useEffect(() => {
-    if (data) {
-      unified()
-        .use(remarkParse)
-        .use(remarkRehype)
-        .use(rehypeStringify)
-        .use(rehypeReact, {
-          createElement,
-          Fragment,
-          components: {
-            p: Text,
-            li: Itemtext,
-            a: LinkText,
-          },
-        })
-        .process(data.description)
-        .then((file) => {
-          setContent(file.result);
-        });
-    }
-  }, [data]);
-
-  // const description = unified()
-  //   .use(remarkParse)
-  //   .use(remarkRehype)
-  //   .use(rehypeStringify)
-  //   .use(rehypeReact, {
-  //     createElement,
-  //     Fragment,
-  //     components: {
-  //       p: Text,
-  //       li: Itemtext,
-  //       a: LinkText,
-  //     },
-  //   })
-  //   .processSync(data.description);
-
-  // const description2 = unified()
-  //   .use(remarkParse)
-  //   .use(remarkHtml)
-  //   .processSync(data.description);
-
-  // console.log(description);
-  // console.log(description2);
-
-  console.log(content);
-  if (!content) return null;
+  const content = unified()
+    .use(remarkParse)
+    .use(remarkRehype)
+    .use(rehypeStringify)
+    .use(rehypeReact, {
+      createElement,
+      Fragment,
+      components: {
+        p: Text,
+        li: Itemtext,
+        a: LinkText,
+      },
+    })
+    .processSync(description);
 
   return (
     <div className={classes.root}>
       <Breadcrumb location={location} />
-      {/* <Header data={data} content={description} location={location} /> */}
+      <img src={logo} alt={name} />
       <div className={clsx(classes.content)}>
-        <div className={classes.container}>
-          <div dangerouslySetInnerHTML={{ __html: content }} />
-        </div>
+        <div className={classes.container}>{content.result}</div>
       </div>
     </div>
   );

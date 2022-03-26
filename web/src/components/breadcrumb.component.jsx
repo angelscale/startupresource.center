@@ -38,13 +38,6 @@ const Breadcrumb = ({ location }) => {
           location.pathname.indexOf(crumb) + crumb.length,
         )}
       >
-        {console.log(crumb)}
-        {console.log(
-          location.pathname.slice(
-            0,
-            location.pathname.indexOf(crumb) + crumb.length,
-          ),
-        )}
         <Typography className={classes.label}>
           {crumb.replace('-', ' ')}
         </Typography>
