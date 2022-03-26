@@ -6,6 +6,9 @@ import { graphql } from 'gatsby';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkHtml from 'remark-html';
+import remarkRehype from 'remark-rehype';
+import rehypeStringify from 'rehype-stringify';
+import rehypeReact from 'rehype-react';
 
 // components
 import { Breadcrumb } from 'components';
@@ -58,6 +61,30 @@ const useStyles = makeStyles((theme) => ({
 const ProductTemplate = ({ data, location }) => {
   const classes = useStyles();
 
+  const [content, setContent] = useState(null);
+
+  useEffect(() => {
+    if (data) {
+      unified()
+        .use(remarkParse)
+        .use(remarkRehype)
+        .use(rehypeStringify)
+        .use(rehypeReact, {
+          createElement,
+          Fragment,
+          components: {
+            p: Text,
+            li: Itemtext,
+            a: LinkText,
+          },
+        })
+        .process(data.description)
+        .then((file) => {
+          setContent(file.result);
+        });
+    }
+  }, [data]);
+
   // const description = unified()
   //   .use(remarkParse)
   //   .use(remarkRehype)
@@ -71,8 +98,18 @@ const ProductTemplate = ({ data, location }) => {
   //       a: LinkText,
   //     },
   //   })
-  //   .process(data.description)
-  //   .then(({ result }) => result);
+  //   .processSync(data.description);
+
+  // const description2 = unified()
+  //   .use(remarkParse)
+  //   .use(remarkHtml)
+  //   .processSync(data.description);
+
+  // console.log(description);
+  // console.log(description2);
+
+  console.log(content);
+  if (!content) return null;
 
   return (
     <div className={classes.root}>
@@ -80,14 +117,7 @@ const ProductTemplate = ({ data, location }) => {
       {/* <Header data={data} content={description} location={location} /> */}
       <div className={clsx(classes.content)}>
         <div className={classes.container}>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: unified()
-                .use(remarkParse)
-                .use(remarkHtml)
-                .processSync(data.description),
-            }}
-          />
+          <div dangerouslySetInnerHTML={{ __html: content }} />
         </div>
       </div>
     </div>
