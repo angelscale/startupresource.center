@@ -25,6 +25,16 @@ exports.onCreateNode = async ({
   createNodeId,
   getCache,
 }) => {
+  // Create slugs
+  if (node.internal.type === 'articles' || node.internal.type === 'products') {
+    createNodeField({
+      node,
+      name: 'slug',
+      value: node.name.replace(/[^A-Z0-9]+/gi, '-'),
+    });
+  }
+
+  // Process Images
   if (node.internal.type === 'products') {
     createNodeField({
       node,
@@ -77,16 +87,18 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  // allArticles {
-  //         nodes {
-  //           id
-  //           name
-  //           category
-  //           subcategory
-  //         }
-  //       }
   const result = await graphql(`
     {
+      allArticles {
+        nodes {
+          id
+          category
+          subcategory
+          fields {
+            slug
+          }
+        }
+      }
       allProducts {
         nodes {
           id
@@ -105,23 +117,19 @@ exports.createPages = async ({ graphql, actions }) => {
     throw new Error(result.errors);
   }
 
-  // const articles = result.data.allArticles.nodes;
+  const articles = result.data.allArticles.nodes;
   const products = result.data.allProducts.nodes;
 
   // Create article template pages
-  // articles.forEach((node) => {
-  //   const slug = node.name.replace(/[^A-Z0-9]+/gi, '-');
-  //   const _path = `${node.category}/${node.subcategory}/${slug}`;
-
-  //   createPage({
-  //     path: _path,
-  //     component: require.resolve(`./src/templates/blog-article.template.jsx`),
-  //     context: {
-  //       id: node.id,
-  //       slug,
-  //     },
-  //   });
-  // });
+  articles.forEach((node) => {
+    createPage({
+      path: `${node.category}/${node.subcategory}/${node.fields.slug}`,
+      component: require.resolve(`./src/templates/article.template.jsx`),
+      context: {
+        id: node.id,
+      },
+    });
+  });
 
   // Create product template pages
   products.forEach(async (node) => {
