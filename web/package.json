@@ -71,6 +71,7 @@
     "cheerio": "^1.0.0-rc.10",
     "clsx": "^1.1.1",
     "firebase": "^9",
+    "firebase-admin": "^10.0.2",
     "gatsby": "^4.6.0",
     "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-background-image": "^1.5.3",

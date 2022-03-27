@@ -2,8 +2,6 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-const path = require(`path`);
-
 const firebaseCredentials = require(`./credentials.json`);
 
 let siteMetadata = {
@@ -98,7 +96,6 @@ module.exports = {
       options: {
         adminCredential: {
           credential: firebaseCredentials,
-          databaseURL: process.env.GATSBY_FIREBASE_DATABASE_URL,
         },
         collections: ['articles', 'products'],
       },

@@ -1,16 +1,16 @@
 import React, { createElement, Fragment } from 'react';
 import makeStyles from '@mui/styles/makeStyles';
-import clsx from 'clsx';
 import { graphql } from 'gatsby';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
 import rehypeReact from 'rehype-react';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { Typography, ListItemText, styled, Link } from '@mui/material';
 
 // components
 import { Breadcrumb } from 'components';
-import { Typography, ListItemText, styled, Link } from '@mui/material';
 
 const Text = styled(Typography)(
   () => `
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   root: {},
   content: {
     padding: theme.spacing(4, 2),
-    background: '#f2f2f2',
+    // background: '#f2f2f2',
   },
   container: {
     margin: '0 auto',
@@ -59,7 +59,8 @@ const useStyles = makeStyles((theme) => ({
 const ProductTemplate = ({ data, location }) => {
   const classes = useStyles();
 
-  const { name, logo, description } = data.allProducts.nodes[0];
+  const { name, description, logoImage } = data.allProducts.nodes[0];
+  const logo = getImage(logoImage);
 
   const content = unified()
     .use(remarkParse)
@@ -79,9 +80,11 @@ const ProductTemplate = ({ data, location }) => {
   return (
     <div className={classes.root}>
       <Breadcrumb location={location} />
-      <img src={logo} alt={name} />
-      <div className={clsx(classes.content)}>
-        <div className={classes.container}>{content.result}</div>
+
+      <div className={classes.container}>
+        <GatsbyImage image={logo} alt={name} />
+        <Typography variant="h1">{name}</Typography>
+        <div className={classes.content}>{content.result}</div>
       </div>
     </div>
   );
@@ -98,7 +101,11 @@ export const postQuery = graphql`
         status
         category
         subcategory
-        logo
+        logoImage {
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+          }
+        }
         description
         create_date
         affiliate
