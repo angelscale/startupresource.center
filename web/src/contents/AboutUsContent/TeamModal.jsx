@@ -1,45 +1,41 @@
-import * as React from "react";
-import { useTheme } from "@mui/material/styles";
-import makeStyles from "@mui/styles/makeStyles";
-import { Icon, Image } from "components/atoms";
-import { SectionHeader } from "components/molecules";
+import React from 'react';
 
-import {
-  Grid,
-  Button,
-  Typography,
-  Modal,
-  Fade,
-  Box,
-  Backdrop,
-  useMediaQuery,
-} from "@mui/material";
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
+import { Grid, Modal, Fade, Box, Backdrop, useMediaQuery } from '@mui/material';
 
-import CloseIcon from "@mui/icons-material/Close";
+import { SectionHeader, Image } from 'components';
 
-const useStyles = makeStyles(() => ({
+// icon
+import CloseIcon from '@mui/icons-material/Close';
+
+const useStyles = makeStyles((theme) => ({
   image: {
     maxWidth: 420,
-    objectFit: "cover",
+    objectFit: 'cover',
+  },
+  content: {
+    padding: 16,
+    [theme.breakpoints.up('sm')]: {
+      padding: 0,
+    },
   },
 }));
 
 const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  bgcolor: "background.paper",
-  borderRadius: 3,
-  boxShadow: 24,
-  p: 4,
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  bgcolor: 'background.paper',
+  // boxShadow: 24,
 };
 
 const iconStyle = {
-  position: "absolute",
-  top: "10px",
-  right: "10px",
-  cursor: "pointer",
+  position: 'absolute',
+  top: '10px',
+  right: '10px',
+  cursor: 'pointer',
   zIndex: 99,
 };
 
@@ -49,7 +45,7 @@ const DetailModal = ({ open, setOpen, content }) => {
   const classes = useStyles();
 
   const theme = useTheme();
-  const isMd = useMediaQuery(theme.breakpoints.up("md"), {
+  const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
   });
 
@@ -74,8 +70,8 @@ const DetailModal = ({ open, setOpen, content }) => {
             <Grid
               container
               justifyContent="space-between"
-              spacing={isMd ? 4 : 2}
-              direction={isMd ? "row-reverse" : "column-reverse"}
+              // spacing={isMd ? 4 : 2}
+              direction={isMd ? 'row-reverse' : 'column-reverse'}
             >
               <Grid
                 item
@@ -84,7 +80,8 @@ const DetailModal = ({ open, setOpen, content }) => {
                 justifyContent="flex-start"
                 xs={12}
                 md={6}
-                data-aos={"fade-in"}
+                data-aos={'fade-in'}
+                className={classes.content}
               >
                 <div>
                   <SectionHeader
@@ -94,21 +91,20 @@ const DetailModal = ({ open, setOpen, content }) => {
                     disableGutter
                     whitespace
                     subtitleProps={{
-                      color: "textPrimary",
-                      variant: "body1",
+                      color: 'textPrimary',
+                      variant: 'body1',
                     }}
                   />
                 </div>
                 <div>
                   <SectionHeader
-                    // title="Our story"
                     subtitle={content?.bioTwo}
                     align="left"
                     disableGutter
                     whitespace
                     subtitleProps={{
-                      color: "textPrimary",
-                      variant: "body1",
+                      color: 'textPrimary',
+                      variant: 'body1',
                     }}
                   />
                 </div>
@@ -116,11 +112,11 @@ const DetailModal = ({ open, setOpen, content }) => {
               <Grid
                 item
                 container
-                justifyContent={isMd ? "flex-start" : "center"}
+                justifyContent={isMd ? 'flex-start' : 'center'}
                 alignItems="flex-start"
                 xs={12}
                 md={6}
-                data-aos={"fade-in"}
+                data-aos={'fade-in'}
               >
                 <Image
                   src={content?.authorPhoto?.src}

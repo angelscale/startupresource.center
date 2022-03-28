@@ -6,6 +6,8 @@ export { default as Section } from './section.component';
 export { default as SectionHeader } from './section-header.component';
 export { default as SectionLabel } from './section-label.component';
 export { default as TypedText } from './typed-text.component';
+export { default as Image } from './image.component';
+export { default as CardBase } from './card-base.component';
 
 export { default as ServiceCards } from './service-cards.component';
 

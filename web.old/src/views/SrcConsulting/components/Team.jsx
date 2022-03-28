@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
+import React from "react";
+import PropTypes from "prop-types";
+import { useTheme } from "@mui/material/styles";
+import makeStyles from "@mui/styles/makeStyles";
 import {
   useMediaQuery,
   Grid,
@@ -11,12 +11,12 @@ import {
   Avatar,
   ListItemText,
   Typography,
-} from '@mui/material';
-import { SectionHeader } from 'components/molecules';
+} from "@mui/material";
+import { SectionHeader } from "components/molecules";
 
 const useStyles = makeStyles((theme) => ({
   textWhite: {
-    color: 'white',
+    color: "white",
   },
   avatar: {
     width: 100,
@@ -30,12 +30,12 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     background: theme.palette.alternate.main,
     borderRadius: theme.spacing(2),
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up("md")]: {
       padding: theme.spacing(4),
     },
   },
   gridItem: {
-    height: '100%',
+    height: "100%",
   },
 }));
 
@@ -44,7 +44,7 @@ const Team = (props) => {
   const classes = useStyles();
 
   const theme = useTheme();
-  const isMd = useMediaQuery(theme.breakpoints.up('md'), {
+  const isMd = useMediaQuery(theme.breakpoints.up("md"), {
     defaultMatches: true,
   });
 
@@ -79,7 +79,7 @@ const Team = (props) => {
               <Grid
                 item
                 container
-                justifyContent={isMd ? 'flex-start' : 'center'}
+                justifyContent={isMd ? "flex-start" : "center"}
                 alignItems="center"
                 xs={12}
               >
@@ -90,7 +90,7 @@ const Team = (props) => {
                         {...item.authorPhoto}
                         alt={item.authorName}
                         className={`${classes.avatar} ${
-                          item?.posTop ? 'obj-top' : ''
+                          item?.posTop ? "obj-top" : ""
                         }`}
                       />
                     </ListItemAvatar>
@@ -105,13 +105,13 @@ const Team = (props) => {
                 item
                 container
                 justifyContent="space-between"
-                alignItems={isMd ? 'flex-start' : 'center'}
+                alignItems={isMd ? "flex-start" : "center"}
                 xs={12}
               >
                 <Typography
                   variant="body1"
                   color="textPrimary"
-                  align={isMd ? 'left' : 'center'}
+                  align={isMd ? "left" : "center"}
                 >
                   {item.feedback}
                 </Typography>

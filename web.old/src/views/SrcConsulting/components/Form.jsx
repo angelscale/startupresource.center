@@ -1,24 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
+import React from "react";
+import PropTypes from "prop-types";
+import { useTheme } from "@mui/material/styles";
+import makeStyles from "@mui/styles/makeStyles";
 import {
   useMediaQuery,
   Grid,
   Typography,
   TextField,
   Button,
-} from '@mui/material';
-import { SectionHeader } from 'components/molecules';
+} from "@mui/material";
+import { SectionHeader } from "components/molecules";
 
 const useStyles = makeStyles((theme) => ({
   form: {
     maxWidth: 550,
     margin: `0 auto`,
-    '& .MuiTextField-root': {
+    "& .MuiTextField-root": {
       background: theme.palette.background.paper,
     },
-    '& .MuiOutlinedInput-input': {
+    "& .MuiOutlinedInput-input": {
       background: theme.palette.background.paper,
     },
   },
@@ -33,7 +33,7 @@ const Form = (props) => {
   const classes = useStyles();
 
   const theme = useTheme();
-  const isMd = useMediaQuery(theme.breakpoints.up('md'), {
+  const isMd = useMediaQuery(theme.breakpoints.up("md"), {
     defaultMatches: true,
   });
 
@@ -43,11 +43,11 @@ const Form = (props) => {
         title="For your free 20 minute consultation"
         subtitle="Fill out the following form"
         subtitleProps={{
-          variant: 'h6',
-          color: 'textPrimary',
+          variant: "h6",
+          color: "textPrimary",
         }}
         data-aos="fade-up"
-        align={isMd ? 'center' : 'left'}
+        align={isMd ? "center" : "left"}
       />
       <div className={classes.form}>
         <Grid container spacing={isMd ? 4 : 2}>

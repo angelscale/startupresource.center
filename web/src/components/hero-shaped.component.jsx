@@ -84,20 +84,24 @@ const HeroShaped = (props) => {
         >
           {leftSide}
         </Section>
-        <div className={clsx('hero-shaped__right-side', classes.heroRightSide)}>
-          <div className={clsx('hero-shaped__cover', classes.heroCover)}>
-            <div
-              className={clsx(
-                'hero-shaped__image-container',
-                classes.heroImageContainer,
-              )}
-            >
-              <div className={clsx('hero-shaped__image', classes.heroImage)}>
-                {rightSide}
+        {rightSide && (
+          <div
+            className={clsx('hero-shaped__right-side', classes.heroRightSide)}
+          >
+            <div className={clsx('hero-shaped__cover', classes.heroCover)}>
+              <div
+                className={clsx(
+                  'hero-shaped__image-container',
+                  classes.heroImageContainer,
+                )}
+              >
+                <div className={clsx('hero-shaped__image', classes.heroImage)}>
+                  {rightSide}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
       <Divider />
     </div>

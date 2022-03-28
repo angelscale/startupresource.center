@@ -45,26 +45,34 @@ p {
 }
 
 .modal__wrapper {
-  width: 80%;
-  max-height: 80%;
-  max-width: 960px;
+  width: 100%;
+  max-width: 420px;
+  height: 100%;
+
+  padding: 0;
   overflow-y: auto;
 }
 
 .modal__wrapper img {
   height: auto !important;
+  aspect-ratio: 11 / 14;
 }
 
 @media (min-width: 768px) {
   .modal__wrapper {
-    width: 400px;
+    max-width: 80%;
+    max-height: 80%;
+
+    padding: 24px;
   }
 }
 
 @media (min-width: 960px) {
   .modal__wrapper {
-    max-height: 95%;
-    width: 80%;
+    max-height: 600px;
+    max-width: 960px;
+
+    padding: 32px;
   }
 }
 

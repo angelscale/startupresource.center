@@ -1,22 +1,22 @@
-import React from 'react';
-import makeStyles from '@mui/styles/makeStyles';
+import React from "react";
+import makeStyles from "@mui/styles/makeStyles";
 
-import { Section } from 'components/organisms';
-import { Hero, Story, Team, WhoWeAre, WorkWithus } from './components';
+import { Section } from "components/organisms";
+import { Hero, Story, Team, WhoWeAre, WorkWithus } from "./components";
 
-import { paragraphs, newTeam } from './data';
+import { paragraphs, newTeam } from "./data";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '100%',
-    width: '100%',
+    height: "100%",
+    width: "100%",
   },
   sectionNoPaddingTop: {
     paddingTop: 0,
   },
   sectionPartners: {
-    boxShadow: '0 5px 20px 0 rgba(90, 202, 157, 0.05)',
-    '& .section-alternate__content': {
+    boxShadow: "0 5px 20px 0 rgba(90, 202, 157, 0.05)",
+    "& .section-alternate__content": {
       paddingTop: theme.spacing(5),
       paddingBottom: theme.spacing(5),
     },

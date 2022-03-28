@@ -1,29 +1,29 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import makeStyles from '@mui/styles/makeStyles';
-import { Image } from 'components/atoms';
-import { SectionHeader } from 'components/molecules';
-import { HeroShaped } from 'components/organisms';
+import React from "react";
+import PropTypes from "prop-types";
+import clsx from "clsx";
+import makeStyles from "@mui/styles/makeStyles";
+import { Image } from "components/atoms";
+import { SectionHeader } from "components/molecules";
+import { HeroShaped } from "components/organisms";
 
 // assets
-import HeroImg from 'assets/images/about/src-hero.jpg';
+import HeroImg from "assets/images/about/src-hero.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     background:
-      'url(https://assets.maccarianagency.com/the-front/illustrations/patterns-bg.svg) no-repeat left bottom',
-    backgroundSize: 'contain',
+      "url(https://assets.maccarianagency.com/the-front/illustrations/patterns-bg.svg) no-repeat left bottom",
+    backgroundSize: "contain",
     backgroundColor: theme.palette.alternate.main,
   },
   cover: {
-    position: 'relative',
+    position: "relative",
     zIndex: 9,
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
   },
   image: {
-    objectFit: 'cover',
+    objectFit: "cover",
   },
 }));
 
@@ -54,8 +54,8 @@ const Hero = (props) => {
               srcSet={HeroImg}
               className={classes.image}
               lazyProps={{
-                width: '100%',
-                height: '100%',
+                width: "100%",
+                height: "100%",
               }}
             />
           </div>
