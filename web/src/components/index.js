@@ -8,6 +8,7 @@ export { default as SectionLabel } from './section-label.component';
 export { default as TypedText } from './typed-text.component';
 export { default as Image } from './image.component';
 export { default as CardBase } from './card-base.component';
+export { default as Icon } from './icon.component';
 
 export { default as ServiceCards } from './service-cards.component';
 
