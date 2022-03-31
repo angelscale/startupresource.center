@@ -145,7 +145,7 @@ const HomePage = () => {
             className={classes.leftSideContent}
           />
         }
-        // rightSide={<div className={clsx(classes.imageAnimation)} />}
+        rightSide={<div className={clsx(classes.imageAnimation)} />}
       />
       <div className={classes.content}>
         <SectionLabel align="center" title="Our Services" />
