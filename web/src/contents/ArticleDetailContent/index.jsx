@@ -19,7 +19,7 @@ import { alpha } from '@mui/material/styles';
 import { Container } from 'components';
 
 // helper
-import { getFormattedDate } from './utils/helper';
+import { getFormattedDate } from 'utils';
 
 const Text = styled(Typography)(
   () => `
