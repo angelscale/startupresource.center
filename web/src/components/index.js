@@ -1,6 +1,7 @@
 export { default as Breadcrumb } from './breadcrumb.component';
 export { default as Container } from './container.component';
 export { default as HeroShaped } from './hero-shaped.component';
+export { default as InlineImage } from './inline-image.component';
 export { default as LearnMoreLink } from './learn-more-link.component';
 export { default as Section } from './section.component';
 export { default as SectionHeader } from './section-header.component';
