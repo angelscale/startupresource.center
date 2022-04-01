@@ -1,6 +1,8 @@
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
 const { initializeApp, cert } = require('firebase-admin/app');
 const { getStorage } = require('firebase-admin/storage');
+// const remark = import(`remark`);
+// const html = import(`remark-html`);
 
 const firebaseCredentials = require('./credentials.json');
 
@@ -19,8 +21,46 @@ const firebaseConfig = {
 const firebaseAdmin = initializeApp(firebaseConfig);
 const storage = getStorage(firebaseAdmin);
 
+const createImageNodesFromStorage = async ({
+  images,
+  node,
+  createNode,
+  createNodeId,
+  getCache,
+}) => {
+  const expiration = new Date();
+  expiration.setMinutes(expiration.getMinutes() + 5);
+
+  const processedImages = {};
+  await Promise.all(
+    images.map(async ({ id, image }) =>
+      storage
+        .bucket()
+        .file(image)
+        .getSignedUrl({
+          action: 'read',
+          expires: expiration.toString(),
+        })
+        .then(async (imageURL) => {
+          return createRemoteFileNode({
+            url: imageURL[0],
+            parentNodeId: node.id,
+            createNode,
+            createNodeId,
+            getCache,
+            name: id,
+          }).then((imageFileNode) => {
+            processedImages[id] = imageFileNode.id;
+          });
+        })
+        .catch((error) => console.log(error)),
+    ),
+  );
+  return processedImages;
+};
+
 exports.onCreateNode = async ({
-  node, // the node that was just created
+  node,
   actions: { createNode, createNodeField },
   createNodeId,
   getCache,
@@ -32,37 +72,68 @@ exports.onCreateNode = async ({
       name: 'slug',
       value: node.name.replace(/[^A-Z0-9]+/gi, '-'),
     });
-  }
 
-  // Process Images
-  if (node.internal.type === 'products') {
-    const expiration = new Date();
-    expiration.setMinutes(expiration.getMinutes() + 5);
-
-    const logoURL = await storage.bucket().file(node.logo).getSignedUrl({
-      action: 'read',
-      expires: expiration.toString(),
-    });
-
-    const logoFileNode = await createRemoteFileNode({
-      url: logoURL[0],
-      parentNodeId: node.id,
+    // Process Images
+    const logo_image = node.logo ? [{ id: 'logo', image: node.logo }] : [];
+    const header_image = node.header_image
+      ? [{ id: 'header', image: node.header_image }]
+      : [];
+    const images_arr = node.images
+      ? node.images.map((image, index) => ({
+          id: `image${index}`,
+          image,
+        }))
+      : [];
+    const images = await createImageNodesFromStorage({
+      images: [...header_image, ...logo_image, ...images_arr],
+      node,
       createNode,
       createNodeId,
       getCache,
+      createNodeField,
     });
-    if (logoFileNode) {
-      createNodeField({ node, name: 'logoFile', value: logoFileNode.id });
-    }
+
+    createNodeField({
+      node,
+      name: 'images',
+      value: images,
+    });
   }
 };
 
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions;
+// exports.createSchemaCustomization = ({ actions }) => {
+//   const { createResolverContext } = actions;
+//   const getHtml = (md) => remark().use(html).process(md);
+//   createResolverContext({ getHtml });
+// };
 
+// exports.createSchemaCustomization = ({ actions: { createTypes }, schema }) => {
+//   createTypes(
+//     schema.buildObjectType({
+//       name: 'products',
+//       interfaces: ['Node'],
+//       fields: {
+//         md: {
+//           type: 'String!',
+//           async resolve(source, args, context, info) {
+//             const processed = await context.transformerRemark.getHtml(
+//               source.description,
+//             );
+//             return processed.contents;
+//           },
+//         },
+//       },
+//     }),
+//   );
+// }
+
+exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
   createTypes(`
     type products implements Node {
-      logoImage: File @link(from: "fields.logoFile")
+      logoImage: File @link(from: "fields.images.logo")
+    }
+    type articles implements Node {
+      headerImage: File @link(from: "fields.images.header")
     }
   `);
 };
