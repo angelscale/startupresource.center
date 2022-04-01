@@ -36,12 +36,6 @@ exports.onCreateNode = async ({
 
   // Process Images
   if (node.internal.type === 'products') {
-    createNodeField({
-      node,
-      name: 'slug',
-      value: node.name.replace(/[^A-Z0-9]+/gi, '-'),
-    });
-
     const expiration = new Date();
     expiration.setMinutes(expiration.getMinutes() + 5);
 
