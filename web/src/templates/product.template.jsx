@@ -6,10 +6,31 @@ import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
 import rehypeReact from 'rehype-react';
 
-import makeStyles from '@mui/styles/makeStyles';
 import { Typography, ListItemText, styled, Link } from '@mui/material';
 
 import { Breadcrumb, ProductHeader } from 'components';
+
+const PREFIX = 'ProductTemplate';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  content: `${PREFIX}-content`,
+  container: `${PREFIX}-container`,
+};
+
+const Root = styled('div')(({ theme }) => ({
+  [`&.${classes.root}`]: {},
+
+  [`& .${classes.content}`]: {
+    padding: theme.spacing(4, 2),
+    // background: '#f2f2f2',
+  },
+
+  [`& .${classes.container}`]: {
+    margin: '0 auto',
+    maxWidth: theme.layout.contentWidth,
+  },
+}));
 
 const Text = styled(Typography)(
   () => `
@@ -43,21 +64,8 @@ const LinkText = styled(Link)(
 `,
 );
 
-const useStyles = makeStyles((theme) => ({
-  root: {},
-  content: {
-    padding: theme.spacing(4, 2),
-    // background: '#f2f2f2',
-  },
-  container: {
-    margin: '0 auto',
-    maxWidth: theme.layout.contentWidth,
-  },
-}));
-
 const ProductTemplate = ({ data, location }) => {
   const { name, description, logoImage } = data.allProducts.nodes[0];
-  const classes = useStyles();
 
   const content = unified()
     .use(remarkParse)
@@ -75,14 +83,14 @@ const ProductTemplate = ({ data, location }) => {
     .processSync(description);
 
   return (
-    <div className={classes.root}>
+    <Root className={classes.root}>
       <Breadcrumb location={location} />
       <ProductHeader name={name} logoImage={logoImage} location={location} />
       <div className={classes.container}>
         <Typography variant="h1">{name}</Typography>
         <div className={classes.content}>{content.result}</div>
       </div>
-    </div>
+    </Root>
   );
 };
 

@@ -1,24 +1,33 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
 import {
   useMediaQuery,
   Grid,
   Typography,
   TextField,
   Button,
+  styled,
+  useTheme,
 } from '@mui/material';
-import { SectionHeader } from 'components';
 import { red } from '@mui/material/colors';
+import { SectionHeader } from 'components';
 
 import { toast } from 'react-toastify';
 
 // request
 import { sendMail } from './utils/requests';
 
-const useStyles = makeStyles((theme) => ({
-  form: {
+const PREFIX = 'Form';
+
+const classes = {
+  form: `${PREFIX}-form`,
+  inputTitle: `${PREFIX}-inputTitle`,
+  errorText: `${PREFIX}-errorText`,
+  btn: `${PREFIX}-btn`,
+};
+
+const Root = styled('div')(({ theme }) => ({
+  [`& .${classes.form}`]: {
     maxWidth: 550,
     margin: `0 auto`,
     '& .MuiTextField-root': {
@@ -28,21 +37,23 @@ const useStyles = makeStyles((theme) => ({
       background: theme.palette.background.paper,
     },
   },
-  inputTitle: {
+
+  [`& .${classes.inputTitle}`]: {
     fontWeight: 700,
     marginBottom: theme.spacing(1),
   },
-  errorText: {
+
+  [`& .${classes.errorText}`]: {
     color: red[500],
   },
-  btn: {
+
+  [`& .${classes.btn}`]: {
     transition: 'all .25s ease',
   },
 }));
 
 const Form = (props) => {
   const { className, ...rest } = props;
-  const classes = useStyles();
 
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
@@ -102,7 +113,7 @@ const Form = (props) => {
   };
 
   return (
-    <div className={className} {...rest}>
+    <Root className={className} {...rest}>
       <SectionHeader
         title="Contact SRC"
         // subtitle="Keep track of what's happening with your data, change permissions, and run reports against your data anywhere in the world. Keep track of what's happening with your data, change permissions."
@@ -225,7 +236,7 @@ const Form = (props) => {
           </Grid>
         </Grid>
       </div>
-    </div>
+    </Root>
   );
 };
 

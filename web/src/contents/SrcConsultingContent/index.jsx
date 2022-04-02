@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { useTheme } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
 import {
   useMediaQuery,
   Grid,
@@ -13,6 +11,8 @@ import {
   Typography,
   TextField,
   Button,
+  styled,
+  useTheme,
 } from '@mui/material';
 
 import { Section, HeroShaped, SectionHeader, Image } from 'components';
@@ -22,37 +22,65 @@ import HeroImg from 'assets/images/about/src-hero.jpg';
 
 import { teamData } from './data';
 
-const useStyles = makeStyles((theme) => ({
-  teamSection: {
+const PREFIX = 'SrcConsultingContent';
+
+const classes = {
+  teamSection: `${PREFIX}-teamSection`,
+  hero_root: `${PREFIX}-hero_root`,
+  hero_cover: `${PREFIX}-hero_cover`,
+  hero_image: `${PREFIX}-hero_image`,
+  textWhite: `${PREFIX}-textWhite`,
+  avatar: `${PREFIX}-avatar`,
+  listItemAvatar: `${PREFIX}-listItemAvatar`,
+  gridCard: `${PREFIX}-gridCard`,
+  gridItem: `${PREFIX}-gridItem`,
+  form_wrapper: `${PREFIX}-form_wrapper`,
+  form: `${PREFIX}-form`,
+  inputTitle: `${PREFIX}-inputTitle`
+};
+
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`& .${classes.teamSection}`]: {
     background: theme.palette.primary.dark,
   },
-  hero_root: {
+
+  [`& .${classes.hero_root}`]: {
     background:
       'url(https://assets.maccarianagency.com/the-front/illustrations/patterns-bg.svg) no-repeat left bottom',
     backgroundSize: 'contain',
     backgroundColor: theme.palette.alternate.main,
   },
-  hero_cover: {
+
+  [`& .${classes.hero_cover}`]: {
     position: 'relative',
     zIndex: 9,
     width: '100%',
     height: '100%',
   },
-  hero_image: {
+
+  [`& .${classes.hero_image}`]: {
     objectFit: 'cover',
   },
-  textWhite: {
+
+  [`& .${classes.textWhite}`]: {
     color: 'white',
   },
-  avatar: {
+
+  [`& .${classes.avatar}`]: {
     width: 100,
     height: 100,
     borderRadius: theme.spacing(1),
   },
-  listItemAvatar: {
+
+  [`& .${classes.listItemAvatar}`]: {
     marginRight: theme.spacing(3),
   },
-  gridCard: {
+
+  [`& .${classes.gridCard}`]: {
     padding: theme.spacing(2),
     background: theme.palette.alternate.main,
     borderRadius: theme.spacing(2),
@@ -60,13 +88,16 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(4),
     },
   },
-  gridItem: {
+
+  [`& .${classes.gridItem}`]: {
     height: '100%',
   },
-  form_wrapper: {
+
+  [`& .${classes.form_wrapper}`]: {
     background: theme.palette.alternate.main,
   },
-  form: {
+
+  [`& .${classes.form}`]: {
     maxWidth: 550,
     margin: `0 auto`,
     '& .MuiTextField-root': {
@@ -76,14 +107,15 @@ const useStyles = makeStyles((theme) => ({
       background: theme.palette.background.paper,
     },
   },
-  inputTitle: {
+
+  [`& .${classes.inputTitle}`]: {
     fontWeight: 700,
     marginBottom: theme.spacing(1),
-  },
+  }
 }));
 
 const SrcConsultingContent = () => {
-  const classes = useStyles();
+
 
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
@@ -91,7 +123,7 @@ const SrcConsultingContent = () => {
   });
 
   return (
-    <div>
+    <Root>
       <Section disablePadding>
         <div className={classes.hero_root}>
           <HeroShaped
@@ -289,7 +321,7 @@ const SrcConsultingContent = () => {
           </Grid>
         </div>
       </Section>
-    </div>
+    </Root>
   );
 };
 

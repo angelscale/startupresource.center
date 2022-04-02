@@ -1,67 +1,90 @@
 import React from 'react';
 import clsx from 'clsx';
 import { Link } from 'gatsby';
-import makeStyles from '@mui/styles/makeStyles';
-import {
-  List,
-  ListItem,
-  Typography,
-  ListItemIcon,
-  Divider,
-} from '@mui/material';
+import { List, ListItem, Typography, ListItemIcon, Divider, styled } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { MenuGroup } from 'components';
 
-const useStyles = makeStyles((theme) => ({
-  root: {},
-  listItem: {
+const PREFIX = 'SidebarNav';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  listItem: `${PREFIX}-listItem`,
+  navLink: `${PREFIX}-navLink`,
+  listItemText: `${PREFIX}-listItemText`,
+  listItemIcon: `${PREFIX}-listItemIcon`,
+  closeIcon: `${PREFIX}-closeIcon`,
+  menu: `${PREFIX}-menu`,
+  menuItem: `${PREFIX}-menuItem`,
+  menuGroupItem: `${PREFIX}-menuGroupItem`,
+  menuGroupTitle: `${PREFIX}-menuGroupTitle`,
+  divider: `${PREFIX}-divider`
+};
+
+const StyledList = styled(List)((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.root}`]: {},
+
+  [`& .${classes.listItem}`]: {
     flexDirection: 'column',
     alignItems: 'flex-start',
   },
-  navLink: {
+
+  [`& .${classes.navLink}`]: {
     '&:hover': {
       color: theme.palette.primary.dark,
     },
   },
-  listItemText: {
+
+  [`& .${classes.listItemText}`]: {
     flex: '0 0 auto',
     marginRight: theme.spacing(1),
     whiteSpace: 'nowrap',
     textTransform: 'capitalize',
   },
-  listItemIcon: {
+
+  [`& .${classes.listItemIcon}`]: {
     minWidth: 'auto',
   },
-  closeIcon: {
+
+  [`& .${classes.closeIcon}`]: {
     justifyContent: 'flex-end',
     cursor: 'pointer',
   },
-  menu: {
+
+  [`& .${classes.menu}`]: {
     display: 'flex',
   },
-  menuItem: {
+
+  [`& .${classes.menuItem}`]: {
     marginRight: theme.spacing(8),
     '&:last-child': {
       marginRight: 0,
     },
   },
-  menuGroupItem: {
+
+  [`& .${classes.menuGroupItem}`]: {
     paddingTop: 0,
     marginLeft: theme.spacing(1),
   },
-  menuGroupTitle: {
+
+  [`& .${classes.menuGroupTitle}`]: {
     textTransform: 'uppercase',
   },
-  divider: {
+
+  [`& .${classes.divider}`]: {
     width: '100%',
-  },
+  }
 }));
 
 const SidebarNav = ({ navigation, onClose, className, ...rest }) => {
-  const classes = useStyles();
+
 
   return (
-    <List {...rest} className={clsx(classes.root, className)}>
+    <StyledList {...rest} className={clsx(classes.root, className)}>
       <ListItem className={classes.closeIcon} onClick={() => onClose()}>
         <ListItemIcon className={classes.listItemIcon}>
           <CloseIcon fontSize="small" />
@@ -117,7 +140,7 @@ const SidebarNav = ({ navigation, onClose, className, ...rest }) => {
           </>
         ))}
       </>
-    </List>
+    </StyledList>
   );
 };
 

@@ -1,17 +1,25 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import makeStyles from '@mui/styles/makeStyles';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { styled } from '@mui/material';
 
-const useStyles = makeStyles(() => ({
-  root: {
+const PREFIX = 'Image';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  dBlock: `${PREFIX}-dBlock`
+};
+
+const Root = styled('img\n')(() => ({
+  [`& .${classes.root}`]: {
     width: '100%',
     height: '100%',
   },
-  dBlock: {
+
+  [`& .${classes.dBlock}`]: {
     display: 'block',
-  },
+  }
 }));
 
 /**
@@ -22,7 +30,7 @@ const useStyles = makeStyles(() => ({
 const Image = (props) => {
   const { src, srcSet, alt, lazy, lazyProps, className, ...rest } = props;
 
-  const classes = useStyles();
+
   if (lazy) {
     return (
       <LazyLoadImage

@@ -1,7 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { colors, Button, Typography } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { colors, Button, Typography, styled } from '@mui/material';
 import {
   Create,
   DeviceHub,
@@ -19,38 +18,57 @@ import {
 
 import HomeImage from 'assets/images/home-image.jpg';
 
-// import ServiceSectionView from './Home/service-section';
-// import ArticlesSectionView from './Home/article-section';
+const PREFIX = 'HomePage';
 
-// import { services_data, featured, articles } from './data';
+const classes = {
+  root: `${PREFIX}-root`,
+  header: `${PREFIX}-header`,
+  text: `${PREFIX}-text`,
+  intro: `${PREFIX}-intro`,
+  content: `${PREFIX}-content`,
+  fontWeight900: `${PREFIX}-fontWeight900`,
+  leftSideContent: `${PREFIX}-leftSideContent`,
+  heroShaped: `${PREFIX}-heroShaped`,
+  imageAnimation: `${PREFIX}-imageAnimation`
+};
 
-const useStyles = makeStyles((theme) => ({
-  root: {
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.root}`]: {
     minHeight: '45rem',
     width: '100%',
   },
-  header: {
+
+  [`& .${classes.header}`]: {
     fontSize: '1.4em',
     fontStyle: 'italic',
     fontWeight: 400,
     marginBottom: theme.spacing(2),
   },
-  text: {
+
+  [`& .${classes.text}`]: {
     padding: theme.spacing(4),
     fontSize: '1.4em',
     fontWeight: 600,
   },
-  intro: {
+
+  [`& .${classes.intro}`]: {
     background: colors.blueGrey[100] + '40',
   },
-  content: {
+
+  [`& .${classes.content}`]: {
     margin: '0 auto',
     maxWidth: theme.layout.contentWidth,
   },
-  fontWeight900: {
+
+  [`& .${classes.fontWeight900}`]: {
     fontWeight: 900,
   },
-  leftSideContent: {
+
+  [`& .${classes.leftSideContent}`]: {
     '& .section-header__cta-container': {
       [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
@@ -67,7 +85,8 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  heroShaped: {
+
+  [`& .${classes.heroShaped}`]: {
     '& .hero-shaped__image': {
       backgroundColor: theme.palette.alternate.main,
     },
@@ -80,7 +99,8 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  imageAnimation: {
+
+  [`& .${classes.imageAnimation}`]: {
     background: `url(${HomeImage})`,
     backgroundPosition: 'right',
     backgroundRepeat: 'no-repeat',
@@ -88,14 +108,14 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: '100%',
     backgroundColor: theme.palette.alternate.dark,
-  },
+  }
 }));
 
 const HomePage = () => {
-  const classes = useStyles();
+
 
   return (
-    <div className={classes.root}>
+    <Root className={classes.root}>
       <HeroShaped
         className={classes.heroShaped}
         leftSide={
@@ -178,7 +198,7 @@ const HomePage = () => {
         {/* <ServiceSectionView />
         <ArticlesSectionView /> */}
       </div>
-    </div>
+    </Root>
   );
 };
 

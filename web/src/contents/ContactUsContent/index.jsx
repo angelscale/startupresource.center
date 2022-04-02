@@ -2,7 +2,6 @@ import React from 'react';
 import clsx from 'clsx';
 import { ToastContainer } from 'react-toastify';
 
-import makeStyles from '@mui/styles/makeStyles';
 import {
   Divider,
   List,
@@ -14,6 +13,7 @@ import {
   FormControl,
   OutlinedInput,
   InputAdornment,
+  styled,
 } from '@mui/material';
 
 import { HeroShaped, Section, SectionHeader, Icon } from 'components';
@@ -22,8 +22,28 @@ import Form from './Form';
 // assets
 import PeopleImg from 'assets/images/people.jpg';
 
-const useStyles = makeStyles((theme) => ({
-  hero_root: {
+const PREFIX = 'ContactUsContent';
+
+const classes = {
+  hero_root: `${PREFIX}-hero_root`,
+  textWhite: `${PREFIX}-textWhite`,
+  title: `${PREFIX}-title`,
+  hero_section: `${PREFIX}-hero_section`,
+  hero_sectionHeader: `${PREFIX}-hero_sectionHeader`,
+  map: `${PREFIX}-map`,
+  icon: `${PREFIX}-icon`,
+  contact_section: `${PREFIX}-contact_section`,
+  newsletter_root: `${PREFIX}-newsletter_root`,
+  inputContainer: `${PREFIX}-inputContainer`,
+  formControl: `${PREFIX}-formControl`
+};
+
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`& .${classes.hero_root}`]: {
     width: '100%',
     height: '100%',
     position: 'relative',
@@ -39,13 +59,16 @@ const useStyles = makeStyles((theme) => ({
       backgroundPosition: 'right -250px top',
     },
   },
-  textWhite: {
+
+  [`& .${classes.textWhite}`]: {
     color: 'white',
   },
-  title: {
+
+  [`& .${classes.title}`]: {
     fontWeight: 'bold',
   },
-  hero_section: {
+
+  [`& .${classes.hero_section}`]: {
     position: 'absolute',
     top: '50%',
     left: '50%',
@@ -57,19 +80,23 @@ const useStyles = makeStyles((theme) => ({
       background: 'none',
     },
   },
-  hero_sectionHeader: {
+
+  [`& .${classes.hero_sectionHeader}`]: {
     [theme.breakpoints.up('sm')]: {
       width: '50%',
     },
   },
-  map: {
+
+  [`& .${classes.map}`]: {
     zIndex: 9,
   },
-  icon: {
+
+  [`& .${classes.icon}`]: {
     background: 'transparent',
     borderRadius: 0,
   },
-  contact_section: {
+
+  [`& .${classes.contact_section}`]: {
     '& .hero-shaped__wrapper': {
       margin: '1rem auto',
       [theme.breakpoints.down('lg')]: {
@@ -83,16 +110,19 @@ const useStyles = makeStyles((theme) => ({
       all: 'unset',
     },
   },
-  newsletter_root: {
+
+  [`& .${classes.newsletter_root}`]: {
     background: theme.palette.primary.dark,
     backgroundSize: 'cover',
     borderRadius: theme.spacing(2),
   },
-  inputContainer: {
+
+  [`& .${classes.inputContainer}`]: {
     display: 'flex',
     justifyContent: 'center',
   },
-  formControl: {
+
+  [`& .${classes.formControl}`]: {
     maxWidth: 400,
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
@@ -111,14 +141,14 @@ const useStyles = makeStyles((theme) => ({
     '& .MuiInputAdornment-root i': {
       color: 'white !important',
     },
-  },
+  }
 }));
 
 const ContactUsContent = () => {
-  const classes = useStyles();
+
 
   return (
-    <div>
+    <Root>
       <Section disablePadding className={classes.hero_root}>
         <Section className={classes.hero_section}>
           <SectionHeader
@@ -226,7 +256,7 @@ const ContactUsContent = () => {
       </Section>
 
       <ToastContainer />
-    </div>
+    </Root>
   );
 };
 

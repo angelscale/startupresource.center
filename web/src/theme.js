@@ -1,4 +1,4 @@
-import { createTheme, responsiveFontSizes, adaptV4Theme } from '@mui/material';
+import { createTheme, responsiveFontSizes } from '@mui/material';
 
 export const light = {
   alternate: {
@@ -6,7 +6,7 @@ export const light = {
     dark: '#e8eaf6',
   },
   cardShadow: 'rgba(23, 70, 161, .11)',
-  type: 'light',
+  mode: 'light',
   primary: {
     main: '#3f51b5',
     light: 'rgb(71, 145, 219)',
@@ -43,7 +43,7 @@ export const dark = {
     black: '#000',
     white: '#fff',
   },
-  type: 'dark',
+  mode: 'dark',
   primary: {
     main: '#90caf9',
     light: 'rgb(166, 212, 250)',
@@ -72,19 +72,17 @@ export const dark = {
 
 export const getTheme = (mode) =>
   responsiveFontSizes(
-    createTheme(
-      adaptV4Theme({
-        palette: mode === 'light' ? light : dark,
-        layout: {
-          contentWidth: 1236,
-        },
-        typography: {
-          fontFamily: 'Lato',
-        },
-        zIndex: {
-          appBar: 1200,
-          drawer: 1100,
-        },
-      }),
-    ),
+    createTheme({
+      palette: mode === 'light' ? light : dark,
+      layout: {
+        contentWidth: 1236,
+      },
+      typography: {
+        fontFamily: 'Lato',
+      },
+      zIndex: {
+        appBar: 1200,
+        drawer: 1100,
+      },
+    }),
   );

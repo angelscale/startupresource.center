@@ -4,12 +4,32 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import clsx from 'clsx';
 import scrollToElement from 'scroll-to-element';
 
-import makeStyles from '@mui/styles/makeStyles';
-import { Typography, Grid, Box, Button, Rating } from '@mui/material';
+import { Typography, Grid, Box, Button, Rating, styled } from '@mui/material';
 import LaunchIcon from '@mui/icons-material/Launch';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
+const PREFIX = 'ProductHeader';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  container: `${PREFIX}-container`,
+  content: `${PREFIX}-content`,
+  img_wrapper: `${PREFIX}-img_wrapper`,
+  info_wrapper: `${PREFIX}-info_wrapper`,
+  title: `${PREFIX}-title`,
+  rating: `${PREFIX}-rating`,
+  link: `${PREFIX}-link`,
+  tab_wrapper: `${PREFIX}-tab_wrapper`,
+  active: `${PREFIX}-active`,
+  sticky: `${PREFIX}-sticky`,
+  placeholder: `${PREFIX}-placeholder`
+};
+
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.root}`]: {
     background: '#fff',
     paddingTop: theme.spacing(2),
     boxShadow:
@@ -20,14 +40,17 @@ const useStyles = makeStyles((theme) => ({
       zIndex: 5,
     },
   },
-  container: {
+
+  [`& .${classes.container}`]: {
     margin: '0 auto',
     maxWidth: theme.layout.contentWidth,
   },
-  content: {
+
+  [`& .${classes.content}`]: {
     paddingInline: theme.spacing(2),
   },
-  img_wrapper: {
+
+  [`& .${classes.img_wrapper}`]: {
     height: '100px',
     width: '100px',
     borderRadius: '4px',
@@ -41,7 +64,8 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: 0,
     },
   },
-  info_wrapper: {
+
+  [`& .${classes.info_wrapper}`]: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -51,12 +75,14 @@ const useStyles = makeStyles((theme) => ({
       alignItems: 'flex-start',
     },
   },
-  title: {
+
+  [`& .${classes.title}`]: {
     fontSize: '1.75rem',
     lineHeight: '2.25rem',
     fontWeight: '700',
   },
-  rating: {
+
+  [`& .${classes.rating}`]: {
     display: 'flex',
     alignItems: 'center',
     gap: theme.spacing(1),
@@ -67,7 +93,8 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: 0,
     },
   },
-  link: {
+
+  [`& .${classes.link}`]: {
     width: '100%',
     '& button': {
       width: '100%',
@@ -79,7 +106,8 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  tab_wrapper: {
+
+  [`& .${classes.tab_wrapper}`]: {
     padding: theme.spacing(2, 2, 0),
     display: 'flex',
     alignItems: 'center',
@@ -102,12 +130,14 @@ const useStyles = makeStyles((theme) => ({
       gap: theme.spacing(4),
     },
   },
-  active: {
+
+  [`& .${classes.active}`]: {
     '& a': {
       borderBottomColor: theme.palette.primary.main + ' !important',
     },
   },
-  sticky: {
+
+  [`& .${classes.sticky}`]: {
     position: 'fixed',
     top: 0,
     zIndex: 5,
@@ -116,13 +146,14 @@ const useStyles = makeStyles((theme) => ({
     boxShadow:
       '0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%)',
   },
-  placeholder: {
+
+  [`& .${classes.placeholder}`]: {
     height: '54.02px',
-  },
+  }
 }));
 
 const ProductHeader = ({ logoImage, name, location }) => {
-  const classes = useStyles();
+
   const logo = getImage(logoImage);
 
   const [isSticky, setIsSticky] = useState(false);
@@ -162,7 +193,7 @@ const ProductHeader = ({ logoImage, name, location }) => {
   };
 
   return (
-    <div className={classes.root}>
+    <Root className={classes.root}>
       <div className={classes.container}>
         <Grid container className={classes.content} justifyContent="center">
           <Grid item xs={'auto'}>
@@ -231,7 +262,7 @@ const ProductHeader = ({ logoImage, name, location }) => {
         </ul>
         {isSticky && <div className={classes.placeholder} />}
       </div>
-    </div>
+    </Root>
   );
 };
 

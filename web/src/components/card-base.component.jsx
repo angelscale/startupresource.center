@@ -1,27 +1,50 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import makeStyles from '@mui/styles/makeStyles';
-import { Card, CardContent } from '@mui/material';
+import { Card, CardContent, styled } from '@mui/material';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
+const PREFIX = 'CardBase';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  withShadow: `${PREFIX}-withShadow`,
+  noShadow: `${PREFIX}-noShadow`,
+  noBorder: `${PREFIX}-noBorder`,
+  noBg: `${PREFIX}-noBg`,
+  liftUp: `${PREFIX}-liftUp`,
+  content: `${PREFIX}-content`,
+  left: `${PREFIX}-left`,
+  right: `${PREFIX}-right`,
+  center: `${PREFIX}-center`
+};
+
+const StyledCard = styled(Card)((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.root}`]: {
     height: '100%',
     width: '100%',
   },
-  withShadow: {
+
+  [`& .${classes.withShadow}`]: {
     boxShadow: `0 2px 10px 0 ${theme.palette.cardShadow}`,
   },
-  noShadow: {
+
+  [`& .${classes.noShadow}`]: {
     boxShadow: 'none',
   },
-  noBorder: {
+
+  [`& .${classes.noBorder}`]: {
     border: 0,
   },
-  noBg: {
+
+  [`& .${classes.noBg}`]: {
     background: 'transparent',
   },
-  liftUp: {
+
+  [`& .${classes.liftUp}`]: {
     transition:
       'box-shadow .25s ease,transform .25s ease,-webkit-transform .25s ease',
     '&:hover': {
@@ -30,7 +53,8 @@ const useStyles = makeStyles((theme) => ({
       transform: 'translate3d(0,-5px,0)',
     },
   },
-  content: {
+
+  [`& .${classes.content}`]: {
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
@@ -46,15 +70,18 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  left: {
+
+  [`& .${classes.left}`]: {
     alignItems: 'flex-start',
   },
-  right: {
+
+  [`& .${classes.right}`]: {
     alignItems: 'flex-end',
   },
-  center: {
+
+  [`& .${classes.center}`]: {
     alignItems: 'center',
-  },
+  }
 }));
 
 /**
@@ -76,10 +103,10 @@ const CardBase = (props) => {
     ...rest
   } = props;
 
-  const classes = useStyles();
+
 
   return (
-    <Card
+    <StyledCard
       className={clsx(
         'card-base',
         classes.root,
@@ -98,7 +125,7 @@ const CardBase = (props) => {
       >
         {children}
       </CardContent>
-    </Card>
+    </StyledCard>
   );
 };
 

@@ -1,10 +1,22 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import makeStyles from '@mui/styles/makeStyles';
+import { styled } from '@mui/material';
+const PREFIX = 'Section';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
+const classes = {
+  root: `${PREFIX}-root`,
+  fullWidth: `${PREFIX}-fullWidth`,
+  disablePadding: `${PREFIX}-disablePadding`,
+  narrow: `${PREFIX}-narrow`
+};
+
+const Root = styled('section')((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.root}`]: {
     maxWidth: theme.layout.contentWidth,
     width: '100%',
     margin: '0 auto',
@@ -16,15 +28,18 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(12, 8),
     },
   },
-  fullWidth: {
+
+  [`& .${classes.fullWidth}`]: {
     maxWidth: '100%',
   },
-  disablePadding: {
+
+  [`& .${classes.disablePadding}`]: {
     padding: 0,
   },
-  narrow: {
+
+  [`& .${classes.narrow}`]: {
     maxWidth: 800,
-  },
+  }
 }));
 
 /**
@@ -36,10 +51,10 @@ const Section = (props) => {
   const { children, fullWidth, narrow, disablePadding, className, ...rest } =
     props;
 
-  const classes = useStyles();
+
 
   return (
-    <section
+    <Root
       className={clsx(
         'section',
         classes.root,
@@ -51,7 +66,7 @@ const Section = (props) => {
       {...rest}
     >
       {children}
-    </section>
+    </Root>
   );
 };
 

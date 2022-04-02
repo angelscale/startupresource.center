@@ -1,10 +1,21 @@
 import React from 'react';
-import makeStyles from '@mui/styles/makeStyles';
-import { Button } from '@mui/material';
+import { Button, styled } from '@mui/material';
 import { LearnMoreLink, Section, SectionHeader } from 'components';
 
-const useStyles = makeStyles((theme) => ({
-  formContainer: {
+const PREFIX = 'ServerError';
+
+const classes = {
+  formContainer: `${PREFIX}-formContainer`,
+  section: `${PREFIX}-section`,
+  label: `${PREFIX}-label`
+};
+
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`& .${classes.formContainer}`]: {
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
@@ -14,18 +25,20 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 500,
     margin: `0 auto`,
   },
-  section: {
+
+  [`& .${classes.section}`]: {
     paddingTop: 0,
     paddingBottom: 0,
   },
-  label: {
+
+  [`& .${classes.label}`]: {
     fontWeight: 'bold',
     textTransform: 'uppercase',
-  },
+  }
 }));
 
 const ServerError = ({ pageContext: { code } }) => {
-  const classes = useStyles();
+
 
   const handleClick = () => {
     window.history.back();
@@ -79,7 +92,7 @@ const ServerError = ({ pageContext: { code } }) => {
   };
 
   return (
-    <div>
+    <Root>
       <Section className={classes.section}>
         <div className={classes.formContainer}>
           <SectionHeader
@@ -117,7 +130,7 @@ const ServerError = ({ pageContext: { code } }) => {
           />
         </div>
       </Section>
-    </div>
+    </Root>
   );
 };
 

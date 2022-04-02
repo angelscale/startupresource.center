@@ -1,28 +1,43 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import makeStyles from '@mui/styles/makeStyles';
-import { Grid, Typography } from '@mui/material';
+import { Grid, Typography, styled } from '@mui/material';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
+const PREFIX = 'SectionHeader';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  disableGutter: `${PREFIX}-disableGutter`,
+  title: `${PREFIX}-title`,
+  cta: `${PREFIX}-cta`
+};
+
+const StyledGrid = styled(Grid)((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.root}`]: {
     marginBottom: theme.spacing(3),
     [theme.breakpoints.up('md')]: {
       marginBottom: theme.spacing(4),
     },
   },
-  disableGutter: {
+
+  [`& .${classes.disableGutter}`]: {
     marginBottom: 0,
   },
-  title: {
+
+  [`& .${classes.title}`]: {
     fontWeight: 'bold',
   },
-  cta: {
+
+  [`& .${classes.cta}`]: {
     marginLeft: theme.spacing(1),
     '&:first-child': {
       marginLeft: theme.spacing(0),
     },
-  },
+  }
 }));
 
 /**
@@ -53,7 +68,7 @@ const SectionHeader = (props) => {
     ...rest
   } = props;
 
-  const classes = useStyles();
+
   let justifyGrid = 'center';
   if (align === 'left') {
     justifyGrid = 'flex-start';
@@ -62,7 +77,7 @@ const SectionHeader = (props) => {
   }
 
   return (
-    <Grid
+    <StyledGrid
       container
       spacing={2}
       data-aos={fadeUp ? 'fade-up' : ''}
@@ -155,7 +170,7 @@ const SectionHeader = (props) => {
           </Grid>
         </Grid>
       )}
-    </Grid>
+    </StyledGrid>
   );
 };
 

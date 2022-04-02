@@ -1,26 +1,39 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import makeStyles from '@mui/styles/makeStyles';
-import { Typography, IconButton } from '@mui/material';
+import { Typography, IconButton, styled } from '@mui/material';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
-const useStyles = makeStyles(theme => ({
-  root: {
+const PREFIX = 'LearnMoreLink';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  title: `${PREFIX}-title`,
+  icon: `${PREFIX}-icon`
+};
+
+const Root = styled('a')((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.root}`]: {
     display: 'inline-flex',
     alignItems: 'center',
     textDecoration: 'none',
   },
-  title: {
+
+  [`& .${classes.title}`]: {
     fontWeight: 'bold',
   },
-  icon: {
+
+  [`& .${classes.icon}`]: {
     padding: 0,
     marginLeft: theme.spacing(1),
     '&:hover': {
       background: 'transparent',
     },
-  },
+  }
 }));
 
 /**
@@ -41,7 +54,7 @@ const LearnMoreLink = props => {
     ...rest
   } = props;
 
-  const classes = useStyles();
+
 
   const children = (
     <>
@@ -65,13 +78,13 @@ const LearnMoreLink = props => {
   );
 
   return (
-    <a
+    <Root
       href={href}
       className={clsx('learn-more-link', classes.root, className)}
       {...rest}
     >
       {children}
-    </a>
+    </Root>
   );
 };
 

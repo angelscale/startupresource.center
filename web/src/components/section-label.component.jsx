@@ -1,21 +1,32 @@
 import React from 'react';
-import makeStyles from '@mui/styles/makeStyles';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, styled } from '@mui/material';
 
-const useStyles = makeStyles((theme) => ({
-  sectionLabel: {
+const PREFIX = 'SectionLabel';
+
+const classes = {
+  sectionLabel: `${PREFIX}-sectionLabel`,
+  sectionLabelTitle: `${PREFIX}-sectionLabelTitle`
+};
+
+const StyledBox = styled(Box)((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.sectionLabel}`]: {
     margin: theme.spacing(8, 0, 2, 0),
   },
-  sectionLabelTitle: {
+
+  [`& .${classes.sectionLabelTitle}`]: {
     fontWeight: 700,
-  },
+  }
 }));
 
 const SectionLabel = ({ align = 'left', title, subtitle }) => {
-  const classes = useStyles();
+
 
   return (
-    <Box className={classes.sectionLabel}>
+    <StyledBox className={classes.sectionLabel}>
       <Typography
         variant={'h6'}
         gutterBottom
@@ -27,7 +38,7 @@ const SectionLabel = ({ align = 'left', title, subtitle }) => {
       <Typography color="textSecondary" align={align}>
         {subtitle}
       </Typography>
-    </Box>
+    </StyledBox>
   );
 };
 

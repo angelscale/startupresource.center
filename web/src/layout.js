@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
-import { Paper, Divider, CssBaseline } from '@mui/material';
+import { StyledEngineProvider } from '@mui/material/styles';
+import { Paper, Divider, CssBaseline, ThemeProvider } from '@mui/material';
 import { Topbar, Footer, Sidebar } from 'components';
 import { navigation, socialMedia } from 'navigation';
 import { getTheme } from 'theme';

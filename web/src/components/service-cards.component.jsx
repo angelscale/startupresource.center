@@ -2,31 +2,51 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
-import makeStyles from '@mui/styles/makeStyles';
-import { Grid, Typography } from '@mui/material';
+import { Grid, Typography, styled } from '@mui/material';
 
-const useStyles = makeStyles((theme) => ({
-  folioItem: {
+const PREFIX = 'ServiceCards';
+
+const classes = {
+  folioItem: `${PREFIX}-folioItem`,
+  image: `${PREFIX}-image`,
+  folioInfoWrapper: `${PREFIX}-folioInfoWrapper`,
+  folioTitle: `${PREFIX}-folioTitle`,
+  folioSubtitle: `${PREFIX}-folioSubtitle`,
+  folioIcon: `${PREFIX}-folioIcon`,
+  gridContainer: `${PREFIX}-gridContainer`
+};
+
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`& .${classes.folioItem}`]: {
     position: 'relative',
     overflow: 'hidden',
     boxShadow: `0 1.5rem 4rem rgba(22,28,45,.05)`,
     borderRadius: theme.spacing(2),
   },
-  image: {
+
+  [`& .${classes.image}`]: {
     objectFit: 'cover',
     height: 450,
   },
-  folioInfoWrapper: {
+
+  [`& .${classes.folioInfoWrapper}`]: {
     padding: theme.spacing(4),
   },
-  folioTitle: {
+
+  [`& .${classes.folioTitle}`]: {
     fontWeight: 'bold',
   },
-  folioSubtitle: {
+
+  [`& .${classes.folioSubtitle}`]: {
     textTransform: 'capitalize',
     margin: theme.spacing(1, 0),
   },
-  folioIcon: {
+
+  [`& .${classes.folioIcon}`]: {
     color: theme.palette.primary.main,
     paddingTop: theme.spacing(6),
     textAlign: 'center',
@@ -34,23 +54,24 @@ const useStyles = makeStyles((theme) => ({
       fontSize: '3rem',
     },
   },
-  gridContainer: {
+
+  [`& .${classes.gridContainer}`]: {
     marginTop: theme.spacing(2),
     padding: theme.spacing(0, 2),
     [theme.breakpoints.up('lg')]: {
       padding: theme.spacing(0),
     },
-  },
+  }
 }));
 
 const ServiceCards = (props) => {
   const { data, className, ...rest } = props;
-  const classes = useStyles();
+
 
   const gridData = data.slice(0, 4);
 
   return (
-    <div>
+    <Root>
       <div className={clsx(classes.card, className)} {...rest}>
         <Grid container spacing={4} className={classes.gridContainer}>
           {gridData.map((item, index) => (
@@ -87,7 +108,7 @@ const ServiceCards = (props) => {
           ))}
         </Grid>
       </div>
-    </div>
+    </Root>
   );
 };
 

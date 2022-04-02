@@ -1,17 +1,33 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import makeStyles from '@mui/styles/makeStyles';
-import { Divider } from '@mui/material';
+import { Divider, styled } from '@mui/material';
 import { Section } from 'components';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
+const PREFIX = 'HeroShaped';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  hero: `${PREFIX}-hero`,
+  heroLeftSide: `${PREFIX}-heroLeftSide`,
+  heroRightSide: `${PREFIX}-heroRightSide`,
+  heroCover: `${PREFIX}-heroCover`,
+  heroImageContainer: `${PREFIX}-heroImageContainer`,
+  heroImage: `${PREFIX}-heroImage`
+};
+
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.root}`]: {
     height: '100%',
     width: '100%',
     overflow: 'hidden',
   },
-  hero: {
+
+  [`& .${classes.hero}`]: {
     position: 'relative',
     width: '100%',
     height: '100%',
@@ -22,7 +38,8 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: 'column-reverse',
     },
   },
-  heroLeftSide: {
+
+  [`& .${classes.heroLeftSide}`]: {
     padding: theme.spacing(12, 4),
     [theme.breakpoints.down('lg')]: {
       padding: theme.spacing(3, 8),
@@ -31,7 +48,8 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(3, 2),
     },
   },
-  heroRightSide: {
+
+  [`& .${classes.heroRightSide}`]: {
     maxWidth: '50%',
     flex: '0 0 50%',
     position: 'relative',
@@ -41,7 +59,8 @@ const useStyles = makeStyles((theme) => ({
       height: '300px',
     },
   },
-  heroCover: {
+
+  [`& .${classes.heroCover}`]: {
     position: 'relative',
     width: '50vw',
     height: '100%',
@@ -49,12 +68,14 @@ const useStyles = makeStyles((theme) => ({
       width: '100%',
     },
   },
-  heroImageContainer: {
+
+  [`& .${classes.heroImageContainer}`]: {
     height: '100%',
     width: '100%',
     overflow: 'hidden',
   },
-  heroImage: {
+
+  [`& .${classes.heroImage}`]: {
     position: 'absolute',
     left: '0%',
     width: '100%',
@@ -63,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
       shapeOutside: 'polygon(10% 0%, 100% 0, 100% 100%, 0% 100%)',
       clipPath: 'polygon(10% 0%, 100% 0, 100% 100%, 0% 100%)',
     },
-  },
+  }
 }));
 
 /**
@@ -74,10 +95,10 @@ const useStyles = makeStyles((theme) => ({
 const HeroShaped = (props) => {
   const { leftSide, rightSide, hideDivider, className, ...rest } = props;
 
-  const classes = useStyles();
+
 
   return (
-    <div className={clsx(classes.root, 'hero-shaped', className)} {...rest}>
+    <Root className={clsx(classes.root, 'hero-shaped', className)} {...rest}>
       <div className={clsx('hero-shaped__wrapper', classes.hero)}>
         <Section
           className={clsx('hero-shaped__left-side', classes.heroLeftSide)}
@@ -104,7 +125,7 @@ const HeroShaped = (props) => {
         )}
       </div>
       {!hideDivider && <Divider />}
-    </div>
+    </Root>
   );
 };
 

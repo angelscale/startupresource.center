@@ -1,7 +1,5 @@
 import React from 'react';
 import clsx from 'clsx';
-import { alpha } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
 import {
   Box,
   Button,
@@ -12,6 +10,8 @@ import {
   ListItem,
   Typography,
   IconButton,
+  styled,
+  alpha,
 } from '@mui/material';
 import {
   Facebook,
@@ -25,16 +25,51 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
-const useStyles = makeStyles((theme) => ({
-  spacer: {
+const PREFIX = 'Topbar';
+
+const classes = {
+  spacer: `${PREFIX}-spacer`,
+  navigationContainer: `${PREFIX}-navigationContainer`,
+  toolbar: `${PREFIX}-toolbar`,
+  navLink: `${PREFIX}-navLink`,
+  listItem: `${PREFIX}-listItem`,
+  listItemActive: `${PREFIX}-listItemActive`,
+  listItemText: `${PREFIX}-listItemText`,
+  listItemButton: `${PREFIX}-listItemButton`,
+  listItemIcon: `${PREFIX}-listItemIcon`,
+  popover: `${PREFIX}-popover`,
+  iconButton: `${PREFIX}-iconButton`,
+  expandOpen: `${PREFIX}-expandOpen`,
+  logoContainer: `${PREFIX}-logoContainer`,
+  logoImage: `${PREFIX}-logoImage`,
+  menu: `${PREFIX}-menu`,
+  menuItem: `${PREFIX}-menuItem`,
+  menuGroupItem: `${PREFIX}-menuGroupItem`,
+  menuGroupTitle: `${PREFIX}-menuGroupTitle`,
+  socialContainer: `${PREFIX}-socialContainer`,
+  navigation: `${PREFIX}-navigation`,
+  search: `${PREFIX}-search`,
+  searchIcon: `${PREFIX}-searchIcon`,
+  inputRoot: `${PREFIX}-inputRoot`,
+  inputInput: `${PREFIX}-inputInput`
+};
+
+const StyledToolbar = styled(Toolbar)((
+  {
+    theme
+  }
+) => ({
+  [`& .${classes.spacer}`]: {
     flexGrow: 1,
   },
-  navigationContainer: {
+
+  [`& .${classes.navigationContainer}`]: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  toolbar: {
+
+  [`&.${classes.toolbar}`]: {
     display: 'flex',
     justifyContent: 'space-between',
     margin: '0 auto',
@@ -46,12 +81,14 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(0, 4),
     },
   },
-  navLink: {
+
+  [`& .${classes.navLink}`]: {
     '&:hover': {
       color: theme.palette.primary.dark,
     },
   },
-  listItem: {
+
+  [`& .${classes.listItem}`]: {
     cursor: 'pointer',
     paddingRight: 1,
     '&:hover > .menu-item, &:hover svg': {
@@ -61,24 +98,29 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: 0,
     },
   },
-  listItemActive: {
+
+  [`& .${classes.listItemActive}`]: {
     '&> .menu-item': {
       color: theme.palette.primary.dark,
     },
   },
-  listItemText: {
+
+  [`& .${classes.listItemText}`]: {
     flex: '0 0 auto',
     marginRight: theme.spacing(1),
     whiteSpace: 'nowrap',
     textTransform: 'capitalize',
   },
-  listItemButton: {
+
+  [`& .${classes.listItemButton}`]: {
     whiteSpace: 'nowrap',
   },
-  listItemIcon: {
+
+  [`& .${classes.listItemIcon}`]: {
     minWidth: 'auto',
   },
-  popover: {
+
+  [`& .${classes.popover}`]: {
     padding: theme.spacing(4),
     border: theme.spacing(2),
     boxShadow: '0 0.5rem 2rem 2px rgba(116, 123, 144, 0.09)',
@@ -86,46 +128,55 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
     borderRadius: theme.shape.borderRadius,
   },
-  iconButton: {
+
+  [`& .${classes.iconButton}`]: {
     marginLeft: theme.spacing(1),
     padding: 0,
     '&:hover': {
       background: 'transparent',
     },
   },
-  expandOpen: {
+
+  [`& .${classes.expandOpen}`]: {
     transform: 'rotate(180deg)',
     color: theme.palette.primary.dark,
   },
-  logoContainer: {
+
+  [`& .${classes.logoContainer}`]: {
     padding: theme.spacing(2, 0),
     maxWidth: '12.5rem',
     [theme.breakpoints.up('md')]: {
       maxWidth: '20rem',
     },
   },
-  logoImage: {
+
+  [`& .${classes.logoImage}`]: {
     width: '100%',
     height: 'auto',
   },
-  menu: {
+
+  [`& .${classes.menu}`]: {
     display: 'flex',
     justifyContent: 'space-between',
   },
-  menuItem: {
+
+  [`& .${classes.menuItem}`]: {
     marginRight: theme.spacing(2),
     '&:last-child': {
       marginRight: 0,
     },
   },
-  menuGroupItem: {
+
+  [`& .${classes.menuGroupItem}`]: {
     paddingTop: 0,
     marginLeft: theme.spacing(1),
   },
-  menuGroupTitle: {
+
+  [`& .${classes.menuGroupTitle}`]: {
     textTransform: 'uppercase',
   },
-  socialContainer: {
+
+  [`& .${classes.socialContainer}`]: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -138,10 +189,12 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.text.secondary,
     },
   },
-  navigation: {
+
+  [`& .${classes.navigation}`]: {
     padding: theme.spacing(1, 0),
   },
-  search: {
+
+  [`& .${classes.search}`]: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -155,7 +208,8 @@ const useStyles = makeStyles((theme) => ({
       width: 'auto',
     },
   },
-  searchIcon: {
+
+  [`& .${classes.searchIcon}`]: {
     padding: theme.spacing(0, 2),
     height: '100%',
     position: 'absolute',
@@ -164,10 +218,12 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  inputRoot: {
+
+  [`& .${classes.inputRoot}`]: {
     color: 'inherit',
   },
-  inputInput: {
+
+  [`& .${classes.inputInput}`]: {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
@@ -179,7 +235,7 @@ const useStyles = makeStyles((theme) => ({
         width: '20ch',
       },
     },
-  },
+  }
 }));
 
 const Topbar = ({
@@ -191,7 +247,7 @@ const Topbar = ({
   className,
   ...rest
 }) => {
-  const classes = useStyles();
+
   const data = useStaticQuery(graphql`
     query HeaderAltQuery {
       site {
@@ -211,7 +267,7 @@ const Topbar = ({
   `);
 
   return (
-    <Toolbar disableGutters className={classes.toolbar} {...rest}>
+    <StyledToolbar disableGutters className={classes.toolbar} {...rest}>
       <Box className={classes.logoContainer}>
         <a href="/" title={data.site.siteMetadata.title}>
           <StaticImage
@@ -318,7 +374,7 @@ const Topbar = ({
           <MenuIcon />
         </IconButton>
       </Hidden>
-    </Toolbar>
+    </StyledToolbar>
   );
 };
 

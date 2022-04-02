@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 
-import makeStyles from '@mui/styles/makeStyles';
-import { useTheme } from '@mui/material/styles';
 import {
   useMediaQuery,
   Grid,
@@ -11,6 +9,8 @@ import {
   ListItemAvatar,
   ListItemText,
   Avatar,
+  styled,
+  useTheme,
 } from '@mui/material';
 
 import { Section, SectionHeader, Image, CardBase } from 'components';
@@ -18,34 +18,62 @@ import TeamModal from './TeamModal';
 
 import { paragraphs, newTeam } from './data';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
+const PREFIX = 'AboutUsContent';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  sectionNoPaddingTop: `${PREFIX}-sectionNoPaddingTop`,
+  sectionPartners: `${PREFIX}-sectionPartners`,
+  hero_root: `${PREFIX}-hero_root`,
+  hero_image: `${PREFIX}-hero_image`,
+  hero_title: `${PREFIX}-hero_title`,
+  store_image: `${PREFIX}-store_image`,
+  work_image: `${PREFIX}-work_image`,
+  cardBase: `${PREFIX}-cardBase`,
+  avatar: `${PREFIX}-avatar`,
+  listItem: `${PREFIX}-listItem`,
+  listItemAvatar: `${PREFIX}-listItemAvatar`,
+  listItemText: `${PREFIX}-listItemText`,
+  team_title: `${PREFIX}-team_title`
+};
+
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.root}`]: {
     height: '100%',
     width: '100%',
   },
-  sectionNoPaddingTop: {
+
+  [`& .${classes.sectionNoPaddingTop}`]: {
     paddingTop: 0,
   },
-  sectionPartners: {
+
+  [`& .${classes.sectionPartners}`]: {
     boxShadow: '0 5px 20px 0 rgba(90, 202, 157, 0.05)',
     '& .section-alternate__content': {
       paddingTop: theme.spacing(5),
       paddingBottom: theme.spacing(5),
     },
   },
-  hero_root: {
+
+  [`& .${classes.hero_root}`]: {
     width: '100%',
     height: '100%',
     position: 'relative',
     overflow: 'hidden',
     padding: 0,
   },
-  hero_image: {
+
+  [`& .${classes.hero_image}`]: {
     maxHeight: 400,
     objectFit: 'cover',
     objectPosition: 'center',
   },
-  hero_title: {
+
+  [`& .${classes.hero_title}`]: {
     position: 'absolute',
     top: '50%',
     left: '8%',
@@ -54,13 +82,16 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'bold',
     color: 'white',
   },
-  store_image: {
+
+  [`& .${classes.store_image}`]: {
     maxWidth: 420,
   },
-  work_image: {
+
+  [`& .${classes.work_image}`]: {
     maxWidth: 560,
   },
-  cardBase: {
+
+  [`& .${classes.cardBase}`]: {
     boxShadow: 'none',
     background: theme.palette.alternate.main,
     borderRadius: theme.spacing(1),
@@ -72,40 +103,45 @@ const useStyles = makeStyles((theme) => ({
     },
     cursor: 'pointer',
   },
-  avatar: {
+
+  [`& .${classes.avatar}`]: {
     width: 110,
     height: 110,
     border: `4px solid ${theme.palette.alternate.dark}`,
     borderRadius: '100%',
     boxShadow: '0 5px 10px 0 rgba(0, 0, 0, 0.1)',
   },
-  listItem: {
+
+  [`& .${classes.listItem}`]: {
     padding: 0,
     [theme.breakpoints.down('lg')]: {
       flexDirection: 'column',
     },
   },
-  listItemAvatar: {
+
+  [`& .${classes.listItemAvatar}`]: {
     marginRight: theme.spacing(3),
     [theme.breakpoints.down('lg')]: {
       marginRight: 0,
       marginBottom: theme.spacing(2),
     },
   },
-  listItemText: {
+
+  [`& .${classes.listItemText}`]: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-around',
     margin: 0,
     height: '100%',
   },
-  team_title: {
+
+  [`& .${classes.team_title}`]: {
     fontWeight: 'bold',
-  },
+  }
 }));
 
 const AboutUsContent = () => {
-  const classes = useStyles();
+
 
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
@@ -121,7 +157,7 @@ const AboutUsContent = () => {
   };
 
   return (
-    <div className={classes.root}>
+    <Root className={classes.root}>
       <Section className={classes.hero_root}>
         <Image
           src="https://logobly.com/wp-content/uploads/97_amazing_freebie_sites_for_founders_logobly_03.jpg"
@@ -323,7 +359,7 @@ const AboutUsContent = () => {
         </Grid>
         <TeamModal open={isOpen} setOpen={setIsOpen} content={personData} />
       </Section>
-    </div>
+    </Root>
   );
 };
 

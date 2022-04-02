@@ -1,22 +1,35 @@
 import React from 'react';
 import clsx from 'clsx';
-import makeStyles from '@mui/styles/makeStyles';
-import { Drawer } from '@mui/material';
+import { Drawer, styled } from '@mui/material';
 
 import { SidebarNav } from 'components';
 
-const useStyles = makeStyles((theme) => ({
-  drawer: {
+const PREFIX = 'Sidebar';
+
+const classes = {
+  drawer: `${PREFIX}-drawer`,
+  root: `${PREFIX}-root`,
+  nav: `${PREFIX}-nav`
+};
+
+const StyledDrawer = styled(Drawer)((
+  {
+    theme
+  }
+) => ({
+  [`& .${classes.drawer}`]: {
     width: '100%',
     maxWidth: 325,
   },
-  root: {
+
+  [`& .${classes.root}`]: {
     height: '100%',
     padding: theme.spacing(1),
   },
-  nav: {
+
+  [`& .${classes.nav}`]: {
     marginBottom: theme.spacing(1),
-  },
+  }
 }));
 
 const Sidebar = ({
@@ -27,10 +40,10 @@ const Sidebar = ({
   className,
   ...rest
 }) => {
-  const classes = useStyles();
+
 
   return (
-    <Drawer
+    <StyledDrawer
       anchor="left"
       classes={{ paper: classes.drawer }}
       onClose={() => onClose()}
@@ -44,7 +57,7 @@ const Sidebar = ({
           onClose={onClose}
         />
       </div>
-    </Drawer>
+    </StyledDrawer>
   );
 };
 

@@ -1,22 +1,33 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import makeStyles from '@mui/styles/makeStyles';
-import NoSsr from '@mui/material/NoSsr';
+import { styled, NoSsr } from '@mui/material';
 
-const useStyles = makeStyles(() => ({
-  extraSmall: {
+const PREFIX = 'Icon';
+
+const classes = {
+  extraSmall: `${PREFIX}-extraSmall`,
+  small: `${PREFIX}-small`,
+  medium: `${PREFIX}-medium`,
+  large: `${PREFIX}-large`
+};
+
+const StyledNoSsr = styled(NoSsr)(() => ({
+  [`& .${classes.extraSmall}`]: {
     fontSize: 10,
   },
-  small: {
+
+  [`& .${classes.small}`]: {
     fontSize: 20,
   },
-  medium: {
+
+  [`& .${classes.medium}`]: {
     fontSize: 30,
   },
-  large: {
+
+  [`& .${classes.large}`]: {
     fontSize: 40,
-  },
+  }
 }));
 
 /**
@@ -27,16 +38,16 @@ const useStyles = makeStyles(() => ({
 const Icon = (props) => {
   const { fontIconClass, size, fontIconColor, className, ...rest } = props;
 
-  const classes = useStyles();
+
 
   return (
-    <NoSsr>
+    <StyledNoSsr>
       <i
         className={clsx('icon', fontIconClass, classes[size], className)}
         style={{ color: fontIconColor }}
         {...rest}
       />
-    </NoSsr>
+    </StyledNoSsr>
   );
 };
 

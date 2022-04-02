@@ -1,13 +1,5 @@
 import React from 'react';
-import makeStyles from '@mui/styles/makeStyles';
-import {
-  Box,
-  Container,
-  Typography,
-  IconButton,
-  List,
-  ListItem,
-} from '@mui/material';
+import { Box, Container, Typography, IconButton, List, ListItem, styled } from '@mui/material';
 import {
   Facebook,
   Twitter,
@@ -19,8 +11,26 @@ import { graphql, useStaticQuery, Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { MenuGroup } from 'components';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
+const PREFIX = 'Footer';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  footerContainer: `${PREFIX}-footerContainer`,
+  logoImage: `${PREFIX}-logoImage`,
+  navigationContainer: `${PREFIX}-navigationContainer`,
+  subNavigationContainer: `${PREFIX}-subNavigationContainer`,
+  menuGroupItem: `${PREFIX}-menuGroupItem`,
+  socialContainer: `${PREFIX}-socialContainer`,
+  copyright: `${PREFIX}-copyright`,
+  otherNavigation: `${PREFIX}-otherNavigation`
+};
+
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.root}`]: {
     background: theme.palette.alternate.main,
     width: '100%',
     padding: theme.spacing(6, 0),
@@ -28,20 +38,23 @@ const useStyles = makeStyles((theme) => ({
     borderTopStyle: 'solid',
     borderTopColor: theme.palette.divider,
   },
-  footerContainer: {
+
+  [`& .${classes.footerContainer}`]: {
     flexDirection: 'column-reverse',
     [theme.breakpoints.up('md')]: {
       flexDirection: 'row',
     },
   },
-  logoImage: {
+
+  [`& .${classes.logoImage}`]: {
     maxWidth: '15rem',
     marginBottom: theme.spacing(2),
     [theme.breakpoints.up('sm')]: {
       maxWidth: '17.5rem',
     },
   },
-  navigationContainer: {
+
+  [`& .${classes.navigationContainer}`]: {
     display: 'flex',
     flexDirection: 'column',
     '& li': {
@@ -59,7 +72,8 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: 'row',
     },
   },
-  subNavigationContainer: {
+
+  [`& .${classes.subNavigationContainer}`]: {
     display: 'block',
     '& li': {
       fontSize: '1rem',
@@ -69,12 +83,14 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  menuGroupItem: {
+
+  [`& .${classes.menuGroupItem}`]: {
     margin: 0,
     padding: 0,
     paddingLeft: theme.spacing(2),
   },
-  socialContainer: {
+
+  [`& .${classes.socialContainer}`]: {
     display: 'flex',
     justifyContent: 'center',
     margin: theme.spacing(4, 0),
@@ -86,7 +102,8 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.text.primary,
     },
   },
-  copyright: {
+
+  [`& .${classes.copyright}`]: {
     fontSize: '0.75rem',
     paddingBottom: theme.spacing(1),
     '& span': {
@@ -94,16 +111,17 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: theme.spacing(2),
     },
   },
-  otherNavigation: {
+
+  [`& .${classes.otherNavigation}`]: {
     '& a': {
       color: theme.palette.text.primary,
       marginRight: theme.spacing(2),
     },
-  },
+  }
 }));
 
 const Footer = ({ navigation, socialMedia }) => {
-  const classes = useStyles();
+
   const data = useStaticQuery(graphql`
     query FooterNewQuery {
       site {
@@ -123,7 +141,7 @@ const Footer = ({ navigation, socialMedia }) => {
   `);
 
   return (
-    <div className={classes.root}>
+    <Root className={classes.root}>
       <Container maxWidth="lg">
         <Box
           display="flex"
@@ -216,7 +234,7 @@ const Footer = ({ navigation, socialMedia }) => {
           </Box>
         </Box>
       </Container>
-    </div>
+    </Root>
   );
 };
 

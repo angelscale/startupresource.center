@@ -10,20 +10,35 @@ import rehypeReact from 'rehype-react';
 import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 import { convertToBgImage } from 'gbimage-bridge';
 import BackgroundImage from 'gatsby-background-image';
-import { makeStyles } from '@mui/styles';
-import { alpha } from '@mui/material/styles';
-import {
-  Typography,
-  ListItemText,
-  styled,
-  Link,
-  Avatar,
-  Box,
-} from '@mui/material';
+import { Typography, ListItemText, styled, Link, Avatar, Box, alpha } from '@mui/material';
 
 // components
 import { Container } from 'components';
 import { getFormattedDate } from 'utils/helpers';
+
+const PREFIX = 'ArticleTemplate';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  heroContainer: `${PREFIX}-heroContainer`,
+  heroImage: `${PREFIX}-heroImage`,
+};
+
+const Root = styled('div')(({ theme }) => ({
+  [`& .${classes.root}`]: {},
+
+  [`& .${classes.heroContainer}`]: {
+    aspectRatio: 2.4,
+  },
+
+  [`& .${classes.heroImage}`]: {
+    position: 'absolute',
+    objectFit: 'cover',
+    fontFamily: 'object-fit: cover;',
+    zIndex: -1,
+    backgroundPosition: 'top center',
+  },
+}));
 
 const Text = styled(Typography)(
   () => `
@@ -57,24 +72,9 @@ const LinkText = styled(Link)(
 `,
 );
 
-const useStyles = makeStyles((theme) => ({
-  root: {},
-  heroContainer: {
-    aspectRatio: 2.4,
-  },
-  heroImage: {
-    position: 'absolute',
-    objectFit: 'cover',
-    fontFamily: 'object-fit: cover;',
-    zIndex: -1,
-    backgroundPosition: 'top center',
-  },
-}));
-
 const ArticleTemplate = ({ data }) => {
   const { name, content, create_date, headerImage } = data.allArticles.nodes[0];
 
-  const classes = useStyles();
   const headerImageSharp = convertToBgImage(getImage(headerImage));
 
   const InlineImage = ({ src, alt, ...rest }) => {
@@ -124,7 +124,7 @@ const ArticleTemplate = ({ data }) => {
     .processSync(content);
 
   return (
-    <div>
+    <Root>
       <Box
         className={clsx('jarallax', classes.heroContainer)}
         data-jarallax
@@ -188,7 +188,7 @@ const ArticleTemplate = ({ data }) => {
       <Container>
         <div>{parseContent.result}</div>
       </Container>
-    </div>
+    </Root>
   );
 };
 

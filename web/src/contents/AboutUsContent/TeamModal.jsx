@@ -1,25 +1,35 @@
 import React from 'react';
 
-import { useTheme } from '@mui/material/styles';
-import makeStyles from '@mui/styles/makeStyles';
-import { Grid, Modal, Fade, Box, Backdrop, useMediaQuery } from '@mui/material';
+import { Grid, Modal, Fade, Box, Backdrop, useMediaQuery, styled, useTheme } from '@mui/material';
 
 import { SectionHeader, Image } from 'components';
 
 // icon
 import CloseIcon from '@mui/icons-material/Close';
 
-const useStyles = makeStyles((theme) => ({
-  image: {
+const PREFIX = 'DetailModal';
+
+const classes = {
+  image: `${PREFIX}-image`,
+  content: `${PREFIX}-content`
+};
+
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`& .${classes.image}`]: {
     maxWidth: 420,
     objectFit: 'cover',
   },
-  content: {
+
+  [`& .${classes.content}`]: {
     padding: 16,
     [theme.breakpoints.up('sm')]: {
       padding: 0,
     },
-  },
+  }
 }));
 
 const style = {
@@ -42,7 +52,7 @@ const iconStyle = {
 const DetailModal = ({ open, setOpen, content }) => {
   const handleClose = () => setOpen(false);
 
-  const classes = useStyles();
+
 
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
@@ -50,7 +60,7 @@ const DetailModal = ({ open, setOpen, content }) => {
   });
 
   return (
-    <div>
+    <Root>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -123,7 +133,7 @@ const DetailModal = ({ open, setOpen, content }) => {
           </Box>
         </Fade>
       </Modal>
-    </div>
+    </Root>
   );
 };
 
