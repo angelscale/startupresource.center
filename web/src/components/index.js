@@ -1,3 +1,4 @@
+export { default as AffiliateDisclosure } from './affiliate-disclosure.component';
 export { default as Breadcrumb } from './breadcrumb.component';
 export { default as Container } from './container.component';
 export { default as HeroShaped } from './hero-shaped.component';
