@@ -1,12 +1,17 @@
 import React, { createElement, Fragment, useEffect } from 'react';
+import clsx from 'clsx';
+import _ from 'lodash';
 import { graphql } from 'gatsby';
-
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
 import rehypeReact from 'rehype-react';
-
+import { getImage, GatsbyImage } from 'gatsby-plugin-image';
+import { convertToBgImage } from 'gbimage-bridge';
+import BackgroundImage from 'gatsby-background-image';
+import { makeStyles } from '@mui/styles';
+import { alpha } from '@mui/material/styles';
 import {
   Typography,
   ListItemText,
@@ -15,12 +20,9 @@ import {
   Avatar,
   Box,
 } from '@mui/material';
-import { alpha } from '@mui/material/styles';
 
 // components
-import { Container, InlineImage } from 'components';
-
-// helper
+import { Container } from 'components';
 import { getFormattedDate } from 'utils/helpers';
 
 const Text = styled(Typography)(
@@ -55,8 +57,43 @@ const LinkText = styled(Link)(
 `,
 );
 
+const useStyles = makeStyles((theme) => ({
+  root: {},
+  heroContainer: {
+    aspectRatio: 2.4,
+  },
+  heroImage: {
+    position: 'absolute',
+    objectFit: 'cover',
+    fontFamily: 'object-fit: cover;',
+    zIndex: -1,
+    backgroundPosition: 'top center',
+  },
+}));
+
 const ArticleTemplate = ({ data }) => {
-  const { name, content, create_date } = data.allArticles.nodes[0];
+  const { name, content, create_date, headerImage } = data.allArticles.nodes[0];
+
+  const classes = useStyles();
+  const headerImageSharp = convertToBgImage(getImage(headerImage));
+
+  const InlineImage = ({ src, alt, ...rest }) => {
+    const imgName = src.substring(
+      src.lastIndexOf('/') + 1,
+      src.lastIndexOf('.'),
+    );
+    console.log(imgName);
+    console.log(data.allFile);
+    const imgIndex = _.findIndex(
+      data.allFile.nodes,
+      (node) => node.name === imgName,
+    );
+    if (imgIndex === -1) {
+      return false;
+    }
+    const imgSharp = getImage(data.allFile.nodes[imgIndex]);
+    return <GatsbyImage image={imgSharp} alt={alt} />;
+  };
 
   useEffect(() => {
     const jarallaxInit = async () => {
@@ -91,33 +128,17 @@ const ArticleTemplate = ({ data }) => {
   return (
     <div>
       <Box
-        className={'jarallax'}
+        className={clsx('jarallax', classes.heroContainer)}
         data-jarallax
-        data-speed="0.2"
+        data-speed="0.1"
         position={'relative'}
-        minHeight={{ xs: 400, sm: 500, md: 600 }}
         display={'flex'}
-        paddingTop={13}
         alignItems={'center'}
         id="agency__portfolio-item--js-scroll"
       >
-        <Box
-          className={'jarallax-img'}
-          sx={{
-            position: 'absolute',
-            objectFit: 'cover',
-            fontFamily: 'object-fit: cover;',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            zIndex: -1,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center center',
-            backgroundImage:
-              'url(https://assets.maccarianagency.com/backgrounds/img3.jpg)',
-          }}
+        <BackgroundImage
+          className={clsx('jarallax-img', classes.heroImage)}
+          {...headerImageSharp}
         />
         <Box
           sx={{
@@ -184,10 +205,26 @@ export const postQuery = graphql`
         status
         category
         subcategory
-        header_image
+        headerImage {
+          childImageSharp {
+            gatsbyImageData(
+              layout: FULL_WIDTH
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
         images
         content
         create_date
+      }
+    }
+    allFile(filter: { parent: { id: { eq: $id } } }) {
+      nodes {
+        childImageSharp {
+          gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+        }
+        name
       }
     }
   }

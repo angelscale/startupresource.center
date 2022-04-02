@@ -80,7 +80,7 @@ exports.onCreateNode = async ({
       : [];
     const images_arr = node.images
       ? node.images.map((image, index) => ({
-          id: `image${index}`,
+          id: `image${index + 1}`,
           image,
         }))
       : [];
