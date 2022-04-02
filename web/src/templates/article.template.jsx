@@ -82,8 +82,6 @@ const ArticleTemplate = ({ data }) => {
       src.lastIndexOf('/') + 1,
       src.lastIndexOf('.'),
     );
-    console.log(imgName);
-    console.log(data.allFile);
     const imgIndex = _.findIndex(
       data.allFile.nodes,
       (node) => node.name === imgName,
@@ -92,7 +90,7 @@ const ArticleTemplate = ({ data }) => {
       return false;
     }
     const imgSharp = getImage(data.allFile.nodes[imgIndex]);
-    return <GatsbyImage image={imgSharp} alt={alt} />;
+    return <GatsbyImage image={imgSharp} alt={alt} {...rest} />;
   };
 
   useEffect(() => {
