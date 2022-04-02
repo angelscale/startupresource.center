@@ -187,6 +187,7 @@ const Topbar = ({
   themeToggler,
   onSidebarOpen,
   navigation,
+  socialMedia,
   className,
   ...rest
 }) => {
@@ -228,7 +229,7 @@ const Topbar = ({
             <Box>
               <IconButton
                 component="a"
-                href="https://facebook.com"
+                href={socialMedia.facebook}
                 size="large"
               >
                 <Facebook />
@@ -237,7 +238,7 @@ const Topbar = ({
             <Box>
               <IconButton
                 component="a"
-                href="https://facebook.com"
+                href={socialMedia.linkedin}
                 size="large"
               >
                 <LinkedIn />
@@ -246,25 +247,21 @@ const Topbar = ({
             <Box>
               <IconButton
                 component="a"
-                href="https://facebook.com"
+                href={socialMedia.instagram}
                 size="large"
               >
                 <Instagram />
               </IconButton>
             </Box>
             <Box>
-              <IconButton
-                component="a"
-                href="https://facebook.com"
-                size="large"
-              >
+              <IconButton component="a" href={socialMedia.twitter} size="large">
                 <Twitter />
               </IconButton>
             </Box>
             <Box>
               <IconButton
                 component="a"
-                href="https://facebook.com"
+                href={socialMedia.pinterest}
                 size="large"
               >
                 <Pinterest />

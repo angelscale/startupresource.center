@@ -54,9 +54,25 @@ const useStyles = makeStyles((theme) => ({
     '& li:not(:last-child)': {
       marginRight: theme.spacing(4),
     },
+    marginLeft: theme.spacing(0),
     [theme.breakpoints.up('sm')]: {
       flexDirection: 'row',
     },
+  },
+  subNavigationContainer: {
+    display: 'block',
+    '& li': {
+      fontSize: '1rem',
+      whiteSpace: 'nowrap',
+      '& a': {
+        color: theme.palette.text.primary,
+      },
+    },
+  },
+  menuGroupItem: {
+    margin: 0,
+    padding: 0,
+    paddingLeft: theme.spacing(2),
   },
   socialContainer: {
     display: 'flex',
@@ -86,7 +102,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Footer = ({ navigation }) => {
+const Footer = ({ navigation, socialMedia }) => {
   const classes = useStyles();
   const data = useStaticQuery(graphql`
     query FooterNewQuery {
@@ -138,8 +154,8 @@ const Footer = ({ navigation }) => {
               {navigation.map(({ title, slug, subCategories }) => (
                 <ListItem
                   key={slug}
+                  className={classes.subNavigationContainer}
                   disableGutters
-                  className={classes.logoContainerItem}
                 >
                   <Link to={`/${slug}`}>{title}</Link>
                   {/* <MenuGroup
@@ -155,7 +171,7 @@ const Footer = ({ navigation }) => {
                 <IconButton
                   size="large"
                   component={'a'}
-                  href="https://facebook.com"
+                  href={socialMedia.facebook}
                 >
                   <Facebook />
                 </IconButton>
@@ -164,7 +180,7 @@ const Footer = ({ navigation }) => {
                 <IconButton
                   size="large"
                   component={'a'}
-                  href="https://linkedin.com"
+                  href={socialMedia.linkedin}
                 >
                   <LinkedIn />
                 </IconButton>
@@ -173,7 +189,7 @@ const Footer = ({ navigation }) => {
                 <IconButton
                   size="large"
                   component={'a'}
-                  href="https://instagram.com"
+                  href={socialMedia.instagram}
                 >
                   <Instagram />
                 </IconButton>
@@ -182,7 +198,7 @@ const Footer = ({ navigation }) => {
                 <IconButton
                   size="large"
                   component={'a'}
-                  href="https://twitter.com"
+                  href={socialMedia.twitter}
                 >
                   <Twitter />
                 </IconButton>
@@ -191,7 +207,7 @@ const Footer = ({ navigation }) => {
                 <IconButton
                   size="large"
                   component={'a'}
-                  href="https://pinterest.com"
+                  href={socialMedia.pinterest}
                 >
                   <Pinterest />
                 </IconButton>

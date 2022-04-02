@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import { Paper, Divider, CssBaseline } from '@mui/material';
 import { Topbar, Footer, Sidebar } from 'components';
-import { navigation } from 'navigation';
+import { navigation, socialMedia } from 'navigation';
 import { getTheme } from 'theme';
 
 import 'react-lazy-load-image-component/src/effects/opacity.css';
@@ -89,6 +89,7 @@ const Layout = ({ children }) => {
               <Topbar
                 onSidebarOpen={handleSidebarOpen}
                 navigation={navigation}
+                socialMedia={socialMedia}
                 themeMode={themeMode}
                 themeToggler={themeToggler}
               />
@@ -97,10 +98,11 @@ const Layout = ({ children }) => {
                 open={openSidebar}
                 variant="temporary"
                 navigation={navigation}
+                socialMedia={socialMedia}
               />
               <Divider />
               {children}
-              <Footer navigation={navigation} />
+              <Footer navigation={navigation} socialMedia={socialMedia} />
             </div>
           </Paper>
         </ThemeProvider>
