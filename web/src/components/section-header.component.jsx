@@ -9,14 +9,10 @@ const classes = {
   root: `${PREFIX}-root`,
   disableGutter: `${PREFIX}-disableGutter`,
   title: `${PREFIX}-title`,
-  cta: `${PREFIX}-cta`
+  cta: `${PREFIX}-cta`,
 };
 
-const StyledGrid = styled(Grid)((
-  {
-    theme
-  }
-) => ({
+const StyledGrid = styled(Grid)(({ theme }) => ({
   [`&.${classes.root}`]: {
     marginBottom: theme.spacing(3),
     [theme.breakpoints.up('md')]: {
@@ -34,10 +30,10 @@ const StyledGrid = styled(Grid)((
 
   [`& .${classes.cta}`]: {
     marginLeft: theme.spacing(1),
-    '&:first-child': {
+    '&:first-of-type': {
       marginLeft: theme.spacing(0),
     },
-  }
+  },
 }));
 
 /**
@@ -67,7 +63,6 @@ const SectionHeader = (props) => {
     whitespace,
     ...rest
   } = props;
-
 
   let justifyGrid = 'center';
   if (align === 'left') {
