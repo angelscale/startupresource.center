@@ -85,20 +85,14 @@ const DetailModal = ({ open, setOpen, content }) => {
               >
                 <div>
                   <SectionHeader
-                    title={content?.authorName}
-                    subtitle={content?.bioOne}
-                    align="left"
-                    disableGutter
-                    whitespace
-                    subtitleProps={{
-                      color: 'textPrimary',
-                      variant: 'body1',
-                    }}
-                  />
-                </div>
-                <div>
-                  <SectionHeader
-                    subtitle={content?.bioTwo}
+                    title={content?.authorName || 'Author'}
+                    subtitle={
+                      <>
+                        <div>{content?.bioOne}</div>
+                        <br />
+                        <div>{content?.bioTwo}</div>
+                      </>
+                    }
                     align="left"
                     disableGutter
                     whitespace
@@ -119,7 +113,7 @@ const DetailModal = ({ open, setOpen, content }) => {
                 data-aos={'fade-in'}
               >
                 <Image
-                  src={content?.authorPhoto?.src}
+                  src={content?.authorPhoto?.src || 'loader.gif'}
                   alt="Our story"
                   className={classes.image}
                   lazy={false}

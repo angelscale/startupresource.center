@@ -152,39 +152,49 @@ const Footer = ({ navigation }) => {
             </List>
             <Box className={classes.socialContainer}>
               <Box>
-                <Link to="https://facebook.com">
-                  <IconButton size="large">
-                    <Facebook />
-                  </IconButton>
-                </Link>
+                <IconButton
+                  size="large"
+                  component={'a'}
+                  href="https://facebook.com"
+                >
+                  <Facebook />
+                </IconButton>
               </Box>
               <Box>
-                <Link to="https://linkedin.com">
-                  <IconButton size="large">
-                    <LinkedIn />
-                  </IconButton>
-                </Link>
+                <IconButton
+                  size="large"
+                  component={'a'}
+                  href="https://linkedin.com"
+                >
+                  <LinkedIn />
+                </IconButton>
               </Box>
               <Box>
-                <Link to="https://instagram.com">
-                  <IconButton size="large">
-                    <Instagram />
-                  </IconButton>
-                </Link>
+                <IconButton
+                  size="large"
+                  component={'a'}
+                  href="https://instagram.com"
+                >
+                  <Instagram />
+                </IconButton>
               </Box>
               <Box>
-                <Link to="https://twitter.com">
-                  <IconButton size="large">
-                    <Twitter />
-                  </IconButton>
-                </Link>
+                <IconButton
+                  size="large"
+                  component={'a'}
+                  href="https://twitter.com"
+                >
+                  <Twitter />
+                </IconButton>
               </Box>
               <Box>
-                <Link to="https://pinterest.com">
-                  <IconButton size="large">
-                    <Pinterest />
-                  </IconButton>
-                </Link>
+                <IconButton
+                  size="large"
+                  component={'a'}
+                  href="https://pinterest.com"
+                >
+                  <Pinterest />
+                </IconButton>
               </Box>
             </Box>
           </Box>

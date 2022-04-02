@@ -46,12 +46,6 @@ const Layout = ({ children }) => {
   return (
     <React.Fragment>
       <Helmet>
-        <script
-          type="text/javascript"
-          src="https://app.termly.io/embed.min.js"
-          data-auto-block="on"
-          data-website-uuid="2e17b01d-865f-4f1e-96d1-225a22e9e087"
-        />
         <meta charSet="utf-8" />
         <meta
           name="viewport"
