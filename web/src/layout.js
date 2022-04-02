@@ -64,21 +64,14 @@ const Layout = ({ children }) => {
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://www.startupresource.center/assets/images/social.png"
+          content="https://startupresource.center/assets/images/social.png"
         />
         <meta property="og:title" content="Startup Resource Center" />
         <meta
           property="og:description"
           content="Connecting the dots on what you need for your Startup."
         />
-        <meta property="og:url" content="https://www.startupresource.center/" />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
-          rel="stylesheet"
-        />
+        <meta property="og:url" content="https://startupresource.center/" />
       </Helmet>
       <StyledEngineProvider injectFirst>
         <ThemeProvider theme={getTheme(themeMode)}>
