@@ -115,7 +115,8 @@ const HomePage = () => {
                   className={classes.fontWeight900}
                   typedProps={{
                     strings: ['Plan', 'Launch', 'Manage', 'Grow'],
-                    typeSpeed: 100,
+                    typeSpeed: 200,
+                    backSpeed: 100,
                     loop: true,
                   }}
                 />
