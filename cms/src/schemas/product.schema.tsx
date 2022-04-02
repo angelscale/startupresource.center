@@ -46,6 +46,7 @@ type Product = {
   pricing: string;
   company_info: string;
   affiliate: boolean;
+  affiliate_link: string;
   category: string;
   subcategory: string;
   create_date: Date;
@@ -115,6 +116,10 @@ const ProductSchema = buildSchema<Product>({
     affiliate: {
       title: 'Affiliate?',
       dataType: 'boolean',
+    },
+    affiliate_link: {
+      title: 'Affiliate Link',
+      dataType: 'string',
     },
     images: {
       title: 'Images',
