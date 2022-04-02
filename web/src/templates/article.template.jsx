@@ -10,7 +10,15 @@ import rehypeReact from 'rehype-react';
 import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 import { convertToBgImage } from 'gbimage-bridge';
 import BackgroundImage from 'gatsby-background-image';
-import { Typography, ListItemText, styled, Link, Avatar, Box, alpha } from '@mui/material';
+import {
+  Typography,
+  ListItemText,
+  styled,
+  Link,
+  Avatar,
+  Box,
+  alpha,
+} from '@mui/material';
 
 // components
 import { Container } from 'components';
@@ -40,7 +48,7 @@ const Root = styled('div')(({ theme }) => ({
   },
 }));
 
-const Text = styled(Typography)(
+const Text = styled('div')(
   () => `
     font-size: 1.125rem;
     line-height: 1.125rem;
@@ -87,9 +95,12 @@ const ArticleTemplate = ({ data }) => {
       (node) => node.name === imgName,
     );
     if (imgIndex === -1) {
-      return false;
+      return null;
     }
     const imgSharp = getImage(data.allFile.nodes[imgIndex]);
+    if (!imgSharp) {
+      return null;
+    }
     return <GatsbyImage image={imgSharp} alt={alt} {...rest} />;
   };
 
