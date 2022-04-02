@@ -21,14 +21,10 @@ const classes = {
   tab_wrapper: `${PREFIX}-tab_wrapper`,
   active: `${PREFIX}-active`,
   sticky: `${PREFIX}-sticky`,
-  placeholder: `${PREFIX}-placeholder`
+  placeholder: `${PREFIX}-placeholder`,
 };
 
-const Root = styled('div')((
-  {
-    theme
-  }
-) => ({
+const Root = styled('div')(({ theme }) => ({
   [`&.${classes.root}`]: {
     background: '#fff',
     paddingTop: theme.spacing(2),
@@ -149,11 +145,10 @@ const Root = styled('div')((
 
   [`& .${classes.placeholder}`]: {
     height: '54.02px',
-  }
+  },
 }));
 
-const ProductHeader = ({ logoImage, name, location }) => {
-
+const ProductHeader = ({ logoImage, name, location, affiliate_link }) => {
   const logo = getImage(logoImage);
 
   const [isSticky, setIsSticky] = useState(false);
@@ -197,18 +192,22 @@ const ProductHeader = ({ logoImage, name, location }) => {
       <div className={classes.container}>
         <Grid container className={classes.content} justifyContent="center">
           <Grid item xs={'auto'}>
-            <GatsbyImage
-              image={logo}
-              alt={name}
-              className={classes.img_wrapper}
-              objectFit="contain"
-            />
+            <a href={affiliate_link} target="_blank">
+              <GatsbyImage
+                image={logo}
+                alt={name}
+                className={classes.img_wrapper}
+                objectFit="contain"
+              />
+            </a>
           </Grid>
           <Grid item xs={12} sm className={classes.info_wrapper}>
             <div>
-              <Typography variant="h2" className={classes.title}>
-                {name}
-              </Typography>
+              <a href={affiliate_link} target="_blank">
+                <Typography variant="h2" className={classes.title}>
+                  {name}
+                </Typography>
+              </a>
               <Box className={classes.rating}>
                 <Rating
                   name="read-only"
@@ -222,20 +221,17 @@ const ProductHeader = ({ logoImage, name, location }) => {
                 </Typography>
               </Box>
             </div>
-            <a
-              href={'/'}
+            <Button
+              variant="contained"
+              startIcon={<LaunchIcon />}
+              color="primary"
+              size="large"
+              component={'a'}
+              href={affiliate_link}
               target="_blank"
-              rel="noopener noreferrer"
-              className={classes.link}
             >
-              <Button
-                variant="outlined"
-                startIcon={<LaunchIcon />}
-                color="primary"
-              >
-                Visit Website
-              </Button>
-            </a>
+              Visit {name}
+            </Button>
           </Grid>
         </Grid>
         <ul

@@ -65,7 +65,8 @@ const LinkText = styled(Link)(
 );
 
 const ProductTemplate = ({ data, location }) => {
-  const { name, description, logoImage } = data.allProducts.nodes[0];
+  const { name, description, logoImage, affiliate_link } =
+    data.allProducts.nodes[0];
 
   const content = unified()
     .use(remarkParse)
@@ -85,7 +86,12 @@ const ProductTemplate = ({ data, location }) => {
   return (
     <Root className={classes.root}>
       <Breadcrumb location={location} />
-      <ProductHeader name={name} logoImage={logoImage} location={location} />
+      <ProductHeader
+        name={name}
+        logoImage={logoImage}
+        location={location}
+        affiliate_link={affiliate_link}
+      />
       <div className={classes.container}>
         <Typography variant="h1">{name}</Typography>
         <div className={classes.content}>{content.result}</div>
@@ -113,6 +119,7 @@ export const postQuery = graphql`
         description
         create_date
         affiliate
+        affiliate_link
       }
     }
   }
