@@ -101,7 +101,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2, 0),
     maxWidth: '12.5rem',
     [theme.breakpoints.up('md')]: {
-      maxWidth: '15rem',
+      maxWidth: '20rem',
     },
   },
   logoImage: {
@@ -218,15 +218,16 @@ const Topbar = ({
             src="../assets/images/StartupResourceCenter.png"
             alt={data.site.siteMetadata.title}
             loading="eager"
+            layout="constrained"
           />
         </a>
       </Box>
       <Box className={classes.navigation}>
-        <Hidden lgDown>
+        <Hidden mdDown>
           <Box className={classes.socialContainer}>
             <Box>
               <IconButton
-                component={Link}
+                component="a"
                 href="https://facebook.com"
                 size="large"
               >
@@ -235,7 +236,7 @@ const Topbar = ({
             </Box>
             <Box>
               <IconButton
-                component={Link}
+                component="a"
                 href="https://facebook.com"
                 size="large"
               >
@@ -244,7 +245,7 @@ const Topbar = ({
             </Box>
             <Box>
               <IconButton
-                component={Link}
+                component="a"
                 href="https://facebook.com"
                 size="large"
               >
@@ -253,7 +254,7 @@ const Topbar = ({
             </Box>
             <Box>
               <IconButton
-                component={Link}
+                component="a"
                 href="https://facebook.com"
                 size="large"
               >
@@ -262,7 +263,7 @@ const Topbar = ({
             </Box>
             <Box>
               <IconButton
-                component={Link}
+                component="a"
                 href="https://facebook.com"
                 size="large"
               >
@@ -270,7 +271,7 @@ const Topbar = ({
               </IconButton>
             </Box>
             <Box>
-              <Link href="/about-us">
+              <Link to="/about-us">
                 <Button variant="text">About Us</Button>
               </Link>
             </Box>
@@ -291,7 +292,7 @@ const Topbar = ({
             </Box>
           </Box>
           <List disablePadding className={classes.navigationContainer}>
-            {navigation.map(({ slug, title, href }) => (
+            {navigation.map(({ slug, title }) => (
               <ListItem
                 key={slug}
                 className={clsx(classes.listItem, 'menu-item--no-dropdown')}
@@ -299,8 +300,8 @@ const Topbar = ({
                 <Typography
                   variant="body1"
                   color="textPrimary"
-                  component="a"
-                  href={href}
+                  component={Link}
+                  to={`/${slug}`}
                   className={clsx(classes.listItemText, 'menu-item')}
                 >
                   <Button variant="text">{title}</Button>

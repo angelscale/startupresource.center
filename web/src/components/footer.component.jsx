@@ -17,6 +17,7 @@ import {
 } from '@mui/icons-material';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
+import { MenuGroup } from 'components';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -124,8 +125,8 @@ const Footer = ({ navigation }) => {
             </Link>
             <Box>
               <div className={classes.otherNavigation}>
-                <Link to="/terms-conditions">Terms &amp; condition</Link>
-                <Link to="/privacy-policy">Privacy policy</Link>
+                <Link to="/terms-conditions">Terms &amp; Conditions</Link>
+                <Link to="/privacy-policy">Privacy Policy</Link>
               </div>
               <Typography color="textSecondary" className={classes.copyright}>
                 {`Copyright © ${new Date().getFullYear()} Angel Scale LLC`}
@@ -134,13 +135,18 @@ const Footer = ({ navigation }) => {
           </Box>
           <Box>
             <List disablePadding className={classes.navigationContainer}>
-              {navigation.map(({ title, slug, href }) => (
+              {navigation.map(({ title, slug, subCategories }) => (
                 <ListItem
                   key={slug}
                   disableGutters
                   className={classes.logoContainerItem}
                 >
-                  <Link to={href}>{title}</Link>
+                  <Link to={`/${slug}`}>{title}</Link>
+                  {/* <MenuGroup
+                    categorySlug={slug}
+                    subCategories={subCategories}
+                    classes={classes}
+                  /> */}
                 </ListItem>
               ))}
             </List>

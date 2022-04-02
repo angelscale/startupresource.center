@@ -1,7 +1,6 @@
-/* eslint-disable react/no-multi-comp */
-/* eslint-disable react/display-name */
 import React from 'react';
 import clsx from 'clsx';
+import { Link } from 'gatsby';
 import makeStyles from '@mui/styles/makeStyles';
 import {
   List,
@@ -9,7 +8,6 @@ import {
   Typography,
   ListItemIcon,
   Divider,
-  Button,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { MenuGroup } from 'components';
@@ -83,37 +81,39 @@ const SidebarNav = ({ navigation, onClose, className, ...rest }) => {
         </Button>
       </ListItem> */}
       <>
-        {Object.values(navigation).map(({ id, name, href, tags }) => (
+        {navigation.map(({ slug, title, subCategories }) => (
           <>
-            {href === undefined ? (
-              <>
-                <ListItem className={classes.listItem}>
-                  <Typography
-                    variant="h6"
-                    color="textPrimary"
-                    gutterBottom
-                    className={classes.listItemText}
-                  >
-                    {name}
-                  </Typography>
-                  <MenuGroup
-                    category={id}
-                    tags={tags}
-                    onClose={onClose}
-                    classes={classes}
-                  />
-                </ListItem>
-                <ListItem className={classes.listItem}>
-                  <Divider className={classes.divider} />
-                </ListItem>
-              </>
-            ) : (
-              <ListItem className={classes.listItem}>
-                <Button variant="outlined" fullWidth component="a" href={href}>
-                  {name}
+            <ListItem className={classes.listItem}>
+              <Typography
+                variant="h6"
+                color="textPrimary"
+                component={Link}
+                to={`/${slug}`}
+                className={classes.listItemText}
+                gutterBottom
+              >
+                {title}
+              </Typography>
+              <MenuGroup
+                categorySlug={slug}
+                subCategories={subCategories}
+                onClose={onClose}
+                classes={classes}
+              />
+            </ListItem>
+            <ListItem className={classes.listItem}>
+              <Divider className={classes.divider} />
+            </ListItem>
+            {/* <ListItem className={classes.listItem}>
+                <Button
+                  variant="outlined"
+                  fullWidth
+                  component={Link}
+                  to={`/${slug}`}
+                >
+                  {title}
                 </Button>
-              </ListItem>
-            )}
+              </ListItem> */}
           </>
         ))}
       </>
