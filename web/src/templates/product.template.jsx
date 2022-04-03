@@ -6,7 +6,12 @@ import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
 import rehypeReact from 'rehype-react';
 
-import { Typography, ListItemText, styled, Link } from '@mui/material';
+import {
+  Typography,
+  ListItemText,
+  styled,
+  Link as MUILink,
+} from '@mui/material';
 
 import { Breadcrumb, ProductHeader } from 'components';
 
@@ -58,7 +63,7 @@ const Itemtext = styled(ListItemText)(
 `,
 );
 
-const LinkText = styled(Link)(
+const LinkText = styled(MUILink)(
   () => `
     font-weight: 600;
 `,
