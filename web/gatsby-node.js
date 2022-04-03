@@ -176,6 +176,13 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allCorefour {
+        nodes {
+          id
+          category
+          subcategory
+        }
+      }
     }
   `);
 
@@ -186,6 +193,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const articles = result.data.allArticles.nodes;
   const products = result.data.allProducts.nodes;
+  const corefour = result.data.allCorefour.nodes;
 
   // Create article pages
   articles.forEach((node) => {
@@ -203,6 +211,17 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `${node.category}/${node.subcategory}/core-four/${node.fields.slug}`,
       component: require.resolve(`./src/templates/product.template.jsx`),
+      context: {
+        id: node.id,
+      },
+    });
+  });
+
+  // Create CoreFour pages
+  corefour.forEach(async (node) => {
+    createPage({
+      path: `${node.category}/${node.subcategory}/core-four`,
+      component: require.resolve(`./src/templates/core-four.template.jsx`),
       context: {
         id: node.id,
       },

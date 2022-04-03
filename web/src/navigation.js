@@ -81,7 +81,7 @@ exports.navigation = [
       },
       {
         title: 'Customer Relationship Management',
-        slug: 'crm',
+        slug: 'customer-relationship-management',
       },
       {
         title: 'Operating Software',

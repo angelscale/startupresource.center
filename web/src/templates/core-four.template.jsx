@@ -1,56 +1,41 @@
-// import React from 'react';
-// import makeStyles from '@mui/styles/makeStyles';
-// import { graphql } from 'gatsby';
-// import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-// import { Typography } from '@mui/material';
+import React from 'react';
+import { graphql } from 'gatsby';
+import { Typography, ListItemText, styled, Link } from '@mui/material';
 
-// // components
-// import { Breadcrumb } from 'components';
+// components
+import { Breadcrumb, Container } from 'components';
 
-// const useStyles = makeStyles((theme) => ({
-//   root: {},
-//   content: {
-//     padding: theme.spacing(4, 2),
-//     // background: '#f2f2f2',
-//   },
-//   container: {
-//     margin: '0 auto',
-//     maxWidth: theme.layout.contentWidth,
-//   },
-// }));
+const Root = styled('div')(({ theme }) => ({
+  margin: '0 auto',
+}));
 
-// const CoreFourTemplate = ({ data, location }) => {
-//   const classes = useStyles();
+const CoreFourTemplate = ({ data, location }) => {
+  console.log(data);
 
-//   return (
-//     <div className={classes.root}>
-//       <Breadcrumb location={location} />
+  return (
+    <Root>
+      <Breadcrumb location={location} />
+      <Container>
+        <Typography variant="h2">Core Four!</Typography>
+      </Container>
+    </Root>
+  );
+};
 
-//       <div className={classes.container}>
-//         {data.allProducts.nodes.each((node) => (
-//           <div key={node.name} className={classes.product}>
-//             <GatsbyImage image={getImage(node.logoImage)} alt={node.name} />
-//             <Typography variant="h1">{node.name}</Typography>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
+export default CoreFourTemplate;
 
-// export default CoreFourTemplate;
-
-// export const postQuery = graphql`
-//   query ($id: String!) {
-//     allProducts(filter: { category: { eq: $category } }) {
-//       nodes {
-//         name
-//         logoImage {
-//           childImageSharp {
-//             gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
+export const postQuery = graphql`
+  query ($id: String!) {
+    allCorefour(filter: { id: { eq: $id } }) {
+      nodes {
+        name
+        category
+        subcategory
+        header_image
+        description
+        products
+        create_date
+      }
+    }
+  }
+`;

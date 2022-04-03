@@ -97,7 +97,7 @@ module.exports = {
         adminCredential: {
           credential: firebaseCredentials,
         },
-        collections: ['articles', 'products'],
+        collections: ['articles', 'products', 'corefour'],
       },
     },
   ],
