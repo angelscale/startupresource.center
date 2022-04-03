@@ -21,7 +21,7 @@ import {
 } from '@mui/material';
 
 // components
-import { Container } from 'components';
+import { Breadcrumb, Container } from 'components';
 import { getFormattedDate } from 'utils/helpers';
 
 const PREFIX = 'ArticleTemplate';
@@ -136,6 +136,7 @@ const ArticleTemplate = ({ data }) => {
 
   return (
     <Root>
+      <Breadcrumb location={location} />
       <Box
         className={clsx('jarallax', classes.heroContainer)}
         data-jarallax
