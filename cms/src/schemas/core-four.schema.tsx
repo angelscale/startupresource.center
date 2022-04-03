@@ -1,4 +1,4 @@
-import { buildProperty, buildSchema, EntityReference } from '@camberi/firecms';
+import { buildSchema, EntityReference } from '@camberi/firecms';
 
 import { navigation } from '../navigation';
 
@@ -11,23 +11,22 @@ navigation.forEach((category: any) => {
   });
 });
 
-type Article = {
+type CoreFour = {
+  name: string;
   status: string;
+  header_image: string;
+  description: string;
+  products: EntityReference[];
   category: string;
   subcategory: string;
-  name: string;
-  authors: EntityReference[];
-  header_image: string;
-  images: string[];
-  content: string;
   create_date: Date;
   publish_date: Date;
   updated_date: Date;
   views: number;
 };
 
-const ArticleSchema = buildSchema<Article>({
-  name: 'Article',
+const CoreFourSchema = buildSchema<CoreFour>({
+  name: 'CoreFour',
   properties: {
     name: {
       title: 'Name',
@@ -38,7 +37,7 @@ const ArticleSchema = buildSchema<Article>({
       title: 'Status',
       dataType: 'string',
       config: {
-        previewAsTag: false,
+        previewAsTag: true,
         enumValues: {
           draft: 'Draft',
           review: 'Needs Review',
@@ -70,21 +69,13 @@ const ArticleSchema = buildSchema<Article>({
           : {},
       },
     }),
-    authors: {
-      title: 'Authors',
-      dataType: 'array',
-      of: {
-        dataType: 'reference',
-        path: 'people',
-      },
-    },
     header_image: {
       title: 'Header Image',
       dataType: 'string',
       config: {
         storageMeta: {
           mediaType: 'image',
-          storagePath: 'images/articles',
+          storagePath: 'images/products/corefour',
           acceptedFiles: ['image/*'],
           metadata: {
             cacheControl: 'max-age=1000000',
@@ -92,28 +83,19 @@ const ArticleSchema = buildSchema<Article>({
         },
       },
     },
-    images: {
-      title: 'Images',
-      dataType: 'array',
-      of: buildProperty({
-        dataType: 'string',
-        config: {
-          storageMeta: {
-            mediaType: 'image',
-            storagePath: 'images/articles',
-            acceptedFiles: ['image/*'],
-            metadata: {
-              cacheControl: 'max-age=1000000',
-            },
-          },
-        },
-      }),
-    },
-    content: {
-      title: 'Content',
+    description: {
+      title: 'Description',
       dataType: 'string',
       config: {
         markdown: true,
+      },
+    },
+    products: {
+      title: 'Products',
+      dataType: 'array',
+      of: {
+        dataType: 'reference',
+        path: 'products',
       },
     },
     create_date: {
@@ -149,4 +131,4 @@ const ArticleSchema = buildSchema<Article>({
   },
 });
 
-export default ArticleSchema;
+export default CoreFourSchema;

@@ -35,6 +35,11 @@ type Product = {
 const ProductSchema = buildSchema<Product>({
   name: 'Product',
   properties: {
+    name: {
+      title: 'Name',
+      validation: { required: true },
+      dataType: 'string',
+    },
     status: {
       title: 'Status',
       dataType: 'string',
@@ -71,11 +76,6 @@ const ProductSchema = buildSchema<Product>({
           : {},
       },
     }),
-    name: {
-      title: 'Name',
-      validation: { required: true },
-      dataType: 'string',
-    },
     logo: {
       title: 'Logo',
       dataType: 'string',

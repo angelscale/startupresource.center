@@ -17,6 +17,7 @@ import { getAnalytics } from 'firebase/analytics';
 
 import {
   ArticlesCollection,
+  CoreFourCollection,
   ProductsCollection,
   PeopleCollection,
 } from './collections';
@@ -51,6 +52,7 @@ const firebaseConfig = {
 };
 
 const articlesIndex = client.initIndex('cms_articles');
+const coreFourIndex = client.initIndex('cms_core_four');
 const productsIndex = client.initIndex('cms_products');
 const pagesIndex = client.initIndex('cms_pages');
 const peopleIndex = client.initIndex('cms_people');
@@ -62,6 +64,8 @@ const textSearchController: FirestoreTextSearchController = ({
   switch (path) {
     case 'articles':
       return performAlgoliaTextSearch(articlesIndex, searchString);
+    case 'core-four':
+      return performAlgoliaTextSearch(coreFourIndex, searchString);
     case 'products':
       return performAlgoliaTextSearch(productsIndex, searchString);
     case 'pages':
@@ -79,7 +83,12 @@ export default function App() {
     authController,
   }: NavigationBuilderProps) => {
     return {
-      collections: [ArticlesCollection, ProductsCollection, PeopleCollection],
+      collections: [
+        ArticlesCollection,
+        CoreFourCollection,
+        ProductsCollection,
+        PeopleCollection,
+      ],
     };
   };
 
