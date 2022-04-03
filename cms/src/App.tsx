@@ -64,7 +64,7 @@ const textSearchController: FirestoreTextSearchController = ({
   switch (path) {
     case 'articles':
       return performAlgoliaTextSearch(articlesIndex, searchString);
-    case 'core-four':
+    case 'corefour':
       return performAlgoliaTextSearch(coreFourIndex, searchString);
     case 'products':
       return performAlgoliaTextSearch(productsIndex, searchString);
