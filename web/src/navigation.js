@@ -1,4 +1,4 @@
-export const navigation = [
+exports.navigation = [
   {
     title: 'Plan',
     slug: 'plan',
@@ -151,7 +151,7 @@ export const navigation = [
   },
 ];
 
-export const socialMedia = {
+exports.socialMedia = {
   facebook: 'https://www.facebook.com/SRCstartup',
   instagram: 'https://www.instagram.com/srcstartup/',
   linkedin: 'https://www.linkedin.com/company/angel-scale-llc/',

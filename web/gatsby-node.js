@@ -4,6 +4,8 @@ const { getStorage } = require('firebase-admin/storage');
 // const remark = import(`remark`);
 // const html = import(`remark-html`);
 
+const { navigation } = require('./src/navigation');
+
 const firebaseCredentials = require('./credentials.json');
 
 const firebaseConfig = {
@@ -185,7 +187,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const articles = result.data.allArticles.nodes;
   const products = result.data.allProducts.nodes;
 
-  // Create article template pages
+  // Create article pages
   articles.forEach((node) => {
     createPage({
       path: `${node.category}/${node.subcategory}/${node.fields.slug}`,
@@ -196,7 +198,7 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  // Create product template pages
+  // Create product pages
   products.forEach(async (node) => {
     createPage({
       path: `${node.category}/${node.subcategory}/core-four/${node.fields.slug}`,
@@ -204,6 +206,29 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         id: node.id,
       },
+    });
+  });
+
+  // Create category pages
+  navigation.forEach((category) => {
+    createPage({
+      path: `/${category.slug}`,
+      component: require.resolve(`./src/templates/category.template.jsx`),
+      context: {
+        category: category.slug,
+      },
+    });
+
+    // Create subcategory pages
+    category.subCategories.forEach((subcategory) => {
+      createPage({
+        path: `/${category.slug}/${subcategory.slug}`,
+        component: require.resolve(`./src/templates/subcategory.template.jsx`),
+        context: {
+          category: category.slug,
+          subcategory: subcategory.slug,
+        },
+      });
     });
   });
 };
