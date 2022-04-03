@@ -36,14 +36,10 @@ const classes = {
   gridItem: `${PREFIX}-gridItem`,
   form_wrapper: `${PREFIX}-form_wrapper`,
   form: `${PREFIX}-form`,
-  inputTitle: `${PREFIX}-inputTitle`
+  inputTitle: `${PREFIX}-inputTitle`,
 };
 
-const Root = styled('div')((
-  {
-    theme
-  }
-) => ({
+const Root = styled('div')(({ theme }) => ({
   [`& .${classes.teamSection}`]: {
     background: theme.palette.primary.dark,
   },
@@ -111,12 +107,10 @@ const Root = styled('div')((
   [`& .${classes.inputTitle}`]: {
     fontWeight: 700,
     marginBottom: theme.spacing(1),
-  }
+  },
 }));
 
 const SrcConsultingContent = () => {
-
-
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,

@@ -12,6 +12,7 @@ export { default as Image } from './image.component';
 export { default as CardBase } from './card-base.component';
 export { default as Icon } from './icon.component';
 export { default as ServiceCards } from './service-cards.component';
+export { default as CoreFourCard } from './core-four-card.component';
 
 // Main Layout Components
 export { default as Topbar } from './topbar.component';

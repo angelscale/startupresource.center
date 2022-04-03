@@ -8,14 +8,10 @@ const classes = {
   root: `${PREFIX}-root`,
   fullWidth: `${PREFIX}-fullWidth`,
   disablePadding: `${PREFIX}-disablePadding`,
-  narrow: `${PREFIX}-narrow`
+  narrow: `${PREFIX}-narrow`,
 };
 
-const Root = styled('section')((
-  {
-    theme
-  }
-) => ({
+const Root = styled('section')(({ theme }) => ({
   [`&.${classes.root}`]: {
     maxWidth: theme.layout.contentWidth,
     width: '100%',
@@ -33,13 +29,13 @@ const Root = styled('section')((
     maxWidth: '100%',
   },
 
-  [`& .${classes.disablePadding}`]: {
+  [`&.${classes.disablePadding}`]: {
     padding: 0,
   },
 
   [`& .${classes.narrow}`]: {
     maxWidth: 800,
-  }
+  },
 }));
 
 /**
@@ -50,8 +46,6 @@ const Root = styled('section')((
 const Section = (props) => {
   const { children, fullWidth, narrow, disablePadding, className, ...rest } =
     props;
-
-
 
   return (
     <Root

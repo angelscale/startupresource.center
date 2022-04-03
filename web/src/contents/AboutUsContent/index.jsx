@@ -34,14 +34,10 @@ const classes = {
   listItem: `${PREFIX}-listItem`,
   listItemAvatar: `${PREFIX}-listItemAvatar`,
   listItemText: `${PREFIX}-listItemText`,
-  team_title: `${PREFIX}-team_title`
+  team_title: `${PREFIX}-team_title`,
 };
 
-const Root = styled('div')((
-  {
-    theme
-  }
-) => ({
+const Root = styled('div')(({ theme }) => ({
   [`&.${classes.root}`]: {
     height: '100%',
     width: '100%',
@@ -137,12 +133,10 @@ const Root = styled('div')((
 
   [`& .${classes.team_title}`]: {
     fontWeight: 'bold',
-  }
+  },
 }));
 
 const AboutUsContent = () => {
-
-
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
