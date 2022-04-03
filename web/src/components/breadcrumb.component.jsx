@@ -6,14 +6,10 @@ const PREFIX = 'Breadcrumb';
 const classes = {
   container: `${PREFIX}-container`,
   label: `${PREFIX}-label`,
-  textGray: `${PREFIX}-textGray`
+  textGray: `${PREFIX}-textGray`,
 };
 
-const Root = styled('div')((
-  {
-    theme
-  }
-) => ({
+const Root = styled('div')(({ theme }) => ({
   [`&.${classes.container}`]: {
     margin: '0 auto',
     maxWidth: theme.layout.contentWidth,
@@ -35,12 +31,10 @@ const Root = styled('div')((
     '&:hover': {
       textDecoration: 'none',
     },
-  }
+  },
 }));
 
 const Breadcrumb = ({ location }) => {
-
-
   const crumbs = location.pathname.split('/').map((crumb) =>
     crumb.length > 1 ? (
       <Link
@@ -51,7 +45,7 @@ const Breadcrumb = ({ location }) => {
         )}
       >
         <Typography className={classes.label}>
-          {crumb.replace('-', ' ')}
+          {crumb.replaceAll('-', ' ')}
         </Typography>
       </Link>
     ) : null,
