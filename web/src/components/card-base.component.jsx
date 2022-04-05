@@ -15,14 +15,10 @@ const classes = {
   content: `${PREFIX}-content`,
   left: `${PREFIX}-left`,
   right: `${PREFIX}-right`,
-  center: `${PREFIX}-center`
+  center: `${PREFIX}-center`,
 };
 
-const StyledCard = styled(Card)((
-  {
-    theme
-  }
-) => ({
+const StyledCard = styled(Card)(({ theme }) => ({
   [`&.${classes.root}`]: {
     height: '100%',
     width: '100%',
@@ -44,7 +40,7 @@ const StyledCard = styled(Card)((
     background: 'transparent',
   },
 
-  [`& .${classes.liftUp}`]: {
+  [`&.${classes.liftUp}`]: {
     transition:
       'box-shadow .25s ease,transform .25s ease,-webkit-transform .25s ease',
     '&:hover': {
@@ -81,7 +77,7 @@ const StyledCard = styled(Card)((
 
   [`& .${classes.center}`]: {
     alignItems: 'center',
-  }
+  },
 }));
 
 /**
@@ -102,8 +98,6 @@ const CardBase = (props) => {
     cardContentProps,
     ...rest
   } = props;
-
-
 
   return (
     <StyledCard

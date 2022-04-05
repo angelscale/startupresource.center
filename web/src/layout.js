@@ -10,6 +10,9 @@ import 'react-lazy-load-image-component/src/effects/opacity.css';
 import 'assets/css/index.css';
 import 'swiper/css/bundle';
 import 'react-toastify/dist/ReactToastify.css';
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+// import 'swiper/css/pagination';
 
 export const useDarkMode = () => {
   const [themeMode, setTheme] = useState('light');

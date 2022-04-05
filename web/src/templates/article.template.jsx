@@ -80,7 +80,7 @@ const LinkText = styled(Link)(
 `,
 );
 
-const ArticleTemplate = ({ data }) => {
+const ArticleTemplate = ({ data, location }) => {
   const { name, content, create_date, headerImage } = data.allArticles.nodes[0];
 
   const headerImageSharp = convertToBgImage(getImage(headerImage));

@@ -1,20 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import makeStyles from '@mui/styles/makeStyles';
-import { Grid } from '@mui/material';
-import { Image } from 'components/atoms';
-import { SectionHeader } from 'components/molecules';
-import { DescriptionListIcon, CardBase } from 'components/organisms';
+import React from "react";
+import PropTypes from "prop-types";
+import makeStyles from "@mui/styles/makeStyles";
+import { Grid } from "@mui/material";
+import { Image } from "components/atoms";
+import { SectionHeader } from "components/molecules";
+import { DescriptionListIcon, CardBase } from "components/organisms";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   image: {
     width: 60,
     height: 60,
-    objectFit: 'contain',
+    objectFit: "contain",
     marginBottom: theme.spacing(5),
   },
   descriptionListIcon: {
-    '& .description-list-icon__title': {
+    "& .description-list-icon__title": {
       fontWeight: 400,
       fontSize: 16,
     },
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Categories = props => {
+const Categories = (props) => {
   const { data, className, ...rest } = props;
   const classes = useStyles();
 
