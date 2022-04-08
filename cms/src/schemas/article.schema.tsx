@@ -45,6 +45,7 @@ const ArticleSchema = buildSchema<Article>({
           review: 'Needs Review',
           revision: 'Needs Revision',
           published: 'Published',
+          featured: 'Featured',
         },
       },
     },
