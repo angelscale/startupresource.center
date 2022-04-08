@@ -20,6 +20,7 @@ type Article = {
   header_image: string;
   images: string[];
   content: string;
+  excerpt: string;
   create_date: Date;
   publish_date: Date;
   updated_date: Date;
@@ -115,6 +116,10 @@ const ArticleSchema = buildSchema<Article>({
       config: {
         markdown: true,
       },
+    },
+    excerpt: {
+      title: 'Excerpt',
+      dataType: 'string',
     },
     create_date: {
       title: 'Created Date',
