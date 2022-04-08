@@ -4,7 +4,16 @@ import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 import { convertToBgImage } from 'gbimage-bridge';
 import BackgroundImage from 'gatsby-background-image';
 
-import { Typography, styled, Box, Grid } from '@mui/material';
+import {
+  Typography,
+  styled,
+  Box,
+  Grid,
+  useMediaQuery,
+  Button,
+} from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import makeStyles from '@mui/styles/makeStyles';
 
 // components
 import {
@@ -14,11 +23,17 @@ import {
   Slider,
   SectionHeader,
   CardBase,
+  CardBlog,
   DescriptionListIcon,
   Image,
+  CoreFourCard,
 } from 'components';
 
-import { articles as mockArticles, sub_categories } from './data';
+import {
+  articles as mockArticles,
+  products as mockProducts,
+  sub_categories,
+} from './data';
 
 const PREFIX = 'CategoryTemplate';
 
@@ -104,8 +119,45 @@ const Root = styled('div')(({ theme }) => ({
   },
 }));
 
+const useStyles = makeStyles((theme) => ({
+  cardBlog: {
+    height: '100%',
+    borderRadius: theme.spacing(1),
+    '& .card-blog__content': {
+      paddingTop: theme.spacing(2),
+      paddingBottom: theme.spacing(2),
+    },
+  },
+  img_wrapper: {
+    width: '100%',
+    height: '100%',
+  },
+  image: {
+    objectFit: 'cover',
+    borderRadius: theme.spacing(0, 0, 20, 0),
+  },
+  blogContent: {
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%',
+  },
+  button: {
+    minWidth: '100%',
+    maxWidth: '100%',
+    [theme.breakpoints.up('sm')]: {
+      minWidth: 420,
+    },
+  },
+}));
+
 const CategoryTemplate = ({ data, location }) => {
   console.log(data);
+  const classes = useStyles();
+
+  const theme = useTheme();
+  const isMd = useMediaQuery(theme.breakpoints.up('md'), {
+    defaultMatches: true,
+  });
 
   const articles = data.allArticles.nodes.map((node) => (
     <li key={`/${node.category}/${node.subcategory}/${node.fields.slug}`}>
@@ -126,36 +178,10 @@ const CategoryTemplate = ({ data, location }) => {
     </li>
   ));
 
-  function FeatureArticle({ data }) {
-    const headerImageSharp = convertToBgImage(getImage(data.headerImage));
-
-    return (
-      <Box className={classes.featureContainer}>
-        <BackgroundImage
-          className={classes.featureImage}
-          {...headerImageSharp}
-        />
-        <Box className={classes.featureContent}>
-          <h4 className={classes.featureTitle}>{data.name}</h4>
-          <p className={classes.featureText}>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi
-            soluta quisquam qui error porro nesciunt ratione reiciendis magnam,
-            laboriosam optio ullam odio facilis doloremque illo? Officiis
-            adipisci vel sapiente aspernatur?
-          </p>
-          <Link
-            to={`/${data.category}/${data.subcategory}/${data.fields.slug}`}
-          >
-            <span className={classes.featureBtn}>Read more</span>
-          </Link>
-        </Box>
-      </Box>
-    );
-  }
-
   return (
     <Root>
       <Breadcrumb location={location} />
+
       <Section disablePadding>
         <Slider
           list={mockArticles}
@@ -169,6 +195,7 @@ const CategoryTemplate = ({ data, location }) => {
           wrapperClass={classes.featureSlider}
         />
       </Section>
+
       <Container>
         {/* category description */}
         <Typography variant="h6">
@@ -201,15 +228,111 @@ const CategoryTemplate = ({ data, location }) => {
           </Grid>
         </Box>
       </Container>
+
+      {/* Articles */}
       <Container>
+        <Grid container spacing={isMd ? 4 : 2}>
+          {mockArticles.map((item, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index} data-aos="fade-up">
+              <CardBlog
+                withShadow
+                liftUp
+                className={classes.cardBlog}
+                mediaContent={
+                  <BlogMediaContent
+                    blogImage={item.headerImage}
+                    alt={item.name}
+                  />
+                }
+                cardContent={<BlogContent name={item.name} />}
+              />
+            </Grid>
+          ))}
+        </Grid>
+
+        <Grid container spacing={isMd ? 4 : 2} mt={1}>
+          {mockProducts.slice(0, 2).map((item, index) => (
+            <Grid item xs={12} sm={6} key={index} data-aos="fade-up">
+              <CoreFourCard data={item} />
+            </Grid>
+          ))}
+        </Grid>
+
+        <Grid container justifyContent="center" mt={3}>
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            className={classes.button}
+          >
+            Load more
+          </Button>
+        </Grid>
+      </Container>
+
+      {/* <Container>
         <Typography variant="h3">Articles:</Typography>
         <ul>{articles}</ul>
       </Container>
       <Container>
         <Typography variant="h3">Products:</Typography>
         <ul>{products}</ul>
-      </Container>
+      </Container> */}
     </Root>
+  );
+};
+
+function FeatureArticle({ data }) {
+  const headerImageSharp = convertToBgImage(getImage(data.headerImage));
+
+  return (
+    <Box className={classes.featureContainer}>
+      <BackgroundImage className={classes.featureImage} {...headerImageSharp} />
+      <Box className={classes.featureContent}>
+        <h4 className={classes.featureTitle}>{data.name}</h4>
+        <p className={classes.featureText}>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi soluta
+          quisquam qui error porro nesciunt ratione reiciendis magnam,
+          laboriosam optio ullam odio facilis doloremque illo? Officiis adipisci
+          vel sapiente aspernatur?
+        </p>
+        <Link to={`/${data.category}/${data.subcategory}/${data.fields.slug}`}>
+          <span className={classes.featureBtn}>Read more</span>
+        </Link>
+      </Box>
+    </Box>
+  );
+}
+
+const BlogMediaContent = (props) => {
+  const classes = useStyles();
+  const image = getImage(props.blogImage);
+
+  return (
+    <GatsbyImage
+      image={image}
+      className={classes.img_wrapper}
+      imgClassName={classes.image}
+      alt={props.alt}
+    />
+  );
+};
+
+const BlogContent = (props) => {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.blogContent}>
+      <Typography variant="h6" color="textPrimary" gutterBottom>
+        {props.name}
+      </Typography>
+      <Typography variant="body1" color="textSecondary">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi soluta
+        quisquam qui error porro nesciunt ratione reiciendis magnam, laboriosam
+        optio ullam odio facilis doloremque illo? Officiis adipisci vel sapiente
+        aspernatur?
+      </Typography>
+    </div>
   );
 };
 

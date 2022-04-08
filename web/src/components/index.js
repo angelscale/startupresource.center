@@ -13,6 +13,7 @@ export { default as CardBase } from './card-base.component';
 export { default as Icon } from './icon.component';
 export { default as ServiceCards } from './service-cards.component';
 export { default as CoreFourCard } from './core-four-card.component';
+export { default as CardBlog } from './card-blog.component';
 export { default as Slider } from './slider.component';
 export { default as DescriptionListIcon } from './description-list-icon.component';
 

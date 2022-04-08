@@ -1,21 +1,21 @@
-import React from 'react';
-import clsx from 'clsx';
-import PropTypes from 'prop-types';
-import makeStyles from '@mui/styles/makeStyles';
+import React from "react";
+import clsx from "clsx";
+import PropTypes from "prop-types";
+import makeStyles from "@mui/styles/makeStyles";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     background: theme.palette.alternate.main,
   },
   inner: {
     maxWidth: theme.layout.contentWidth,
-    width: '100%',
-    margin: '0 auto',
+    width: "100%",
+    margin: "0 auto",
     padding: theme.spacing(6, 2),
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up("sm")]: {
       padding: theme.spacing(8, 8),
     },
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up("md")]: {
       padding: theme.spacing(12, 8),
     },
   },
@@ -29,21 +29,21 @@ const useStyles = makeStyles(theme => ({
  *
  * @param {Object} props
  */
-const SectionAlternate = props => {
+const SectionAlternate = (props) => {
   const { children, innerNarrowed, className, ...rest } = props;
 
   const classes = useStyles();
 
   return (
     <section
-      className={clsx('section-alternate', classes.root, className)}
+      className={clsx("section-alternate", classes.root, className)}
       {...rest}
     >
       <div
         className={clsx(
-          'section-alternate__content',
+          "section-alternate__content",
           classes.inner,
-          innerNarrowed ? classes.innerNarrowed : {},
+          innerNarrowed ? classes.innerNarrowed : {}
         )}
       >
         {children}

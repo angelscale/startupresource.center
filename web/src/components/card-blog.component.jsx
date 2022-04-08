@@ -1,63 +1,63 @@
-import React from "react";
-import clsx from "clsx";
-import PropTypes from "prop-types";
-import makeStyles from "@mui/styles/makeStyles";
-import { Card, CardContent, CardMedia } from "@mui/material";
+import React from 'react';
+import clsx from 'clsx';
+import PropTypes from 'prop-types';
+import makeStyles from '@mui/styles/makeStyles';
+import { Card, CardContent, CardMedia } from '@mui/material';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "100%",
-    width: "100%",
+    height: '100%',
+    width: '100%',
   },
   withShadow: {
     boxShadow: `0 2px 10px 0 ${theme.palette.cardShadow}`,
   },
   noShadow: {
-    boxShadow: "none",
+    boxShadow: 'none',
   },
   noBorder: {
     border: 0,
   },
   noBg: {
-    background: "transparent",
+    background: 'transparent',
   },
   liftUp: {
     transition:
-      "box-shadow .25s ease,transform .25s ease,-webkit-transform .25s ease",
-    "&:hover": {
+      'box-shadow .25s ease,transform .25s ease,-webkit-transform .25s ease',
+    '&:hover': {
       boxShadow:
-        "0 1.5rem 2.5rem rgba(22,28,45,.1),0 .3rem 0.5rem -.50rem rgba(22,28,45,.05) !important",
-      transform: "translate3d(0,-5px,0)",
+        '0 1.5rem 2.5rem rgba(22,28,45,.1),0 .3rem 0.5rem -.50rem rgba(22,28,45,.05) !important',
+      transform: 'translate3d(0,-5px,0)',
     },
   },
   media: {
-    position: "relative",
+    position: 'relative',
     height: 300,
   },
   content: {
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
     padding: theme.spacing(4, 2),
-    "&:last-child": {
+    '&:last-child': {
       padding: theme.spacing(4, 2),
     },
-    [theme.breakpoints.up("md")]: {
+    [theme.breakpoints.up('md')]: {
       padding: theme.spacing(6, 3),
-      "&:last-child": {
+      '&:last-child': {
         padding: theme.spacing(6, 3),
       },
     },
   },
   left: {
-    alignItems: "flex-start",
+    alignItems: 'flex-start',
   },
   right: {
-    alignItems: "flex-end",
+    alignItems: 'flex-end',
   },
   center: {
-    alignItems: "center",
+    alignItems: 'center',
   },
 }));
 
@@ -66,9 +66,10 @@ const useStyles = makeStyles((theme) => ({
  *
  * @param {Object} props
  */
-const CardProduct = (props) => {
+const CardBlog = (props) => {
   const {
     mediaClassName,
+    contentClassName,
     withShadow,
     noShadow,
     noBorder,
@@ -86,27 +87,28 @@ const CardProduct = (props) => {
   return (
     <Card
       className={clsx(
-        "card-product",
+        'card-blog',
         classes.root,
         withShadow ? classes.withShadow : {},
         noShadow ? classes.noShadow : {},
         noBorder ? classes.noBorder : {},
         noBg ? classes.noBg : {},
         liftUp ? classes.liftUp : {},
-        className
+        className,
       )}
       {...rest}
     >
       <CardMedia
-        className={clsx("card-product__media", classes.media, mediaClassName)}
+        className={clsx('card-blog__media', classes.media, mediaClassName)}
       >
         {mediaContent}
       </CardMedia>
       <CardContent
         className={clsx(
-          "card-product__content",
+          'card-blog__content',
           classes.content,
-          classes[align]
+          classes[align],
+          contentClassName,
         )}
       >
         {cardContent}
@@ -115,11 +117,11 @@ const CardProduct = (props) => {
   );
 };
 
-CardProduct.defaultProps = {
-  align: "left",
+CardBlog.defaultProps = {
+  align: 'left',
 };
 
-CardProduct.propTypes = {
+CardBlog.propTypes = {
   /**
    * External classes
    */
@@ -128,6 +130,8 @@ CardProduct.propTypes = {
    * External classes for the media
    */
   mediaClassName: PropTypes.string,
+
+  contentClassName: PropTypes.string,
   /**
    * Whether to show custom shadow
    */
@@ -159,7 +163,7 @@ CardProduct.propTypes = {
   /**
    * The content alignment
    */
-  align: PropTypes.oneOf(["left", "right", "center"]),
+  align: PropTypes.oneOf(['left', 'right', 'center']),
 };
 
-export default CardProduct;
+export default CardBlog;
