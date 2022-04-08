@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'gatsby';
+
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { Typography, IconButton, styled } from '@mui/material';
@@ -9,14 +11,10 @@ const PREFIX = 'LearnMoreLink';
 const classes = {
   root: `${PREFIX}-root`,
   title: `${PREFIX}-title`,
-  icon: `${PREFIX}-icon`
+  icon: `${PREFIX}-icon`,
 };
 
-const Root = styled('a')((
-  {
-    theme
-  }
-) => ({
+const ExternalLink = styled('a')(({ theme }) => ({
   [`&.${classes.root}`]: {
     display: 'inline-flex',
     alignItems: 'center',
@@ -33,7 +31,27 @@ const Root = styled('a')((
     '&:hover': {
       background: 'transparent',
     },
-  }
+  },
+}));
+
+const InternalLink = styled(Link)(({ theme }) => ({
+  [`&.${classes.root}`]: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    textDecoration: 'none',
+  },
+
+  [`& .${classes.title}`]: {
+    fontWeight: 'bold',
+  },
+
+  [`& .${classes.icon}`]: {
+    padding: 0,
+    marginLeft: theme.spacing(1),
+    '&:hover': {
+      background: 'transparent',
+    },
+  },
 }));
 
 /**
@@ -41,20 +59,19 @@ const Root = styled('a')((
  *
  * @param {Object} props
  */
-const LearnMoreLink = props => {
+const LearnMoreLink = (props) => {
   const {
     color,
     component,
     variant,
     title,
     href,
+    to,
     className,
     iconProps,
     typographyProps,
     ...rest
   } = props;
-
-
 
   const children = (
     <>
@@ -71,20 +88,29 @@ const LearnMoreLink = props => {
         className={clsx('learn-more-link__icon-button', classes.icon)}
         color={color || 'primary'}
         {...iconProps}
-        size="large">
+        size="large"
+      >
         <ArrowRightAltIcon className="learn-more-link__arrow" />
       </IconButton>
     </>
   );
 
-  return (
-    <Root
+  return href !== '#' ? (
+    <ExternalLink
       href={href}
       className={clsx('learn-more-link', classes.root, className)}
       {...rest}
     >
       {children}
-    </Root>
+    </ExternalLink>
+  ) : (
+    <InternalLink
+      to={to}
+      className={clsx('learn-more-link', classes.root, className)}
+      {...rest}
+    >
+      {children}
+    </InternalLink>
   );
 };
 
