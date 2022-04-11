@@ -2,33 +2,48 @@ import React from 'react';
 import ImageGallery from 'react-image-gallery';
 
 import makeStyles from '@mui/styles/makeStyles';
-import { Grid, Button, Typography, Box } from '@mui/material';
+import { Grid, Button, Typography, Box, styled } from '@mui/material';
 import LaunchIcon from '@mui/icons-material/Launch';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 
-import { Image } from 'components';
+// [`& .${classes.img_wrapper}`]: {
+//     height: '100px',
+//     width: '100px',
+//     borderRadius: '4px',
+//     padding: theme.spacing(1, 1, 1, 1),
+//     border: '1px solid rgba(0,0,0,0.05)',
+//     marginBottom: theme.spacing(2),
+//     [theme.breakpoints.up('sm')]: {
+//       height: '120px',
+//       width: '120px',
+//       marginRight: theme.spacing(4),
+//       marginBottom: 0,
+//     },
+//   },
+
+const Logo = styled(GatsbyImage)(({ theme }) => ({
+  height: '60px',
+  width: '60px',
+  borderRadius: '4px',
+  padding: theme.spacing(1, 1, 1, 1),
+  border: '1px solid rgba(0,0,0,0.05)',
+  marginBottom: theme.spacing(2),
+  // objectFit: 'contain',
+  [theme.breakpoints.up('sm')]: {
+    height: '80px',
+    width: '80px',
+    marginRight: theme.spacing(4),
+    marginBottom: 0,
+  },
+}));
 
 const useStyles = makeStyles((theme) => ({
   root: {
     boxShadow: `0 2px 10px 0 ${theme.palette.cardShadow}`,
     borderRadius: theme.spacing(1),
     padding: theme.spacing(4, 2),
-  },
-  logo: {
-    height: '60px',
-    width: '60px',
-    borderRadius: '4px',
-    padding: theme.spacing(1, 1, 1, 1),
-    border: '1px solid rgba(0,0,0,0.05)',
-    marginBottom: theme.spacing(2),
-    objectFit: 'contain',
-    [theme.breakpoints.up('sm')]: {
-      height: '80px',
-      width: '80px',
-      marginRight: theme.spacing(4),
-      marginBottom: 0,
-    },
   },
   title: {
     fontSize: '1rem',
@@ -71,10 +86,7 @@ const CoreFourCard = ({ data }) => {
       <Grid container alignItems="flex-start">
         <Grid item xs={6}>
           <a href={'#'} target="_blank">
-            <Image src={data.imgPath} alt="..." className={classes.logo} />
-            <Typography variant="h2" className={classes.title}>
-              {data.title}
-            </Typography>
+            <Logo image={getImage(data.logoImage)} alt={data.name} />
           </a>
         </Grid>
         <Grid
@@ -84,27 +96,19 @@ const CoreFourCard = ({ data }) => {
           justifyContent="flex-end"
           alignItems="flex-start"
         >
-          <Button
-            variant="contained"
-            startIcon={<LaunchIcon />}
-            color="primary"
-            size="small"
-            component={'a'}
-            href={data.url}
-            target="_blank"
-          >
-            Visit {data.title}
-          </Button>
+          <Typography variant="h4" className={classes.name}>
+            {data.name}
+          </Typography>
         </Grid>
       </Grid>
 
       <Grid container sx={{ mt: 2 }}>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <Box>
             <Typography variant="h2" className={classes.subTitle}>
               Pricing
             </Typography>
-            <ul className={classes.list}>
+            {/* <ul className={classes.list}>
               <li className={classes.item}>
                 <ArrowRightIcon /> <span>Free Trail</span>
                 <CheckCircleOutlineIcon />
@@ -113,28 +117,28 @@ const CoreFourCard = ({ data }) => {
                 <ArrowRightIcon /> <span>Free Version</span>
                 <CheckCircleOutlineIcon />
               </li>
-            </ul>
+            </ul> */}
           </Box>
           <Box sx={{ mt: 2 }}>
             <Typography variant="h2" className={classes.subTitle}>
               Features
             </Typography>
-            <ul className={classes.list}>
+            {/* <ul className={classes.list}>
               {data.content.offer.list.map((item, i) => (
                 <li className={classes.item}>
                   <ArrowRightIcon /> <span>{item}</span>
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </Box>
         </Grid>
-        <Grid xs={6}>
+        {/* <Grid xs={6}>
           <ImageGallery
             items={data.gallery}
             showNav={false}
             showPlayButton={false}
           />
-        </Grid>
+        </Grid> */}
       </Grid>
 
       <Box sx={{ mt: 2 }}>

@@ -14,8 +14,6 @@ import {
   Container,
 } from 'components';
 
-import { products } from './data';
-
 const Root = styled('div')(({ theme }) => ({
   margin: '0 auto',
 }));
@@ -99,9 +97,9 @@ const CoreFourTemplate = ({ data, location }) => {
         </div>
         <Section className={classes.content}>
           <Grid container spacing={4}>
-            {products.map((item, i) => (
-              <Grid item xs={12} md={6}>
-                <CoreFourCard data={item} />
+            {data.allProducts.nodes.map((product, i) => (
+              <Grid item xs={12} md={6} key={i}>
+                <CoreFourCard data={product} />
               </Grid>
             ))}
           </Grid>
@@ -113,20 +111,45 @@ const CoreFourTemplate = ({ data, location }) => {
 
 export default CoreFourTemplate;
 
-export const postQuery = graphql`
-  query ($id: String!) {
-    allCorefour(filter: { id: { eq: $id } }) {
+export const coreFourQuery = graphql`
+  query ($category: String!, $subcategory: String!) {
+    allProducts(
+      filter: { category: { eq: $category }, subcategory: { eq: $subcategory } }
+    ) {
       nodes {
+        id
         name
+        status
         category
         subcategory
-        header_image
+        logoImage {
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+          }
+        }
         description
         create_date
+        affiliate
+        affiliate_link
       }
     }
   }
 `;
+
+// export const postQuery = graphql`
+//   query ($id: String!) {
+//     allCorefour(filter: { id: { eq: $id } }) {
+//       nodes {
+//         name
+//         category
+//         subcategory
+//         header_image
+//         description
+//         create_date
+//       }
+//     }
+//   }
+// `;
 
 // export const postQuery = graphql`
 //   query ($id: String!) {

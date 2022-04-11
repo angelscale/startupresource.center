@@ -4,12 +4,11 @@ import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 
 import {
   Typography,
-  styled,
-  Box,
+  Badge,
   Grid,
-  useMediaQuery,
   Button,
-  SvgIcon,
+  useMediaQuery,
+  styled,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
@@ -18,7 +17,7 @@ import {
   Breadcrumb,
   Container,
   Section,
-  SectionHeader,
+  // SectionHeader,
   CardBase,
   CardBlog,
   DescriptionListIcon,
@@ -27,7 +26,7 @@ import {
   LearnMoreLink,
 } from 'components';
 
-import { navigation } from 'navigation';
+// import { navigation } from 'navigation';
 import { products as mockProducts } from './data';
 
 // Styles
@@ -67,35 +66,40 @@ const StyledButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-const CategoryCard = styled(CardBase)(({ theme }) => ({
-  borderRadius: theme.spacing(2),
-  background: theme.palette.alternate.main,
-  cursor: 'pointer',
-}));
-
-const CategoryImage = styled(SvgIcon)(({ theme }) => ({
-  width: 60,
-  height: 60,
-  objectFit: 'contain',
-  marginBottom: theme.spacing(5),
-}));
-
-const CategoryListIcon = styled(DescriptionListIcon)({
-  '& .description-list-icon__title': {
-    fontWeight: 400,
-    fontSize: 16,
-  },
+const Title = styled(Typography)({
+  textTransform: 'capitalize',
 });
 
-const FeatureButton = styled('div')(({ theme }) => ({
-  fontSize: theme.typography.pxToRem(14),
-  lineHeight: 1.2,
-  color: theme.palette.primary,
-  cursor: 'pointer',
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    right: 31,
+    top: 13,
+    padding: '0 4px',
+  },
 }));
 
+// const CategoryCard = styled(CardBase)(({ theme }) => ({
+//   borderRadius: theme.spacing(2),
+//   background: theme.palette.alternate.main,
+//   cursor: 'pointer',
+// }));
+
+// const CategoryImage = styled(SvgIcon)(({ theme }) => ({
+//   width: 60,
+//   height: 60,
+//   objectFit: 'contain',
+//   marginBottom: theme.spacing(5),
+// }));
+
+// const CategoryListIcon = styled(DescriptionListIcon)({
+//   '& .description-list-icon__title': {
+//     fontWeight: 400,
+//     fontSize: 16,
+//   },
+// });
+
 // Component
-const CategoryTemplate = ({ data, location }) => {
+const CategoryTemplate = ({ data, location, pageContext }) => {
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
     defaultMatches: true,
@@ -113,25 +117,38 @@ const CategoryTemplate = ({ data, location }) => {
         )
       : data.allArticles.nodes;
 
+  const FeaturedCheck = ({ item, children }) =>
+    item.status === 'featured' ? (
+      <StyledBadge badgeContent="Featured" color="primary">
+        {children}
+      </StyledBadge>
+    ) : (
+      <>{children}</>
+    );
+
   return (
     <Root>
       <Breadcrumb location={location} />
 
-      <Section disablePadding>
-        <FeatureArticle items={featuredArticles} />
-      </Section>
-
       <Container>
         {/* category description */}
+        <Title variant="h3" gutterBottom>
+          {pageContext.category.replace(/-/g, ' ')}
+        </Title>
         <Typography variant="h6">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam nisi
           expedita neque amet optio sequi facilis. A nam animi quidem, assumenda
           ipsa veniam placeat nesciunt vitae perferendis, unde, voluptas quae.
         </Typography>
+      </Container>
+      <Section disablePadding>
+        <FeatureArticle items={featuredArticles} />
+      </Section>
 
-        {/* sub category list */}
-        {/* Disabled for now, as we don't want to link to subcategory pages yet. */}
-        {/* <Box sx={{ mt: 4 }}>
+      {/* <Container> */}
+      {/* sub category list */}
+      {/* Disabled for now, as we don't want to link to subcategory pages yet. */}
+      {/* <Box sx={{ mt: 4 }}>
           <SectionHeader title="Sub Categories" align="left" />
           <Grid container spacing={2}>
             {navigation
@@ -156,47 +173,53 @@ const CategoryTemplate = ({ data, location }) => {
               ))}
           </Grid>
         </Box> */}
-      </Container>
+      {/* </Container> */}
 
       {/* Articles */}
       <Container>
         <Grid container spacing={isMd ? 4 : 2}>
-          {publishedArticles.map((item, index) => (
+          {publishedArticles.slice(0, 3).map((item, index) => (
             <Grid item xs={12} sm={6} md={4} key={index} data-aos="fade-up">
-              <StyledCardBlog
-                withShadow
-                liftUp
-                mediaContent={
-                  <Link
-                    to={`/${item.category}/${item.subcategory}/${item.fields.slug}`}
-                  >
-                    <BlogMedia
-                      image={getImage(item.headerImage)}
-                      alt={item.name}
-                    />
-                  </Link>
-                }
-                cardContent={
-                  <BlogContent>
+              <FeaturedCheck item={item}>
+                <StyledCardBlog
+                  withShadow
+                  liftUp
+                  mediaContent={
                     <Link
                       to={`/${item.category}/${item.subcategory}/${item.fields.slug}`}
                     >
-                      <Typography variant="h6" color="textPrimary" gutterBottom>
-                        {item.name}
-                      </Typography>
+                      <BlogMedia
+                        image={getImage(item.headerImage)}
+                        alt={item.name}
+                      />
                     </Link>
-                    <Typography variant="body1" color="textSecondary">
-                      {item.excerpt}
-                    </Typography>
+                  }
+                  cardContent={
+                    <BlogContent>
+                      <Link
+                        to={`/${item.category}/${item.subcategory}/${item.fields.slug}`}
+                      >
+                        <Typography
+                          variant="h6"
+                          color="textPrimary"
+                          gutterBottom
+                        >
+                          {item.name}
+                        </Typography>
+                      </Link>
+                      <Typography variant="body1" color="textSecondary">
+                        {item.excerpt}
+                      </Typography>
 
-                    <LearnMoreLink
-                      title="Read More"
-                      to={`/${item.category}/${item.subcategory}/${item.fields.slug}`}
-                      typographyProps={{ variant: 'h6' }}
-                    />
-                  </BlogContent>
-                }
-              />
+                      <LearnMoreLink
+                        title="Read More"
+                        to={`/${item.category}/${item.subcategory}/${item.fields.slug}`}
+                        typographyProps={{ variant: 'h6' }}
+                      />
+                    </BlogContent>
+                  }
+                />
+              </FeaturedCheck>
             </Grid>
           ))}
         </Grid>
@@ -207,12 +230,6 @@ const CategoryTemplate = ({ data, location }) => {
               <CoreFourCard data={item} />
             </Grid>
           ))}
-        </Grid>
-
-        <Grid container justifyContent="center" mt={3}>
-          <StyledButton variant="contained" color="primary" size="large">
-            Load more
-          </StyledButton>
         </Grid>
       </Container>
     </Root>

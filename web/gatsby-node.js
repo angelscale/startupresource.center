@@ -1,6 +1,8 @@
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
 const { initializeApp, cert } = require('firebase-admin/app');
 const { getStorage } = require('firebase-admin/storage');
+const _ = require('lodash');
+
 // const remark = import(`remark`);
 // const html = import(`remark-html`);
 
@@ -176,13 +178,6 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      allCorefour {
-        nodes {
-          id
-          category
-          subcategory
-        }
-      }
     }
   `);
 
@@ -193,7 +188,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const articles = result.data.allArticles.nodes;
   const products = result.data.allProducts.nodes;
-  const corefour = result.data.allCorefour.nodes;
 
   // Create article pages
   articles.forEach((node) => {
@@ -217,16 +211,7 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  // Create CoreFour pages
-  corefour.forEach(async (node) => {
-    createPage({
-      path: `${node.category}/${node.subcategory}/core-four`,
-      component: require.resolve(`./src/templates/core-four.template.jsx`),
-      context: {
-        id: node.id,
-      },
-    });
-  });
+  // _.sortBy(products, ['category', 'subcategory']).forEach((item) => {});
 
   // Create category pages
   navigation.forEach((category) => {
@@ -243,6 +228,14 @@ exports.createPages = async ({ graphql, actions }) => {
       createPage({
         path: `/${category.slug}/${subcategory.slug}`,
         component: require.resolve(`./src/templates/subcategory.template.jsx`),
+        context: {
+          category: category.slug,
+          subcategory: subcategory.slug,
+        },
+      });
+      createPage({
+        path: `/${category.slug}/${subcategory.slug}/core-four`,
+        component: require.resolve(`./src/templates/core-four.template.jsx`),
         context: {
           category: category.slug,
           subcategory: subcategory.slug,
