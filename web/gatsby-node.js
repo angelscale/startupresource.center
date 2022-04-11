@@ -8,6 +8,10 @@ const _ = require('lodash');
 
 const { navigation } = require('./src/navigation');
 
+const firebaseAdminCredentials = JSON.parse(
+  process.env.FIREBASE_ADMIN_CREDENTIALS,
+);
+
 const firebaseConfig = {
   apiKey: 'AIzaSyC6O3jawP6T71_CE1SX76iMmvo-TuzE6oI',
   authDomain: 'startupresourcecenter.firebaseapp.com',
@@ -17,7 +21,7 @@ const firebaseConfig = {
   messagingSenderId: '245708595165',
   appId: '1:245708595165:web:28b476cc67ce4aa26e6034',
   measurementId: 'G-PJ0S60P5TT',
-  credential: cert(process.env.FIREBASE_ADMIN_CREDENTIALS),
+  credential: cert(firebaseAdminCredentials),
 };
 
 const firebaseAdmin = initializeApp(firebaseConfig);
