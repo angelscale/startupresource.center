@@ -62,7 +62,7 @@ jobs:
             ${{ runner.os }}-web-
       - name: Add Firebase Admin Secret
         working-directory: web
-        run: echo ${{ secrets.FIREBASE_ADMIN_CREDENTIALS }} > credentials.json
+        run: printf ${{ secrets.FIREBASE_ADMIN_CREDENTIALS }} > credentials.json
       - name: Prepare Dependencies
         working-directory: web
         run: yarn install
