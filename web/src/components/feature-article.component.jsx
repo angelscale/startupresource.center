@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { getImage, GatsbyImage } from 'gatsby-plugin-image';
-import { styled, Box, Container, Typography, Hidden } from '@mui/material';
+import { styled, Box, Typography, Hidden } from '@mui/material';
 import { convertToBgImage } from 'gbimage-bridge';
 import BackgroundImage from 'gatsby-background-image';
 import { Swiper, SwiperSlide } from 'swiper/react';

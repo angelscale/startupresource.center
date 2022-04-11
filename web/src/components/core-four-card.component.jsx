@@ -1,11 +1,11 @@
 import React from 'react';
-import ImageGallery from 'react-image-gallery';
+// import ImageGallery from 'react-image-gallery';
 
 import makeStyles from '@mui/styles/makeStyles';
-import { Grid, Button, Typography, Box, styled } from '@mui/material';
-import LaunchIcon from '@mui/icons-material/Launch';
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import { Grid, Typography, Box, styled } from '@mui/material';
+// import LaunchIcon from '@mui/icons-material/Launch';
+// import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+// import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 
 // [`& .${classes.img_wrapper}`]: {
@@ -85,7 +85,7 @@ const CoreFourCard = ({ data }) => {
     <Box className={classes.root}>
       <Grid container alignItems="flex-start">
         <Grid item xs={6}>
-          <a href={'#'} target="_blank">
+          <a href={'#'} target="_blank" rel="noreferrer">
             <Logo image={getImage(data.logoImage)} alt={data.name} />
           </a>
         </Grid>

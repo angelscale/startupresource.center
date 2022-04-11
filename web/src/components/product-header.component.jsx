@@ -192,7 +192,7 @@ const ProductHeader = ({ logoImage, name, location, affiliate_link }) => {
       <div className={classes.container}>
         <Grid container className={classes.content} justifyContent="center">
           <Grid item xs={'auto'}>
-            <a href={affiliate_link} target="_blank">
+            <a href={affiliate_link} target="_blank" rel="noreferrer">
               <GatsbyImage
                 image={logo}
                 alt={name}
@@ -203,7 +203,7 @@ const ProductHeader = ({ logoImage, name, location, affiliate_link }) => {
           </Grid>
           <Grid item xs={12} sm className={classes.info_wrapper}>
             <div>
-              <a href={affiliate_link} target="_blank">
+              <a href={affiliate_link} target="_blank" rel="noreferrer">
                 <Typography variant="h2" className={classes.title}>
                   {name}
                 </Typography>

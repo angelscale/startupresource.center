@@ -1,5 +1,13 @@
 import React from 'react';
-import { Box, Container, Typography, IconButton, List, ListItem, styled } from '@mui/material';
+import {
+  Box,
+  Container,
+  Typography,
+  IconButton,
+  List,
+  ListItem,
+  styled,
+} from '@mui/material';
 import {
   Facebook,
   Twitter,
@@ -9,7 +17,6 @@ import {
 } from '@mui/icons-material';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import { MenuGroup } from 'components';
 
 const PREFIX = 'Footer';
 
@@ -19,17 +26,12 @@ const classes = {
   logoImage: `${PREFIX}-logoImage`,
   navigationContainer: `${PREFIX}-navigationContainer`,
   subNavigationContainer: `${PREFIX}-subNavigationContainer`,
-  menuGroupItem: `${PREFIX}-menuGroupItem`,
   socialContainer: `${PREFIX}-socialContainer`,
   copyright: `${PREFIX}-copyright`,
-  otherNavigation: `${PREFIX}-otherNavigation`
+  otherNavigation: `${PREFIX}-otherNavigation`,
 };
 
-const Root = styled('div')((
-  {
-    theme
-  }
-) => ({
+const Root = styled('div')(({ theme }) => ({
   [`&.${classes.root}`]: {
     background: theme.palette.alternate.main,
     width: '100%',
@@ -84,12 +86,6 @@ const Root = styled('div')((
     },
   },
 
-  [`& .${classes.menuGroupItem}`]: {
-    margin: 0,
-    padding: 0,
-    paddingLeft: theme.spacing(2),
-  },
-
   [`& .${classes.socialContainer}`]: {
     display: 'flex',
     justifyContent: 'center',
@@ -117,11 +113,10 @@ const Root = styled('div')((
       color: theme.palette.text.primary,
       marginRight: theme.spacing(2),
     },
-  }
+  },
 }));
 
 const Footer = ({ navigation, socialMedia }) => {
-
   const data = useStaticQuery(graphql`
     query FooterNewQuery {
       site {
@@ -176,11 +171,6 @@ const Footer = ({ navigation, socialMedia }) => {
                   disableGutters
                 >
                   <Link to={`/${slug}`}>{title}</Link>
-                  {/* <MenuGroup
-                    categorySlug={slug}
-                    subCategories={subCategories}
-                    classes={classes}
-                  /> */}
                 </ListItem>
               ))}
             </List>

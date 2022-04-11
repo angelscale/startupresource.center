@@ -2,14 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 
-import {
-  Typography,
-  Badge,
-  Grid,
-  Button,
-  useMediaQuery,
-  styled,
-} from '@mui/material';
+import { Typography, Badge, Grid, useMediaQuery, styled } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 // components
@@ -53,14 +46,6 @@ const BlogContent = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   height: '100%',
-}));
-
-const StyledButton = styled(Button)(({ theme }) => ({
-  minWidth: '100%',
-  maxWidth: '100%',
-  [theme.breakpoints.up('sm')]: {
-    minWidth: 420,
-  },
 }));
 
 const Title = styled(Typography)({

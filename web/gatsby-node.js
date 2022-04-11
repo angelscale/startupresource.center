@@ -1,7 +1,7 @@
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
 const { initializeApp, cert } = require('firebase-admin/app');
 const { getStorage } = require('firebase-admin/storage');
-const _ = require('lodash');
+// const _ = require('lodash');
 
 // const remark = import(`remark`);
 // const html = import(`remark-html`);
