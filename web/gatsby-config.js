@@ -38,7 +38,6 @@ module.exports = {
     },
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-force-trailing-slashes`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-material-ui`,
     `gatsby-plugin-react-helmet`,
@@ -102,4 +101,5 @@ module.exports = {
     },
   ],
   siteMetadata: siteMetadata,
+  trailingSlash: 'always',
 };
