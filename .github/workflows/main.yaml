@@ -61,6 +61,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-web-
       - name: Add Firebase Admin Secret
+        shell: bash
         working-directory: web
         run: printf ${{ secrets.FIREBASE_ADMIN_CREDENTIALS }} > credentials.json
       - name: Prepare Dependencies
