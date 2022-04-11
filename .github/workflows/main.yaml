@@ -60,15 +60,13 @@ jobs:
           key: ${{ runner.os }}-web-${{ hashFiles('web/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-web-
-      - name: Add Firebase Admin Secret
-        shell: bash
-        working-directory: web
-        run: printf ${{ secrets.FIREBASE_ADMIN_CREDENTIALS }} > credentials.json
       - name: Prepare Dependencies
         working-directory: web
         run: yarn install
       - name: Build
         working-directory: web
+        env:
+          FIREBASE_ADMIN_CREDENTIALS: ${{ secrets.FIREBASE_ADMIN_CREDENTIALS }}
         run: yarn build
       - name: Upload Artifact
         uses: actions/upload-artifact@v2

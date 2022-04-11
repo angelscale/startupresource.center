@@ -1,8 +1,4 @@
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
-
-const firebaseCredentials = require(`./credentials.json`);
+require('dotenv').config();
 
 let siteMetadata = {
   title: `Startup Resource Center`,
@@ -94,7 +90,7 @@ module.exports = {
       resolve: `gatsby-source-firestore-easy`,
       options: {
         adminCredential: {
-          credential: firebaseCredentials,
+          credential: process.env.FIREBASE_ADMIN_CREDENTIALS,
         },
         collections: ['articles', 'products', 'corefour'],
       },
