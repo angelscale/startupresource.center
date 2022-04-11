@@ -2,15 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 
-import {
-  Typography,
-  styled,
-  // Box,
-  Grid,
-  useMediaQuery,
-  Button,
-  SvgIcon,
-} from '@mui/material';
+import { Typography, Badge, Grid, useMediaQuery, styled } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 // components
@@ -18,10 +10,7 @@ import {
   Breadcrumb,
   Container,
   Section,
-  // SectionHeader,
-  CardBase,
   CardBlog,
-  DescriptionListIcon,
   CoreFourCard,
   FeatureArticle,
   LearnMoreLink,
@@ -59,17 +48,17 @@ const BlogContent = styled('div')(({ theme }) => ({
   height: '100%',
 }));
 
-const StyledButton = styled(Button)(({ theme }) => ({
-  minWidth: '100%',
-  maxWidth: '100%',
-  [theme.breakpoints.up('sm')]: {
-    minWidth: 420,
-  },
-}));
-
 const Title = styled(Typography)({
   textTransform: 'capitalize',
 });
+
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    right: 31,
+    top: 13,
+    padding: '0 4px',
+  },
+}));
 
 // const CategoryCard = styled(CardBase)(({ theme }) => ({
 //   borderRadius: theme.spacing(2),

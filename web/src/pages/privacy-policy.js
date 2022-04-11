@@ -11,14 +11,16 @@ const termlyData = (d, s, id) => {
 };
 
 const PrivacyPolicy = () => {
-  termlyData(document, 'script', 'termly-jssdk');
-  return (
-    <div
-      name="termly-embed"
-      data-id="7b91ebc0-d1c0-4340-843a-f71ad086b064"
-      data-type="iframe"
-    />
-  );
+  if (typeof document !== 'undefined') {
+    termlyData(document, 'script', 'termly-jssdk');
+    return (
+      <div
+        name="termly-embed"
+        data-id="7b91ebc0-d1c0-4340-843a-f71ad086b064"
+        data-type="iframe"
+      />
+    );
+  } else return null;
 };
 
 export default PrivacyPolicy;
