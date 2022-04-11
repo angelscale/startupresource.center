@@ -9,10 +9,10 @@ import {
   performAlgoliaTextSearch,
 } from '@camberi/firecms';
 
-import { getAuth, connectAuthEmulator } from 'firebase/auth';
-import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
-import { getFunctions, connectFunctionsEmulator } from 'firebase/functions';
-import { getStorage, connectStorageEmulator } from 'firebase/storage';
+// import { getAuth, connectAuthEmulator } from 'firebase/auth';
+// import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
+// import { getFunctions, connectFunctionsEmulator } from 'firebase/functions';
+// import { getStorage, connectStorageEmulator } from 'firebase/storage';
 import { getAnalytics } from 'firebase/analytics';
 
 import {
