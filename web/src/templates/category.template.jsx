@@ -1,8 +1,6 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
-import { getImage, GatsbyImage } from 'gatsby-plugin-image';
-
-import { Typography, Badge, Grid, useMediaQuery, styled } from '@mui/material';
+import { graphql } from 'gatsby';
+import { Typography, Grid, useMediaQuery, styled } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 // components
@@ -10,21 +8,17 @@ import {
   Breadcrumb,
   Container,
   Section,
-  CardBlog,
-  CoreFourCard,
+  ArticleCard,
+  ProductCard,
   FeatureArticle,
-  LearnMoreLink,
 } from 'components';
-
-// import { navigation } from 'navigation';
-import { products as mockProducts } from './data';
 
 // Styles
 const Root = styled('div')({
   margin: '0 auto',
 });
 
-const StyledCardBlog = styled(CardBlog)(({ theme }) => ({
+const StyledArticleCard = styled(ArticleCard)(({ theme }) => ({
   height: '100%',
   borderRadius: theme.spacing(1),
   '& .card-blog__content': {
@@ -33,32 +27,9 @@ const StyledCardBlog = styled(CardBlog)(({ theme }) => ({
   },
 }));
 
-const BlogMedia = styled(GatsbyImage)(({ theme }) => ({
-  width: '100%',
-  height: '100%',
-  [`& img`]: {
-    objectFit: 'cover',
-    borderRadius: theme.spacing(0, 0, 20, 0),
-  },
-}));
-
-const BlogContent = styled('div')(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  height: '100%',
-}));
-
 const Title = styled(Typography)({
   textTransform: 'capitalize',
 });
-
-const StyledBadge = styled(Badge)(({ theme }) => ({
-  '& .MuiBadge-badge': {
-    right: 31,
-    top: 13,
-    padding: '0 4px',
-  },
-}));
 
 // const CategoryCard = styled(CardBase)(({ theme }) => ({
 //   borderRadius: theme.spacing(2),
@@ -99,14 +70,56 @@ const CategoryTemplate = ({ data, location, pageContext }) => {
         )
       : data.allArticles.nodes;
 
-  const FeaturedCheck = ({ item, children }) =>
-    item.status === 'featured' ? (
-      <StyledBadge badgeContent="Featured" color="primary">
-        {children}
-      </StyledBadge>
-    ) : (
-      <>{children}</>
+  const publishedProducts =
+    process.env.NODE_ENV === 'production'
+      ? data.allProducts.nodes.filter(
+          (node) => node.status === 'published' || node.status === 'featured',
+        )
+      : data.allProducts.nodes;
+
+  console.log('Articles: ', publishedArticles.length, publishedArticles);
+  console.log('Products: ', publishedProducts.length, publishedProducts);
+
+  const groupedCards = [];
+  let i = 0,
+    j = 0;
+  while (publishedArticles.length > 0 || publishedProducts.length > 0) {
+    groupedCards.push(
+      <React.Fragment key={`${i}-${j}`}>
+        <Grid container item xs={12} key={`${i++}-articles`} data-aos="fade-up">
+          <Grid item xs={12} md={4} data-aos="fade-up">
+            <StyledArticleCard
+              withShadow
+              liftUp
+              data={publishedArticles.pop()}
+            />
+          </Grid>
+          <Grid item xs={12} md={4} data-aos="fade-up">
+            <StyledArticleCard
+              withShadow
+              liftUp
+              data={publishedArticles.pop()}
+            />
+          </Grid>
+          <Grid item xs={12} md={4} data-aos="fade-up">
+            <StyledArticleCard
+              withShadow
+              liftUp
+              data={publishedArticles.pop()}
+            />
+          </Grid>
+        </Grid>
+        <Grid container item xs={12} key={`${j++}-products`} data-aos="fade-up">
+          <Grid item xs={12} md={6} data-aos="fade-up">
+            <ProductCard data={publishedProducts.pop()} />
+          </Grid>
+          <Grid item xs={12} md={6} data-aos="fade-up">
+            <ProductCard data={publishedProducts.pop()} />
+          </Grid>
+        </Grid>
+      </React.Fragment>,
     );
+  }
 
   return (
     <Root>
@@ -160,58 +173,7 @@ const CategoryTemplate = ({ data, location, pageContext }) => {
       {/* Articles */}
       <Container>
         <Grid container spacing={isMd ? 4 : 2}>
-          {publishedArticles.slice(0, 3).map((item, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index} data-aos="fade-up">
-              <FeaturedCheck item={item}>
-                <StyledCardBlog
-                  withShadow
-                  liftUp
-                  mediaContent={
-                    <Link
-                      to={`/${item.category}/${item.subcategory}/${item.fields.slug}`}
-                    >
-                      <BlogMedia
-                        image={getImage(item.headerImage)}
-                        alt={item.name}
-                      />
-                    </Link>
-                  }
-                  cardContent={
-                    <BlogContent>
-                      <Link
-                        to={`/${item.category}/${item.subcategory}/${item.fields.slug}`}
-                      >
-                        <Typography
-                          variant="h6"
-                          color="textPrimary"
-                          gutterBottom
-                        >
-                          {item.name}
-                        </Typography>
-                      </Link>
-                      <Typography variant="body1" color="textSecondary">
-                        {item.excerpt}
-                      </Typography>
-
-                      <LearnMoreLink
-                        title="Read More"
-                        to={`/${item.category}/${item.subcategory}/${item.fields.slug}`}
-                        typographyProps={{ variant: 'h6' }}
-                      />
-                    </BlogContent>
-                  }
-                />
-              </FeaturedCheck>
-            </Grid>
-          ))}
-        </Grid>
-
-        <Grid container spacing={isMd ? 4 : 2} mt={1}>
-          {mockProducts.slice(0, 2).map((item, index) => (
-            <Grid item xs={12} sm={6} key={index} data-aos="fade-up">
-              <CoreFourCard data={item} />
-            </Grid>
-          ))}
+          {groupedCards}
         </Grid>
       </Container>
     </Root>
@@ -241,6 +203,7 @@ export const categoryPageQuery = graphql`
               layout: FULL_WIDTH
               placeholder: BLURRED
               formats: [AUTO, WEBP, AVIF]
+              transformOptions: { cropFocus: ATTENTION }
             )
           }
         }
@@ -255,8 +218,19 @@ export const categoryPageQuery = graphql`
         status
         category
         subcategory
+        description
         fields {
           slug
+        }
+        logoImage {
+          childImageSharp {
+            gatsbyImageData(
+              layout: CONSTRAINED
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+              transformOptions: { fit: COVER }
+            )
+          }
         }
       }
     }

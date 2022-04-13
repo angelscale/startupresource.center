@@ -10,8 +10,8 @@ import {
   Breadcrumb,
   Container,
   Section,
-  CardBlog,
-  CoreFourCard,
+  ArticleCard,
+  ProductCard,
   FeatureArticle,
   LearnMoreLink,
 } from 'components';
@@ -24,7 +24,7 @@ const Root = styled('div')({
   margin: '0 auto',
 });
 
-const StyledCardBlog = styled(CardBlog)(({ theme }) => ({
+const StyledArticleCard = styled(ArticleCard)(({ theme }) => ({
   height: '100%',
   borderRadius: theme.spacing(1),
   '& .card-blog__content': {
@@ -164,7 +164,7 @@ const CategoryTemplate = ({ data, location, pageContext }) => {
           {publishedArticles.slice(0, 3).map((item, index) => (
             <Grid item xs={12} sm={6} md={4} key={index} data-aos="fade-up">
               <FeaturedCheck item={item}>
-                <StyledCardBlog
+                <StyledArticleCard
                   withShadow
                   liftUp
                   mediaContent={
@@ -210,7 +210,7 @@ const CategoryTemplate = ({ data, location, pageContext }) => {
         <Grid container spacing={isMd ? 4 : 2} mt={1}>
           {mockProducts.slice(0, 2).map((item, index) => (
             <Grid item xs={12} sm={6} key={index} data-aos="fade-up">
-              <CoreFourCard data={item} />
+              <ProductCard data={item} />
             </Grid>
           ))}
         </Grid>

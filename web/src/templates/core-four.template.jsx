@@ -9,7 +9,7 @@ import {
   SectionHeader,
   Section,
   HeroShaped,
-  CoreFourCard,
+  ProductCard,
   Breadcrumb,
   Container,
 } from 'components';
@@ -99,7 +99,7 @@ const CoreFourTemplate = ({ data, location }) => {
           <Grid container spacing={4}>
             {data.allProducts.nodes.map((product, i) => (
               <Grid item xs={12} md={6} key={i}>
-                <CoreFourCard data={product} />
+                <ProductCard data={product} />
               </Grid>
             ))}
           </Grid>

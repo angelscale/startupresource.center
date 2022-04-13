@@ -6,7 +6,7 @@ import { convertToBgImage } from 'gbimage-bridge';
 import BackgroundImage from 'gatsby-background-image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper';
-import { CardBlog, LearnMoreLink } from 'components';
+import { ArticleCard, LearnMoreLink } from 'components';
 
 const FeatureArticleContainer = styled(Box)({
   width: '100%',
@@ -45,7 +45,7 @@ const StyledSwiper = styled(Swiper)({
   overflow: 'hidden',
 });
 
-const StyledCardBlog = styled(CardBlog)(({ theme }) => ({
+const StyledArticleCard = styled(ArticleCard)(({ theme }) => ({
   height: '100%',
   borderRadius: theme.spacing(1),
   '& .card-blog__content': {
@@ -100,7 +100,7 @@ const FeatureArticle = ({ items }) => {
               </FeatureContent>
             </Hidden>
             <Hidden smUp>
-              <StyledCardBlog
+              <StyledArticleCard
                 mediaContent={
                   <Link
                     to={`/${item.category}/${item.subcategory}/${item.fields.slug}`}
