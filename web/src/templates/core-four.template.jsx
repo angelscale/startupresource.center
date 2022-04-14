@@ -63,6 +63,10 @@ const CoreFourTemplate = ({ data, location }) => {
   console.log(data);
   const classes = useStyles();
 
+  if (!data) {
+    return null;
+  }
+
   return (
     <Root>
       <Breadcrumb location={location} />
@@ -122,6 +126,9 @@ export const coreFourQuery = graphql`
         status
         category
         subcategory
+        fields {
+          slug
+        }
         logoImage {
           childImageSharp {
             gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
