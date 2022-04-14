@@ -135,20 +135,20 @@ exports.navigation = [
   //   title: 'Lifestyle',
   //   slug: 'lifestyle',
   // },
-  {
-    title: 'Startup Training',
-    slug: 'startup-training',
-    subCategories: [
-      {
-        title: 'Training Resources',
-        slug: 'training-resources',
-      },
-      {
-        title: 'SRC Consulting',
-        slug: 'src-consulting',
-      },
-    ],
-  },
+  // {
+  //   title: 'Startup Training',
+  //   slug: 'startup-training',
+  //   subCategories: [
+  //     {
+  //       title: 'Training Resources',
+  //       slug: 'training-resources',
+  //     },
+  //     {
+  //       title: 'SRC Consulting',
+  //       slug: 'src-consulting',
+  //     },
+  //   ],
+  // },
 ];
 
 exports.socialMedia = {
