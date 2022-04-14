@@ -1,183 +1,248 @@
-const { paginate } = require(`gatsby-awesome-pagination`);
-const _ = require(`lodash`);
+const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
+const { initializeApp, cert } = require('firebase-admin/app');
+const { getStorage } = require('firebase-admin/storage');
+// const _ = require('lodash');
 
-const { navigation } = require(`./src/layouts/navigation`);
+// const remark = import(`remark`);
+// const html = import(`remark-html`);
 
-// mockup products
-const products = [
-  {
-    slug: 'constant-contact',
-  },
-  {
-    slug: 'routee',
-  },
-  {
-    slug: 'bitrix24',
-  },
-];
+const { navigation } = require('./src/navigation');
 
-/**
- * Here is the place where Gatsby creates the URLs for all the
- * posts, tags, pages and authors that we fetched from the Ghost site.
- */
+const firebaseAdminCredentials = JSON.parse(
+  process.env.FIREBASE_ADMIN_CREDENTIALS,
+);
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyC6O3jawP6T71_CE1SX76iMmvo-TuzE6oI',
+  authDomain: 'startupresourcecenter.firebaseapp.com',
+  databaseURL: 'https://startupresourcecenter-default-rtdb.firebaseio.com',
+  projectId: 'startupresourcecenter',
+  storageBucket: 'startupresourcecenter.appspot.com',
+  messagingSenderId: '245708595165',
+  appId: '1:245708595165:web:28b476cc67ce4aa26e6034',
+  measurementId: 'G-PJ0S60P5TT',
+  credential: cert(firebaseAdminCredentials),
+};
+
+const firebaseAdmin = initializeApp(firebaseConfig);
+const storage = getStorage(firebaseAdmin);
+
+const createImageNodesFromStorage = async ({
+  images,
+  node,
+  createNode,
+  createNodeId,
+  getCache,
+}) => {
+  const expiration = new Date();
+  expiration.setMinutes(expiration.getMinutes() + 5);
+
+  const processedImages = {};
+  await Promise.all(
+    images.map(async ({ id, image }) =>
+      storage
+        .bucket()
+        .file(image)
+        .getSignedUrl({
+          action: 'read',
+          expires: expiration.toString(),
+        })
+        .then(async (imageURL) => {
+          return createRemoteFileNode({
+            url: imageURL[0],
+            parentNodeId: node.id,
+            createNode,
+            createNodeId,
+            getCache,
+            name: id,
+          }).then((imageFileNode) => {
+            processedImages[id] = imageFileNode.id;
+          });
+        })
+        .catch((error) => console.log(error)),
+    ),
+  );
+  return processedImages;
+};
+
+exports.onCreateNode = async ({
+  node,
+  actions: { createNode, createNodeField },
+  createNodeId,
+  getCache,
+}) => {
+  // Create slugs
+  if (node.internal.type === 'articles' || node.internal.type === 'products') {
+    createNodeField({
+      node,
+      name: 'slug',
+      value: node.name.replace(/[^A-Z0-9]+/gi, '-'),
+    });
+
+    // Process Images
+    const logo_image = node.logo ? [{ id: 'logo', image: node.logo }] : [];
+    const header_image = node.header_image
+      ? [{ id: 'header', image: node.header_image }]
+      : [];
+    const images_arr = node.images
+      ? node.images.map((image, index) => ({
+          id: `image${index + 1}`,
+          image,
+        }))
+      : [];
+    const images = await createImageNodesFromStorage({
+      images: [...header_image, ...logo_image, ...images_arr],
+      node,
+      createNode,
+      createNodeId,
+      getCache,
+      createNodeField,
+    });
+
+    createNodeField({
+      node,
+      name: 'images',
+      value: images,
+    });
+  }
+};
+
+// exports.createSchemaCustomization = ({ actions }) => {
+//   const { createResolverContext } = actions;
+//   const getHtml = (md) => remark().use(html).process(md);
+//   createResolverContext({ getHtml });
+// };
+
+// exports.createSchemaCustomization = ({ actions: { createTypes }, schema }) => {
+//   createTypes(
+//     schema.buildObjectType({
+//       name: 'products',
+//       interfaces: ['Node'],
+//       fields: {
+//         md: {
+//           type: 'String!',
+//           async resolve(source, args, context, info) {
+//             const processed = await context.transformerRemark.getHtml(
+//               source.description,
+//             );
+//             return processed.contents;
+//           },
+//         },
+//       },
+//     }),
+//   );
+// }
+
+exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
+  createTypes(`
+    type products implements Node {
+      logoImage: File @link(from: "fields.images.logo")
+    }
+    type articles implements Node {
+      headerImage: File @link(from: "fields.images.header")
+    }
+  `);
+};
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-
-  // Create Home Page
-  // createPage({
-  //   path: '/',
-  //   component: require.resolve(`./src/templates/home-page.js`),
-  //   context: {},
-  // });
 
   // Create Error Pages
   ['400', '401', '403', '404', '500'].forEach((e) => {
     createPage({
       path: e,
-      component: require.resolve(`./src/templates/_error.js`),
+      component: require.resolve(`./src/templates/error.template.jsx`),
       context: {
         code: e,
       },
     });
   });
 
-  // const result = await graphql(`
-  //   {
-  //     site {
-  //       siteMetadata {
-  //         postsPerPage
-  //       }
-  //     }
-  //     allGhostPost(sort: { order: ASC, fields: published_at }) {
-  //       edges {
-  //         node {
-  //           slug
-  //           tags {
-  //             slug
-  //           }
-  //         }
-  //       }
-  //     }
-  //     allGhostTag {
-  //       edges {
-  //         node {
-  //           slug
-  //           count {
-  //             posts
-  //           }
-  //         }
-  //       }
-  //     }
-  //     allGhostAuthor(sort: { order: ASC, fields: name }) {
-  //       edges {
-  //         node {
-  //           slug
-  //           url
-  //         }
-  //       }
-  //     }
-  //   }
-  // `);
+  const result = await graphql(`
+    {
+      allArticles {
+        nodes {
+          id
+          category
+          subcategory
+          fields {
+            slug
+          }
+        }
+      }
+      allProducts {
+        nodes {
+          id
+          category
+          subcategory
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  `);
 
   // Check for any errors
-  // if (result.errors) {
-  //   throw new Error(result.errors);
-  // }
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
 
-  // Extract query results
-  // const tags = result.data.allGhostTag.edges;
-  // const authors = result.data.allGhostAuthor.edges;
-  // const posts = result.data.allGhostPost.edges;
-  // const postsPerPage = result.data.site.siteMetadata.postsPerPage;
-
-  // Create tag pages
-  // Object.keys(navigation).forEach((category) => {
-  //   if (!navigation[category].href) {
-  //     const categoryPostCount = Object.values(navigation[category].tags).reduce(
-  //       (accumulator, currentValue) =>
-  //         accumulator +
-  //         (tags[currentValue.id] ? tags[currentValue.id].postCount : 0),
-  //     );
-  //     paginate({
-  //       createPage,
-  //       items: Array.from({ length: categoryPostCount || 0 }),
-  //       itemsPerPage: postsPerPage,
-  //       component: require.resolve(
-  //         `./src/templates/blog-category.template.jsx`,
-  //       ),
-  //       pathPrefix: ({ pageNumber }) =>
-  //         pageNumber === 0 ? category : `${category}/page`,
-  //       context: {
-  //         category: category,
-  //         tags: Object.keys(navigation[category].tags),
-  //       },
-  //     });
-  //     Object.keys(navigation[category].tags).forEach((tag) => {
-  //       paginate({
-  //         createPage,
-  //         items: Array.from({ length: tags[tag] ? tags[tag].postCount : 0 }),
-  //         itemsPerPage: postsPerPage,
-  //         component: require.resolve(`./src/templates/blog-tag.template.jsx`),
-  //         pathPrefix: ({ pageNumber }) =>
-  //           pageNumber === 0 ? `${category}/${tag}` : `${category}/${tag}/page`,
-  //         context: {
-  //           category: category,
-  //           tag: tag,
-  //         },
-  //       });
-  //     });
-  //   }
-  // });
-
-  // Create author pages
-  // authors.forEach(({ node }) => {
-  //   const totalPosts = node.postCount !== null ? node.postCount : 0;
-
-  //   // This part here defines, that our author pages will use
-  //   // a `/author/:slug/` permalink.
-  //   const url = `/author/${node.slug}`;
-
-  //   const items = Array.from({ length: totalPosts });
-
-  //   paginate({
-  //     createPage,
-  //     items: items,
-  //     itemsPerPage: postsPerPage,
-  //     component: require.resolve(`./src/templates/author.js`),
-  //     pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? url : `${url}/page`),
-  //     context: {
-  //       slug: node.slug,
-  //     },
-  //   });
-  // });
+  const articles = result.data.allArticles.nodes;
+  const products = result.data.allProducts.nodes;
 
   // Create article pages
-  // posts.forEach(({ node }) => {
-  //   const tags = _.map(node.tags, 'slug');
-  //   const type = tags.includes('hash-article')
-  //     ? 'article'
-  //     : tags.includes('hash-review')
-  //     ? 'review'
-  //     : tags.includes('hash-overview')
-  //     ? 'overview'
-  //     : 'unknown';
-  //   createPage({
-  //     path: `/${type}/${node.slug}`,
-  //     component: require.resolve(`./src/templates/blog-article.js`),
-  //     context: {
-  //       slug: node.slug,
-  //     },
-  //   });
-  // });
+  articles.forEach((node) => {
+    createPage({
+      path: `${node.category}/${node.subcategory}/${node.fields.slug}`,
+      component: require.resolve(`./src/templates/article.template.jsx`),
+      context: {
+        id: node.id,
+      },
+    });
+  });
 
-  // Create product page
-  // products.forEach((item) => {
-  //   createPage({
-  //     path: `/product/${item.slug}`,
-  //     component: require.resolve(`./src/templates/product.template.jsx`),
-  //     context: {
-  //       slug: item.slug,
-  //     },
-  //   });
-  // });
+  // Create product pages
+  products.forEach(async (node) => {
+    createPage({
+      path: `${node.category}/${node.subcategory}/core-four/${node.fields.slug}`,
+      component: require.resolve(`./src/templates/product.template.jsx`),
+      context: {
+        id: node.id,
+      },
+    });
+  });
+
+  // _.sortBy(products, ['category', 'subcategory']).forEach((item) => {});
+
+  // Create category pages
+  navigation.forEach((category) => {
+    createPage({
+      path: `/${category.slug}`,
+      component: require.resolve(`./src/templates/category.template.jsx`),
+      context: {
+        category: category.slug,
+      },
+    });
+
+    // Create subcategory pages
+    category.subCategories.forEach((subcategory) => {
+      createPage({
+        path: `/${category.slug}/${subcategory.slug}`,
+        component: require.resolve(`./src/templates/category.template.jsx`),
+        context: {
+          category: category.slug,
+          subcategory: subcategory.slug,
+        },
+      });
+      createPage({
+        path: `/${category.slug}/${subcategory.slug}/core-four`,
+        component: require.resolve(`./src/templates/core-four.template.jsx`),
+        context: {
+          category: category.slug,
+          subcategory: subcategory.slug,
+        },
+      });
+    });
+  });
 };

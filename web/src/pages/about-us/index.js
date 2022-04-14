@@ -1,10 +1,12 @@
 import React from 'react';
-import Main from 'layouts/Main';
-import WithLayout from 'WithLayout';
-import AboutUsView from 'views/about-us.view';
+import AboutUsContent from 'contents/AboutUsContent';
 
-const AboutUs = () => {
-  return <WithLayout component={AboutUsView} layout={Main} />;
+const AboutUsPage = () => {
+  return (
+    <div>
+      <AboutUsContent />
+    </div>
+  );
 };
 
-export default AboutUs;
+export default AboutUsPage;
