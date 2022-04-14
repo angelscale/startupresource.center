@@ -183,9 +183,9 @@ const CategoryTemplate = ({ data, location, pageContext }) => {
 export default CategoryTemplate;
 
 export const categoryPageQuery = graphql`
-  query ($category: String!) {
+  query ($category: String!, $subcategory: String) {
     allArticles(
-      filter: { category: { eq: $category } }
+      filter: { category: { eq: $category }, subcategory: { eq: $subcategory } }
       sort: { fields: create_date, order: ASC }
     ) {
       nodes {
@@ -210,7 +210,7 @@ export const categoryPageQuery = graphql`
       }
     }
     allProducts(
-      filter: { category: { eq: $category } }
+      filter: { category: { eq: $category }, subcategory: { eq: $subcategory } }
       sort: { fields: create_date, order: ASC }
     ) {
       nodes {

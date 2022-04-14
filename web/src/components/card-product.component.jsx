@@ -100,21 +100,6 @@ const LinkText = styled(MUILink)(
 const ProductCard = ({ data }) => {
   const classes = useStyles();
 
-  const content = unified()
-    .use(remarkParse)
-    .use(remarkRehype)
-    .use(rehypeStringify)
-    .use(rehypeReact, {
-      createElement,
-      Fragment,
-      components: {
-        p: Text,
-        li: Itemtext,
-        a: LinkText,
-      },
-    })
-    .processSync(data.description);
-
   if (!data) {
     return null;
   }
@@ -145,7 +130,24 @@ const ProductCard = ({ data }) => {
 
       <Grid container sx={{ mt: 2 }}>
         <Grid item xs={12}>
-          <Box>{content.result}</Box>
+          <Box>
+            {
+              unified()
+                .use(remarkParse)
+                .use(remarkRehype)
+                .use(rehypeStringify)
+                .use(rehypeReact, {
+                  createElement,
+                  Fragment,
+                  components: {
+                    p: Text,
+                    li: Itemtext,
+                    a: LinkText,
+                  },
+                })
+                .processSync(data.description).result
+            }
+          </Box>
         </Grid>
       </Grid>
     </Box>
