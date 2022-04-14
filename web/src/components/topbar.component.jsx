@@ -51,14 +51,10 @@ const classes = {
   search: `${PREFIX}-search`,
   searchIcon: `${PREFIX}-searchIcon`,
   inputRoot: `${PREFIX}-inputRoot`,
-  inputInput: `${PREFIX}-inputInput`
+  inputInput: `${PREFIX}-inputInput`,
 };
 
-const StyledToolbar = styled(Toolbar)((
-  {
-    theme
-  }
-) => ({
+const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   [`& .${classes.spacer}`]: {
     flexGrow: 1,
   },
@@ -235,7 +231,7 @@ const StyledToolbar = styled(Toolbar)((
         width: '20ch',
       },
     },
-  }
+  },
 }));
 
 const Topbar = ({
@@ -247,7 +243,6 @@ const Topbar = ({
   className,
   ...rest
 }) => {
-
   const data = useStaticQuery(graphql`
     query HeaderAltQuery {
       site {
@@ -328,7 +323,7 @@ const Topbar = ({
                 <Button variant="text">About Us</Button>
               </Link>
             </Box>
-            <Box>
+            {/* <Box>
               <div className={classes.search}>
                 <div className={classes.searchIcon}>
                   <SearchIcon />
@@ -342,7 +337,7 @@ const Topbar = ({
                   inputProps={{ 'aria-label': 'search' }}
                 />
               </div>
-            </Box>
+            </Box> */}
           </Box>
           <List disablePadding className={classes.navigationContainer}>
             {navigation.map(({ slug, title }) => (
