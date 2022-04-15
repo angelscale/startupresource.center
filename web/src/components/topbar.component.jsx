@@ -264,15 +264,17 @@ const Topbar = ({
   return (
     <StyledToolbar disableGutters className={classes.toolbar} {...rest}>
       <Box className={classes.logoContainer}>
-        <a href="/" title={data.site.siteMetadata.title}>
+        <Link to="/" title={data.site.siteMetadata.title}>
           <StaticImage
             className={classes.logoImage}
             src="../assets/images/StartupResourceCenter.png"
             alt={data.site.siteMetadata.title}
             loading="eager"
             layout="constrained"
+            backgroundColor="transparent"
+            placeholder="none"
           />
-        </a>
+        </Link>
       </Box>
       <Box className={classes.navigation}>
         <Hidden mdDown>
