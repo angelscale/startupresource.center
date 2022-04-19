@@ -13,19 +13,16 @@ const classes = {
   folioTitle: `${PREFIX}-folioTitle`,
   folioSubtitle: `${PREFIX}-folioSubtitle`,
   folioIcon: `${PREFIX}-folioIcon`,
-  gridContainer: `${PREFIX}-gridContainer`
+  gridContainer: `${PREFIX}-gridContainer`,
 };
 
-const Root = styled('div')((
-  {
-    theme
-  }
-) => ({
+const Root = styled('div')(({ theme }) => ({
   [`& .${classes.folioItem}`]: {
     position: 'relative',
     overflow: 'hidden',
     boxShadow: `0 1.5rem 4rem rgba(22,28,45,.05)`,
     borderRadius: theme.spacing(2),
+    height: '100%',
   },
 
   [`& .${classes.image}`]: {
@@ -61,12 +58,11 @@ const Root = styled('div')((
     [theme.breakpoints.up('lg')]: {
       padding: theme.spacing(0),
     },
-  }
+  },
 }));
 
 const ServiceCards = (props) => {
   const { data, className, ...rest } = props;
-
 
   const gridData = data.slice(0, 4);
 

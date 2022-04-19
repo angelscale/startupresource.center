@@ -29,14 +29,10 @@ const classes = {
   fontWeight900: `${PREFIX}-fontWeight900`,
   leftSideContent: `${PREFIX}-leftSideContent`,
   heroShaped: `${PREFIX}-heroShaped`,
-  imageAnimation: `${PREFIX}-imageAnimation`
+  imageAnimation: `${PREFIX}-imageAnimation`,
 };
 
-const Root = styled('div')((
-  {
-    theme
-  }
-) => ({
+const Root = styled('div')(({ theme }) => ({
   [`&.${classes.root}`]: {
     minHeight: '45rem',
     width: '100%',
@@ -60,7 +56,7 @@ const Root = styled('div')((
   },
 
   [`& .${classes.content}`]: {
-    margin: '0 auto',
+    margin: '0 auto 3rem',
     maxWidth: theme.layout.contentWidth,
   },
 
@@ -108,12 +104,10 @@ const Root = styled('div')((
     width: '100%',
     height: '100%',
     backgroundColor: theme.palette.alternate.dark,
-  }
+  },
 }));
 
 const HomePage = () => {
-
-
   return (
     <Root className={classes.root}>
       <HeroShaped
