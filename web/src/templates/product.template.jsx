@@ -6,12 +6,7 @@ import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
 import rehypeReact from 'rehype-react';
 
-import {
-  Typography,
-  ListItemText,
-  styled,
-  Link as MUILink,
-} from '@mui/material';
+import { Typography, styled, Link as MUILink } from '@mui/material';
 
 import { Breadcrumb, ProductHeader } from 'components';
 
@@ -48,18 +43,22 @@ const Text = styled(Typography)(
 `,
 );
 
-const Itemtext = styled(ListItemText)(
+const List = styled('ul')(
   () => `
+  padding-left: 2rem;
+`,
+);
+
+const ListItem = styled('li')(
+  () => `
+    padding-block: 4px;
+
     font-size: .875rem;
     line-height: 1.125rem;
-    font-weight: 600;
+    font-weight: 400;
+
     letter-spacing: 0.4px;
     white-space: pre-line;
-
-    span {
-      all: inherit;
-      margin: 0;
-    }
 `,
 );
 
@@ -82,7 +81,8 @@ const ProductTemplate = ({ data, location }) => {
       Fragment,
       components: {
         p: Text,
-        li: Itemtext,
+        ul: List,
+        li: ListItem,
         a: LinkText,
       },
     })
