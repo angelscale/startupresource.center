@@ -76,11 +76,6 @@ const ProductSchema = buildSchema<Product>({
           : {},
       },
     }),
-    name: {
-      title: 'Name',
-      validation: { required: true },
-      dataType: 'string',
-    },
     logo: ({ entityId }) => ({
       title: 'Logo',
       dataType: 'string',
