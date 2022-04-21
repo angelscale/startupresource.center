@@ -76,7 +76,7 @@ exports.onCreateNode = async ({
     createNodeField({
       node,
       name: 'slug',
-      value: node.name.replace(/[^A-Z0-9]+/gi, '-'),
+      value: node.name.replace(/[^A-Z0-9]+/gi, '-').toLowerCase(),
     });
 
     // Process Images
