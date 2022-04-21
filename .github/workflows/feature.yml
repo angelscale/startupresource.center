@@ -20,9 +20,11 @@ jobs:
         with:
           node-version: 14.x
       - name: Prepare Dependencies
-        run: cd web && yarn install
+        working-directory: web
+        run: yarn install
       - name: Lint
-        run: cd web && yarn lint
+        working-directory: web
+        run: yarn lint
   lint-cms:
     runs-on: ubuntu-latest
     steps:
@@ -33,9 +35,11 @@ jobs:
         with:
           node-version: 14.x
       - name: Prepare Dependencies
-        run: cd cms && yarn install
+        working-directory: cms
+        run: yarn install
       - name: Lint
-        run: cd cms && yarn lint
+        working-directory: cms
+        run: yarn lint
   build-web:
     runs-on: ubuntu-latest
     steps:
@@ -53,13 +57,17 @@ jobs:
             web/.cache/
             web/public/
             web/node_modules/
-          key: ${{ runner.os }}-web-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-web-${{ hashFiles('web/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-web-
       - name: Prepare Dependencies
-        run: cd web && yarn install
+        working-directory: web
+        run: yarn install
       - name: Build
-        run: cd web && yarn build
+        working-directory: web
+        env:
+          FIREBASE_ADMIN_CREDENTIALS: ${{ secrets.FIREBASE_ADMIN_CREDENTIALS }}
+        run: yarn build
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
@@ -91,13 +99,15 @@ jobs:
             cms/.cache/
             cms/build/
             cms/node_modules/
-          key: ${{ runner.os }}-cms-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-cms-${{ hashFiles('cms/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-cms-
       - name: Prepare Dependencies
-        run: cd cms && yarn install
+        working-directory: cms
+        run: yarn install
       - name: Build
-        run: cd cms && yarn build
+        working-directory: cms
+        run: yarn build
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:

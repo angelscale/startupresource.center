@@ -1,4 +1,4 @@
-const path = require(`path`);
+require('dotenv').config();
 
 let siteMetadata = {
   title: `Startup Resource Center`,
@@ -32,10 +32,8 @@ module.exports = {
         enableWebVitalsTracking: true,
       },
     },
-    `gatsby-plugin-top-layout`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-force-trailing-slashes`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-material-ui`,
     `gatsby-plugin-react-helmet`,
@@ -44,13 +42,6 @@ module.exports = {
       resolve: `gatsby-plugin-react-leaflet`,
       options: {
         linkStyles: true, // (default: true) Enable/disable loading stylesheets via CDN
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: path.join(__dirname, `src`, `assets`, `images`),
-        name: `images`,
       },
     },
     `gatsby-plugin-image`,
@@ -90,11 +81,21 @@ module.exports = {
         web: [
           {
             name: 'Lato',
-            file: 'https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap',
+            file: 'https://fonts.googleapis.com/css?family=Lato:300,400,500,700&display=swap',
           },
         ],
       },
     },
+    {
+      resolve: `gatsby-source-firestore-easy`,
+      options: {
+        adminCredential: {
+          credential: process.env.FIREBASE_ADMIN_CREDENTIALS,
+        },
+        collections: ['articles', 'products', 'corefour'],
+      },
+    },
   ],
   siteMetadata: siteMetadata,
+  trailingSlash: 'always',
 };
