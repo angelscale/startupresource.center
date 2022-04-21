@@ -76,20 +76,20 @@ const ProductSchema = buildSchema<Product>({
           : {},
       },
     }),
-    logo: {
+    logo: ({ entityId }) => ({
       title: 'Logo',
       dataType: 'string',
       config: {
         storageMeta: {
           mediaType: 'image',
-          storagePath: 'images/products',
+          storagePath: `images/products/${entityId}`,
           acceptedFiles: ['image/*'],
           metadata: {
             cacheControl: 'max-age=1000000',
           },
         },
       },
-    },
+    }),
     affiliate: {
       title: 'Affiliate?',
       dataType: 'boolean',
@@ -98,7 +98,7 @@ const ProductSchema = buildSchema<Product>({
       title: 'Affiliate Link',
       dataType: 'string',
     },
-    images: {
+    images: ({ entityId }) => ({
       title: 'Images',
       dataType: 'array',
       of: buildProperty({
@@ -106,7 +106,7 @@ const ProductSchema = buildSchema<Product>({
         config: {
           storageMeta: {
             mediaType: 'image',
-            storagePath: 'images/articles',
+            storagePath: `images/products/${entityId}`,
             acceptedFiles: ['image/*'],
             metadata: {
               cacheControl: 'max-age=1000000',
@@ -114,7 +114,7 @@ const ProductSchema = buildSchema<Product>({
           },
         },
       }),
-    },
+    }),
     description: {
       title: 'Description',
       dataType: 'string',

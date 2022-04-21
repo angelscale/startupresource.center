@@ -11,7 +11,7 @@ navigation.forEach((category: any) => {
   });
 });
 
-type Article = {
+export type Article = {
   status: string;
   category: string;
   subcategory: string;
@@ -27,7 +27,7 @@ type Article = {
   views: number;
 };
 
-const ArticleSchema = buildSchema<Article>({
+export const ArticleSchema = buildSchema<Article>({
   name: 'Article',
   properties: {
     name: {
@@ -80,21 +80,21 @@ const ArticleSchema = buildSchema<Article>({
         path: 'people',
       },
     },
-    header_image: {
+    header_image: ({ entityId }) => ({
       title: 'Header Image',
       dataType: 'string',
       config: {
         storageMeta: {
           mediaType: 'image',
-          storagePath: 'images/articles',
+          storagePath: `images/articles/${entityId}`,
           acceptedFiles: ['image/*'],
           metadata: {
             cacheControl: 'max-age=1000000',
           },
         },
       },
-    },
-    images: {
+    }),
+    images: ({ entityId }) => ({
       title: 'Images',
       dataType: 'array',
       of: buildProperty({
@@ -102,7 +102,7 @@ const ArticleSchema = buildSchema<Article>({
         config: {
           storageMeta: {
             mediaType: 'image',
-            storagePath: 'images/articles',
+            storagePath: `images/articles/${entityId}`,
             acceptedFiles: ['image/*'],
             metadata: {
               cacheControl: 'max-age=1000000',
@@ -110,7 +110,7 @@ const ArticleSchema = buildSchema<Article>({
           },
         },
       }),
-    },
+    }),
     content: {
       title: 'Content',
       dataType: 'string',
@@ -154,5 +154,3 @@ const ArticleSchema = buildSchema<Article>({
     create_date: new Date(),
   },
 });
-
-export default ArticleSchema;
