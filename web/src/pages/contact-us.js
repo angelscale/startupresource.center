@@ -1,10 +1,12 @@
 import React from 'react';
-import Main from 'layouts/Main';
-import WithLayout from 'WithLayout';
-import ContactUsView from 'views/contact-us.view';
+import ContactUsContent from 'contents/ContactUsContent';
 
-const ContactUs = () => {
-  return <WithLayout component={ContactUsView} layout={Main} />;
+const ContactUsPage = () => {
+  return (
+    <div>
+      <ContactUsContent />
+    </div>
+  );
 };
 
-export default ContactUs;
+export default ContactUsPage;
