@@ -72,7 +72,11 @@ exports.onCreateNode = async ({
   getCache,
 }) => {
   // Create slugs
-  if (node.internal.type === 'articles' || node.internal.type === 'products') {
+  if (
+    node.internal.type === 'articles' ||
+    node.internal.type === 'products' ||
+    node.internal.type === 'people'
+  ) {
     createNodeField({
       node,
       name: 'slug',
@@ -84,6 +88,9 @@ exports.onCreateNode = async ({
     const header_image = node.header_image
       ? [{ id: 'header', image: node.header_image }]
       : [];
+    const headshot_image = node.image
+      ? [{ id: 'headshot', image: node.image }]
+      : [];
     const images_arr = node.images
       ? node.images.map((image, index) => ({
           id: `image${index + 1}`,
@@ -91,7 +98,12 @@ exports.onCreateNode = async ({
         }))
       : [];
     const images = await createImageNodesFromStorage({
-      images: [...header_image, ...logo_image, ...images_arr],
+      images: [
+        ...header_image,
+        ...logo_image,
+        ...headshot_image,
+        ...images_arr,
+      ],
       node,
       createNode,
       createNodeId,
@@ -141,6 +153,9 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
     type articles implements Node {
       headerImage: File @link(from: "fields.images.header")
     }
+    type people implements Node {
+      headshotImage: File @link(from: "fields.images.headshot")
+    }
   `);
 };
 
@@ -180,6 +195,14 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allPeople {
+        nodes {
+          id
+          fields {
+            slug
+          }
+        }
+      }
     }
   `);
 
@@ -190,6 +213,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const articles = result.data.allArticles.nodes;
   const products = result.data.allProducts.nodes;
+  const people = result.data.allPeople.nodes;
 
   // Create article pages
   articles.forEach((node) => {
@@ -213,6 +237,16 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
+  // Create person pages
+  people.forEach(async (node) => {
+    createPage({
+      path: `about-us/${node.fields.slug}`,
+      component: require.resolve(`./src/templates/person.template.jsx`),
+      context: {
+        id: node.id,
+      },
+    });
+  });
   // _.sortBy(products, ['category', 'subcategory']).forEach((item) => {});
 
   // Create category pages

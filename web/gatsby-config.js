@@ -44,6 +44,14 @@ module.exports = {
         linkStyles: true, // (default: true) Enable/disable loading stylesheets via CDN
       },
     },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /\.inline\.svg$/,
+        },
+      },
+    },
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-sharp`,
@@ -92,7 +100,7 @@ module.exports = {
         adminCredential: {
           credential: process.env.FIREBASE_ADMIN_CREDENTIALS,
         },
-        collections: ['articles', 'products', 'corefour'],
+        collections: ['articles', 'products', 'corefour', 'people'],
       },
     },
   ],
