@@ -179,7 +179,9 @@ const Footer = ({ navigation, socialMedia }) => {
                 <TermsButton
                   variant="text"
                   onClick={
-                    window !== undefined ? window.displayPreferenceModal : null
+                    typeof window !== 'undefined'
+                      ? window.displayPreferenceModal
+                      : null
                   }
                 >
                   Cookie Preferences
