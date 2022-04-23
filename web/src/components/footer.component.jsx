@@ -178,7 +178,9 @@ const Footer = ({ navigation, socialMedia }) => {
                 </Link>
                 <TermsButton
                   variant="text"
-                  onClick={window.displayPreferenceModal}
+                  onClick={
+                    window !== undefined ? window.displayPreferenceModal : null
+                  }
                 >
                   Cookie Preferences
                 </TermsButton>
