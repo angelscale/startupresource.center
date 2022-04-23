@@ -18,6 +18,7 @@ export { default as Section } from './section.component';
 export { default as SectionHeader } from './section-header.component';
 export { default as SectionLabel } from './section-label.component';
 export { default as TypedText } from './typed-text.component';
+export { default as TermlyEmbed } from './termly-embed.component';
 
 // Complex Components
 export { default as AffiliateDisclosure } from './affiliate-disclosure.component';

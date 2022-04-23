@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Box,
+  Button,
   Container,
   Typography,
   IconButton,
@@ -116,6 +117,10 @@ const Root = styled('div')(({ theme }) => ({
   },
 }));
 
+const TermsButton = styled(Button)({
+  textTransform: 'capitalize',
+});
+
 const Footer = ({ navigation, socialMedia }) => {
   const data = useStaticQuery(graphql`
     query FooterNewQuery {
@@ -153,13 +158,31 @@ const Footer = ({ navigation, socialMedia }) => {
               />
             </Link>
             <Box>
-              <div className={classes.otherNavigation}>
-                <Link to="/terms-conditions">Terms &amp; Conditions</Link>
-                <Link to="/privacy-policy">Privacy Policy</Link>
-              </div>
               <Typography color="textSecondary" className={classes.copyright}>
                 {`Copyright © ${new Date().getFullYear()} Angel Scale LLC`}
               </Typography>
+              <div className={classes.otherNavigation}>
+                <Link to="/terms-conditions">
+                  <TermsButton variant="text">
+                    Terms &amp; Conditions
+                  </TermsButton>
+                </Link>
+                <Link to="/privacy-policy">
+                  <TermsButton variant="text">Privacy Policy</TermsButton>
+                </Link>
+                <Link to="/disclaimer">
+                  <TermsButton variant="text">Disclaimer</TermsButton>
+                </Link>
+                <Link to="/cookie-policy">
+                  <TermsButton variant="text">Cookie Policy</TermsButton>
+                </Link>
+                <TermsButton
+                  variant="text"
+                  onClick={window.displayPreferenceModal}
+                >
+                  Cookie Preferences
+                </TermsButton>
+              </div>
             </Box>
           </Box>
           <Box>
