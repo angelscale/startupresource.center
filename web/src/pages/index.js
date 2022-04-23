@@ -169,21 +169,25 @@ const HomePage = () => {
             {
               icon: <Create />,
               title: 'Plan',
+              slug: '/plan/',
               subtitle: `Got an idea for a business, but don't know where to start? In our Plan section, you'll find everything you need to know to get your business off the ground.`,
             },
             {
               icon: <FlightTakeoff />,
               title: 'Launch',
+              slug: '/launch/',
               subtitle: `In our Launch hub, you'll find everything you need to get your new business running, broken down into easy-to-navigate categories.`,
             },
             {
               icon: <DeviceHub />,
               title: 'Manage',
+              slug: '/manage/',
               subtitle: `Keep your business operating smoothly with our expert advice.`,
             },
             {
               icon: <TrendingUp />,
               title: 'Grow',
+              slug: '/grow/',
               subtitle: `Building your business brand and market it for maximum growth with these tips.`,
             },
           ]}

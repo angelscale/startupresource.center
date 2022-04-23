@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-
+import { Link } from 'gatsby';
 import { Grid, Typography, styled } from '@mui/material';
 
 const PREFIX = 'ServiceCards';
@@ -72,34 +72,36 @@ const ServiceCards = (props) => {
         <Grid container spacing={4} className={classes.gridContainer}>
           {gridData.map((item, index) => (
             <Grid key={index} item xs={12} sm={6} md={6} lg={3}>
-              <div className={classes.folioItem} data-aos="fade-up">
-                <div className={classes.folioIcon}>{item.icon}</div>
-                <div
-                  className={clsx(
-                    'folio__info-wrapper',
-                    classes.folioInfoWrapper,
-                  )}
-                >
-                  <div>
-                    <Typography
-                      variant="h5"
-                      className={classes.folioTitle}
-                      color="textPrimary"
-                      align="center"
-                    >
-                      {item.title}
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      className={classes.folioSubtitle}
-                      color="textSecondary"
-                      align="center"
-                    >
-                      {item.subtitle}
-                    </Typography>
+              <Link to={item.slug}>
+                <div className={classes.folioItem} data-aos="fade-up">
+                  <div className={classes.folioIcon}>{item.icon}</div>
+                  <div
+                    className={clsx(
+                      'folio__info-wrapper',
+                      classes.folioInfoWrapper,
+                    )}
+                  >
+                    <div>
+                      <Typography
+                        variant="h5"
+                        className={classes.folioTitle}
+                        color="textPrimary"
+                        align="center"
+                      >
+                        {item.title}
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        className={classes.folioSubtitle}
+                        color="textSecondary"
+                        align="center"
+                      >
+                        {item.subtitle}
+                      </Typography>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </Grid>
           ))}
         </Grid>
