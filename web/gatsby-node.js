@@ -71,18 +71,11 @@ exports.onCreateNode = async ({
   createNodeId,
   getCache,
 }) => {
-  // Create slugs
   if (
     node.internal.type === 'articles' ||
     node.internal.type === 'products' ||
     node.internal.type === 'people'
   ) {
-    createNodeField({
-      node,
-      name: 'slug',
-      value: node.name.replace(/[^A-Z0-9]+/gi, '-').toLowerCase(),
-    });
-
     // Process Images
     const logo_image = node.logo ? [{ id: 'logo', image: node.logo }] : [];
     const header_image = node.header_image
@@ -180,9 +173,7 @@ exports.createPages = async ({ graphql, actions }) => {
           id
           category
           subcategory
-          fields {
-            slug
-          }
+          slug
         }
       }
       allProducts {
@@ -190,17 +181,13 @@ exports.createPages = async ({ graphql, actions }) => {
           id
           category
           subcategory
-          fields {
-            slug
-          }
+          slug
         }
       }
       allPeople {
         nodes {
           id
-          fields {
-            slug
-          }
+          slug
         }
       }
     }
@@ -218,7 +205,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create article pages
   articles.forEach((node) => {
     createPage({
-      path: `${node.category}/${node.subcategory}/${node.fields.slug}`,
+      path: `${node.category}/${node.subcategory}/${node.slug}`,
       component: require.resolve(`./src/templates/article.template.jsx`),
       context: {
         id: node.id,
@@ -229,7 +216,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create product pages
   products.forEach(async (node) => {
     createPage({
-      path: `${node.category}/${node.subcategory}/core-four/${node.fields.slug}`,
+      path: `${node.category}/${node.subcategory}/core-four/${node.slug}`,
       component: require.resolve(`./src/templates/product.template.jsx`),
       context: {
         id: node.id,
@@ -240,7 +227,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create person pages
   people.forEach(async (node) => {
     createPage({
-      path: `about-us/${node.fields.slug}`,
+      path: `about-us/${node.slug}`,
       component: require.resolve(`./src/templates/person.template.jsx`),
       context: {
         id: node.id,
