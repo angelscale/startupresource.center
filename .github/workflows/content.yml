@@ -1,0 +1,52 @@
+name: content
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * *'
+
+concurrency:
+  group: prod
+  cancel-in-progress: true
+
+build-web:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+      with:
+        ref: 'prod'
+    - name: Prepare Node
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14.x
+    - name: Prepare Cache
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.npm
+          web/.cache/
+          web/public/
+          web/node_modules/
+        key: ${{ runner.os }}-web-${{ hashFiles('web/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-web-
+    - name: Prepare Dependencies
+      working-directory: web
+      run: yarn install
+    - name: Build
+      working-directory: web
+      env:
+        FIREBASE_ADMIN_CREDENTIALS: ${{ secrets.FIREBASE_ADMIN_CREDENTIALS }}
+      run: yarn build
+    - name: Deploy
+      uses: joinflux/firebase-action@master
+      with:
+        args: deploy --only hosting:web
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: web
+        path: web/public
