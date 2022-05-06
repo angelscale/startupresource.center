@@ -16,9 +16,12 @@ export type Article = {
   category: string;
   subcategory: string;
   name: string;
+  slug: string;
   authors: EntityReference[];
   header_image: string;
   images: string[];
+  title_tag: string;
+  meta_description: string;
   content: string;
   excerpt: string;
   create_date: Date;
@@ -72,6 +75,10 @@ export const ArticleSchema = buildSchema<Article>({
           : {},
       },
     }),
+    slug: {
+      title: 'Slug',
+      dataType: 'string',
+    },
     authors: {
       title: 'Authors',
       dataType: 'array',
@@ -117,6 +124,14 @@ export const ArticleSchema = buildSchema<Article>({
       config: {
         markdown: true,
       },
+    },
+    meta_description: {
+      title: 'meta:description',
+      dataType: 'string',
+    },
+    title_tag: {
+      title: 'Title Tag',
+      dataType: 'string',
     },
     excerpt: {
       title: 'Excerpt',

@@ -21,7 +21,7 @@ import {
 } from '@mui/material';
 
 // components
-import { Breadcrumb, Container } from 'components';
+import { Breadcrumb, Container, SEO } from 'components';
 import { getFormattedDate } from 'utils/helpers';
 
 const PREFIX = 'ArticleTemplate';
@@ -136,6 +136,7 @@ const ArticleTemplate = ({ data, location }) => {
 
   return (
     <Root>
+      <SEO data={data.allArticles.nodes[0]} />
       <Breadcrumb location={location} />
       <Box
         className={clsx('jarallax', classes.heroContainer)}
@@ -215,6 +216,8 @@ export const postQuery = graphql`
         status
         category
         subcategory
+        title_tag
+        meta_description
         headerImage {
           childImageSharp {
             gatsbyImageData(

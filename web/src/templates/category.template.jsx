@@ -208,9 +208,7 @@ export const categoryPageQuery = graphql`
         category
         subcategory
         excerpt
-        fields {
-          slug
-        }
+        slug
         headerImage {
           childImageSharp {
             gatsbyImageData(
@@ -233,9 +231,7 @@ export const categoryPageQuery = graphql`
         category
         subcategory
         description
-        fields {
-          slug
-        }
+        slug
         logoImage {
           childImageSharp {
             gatsbyImageData(

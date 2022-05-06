@@ -8,7 +8,7 @@ import rehypeReact from 'rehype-react';
 
 import { Typography, styled, Link as MUILink } from '@mui/material';
 
-import { Breadcrumb, ProductHeader } from 'components';
+import { Breadcrumb, ProductHeader, SEO } from 'components';
 
 const PREFIX = 'ProductTemplate';
 
@@ -90,6 +90,7 @@ const ProductTemplate = ({ data, location }) => {
 
   return (
     <Root className={classes.root}>
+      <SEO data={data.allProducts.nodes[0]} />
       <Breadcrumb location={location} />
       <ProductHeader
         name={name}
@@ -116,6 +117,8 @@ export const postQuery = graphql`
         status
         category
         subcategory
+        title_tag
+        meta_description
         logoImage {
           childImageSharp {
             gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])

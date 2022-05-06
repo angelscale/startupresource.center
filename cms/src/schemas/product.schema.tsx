@@ -17,6 +17,9 @@ type Product = {
   status: string;
   images: string[];
   description: string;
+  meta_description: string;
+  title_tag: string;
+  slug: string;
   product_features: string;
   differentiator: string;
   best_for: string;
@@ -76,6 +79,10 @@ const ProductSchema = buildSchema<Product>({
           : {},
       },
     }),
+    slug: {
+      title: 'Slug',
+      dataType: 'string',
+    },
     logo: ({ entityId }) => ({
       title: 'Logo',
       dataType: 'string',
@@ -121,6 +128,14 @@ const ProductSchema = buildSchema<Product>({
       config: {
         markdown: true,
       },
+    },
+    meta_description: {
+      title: 'meta:description',
+      dataType: 'string',
+    },
+    title_tag: {
+      title: 'Title Tag',
+      dataType: 'string',
     },
     product_features: {
       title: 'Product Features',

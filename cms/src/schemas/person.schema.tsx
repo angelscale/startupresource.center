@@ -7,6 +7,7 @@ type Person = {
   staff: boolean;
   member: boolean;
   email: string;
+  slug: string;
 };
 
 const PersonSchema = buildSchema<Person>({
@@ -51,6 +52,10 @@ const PersonSchema = buildSchema<Person>({
     },
     email: {
       title: 'Email Address',
+      dataType: 'string',
+    },
+    slug: {
+      title: 'Slug',
       dataType: 'string',
     },
   },

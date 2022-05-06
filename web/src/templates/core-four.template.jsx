@@ -126,9 +126,7 @@ export const coreFourQuery = graphql`
         status
         category
         subcategory
-        fields {
-          slug
-        }
+        slug
         logoImage {
           childImageSharp {
             gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
