@@ -161,6 +161,7 @@ jobs:
           name: cms
           path: cms/build
       - name: Deploy
+        id: deploy
         uses: joinflux/firebase-action@master
         with:
           args: hosting:channel:deploy --expires 30d stage | tee output.txt && echo \"::set-output name=url::$(grep 'Channel URL' output.txt | grep -o 'https://[^ ]*')\"
