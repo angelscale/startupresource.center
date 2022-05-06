@@ -94,7 +94,7 @@ const FeatureArticle = ({ items }) => {
                 <FeatureText>{item.excerpt}</FeatureText>
                 <LearnMoreLink
                   title="Read More"
-                  to={`/${item.category}/${item.subcategory}/${item.fields.slug}`}
+                  to={`/${item.category}/${item.subcategory}/${item.slug}`}
                   typographyProps={{ variant: 'h6' }}
                 />
               </FeatureContent>
@@ -103,7 +103,7 @@ const FeatureArticle = ({ items }) => {
               <StyledArticleCard
                 mediaContent={
                   <Link
-                    to={`/${item.category}/${item.subcategory}/${item.fields.slug}`}
+                    to={`/${item.category}/${item.subcategory}/${item.slug}`}
                   >
                     <BlogMedia
                       image={getImage(item.headerImage)}
@@ -114,7 +114,7 @@ const FeatureArticle = ({ items }) => {
                 cardContent={
                   <BlogContent>
                     <Link
-                      to={`/${item.category}/${item.subcategory}/${item.fields.slug}`}
+                      to={`/${item.category}/${item.subcategory}/${item.slug}`}
                     >
                       <Typography variant="h6" color="textPrimary" gutterBottom>
                         {item.name}
@@ -126,7 +126,7 @@ const FeatureArticle = ({ items }) => {
 
                     <LearnMoreLink
                       title="Read More"
-                      to={`/${item.category}/${item.subcategory}/${item.fields.slug}`}
+                      to={`/${item.category}/${item.subcategory}/${item.slug}`}
                       typographyProps={{ variant: 'h6' }}
                     />
                   </BlogContent>

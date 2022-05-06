@@ -141,9 +141,7 @@ const ArticleCard = (props) => {
         {...rest}
       >
         <CardMedia className={clsx('card-blog__media', classes.media)}>
-          <Link
-            to={`/${data.category}/${data.subcategory}/${data.fields.slug}`}
-          >
+          <Link to={`/${data.category}/${data.subcategory}/${data.slug}`}>
             <BlogMedia image={getImage(data.headerImage)} alt={data.name} />
           </Link>
         </CardMedia>
@@ -155,9 +153,7 @@ const ArticleCard = (props) => {
           )}
         >
           <BlogContent>
-            <Link
-              to={`/${data.category}/${data.subcategory}/${data.fields.slug}`}
-            >
+            <Link to={`/${data.category}/${data.subcategory}/${data.slug}`}>
               <Typography variant="h6" color="textPrimary" gutterBottom>
                 {data.name}
               </Typography>
@@ -168,7 +164,7 @@ const ArticleCard = (props) => {
 
             <LearnMoreLink
               title="Read More"
-              to={`/${data.category}/${data.subcategory}/${data.fields.slug}`}
+              to={`/${data.category}/${data.subcategory}/${data.slug}`}
               typographyProps={{ variant: 'h6' }}
             />
           </BlogContent>

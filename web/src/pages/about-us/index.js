@@ -298,7 +298,7 @@ const AboutUsPage = ({ data, location }) => {
         <Grid container spacing={isMd ? 2 : 1}>
           {data.allPeople.nodes.map((item, index) => (
             <Grid item xs={6} sm={6} md={4} key={index} data-aos="fade-up">
-              <Link to={`/about-us/${item.fields.slug}`}>
+              <Link to={`/about-us/${item.slug}`}>
                 <CardBase className={classes.cardBase} liftUp>
                   <ListItem disableGutters className={classes.listItem}>
                     <ListItemAvatar className={classes.listItemAvatar}>
@@ -348,9 +348,7 @@ export const peopleQuery = graphql`
         name
         title
         bio
-        fields {
-          slug
-        }
+        slug
         headshotImage {
           childImageSharp {
             gatsbyImageData(

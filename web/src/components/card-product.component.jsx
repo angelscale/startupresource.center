@@ -121,7 +121,7 @@ const ProductCard = ({ data }) => {
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <Link
-            to={`/${data.category}/${data.subcategory}/core-four/${data.fields.slug}`}
+            to={`/${data.category}/${data.subcategory}/core-four/${data.slug}`}
           >
             <Logo image={getImage(data.logoImage)} alt={data.name} />
           </Link>
