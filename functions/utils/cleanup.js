@@ -1,5 +1,5 @@
-// const functions = require('firebase-functions');
-// const { firestore } = require('../utils/firebase.admin');
+const functions = require('firebase-functions');
+const { firestore } = require('../utils/firebase.admin');
 // const { slugify } = require('../utils/helpers');
 
 // exports.maintCreateSlug = functions.https.onRequest(
@@ -73,3 +73,29 @@
 
 //   response.send();
 // });
+
+exports.maintFixMeta = functions.https.onRequest(async (request, response) => {
+  const articleCollection = firestore.collection('products');
+
+  const articleRefs = await articleCollection
+    .get()
+    .then((snapshot) => snapshot.docs);
+
+  await articleRefs.forEach((articleRef) => {
+    articleRef.ref.set({
+      ...articleRef.data(),
+      title_tag: `${articleRef.data().name} - Startup Resource Center`,
+      meta_description: '',
+    });
+  });
+
+  // await articleRefs.forEach((articleRef) => {
+  //   const { title, ...rest } = articleRef.data();
+  //   console.log({
+  //     name: title,
+  //     ...rest,
+  //   });
+  // });
+
+  response.send();
+});
