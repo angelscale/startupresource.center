@@ -216,6 +216,8 @@ export const postQuery = graphql`
         status
         category
         subcategory
+        title_tag
+        meta_description
         headerImage {
           childImageSharp {
             gatsbyImageData(
