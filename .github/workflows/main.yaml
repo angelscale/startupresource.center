@@ -116,6 +116,10 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+      - name: Tag Union
+        uses: EndBug/latest-tag@latest
+        with:
+          tag-name: union
       - name: Download Web Artifact
         uses: actions/download-artifact@v2
         with:
@@ -142,6 +146,10 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+      - name: Tag Stage
+        uses: EndBug/latest-tag@latest
+        with:
+          tag-name: stage
       - name: Download Web Artifact
         uses: actions/download-artifact@v2
         with:
@@ -167,6 +175,10 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+      - name: Tag Prod
+        uses: EndBug/latest-tag@latest
+        with:
+          tag-name: prod
       - name: Download Web Artifact
         uses: actions/download-artifact@v2
         with:
