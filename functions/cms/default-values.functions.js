@@ -38,3 +38,15 @@ exports.setDefaultProductFields = functions.firestore
       });
     }
   });
+
+exports.setDefaultPeopleFields = functions.firestore
+  .document(`people/{peopleId}`)
+  .onCreate(async (document) => {
+    // Slug
+    if (!document.data().slug || document.data().slug == '') {
+      document.ref.set({
+        ...document.data(),
+        slug: slugify(document.data().name),
+      });
+    }
+  });
