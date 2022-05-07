@@ -206,12 +206,13 @@ jobs:
             ${{ runner.os }}-functions-
       - name: Prepare Dependencies
         working-directory: functions
-        run: |
-          echo '${{ secrets.FIREBASE_ADMIN_CREDENTIALS }}' > .env
-          yarn install
+        env:
+          FB_ADMIN_CREDENTIALS: ${{ secrets.FIREBASE_ADMIN_CREDENTIALS }}
+        run: yarn install
       - name: Deploy
         uses: joinflux/firebase-action@master
         with:
           args: deploy
         env:
+          FB_ADMIN_CREDENTIALS: ${{ secrets.FIREBASE_ADMIN_CREDENTIALS }}
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
