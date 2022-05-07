@@ -1,4 +1,7 @@
-const admin = require('firebase-admin');
+const { initializeApp, cert } = require('firebase-admin/app');
+const { getAuth } = require('firebase-admin/auth');
+const { getFirestore } = require('firebase-admin/firestore');
+const { getStorage } = require('firebase-admin/storage');
 
 const firebaseConfig = {
   apiKey: 'AIzaSyC6O3jawP6T71_CE1SX76iMmvo-TuzE6oI',
@@ -9,17 +12,15 @@ const firebaseConfig = {
   messagingSenderId: '245708595165',
   appId: '1:245708595165:web:013395841af4a14c6e6034',
   measurementId: 'G-GK0BMCZDKC',
-  credential: admin.credential.cert(
-    JSON.parse(process.env.FB_ADMIN_CREDENTIALS)
-  ),
+  credential: cert(JSON.parse(process.env.FB_ADMIN_CREDENTIALS)),
 };
 
-admin.initializeApp(firebaseConfig);
+const firebaseAdmin = initializeApp(firebaseConfig);
 
-const auth = admin.auth();
-const firestore = admin.firestore();
-const storage = admin.storage();
-const bucket = admin.storage().bucket(firebaseConfig.storageBucket);
+const auth = getAuth(firebaseAdmin);
+const firestore = getFirestore(firebaseAdmin);
+const storage = getStorage(firebaseAdmin);
+const bucket = storage.bucket();
 
 exports.firestore = firestore;
 exports.auth = auth;
