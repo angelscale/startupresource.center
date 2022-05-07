@@ -212,7 +212,7 @@ jobs:
       - name: Deploy
         uses: joinflux/firebase-action@master
         with:
-          args: deploy
+          args: deploy --except functions
         env:
           FB_ADMIN_CREDENTIALS: ${{ secrets.FIREBASE_ADMIN_CREDENTIALS }}
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
