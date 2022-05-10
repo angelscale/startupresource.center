@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import makeStyles from '@mui/styles/makeStyles';
-import { Grid, styled } from '@mui/material';
+import { Grid, styled, useTheme, useMediaQuery } from '@mui/material';
 
 import {
   Image,
@@ -60,8 +60,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CoreFourTemplate = ({ data, location }) => {
-  console.log(data);
   const classes = useStyles();
+
+  const theme = useTheme();
+  const isLg = useMediaQuery(theme.breakpoints.up('lg'), {
+    defaultMatches: true,
+  });
 
   if (!data) {
     return null;
@@ -100,9 +104,9 @@ const CoreFourTemplate = ({ data, location }) => {
           />
         </div>
         <Section className={classes.content}>
-          <Grid container spacing={4}>
+          <Grid container spacing={isLg ? 2 : 4}>
             {data.allProducts.nodes.map((product, i) => (
-              <Grid item xs={12} md={6} key={i}>
+              <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
                 <ProductCard data={product} />
               </Grid>
             ))}
