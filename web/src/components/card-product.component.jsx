@@ -120,8 +120,6 @@ const Root = styled(Box)(({ theme }) => ({
 }));
 
 const ProductCard = ({ data }) => {
-  const logo = getImage(data.logoImage);
-
   const [content, setContent] = useState(null);
 
   useEffect(() => {
@@ -143,10 +141,10 @@ const ProductCard = ({ data }) => {
 
   if (!content) return null;
 
+  const logo = getImage(data.logoImage);
+
   const features = content.features.filter((item) => item !== '\n');
   const prices = content.pricing.filter((item) => item !== '\n');
-
-  console.log({ pLength: prices.length, fLength: features.length });
 
   return (
     <Root className={classes.root}>
