@@ -212,12 +212,12 @@ const ProductHeader = ({ logoImage, name, location, affiliate_link }) => {
                 <Rating
                   name="read-only"
                   precision={0.5}
-                  value={0}
+                  value={5}
                   readOnly
                   size="small"
                 />
                 <Typography variant="body1">
-                  <strong>{0}</strong> / <span>5</span>
+                  <strong>{5}</strong> / <span>5</span>
                 </Typography>
               </Box>
             </div>
