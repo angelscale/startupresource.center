@@ -36,6 +36,8 @@ const classes = {
 
 const Root = styled(Box)(({ theme }) => ({
   [`&.${classes.root}`]: {
+    display: 'flex',
+    flexDirection: 'column',
     position: 'relative',
     boxShadow: `0 2px 10px 0 ${theme.palette.cardShadow}`,
     borderRadius: theme.spacing(1),
@@ -109,13 +111,10 @@ const Root = styled(Box)(({ theme }) => ({
   },
 
   [`& .${classes.readMoreBtn}`]: {
-    // position: 'absolute',
-    // bottom: '0',
-    // right: '0',
     display: 'block',
     maxWidth: 'fit-content',
     marginLeft: 'auto',
-    marginBlock: theme.spacing(1),
+    marginBlock: 'auto 1rem',
   },
 }));
 
