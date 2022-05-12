@@ -25,6 +25,7 @@ export { default as SEO } from './seo-component';
 export { default as AffiliateDisclosure } from './affiliate-disclosure.component';
 export { default as ProductHeader } from './product-header.component';
 export { default as FeatureArticle } from './feature-article.component';
+export { default as CategoryDescription } from './category-description.component';
 
 // Main Layout Components
 export { default as Topbar } from './topbar.component';
