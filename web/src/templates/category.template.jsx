@@ -16,7 +16,7 @@ import {
 } from 'components';
 
 // mock
-// import { cms_products, cms_articles } from './data';
+import { cms_products, cms_articles } from './data';
 
 // Styles
 const Root = styled('div')({
@@ -208,8 +208,8 @@ const CategoryTemplate = ({ data, location, pageContext }) => {
         {/* <Grid container spacing={isMd ? 4 : 2}>
           {groupedCards}
         </Grid> */}
-        <ArticleList articleList={publishedArticles} />
-        <ProductList sx={{ mt: 8 }} productList={publishedProducts} />
+        <ArticleList articleList={cms_articles} />
+        <ProductList sx={{ mt: 8 }} productList={cms_products} />
       </Container>
     </Root>
   );
