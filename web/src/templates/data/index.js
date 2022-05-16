@@ -361,3 +361,711 @@ export const sub_categories = [
     },
   },
 ];
+
+export const cms_products = [
+  {
+    name: 'Corporate Creations',
+    status: 'published',
+    category: 'plan',
+    subcategory: 'legal',
+    description:
+      "Corporate Creations provides registered agent services and document filing and compliance services throughout the United States. Compared to every other company in the registered agent services industry, Corporate Creations offers better quality, faster speed, and lower prices. The company operates independently. Clients of Corporate Creations have access to online database systems to manage litigations in connection with process services and entities with annual reports and other details.\n\n\n## Product Features\n\n\n\n* Incorporating\n* Business management\n* Compliance management\n* Registered agent service\n* Management service\n* Online litigation data \n\n\n## What Makes Corporate Creations Unique?\n\nFor more than two decades, Corporate Creations has been forming LLCs. They have an A+ rating with the Better Business Bureau, and operate as a stand-alone company with the backing of a large public corporation. Corporate Creations has a reputation for saving businesses double digit percentages annually on registered agent service and filing services, as well. \n\n\n## Best Suited For\n\nThe services provided by Corporate Creations are best suited for both private and public companies of any size, and their professional advisors. Startups with ambitious entrepreneurs can benefit just as much as Fortune 1000 businesses from the streamlined results and savings Corporate Creations offers. \n\n\n## Pricing\n\n\n\n* License Research Package: $120.00\n* Online Incorporation Service: Nonprofit: $249.00 - $420.00\n* Online Incorporation Service: Corporation: $274.00 - $954.00\n* Online Incorporation Service: LLC: $279.00 - $749.00\n* Registered Agent Service: $299.00 /yr.\n\n\n## Company Info\n\nCorporate Creations was founded in 1993 and is the country's third-largest registered agent and compliance service provider. Computershare acquired Corporate Creations in March 2020.",
+    slug: 'corporate-creations',
+    logoImage: {
+      childImageSharp: {
+        gatsbyImageData: {
+          layout: 'constrained',
+          placeholder: {
+            fallback:
+              'data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMCBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAC/9oADAMBAAIQAxAAAAHuxjCp6zCa0AD/xAAZEAADAAMAAAAAAAAAAAAAAAABAgMQERL/2gAIAQEAAQUCY8iVhTF9MRyHU7XP/8QAFhEAAwAAAAAAAAAAAAAAAAAAAREg/9oACAEDAQE/AS4//8QAFREBAQAAAAAAAAAAAAAAAAAAASD/2gAIAQIBAT8BI//EABsQAAEEAwAAAAAAAAAAAAAAAAEAERIxECCh/9oACAEBAAY/AnKpsAEUVKPU+n//xAAcEAEAAgIDAQAAAAAAAAAAAAABABEQITFBUWH/2gAIAQEAAT8hFeiA8n442v7ButwcaUPiV3qVn//aAAwDAQACAAMAAAAQgA88/8QAFxEAAwEAAAAAAAAAAAAAAAAAAREgIf/aAAgBAwEBPxAmyP/EABcRAQADAAAAAAAAAAAAAAAAAAERICH/2gAIAQIBAT8QBG0//8QAHBABAQACAgMAAAAAAAAAAAAAAREAMSFhEFHR/9oACAEBAAE/EF+4Cw29HeFUQKKWXxbaI3FB9yfpYq1TTrEbIjRiHYc5D0YEIZ//2Q==',
+          },
+          images: {
+            fallback: {
+              src: '/static/351767d1f61bba51063594d66dbaa5c6/1a361/logo.jpg',
+              srcSet:
+                '/static/351767d1f61bba51063594d66dbaa5c6/2c33f/logo.jpg 56w,\n/static/351767d1f61bba51063594d66dbaa5c6/fa873/logo.jpg 113w,\n/static/351767d1f61bba51063594d66dbaa5c6/1a361/logo.jpg 225w',
+              sizes: '(min-width: 225px) 225px, 100vw',
+            },
+            sources: [
+              {
+                srcSet:
+                  '/static/351767d1f61bba51063594d66dbaa5c6/4175e/logo.avif 56w,\n/static/351767d1f61bba51063594d66dbaa5c6/cb563/logo.avif 113w,\n/static/351767d1f61bba51063594d66dbaa5c6/c593a/logo.avif 225w',
+                type: 'image/avif',
+                sizes: '(min-width: 225px) 225px, 100vw',
+              },
+              {
+                srcSet:
+                  '/static/351767d1f61bba51063594d66dbaa5c6/f8744/logo.webp 56w,\n/static/351767d1f61bba51063594d66dbaa5c6/26b1c/logo.webp 113w,\n/static/351767d1f61bba51063594d66dbaa5c6/252a0/logo.webp 225w',
+                type: 'image/webp',
+                sizes: '(min-width: 225px) 225px, 100vw',
+              },
+            ],
+          },
+          width: 225,
+          height: 225,
+        },
+      },
+    },
+  },
+  {
+    name: 'E-file',
+    status: 'published',
+    category: 'plan',
+    subcategory: 'accounting-and-finance',
+    description:
+      '[E-file](https://www.jdoqocy.com/click-100536418-11917165) is an authorized online IRS E-filing software that helps small businesses and startups file returns faster and with fewer errors. Companies can file both federal and state taxes through E-file, or prepare their tax documents and mail them in. E-file’s software is designed to simplify the tax filing process by offering easy questions and step-by-step instructions. Businesses can start their returns for free at e-file.com. \n\n\n## Product Features\n\n\n\n* Streamlined filing interface\n* Three low-cost plans \n* Do-it-yourself platform\n* Fast filing\n* Digital or mail-in filing\n* Progress saving\n\n\n## **What Makes E-file Unique?**\n\nE-file’s helpful online tax preparation program works with businesses to streamline the filing process, allowing filers to submit their tax returns via E-file’s online software in as little as 15 minutes. Filers simply create a free account on E-file’s website, enter their taxpayer information, income, and deductions, and E-file will do the rest. Taxpayers are also given the option to file electronically or print out their finalized returns and mail them in. \n\n\n## Best Suited For\n\nE-file is best suited for businesses on a budget looking for a comprehensive do-it-yourself option that offers a fast, painless filing experience. At a fraction of the price of TurboTax or H&R Block, E-file offers businesses the ability to file quickly and accurately, for a faster return.  \n\n\n## Pricing\n\n\n\n* Free Federal Basic Software - Free Fed Return, State Return $22.49\n* Deluxe Plus E-file - Fed Return $20.99, State Return $22.49\n* Premium Plus E-file - Fed Return $37.49, State Return $22.49 \n\nUse coupon code 25OFF\n\n\n## Company Info\n\nE-file was founded in 2011 and became accredited by the Better Business Bureau in 2014. They are headquartered in Ponte Vedra, FL.',
+    slug: 'e-file',
+    logoImage: {
+      childImageSharp: {
+        gatsbyImageData: {
+          layout: 'constrained',
+          placeholder: {
+            fallback:
+              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACPElEQVQoz3WSXU8TQRSG34UqtTbY7baaFrDtTltqAyoIiQRKjB8kKAGB4NaZQi0IBVpqaUFaiu3ulo9E4oXGS43xzqhXxltu/Qv+AON/8G7NbilBxUmenMyZOe955wN2kUJHIKxBIMykx2O5f6jn/zsOi7m/i6xtUcA0ZqzVRU5qcpJgvSAiEPbKLtLhs61RzC6sNyZTG5zTz3AhGDsSdPiZ0ezLp5cobZVRqVT+oN5pUCDsu12kHwTCfqF5wppbK2F4fAUOwiS7SJcEwm4LhPXo+zXtG4A+PC1sQZZlgyPBQ3fv7CL9KRD2lvfRbHHzmWVnWxmNJfLXbV564PCzVYGwXYGwdYGw12ieaPdejuPWSMoEdCO/XjJlskXoJupH0Tf/4H10iffR9HKmwPZ21c8zc2t7TS5JtYtUtnnpDu+jH20++lWazt18sb99T1Hk1WpVSVRVZU9VZLeqyDWHzgCz8CLNuy9NP++KzFNFkR3v3+xbh0bT3s6+uahO18D8yJX+x+Oh3tlkZnWTZnMGyZVs8UH6STGWWyvxRw7PeR4al93gmAIwCFWRT6UyxSZN09Dek/B4OuPdwWsJrx4D3QlidkvBJpfkb3BOBS0t0ZDZJXXg9JgJZ+7XBG1eCqefmcBPNgIcyuUKllcK0AV7bywg1DuL/juLRhwYWoL+C8xuCeAnjRc3uyQAdwGMAOcDMQBBABEspjagqrUX0+1r2gE8nXGuJTzNiVcfcS3hGU6fX+yY4dqO0Ro2gM5vLMW4QBfW320AAAAASUVORK5CYII=',
+          },
+          images: {
+            fallback: {
+              src: '/static/9183b168bd71c4c658482dbc1fc4fd5a/b9cff/logo.png',
+              srcSet:
+                '/static/9183b168bd71c4c658482dbc1fc4fd5a/25cc1/logo.png 284w,\n/static/9183b168bd71c4c658482dbc1fc4fd5a/047fd/logo.png 567w,\n/static/9183b168bd71c4c658482dbc1fc4fd5a/b9cff/logo.png 1134w',
+              sizes: '(min-width: 1134px) 1134px, 100vw',
+            },
+            sources: [
+              {
+                srcSet:
+                  '/static/9183b168bd71c4c658482dbc1fc4fd5a/d22c3/logo.avif 284w,\n/static/9183b168bd71c4c658482dbc1fc4fd5a/539d7/logo.avif 567w,\n/static/9183b168bd71c4c658482dbc1fc4fd5a/49218/logo.avif 1134w',
+                type: 'image/avif',
+                sizes: '(min-width: 1134px) 1134px, 100vw',
+              },
+              {
+                srcSet:
+                  '/static/9183b168bd71c4c658482dbc1fc4fd5a/71c35/logo.webp 284w,\n/static/9183b168bd71c4c658482dbc1fc4fd5a/6ca3a/logo.webp 567w,\n/static/9183b168bd71c4c658482dbc1fc4fd5a/50010/logo.webp 1134w',
+                type: 'image/webp',
+                sizes: '(min-width: 1134px) 1134px, 100vw',
+              },
+            ],
+          },
+          width: 1134,
+          height: 567,
+        },
+      },
+    },
+  },
+  {
+    name: 'Incfile',
+    status: 'published',
+    category: 'plan',
+    subcategory: 'legal',
+    description:
+      '[Incfile](https://shareasale.com/r.cfm?b=617326&u=3128191&m=53954&urllink=&afftrack=) is a document filing firm that specializes in business formation and registered agent services for small businesses and startups. In addition to formation and compliance, Incfile also offers tax filing services. By handling the formalities of business entity formation, Incfile helps entrepreneurs start and grow their businesses faster. \n\n\n## Product Features\n\n\n\n* Name verification\n* LLC, S-Corp, C-Corp, & Nonprofit formation\n* First year of registered agent services free\n* Document preparation & file\n* Lifetime customer service\n* Free business tax consultation\n* Order status and online tracking\n* Expedited filing\n\n\n## What Makes Incfile Unique?\n\nIncfile offers a simple, straight-forward approach to forming a business, making filing an LLC and acquiring registered agent services in all 50 states a matter of a few clicks. In addition, filing annual reports and compliance services, preparing tax documents, and handling financial statements can all be done and tracked through Incfile, creating one easy place to track and file, keeping your business up to date and in compliance with every requirement.\n\n\n## Best Suited For\n\nIncfile is best suited for small businesses and startups looking to form and track their business. The company pulls requirements based on state and federal laws, ensuring that every business filing through Incfile is compliant with all legal requirements, no matter where they are. Incfile’s easy application takes beginners step by step through the filing process with simple instructions and guiding information, making forming a business as simple as possible. \n\n\n## Pricing\n\n\n\n* Platinum** - **$535\n* Gold** - **$385 \n* Silver** - **$236 \n\n\n## Company Info\n\nIncfile was established in 2004 and is based in Houston, Texas. The company has helped over 500,000 entrepreneurs and small businesses form and grow their companies.',
+    slug: 'incfile',
+    logoImage: {
+      childImageSharp: {
+        gatsbyImageData: {
+          layout: 'constrained',
+          placeholder: {
+            fallback:
+              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAIAAADKYVtkAAAACXBIWXMAAAsTAAALEwEAmpwYAAABGUlEQVQY02P4/+/f/////7969P/WaRADwgXRIMat5x93nb79/8qBzSfufPz2CyT+HwEYIIoe37q9a/22PVdfTtly8caTd1cfvW1fc/b2sw9+bdsSe7cfXLvBo2bdtcfvlh28ue3sA4TmP39BmrdfeOreutOrcVPtspO+LVuC2re3rT4zb8+18K4dvRsv+PXsjezZlTH9gG/LFvuqdcduPP/////ff/9gms8+dKhalzZ1390XH8yKV7nUbrj74uPhq8+K5hxecuCmb8tm/5Ytvk2bM6btr1ly4sTNF1DNf8HOPnf3dc2SE1O3Xrrz/EPvhvO9G8671G3Yce7hwn3X91x80rbmTMuq03svPk6ftr9xxanvv35DPA8AkYrrroGQnwsAAAAASUVORK5CYII=',
+          },
+          images: {
+            fallback: {
+              src: '/static/9e173469a5ee9299f46c922a33cbf7aa/b646b/logo.png',
+              srcSet:
+                '/static/9e173469a5ee9299f46c922a33cbf7aa/60acb/logo.png 200w,\n/static/9e173469a5ee9299f46c922a33cbf7aa/c8f19/logo.png 400w,\n/static/9e173469a5ee9299f46c922a33cbf7aa/b646b/logo.png 800w',
+              sizes: '(min-width: 800px) 800px, 100vw',
+            },
+            sources: [
+              {
+                srcSet:
+                  '/static/9e173469a5ee9299f46c922a33cbf7aa/2d211/logo.avif 200w,\n/static/9e173469a5ee9299f46c922a33cbf7aa/0d2b9/logo.avif 400w,\n/static/9e173469a5ee9299f46c922a33cbf7aa/9233e/logo.avif 800w',
+                type: 'image/avif',
+                sizes: '(min-width: 800px) 800px, 100vw',
+              },
+              {
+                srcSet:
+                  '/static/9e173469a5ee9299f46c922a33cbf7aa/d2441/logo.webp 200w,\n/static/9e173469a5ee9299f46c922a33cbf7aa/8e2f4/logo.webp 400w,\n/static/9e173469a5ee9299f46c922a33cbf7aa/771ec/logo.webp 800w',
+                type: 'image/webp',
+                sizes: '(min-width: 800px) 800px, 100vw',
+              },
+            ],
+          },
+          width: 800,
+          height: 208,
+        },
+      },
+    },
+  },
+  {
+    name: 'Corporate Creations',
+    status: 'published',
+    category: 'plan',
+    subcategory: 'legal',
+    description:
+      "Corporate Creations provides registered agent services and document filing and compliance services throughout the United States. Compared to every other company in the registered agent services industry, Corporate Creations offers better quality, faster speed, and lower prices. The company operates independently. Clients of Corporate Creations have access to online database systems to manage litigations in connection with process services and entities with annual reports and other details.\n\n\n## Product Features\n\n\n\n* Incorporating\n* Business management\n* Compliance management\n* Registered agent service\n* Management service\n* Online litigation data \n\n\n## What Makes Corporate Creations Unique?\n\nFor more than two decades, Corporate Creations has been forming LLCs. They have an A+ rating with the Better Business Bureau, and operate as a stand-alone company with the backing of a large public corporation. Corporate Creations has a reputation for saving businesses double digit percentages annually on registered agent service and filing services, as well. \n\n\n## Best Suited For\n\nThe services provided by Corporate Creations are best suited for both private and public companies of any size, and their professional advisors. Startups with ambitious entrepreneurs can benefit just as much as Fortune 1000 businesses from the streamlined results and savings Corporate Creations offers. \n\n\n## Pricing\n\n\n\n* License Research Package: $120.00\n* Online Incorporation Service: Nonprofit: $249.00 - $420.00\n* Online Incorporation Service: Corporation: $274.00 - $954.00\n* Online Incorporation Service: LLC: $279.00 - $749.00\n* Registered Agent Service: $299.00 /yr.\n\n\n## Company Info\n\nCorporate Creations was founded in 1993 and is the country's third-largest registered agent and compliance service provider. Computershare acquired Corporate Creations in March 2020.",
+    slug: 'corporate-creations',
+    logoImage: {
+      childImageSharp: {
+        gatsbyImageData: {
+          layout: 'constrained',
+          placeholder: {
+            fallback:
+              'data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMCBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAC/9oADAMBAAIQAxAAAAHuxjCp6zCa0AD/xAAZEAADAAMAAAAAAAAAAAAAAAABAgMQERL/2gAIAQEAAQUCY8iVhTF9MRyHU7XP/8QAFhEAAwAAAAAAAAAAAAAAAAAAAREg/9oACAEDAQE/AS4//8QAFREBAQAAAAAAAAAAAAAAAAAAASD/2gAIAQIBAT8BI//EABsQAAEEAwAAAAAAAAAAAAAAAAEAERIxECCh/9oACAEBAAY/AnKpsAEUVKPU+n//xAAcEAEAAgIDAQAAAAAAAAAAAAABABEQITFBUWH/2gAIAQEAAT8hFeiA8n442v7ButwcaUPiV3qVn//aAAwDAQACAAMAAAAQgA88/8QAFxEAAwEAAAAAAAAAAAAAAAAAAREgIf/aAAgBAwEBPxAmyP/EABcRAQADAAAAAAAAAAAAAAAAAAERICH/2gAIAQIBAT8QBG0//8QAHBABAQACAgMAAAAAAAAAAAAAAREAMSFhEFHR/9oACAEBAAE/EF+4Cw29HeFUQKKWXxbaI3FB9yfpYq1TTrEbIjRiHYc5D0YEIZ//2Q==',
+          },
+          images: {
+            fallback: {
+              src: '/static/351767d1f61bba51063594d66dbaa5c6/1a361/logo.jpg',
+              srcSet:
+                '/static/351767d1f61bba51063594d66dbaa5c6/2c33f/logo.jpg 56w,\n/static/351767d1f61bba51063594d66dbaa5c6/fa873/logo.jpg 113w,\n/static/351767d1f61bba51063594d66dbaa5c6/1a361/logo.jpg 225w',
+              sizes: '(min-width: 225px) 225px, 100vw',
+            },
+            sources: [
+              {
+                srcSet:
+                  '/static/351767d1f61bba51063594d66dbaa5c6/4175e/logo.avif 56w,\n/static/351767d1f61bba51063594d66dbaa5c6/cb563/logo.avif 113w,\n/static/351767d1f61bba51063594d66dbaa5c6/c593a/logo.avif 225w',
+                type: 'image/avif',
+                sizes: '(min-width: 225px) 225px, 100vw',
+              },
+              {
+                srcSet:
+                  '/static/351767d1f61bba51063594d66dbaa5c6/f8744/logo.webp 56w,\n/static/351767d1f61bba51063594d66dbaa5c6/26b1c/logo.webp 113w,\n/static/351767d1f61bba51063594d66dbaa5c6/252a0/logo.webp 225w',
+                type: 'image/webp',
+                sizes: '(min-width: 225px) 225px, 100vw',
+              },
+            ],
+          },
+          width: 225,
+          height: 225,
+        },
+      },
+    },
+  },
+  {
+    name: 'E-file',
+    status: 'published',
+    category: 'plan',
+    subcategory: 'accounting-and-finance',
+    description:
+      '[E-file](https://www.jdoqocy.com/click-100536418-11917165) is an authorized online IRS E-filing software that helps small businesses and startups file returns faster and with fewer errors. Companies can file both federal and state taxes through E-file, or prepare their tax documents and mail them in. E-file’s software is designed to simplify the tax filing process by offering easy questions and step-by-step instructions. Businesses can start their returns for free at e-file.com. \n\n\n## Product Features\n\n\n\n* Streamlined filing interface\n* Three low-cost plans \n* Do-it-yourself platform\n* Fast filing\n* Digital or mail-in filing\n* Progress saving\n\n\n## **What Makes E-file Unique?**\n\nE-file’s helpful online tax preparation program works with businesses to streamline the filing process, allowing filers to submit their tax returns via E-file’s online software in as little as 15 minutes. Filers simply create a free account on E-file’s website, enter their taxpayer information, income, and deductions, and E-file will do the rest. Taxpayers are also given the option to file electronically or print out their finalized returns and mail them in. \n\n\n## Best Suited For\n\nE-file is best suited for businesses on a budget looking for a comprehensive do-it-yourself option that offers a fast, painless filing experience. At a fraction of the price of TurboTax or H&R Block, E-file offers businesses the ability to file quickly and accurately, for a faster return.  \n\n\n## Pricing\n\n\n\n* Free Federal Basic Software - Free Fed Return, State Return $22.49\n* Deluxe Plus E-file - Fed Return $20.99, State Return $22.49\n* Premium Plus E-file - Fed Return $37.49, State Return $22.49 \n\nUse coupon code 25OFF\n\n\n## Company Info\n\nE-file was founded in 2011 and became accredited by the Better Business Bureau in 2014. They are headquartered in Ponte Vedra, FL.',
+    slug: 'e-file',
+    logoImage: {
+      childImageSharp: {
+        gatsbyImageData: {
+          layout: 'constrained',
+          placeholder: {
+            fallback:
+              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACPElEQVQoz3WSXU8TQRSG34UqtTbY7baaFrDtTltqAyoIiQRKjB8kKAGB4NaZQi0IBVpqaUFaiu3ulo9E4oXGS43xzqhXxltu/Qv+AON/8G7NbilBxUmenMyZOe955wN2kUJHIKxBIMykx2O5f6jn/zsOi7m/i6xtUcA0ZqzVRU5qcpJgvSAiEPbKLtLhs61RzC6sNyZTG5zTz3AhGDsSdPiZ0ezLp5cobZVRqVT+oN5pUCDsu12kHwTCfqF5wppbK2F4fAUOwiS7SJcEwm4LhPXo+zXtG4A+PC1sQZZlgyPBQ3fv7CL9KRD2lvfRbHHzmWVnWxmNJfLXbV564PCzVYGwXYGwdYGw12ieaPdejuPWSMoEdCO/XjJlskXoJupH0Tf/4H10iffR9HKmwPZ21c8zc2t7TS5JtYtUtnnpDu+jH20++lWazt18sb99T1Hk1WpVSVRVZU9VZLeqyDWHzgCz8CLNuy9NP++KzFNFkR3v3+xbh0bT3s6+uahO18D8yJX+x+Oh3tlkZnWTZnMGyZVs8UH6STGWWyvxRw7PeR4al93gmAIwCFWRT6UyxSZN09Dek/B4OuPdwWsJrx4D3QlidkvBJpfkb3BOBS0t0ZDZJXXg9JgJZ+7XBG1eCqefmcBPNgIcyuUKllcK0AV7bywg1DuL/juLRhwYWoL+C8xuCeAnjRc3uyQAdwGMAOcDMQBBABEspjagqrUX0+1r2gE8nXGuJTzNiVcfcS3hGU6fX+yY4dqO0Ro2gM5vLMW4QBfW320AAAAASUVORK5CYII=',
+          },
+          images: {
+            fallback: {
+              src: '/static/9183b168bd71c4c658482dbc1fc4fd5a/b9cff/logo.png',
+              srcSet:
+                '/static/9183b168bd71c4c658482dbc1fc4fd5a/25cc1/logo.png 284w,\n/static/9183b168bd71c4c658482dbc1fc4fd5a/047fd/logo.png 567w,\n/static/9183b168bd71c4c658482dbc1fc4fd5a/b9cff/logo.png 1134w',
+              sizes: '(min-width: 1134px) 1134px, 100vw',
+            },
+            sources: [
+              {
+                srcSet:
+                  '/static/9183b168bd71c4c658482dbc1fc4fd5a/d22c3/logo.avif 284w,\n/static/9183b168bd71c4c658482dbc1fc4fd5a/539d7/logo.avif 567w,\n/static/9183b168bd71c4c658482dbc1fc4fd5a/49218/logo.avif 1134w',
+                type: 'image/avif',
+                sizes: '(min-width: 1134px) 1134px, 100vw',
+              },
+              {
+                srcSet:
+                  '/static/9183b168bd71c4c658482dbc1fc4fd5a/71c35/logo.webp 284w,\n/static/9183b168bd71c4c658482dbc1fc4fd5a/6ca3a/logo.webp 567w,\n/static/9183b168bd71c4c658482dbc1fc4fd5a/50010/logo.webp 1134w',
+                type: 'image/webp',
+                sizes: '(min-width: 1134px) 1134px, 100vw',
+              },
+            ],
+          },
+          width: 1134,
+          height: 567,
+        },
+      },
+    },
+  },
+  {
+    name: 'Incfile',
+    status: 'published',
+    category: 'plan',
+    subcategory: 'legal',
+    description:
+      '[Incfile](https://shareasale.com/r.cfm?b=617326&u=3128191&m=53954&urllink=&afftrack=) is a document filing firm that specializes in business formation and registered agent services for small businesses and startups. In addition to formation and compliance, Incfile also offers tax filing services. By handling the formalities of business entity formation, Incfile helps entrepreneurs start and grow their businesses faster. \n\n\n## Product Features\n\n\n\n* Name verification\n* LLC, S-Corp, C-Corp, & Nonprofit formation\n* First year of registered agent services free\n* Document preparation & file\n* Lifetime customer service\n* Free business tax consultation\n* Order status and online tracking\n* Expedited filing\n\n\n## What Makes Incfile Unique?\n\nIncfile offers a simple, straight-forward approach to forming a business, making filing an LLC and acquiring registered agent services in all 50 states a matter of a few clicks. In addition, filing annual reports and compliance services, preparing tax documents, and handling financial statements can all be done and tracked through Incfile, creating one easy place to track and file, keeping your business up to date and in compliance with every requirement.\n\n\n## Best Suited For\n\nIncfile is best suited for small businesses and startups looking to form and track their business. The company pulls requirements based on state and federal laws, ensuring that every business filing through Incfile is compliant with all legal requirements, no matter where they are. Incfile’s easy application takes beginners step by step through the filing process with simple instructions and guiding information, making forming a business as simple as possible. \n\n\n## Pricing\n\n\n\n* Platinum** - **$535\n* Gold** - **$385 \n* Silver** - **$236 \n\n\n## Company Info\n\nIncfile was established in 2004 and is based in Houston, Texas. The company has helped over 500,000 entrepreneurs and small businesses form and grow their companies.',
+    slug: 'incfile',
+    logoImage: {
+      childImageSharp: {
+        gatsbyImageData: {
+          layout: 'constrained',
+          placeholder: {
+            fallback:
+              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAIAAADKYVtkAAAACXBIWXMAAAsTAAALEwEAmpwYAAABGUlEQVQY02P4/+/f/////7969P/WaRADwgXRIMat5x93nb79/8qBzSfufPz2CyT+HwEYIIoe37q9a/22PVdfTtly8caTd1cfvW1fc/b2sw9+bdsSe7cfXLvBo2bdtcfvlh28ue3sA4TmP39BmrdfeOreutOrcVPtspO+LVuC2re3rT4zb8+18K4dvRsv+PXsjezZlTH9gG/LFvuqdcduPP/////ff/9gms8+dKhalzZ1390XH8yKV7nUbrj74uPhq8+K5hxecuCmb8tm/5Ytvk2bM6btr1ly4sTNF1DNf8HOPnf3dc2SE1O3Xrrz/EPvhvO9G8671G3Yce7hwn3X91x80rbmTMuq03svPk6ftr9xxanvv35DPA8AkYrrroGQnwsAAAAASUVORK5CYII=',
+          },
+          images: {
+            fallback: {
+              src: '/static/9e173469a5ee9299f46c922a33cbf7aa/b646b/logo.png',
+              srcSet:
+                '/static/9e173469a5ee9299f46c922a33cbf7aa/60acb/logo.png 200w,\n/static/9e173469a5ee9299f46c922a33cbf7aa/c8f19/logo.png 400w,\n/static/9e173469a5ee9299f46c922a33cbf7aa/b646b/logo.png 800w',
+              sizes: '(min-width: 800px) 800px, 100vw',
+            },
+            sources: [
+              {
+                srcSet:
+                  '/static/9e173469a5ee9299f46c922a33cbf7aa/2d211/logo.avif 200w,\n/static/9e173469a5ee9299f46c922a33cbf7aa/0d2b9/logo.avif 400w,\n/static/9e173469a5ee9299f46c922a33cbf7aa/9233e/logo.avif 800w',
+                type: 'image/avif',
+                sizes: '(min-width: 800px) 800px, 100vw',
+              },
+              {
+                srcSet:
+                  '/static/9e173469a5ee9299f46c922a33cbf7aa/d2441/logo.webp 200w,\n/static/9e173469a5ee9299f46c922a33cbf7aa/8e2f4/logo.webp 400w,\n/static/9e173469a5ee9299f46c922a33cbf7aa/771ec/logo.webp 800w',
+                type: 'image/webp',
+                sizes: '(min-width: 800px) 800px, 100vw',
+              },
+            ],
+          },
+          width: 800,
+          height: 208,
+        },
+      },
+    },
+  },
+  {
+    name: 'E-file',
+    status: 'published',
+    category: 'plan',
+    subcategory: 'accounting-and-finance',
+    description:
+      '[E-file](https://www.jdoqocy.com/click-100536418-11917165) is an authorized online IRS E-filing software that helps small businesses and startups file returns faster and with fewer errors. Companies can file both federal and state taxes through E-file, or prepare their tax documents and mail them in. E-file’s software is designed to simplify the tax filing process by offering easy questions and step-by-step instructions. Businesses can start their returns for free at e-file.com. \n\n\n## Product Features\n\n\n\n* Streamlined filing interface\n* Three low-cost plans \n* Do-it-yourself platform\n* Fast filing\n* Digital or mail-in filing\n* Progress saving\n\n\n## **What Makes E-file Unique?**\n\nE-file’s helpful online tax preparation program works with businesses to streamline the filing process, allowing filers to submit their tax returns via E-file’s online software in as little as 15 minutes. Filers simply create a free account on E-file’s website, enter their taxpayer information, income, and deductions, and E-file will do the rest. Taxpayers are also given the option to file electronically or print out their finalized returns and mail them in. \n\n\n## Best Suited For\n\nE-file is best suited for businesses on a budget looking for a comprehensive do-it-yourself option that offers a fast, painless filing experience. At a fraction of the price of TurboTax or H&R Block, E-file offers businesses the ability to file quickly and accurately, for a faster return.  \n\n\n## Pricing\n\n\n\n* Free Federal Basic Software - Free Fed Return, State Return $22.49\n* Deluxe Plus E-file - Fed Return $20.99, State Return $22.49\n* Premium Plus E-file - Fed Return $37.49, State Return $22.49 \n\nUse coupon code 25OFF\n\n\n## Company Info\n\nE-file was founded in 2011 and became accredited by the Better Business Bureau in 2014. They are headquartered in Ponte Vedra, FL.',
+    slug: 'e-file',
+    logoImage: {
+      childImageSharp: {
+        gatsbyImageData: {
+          layout: 'constrained',
+          placeholder: {
+            fallback:
+              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACPElEQVQoz3WSXU8TQRSG34UqtTbY7baaFrDtTltqAyoIiQRKjB8kKAGB4NaZQi0IBVpqaUFaiu3ulo9E4oXGS43xzqhXxltu/Qv+AON/8G7NbilBxUmenMyZOe955wN2kUJHIKxBIMykx2O5f6jn/zsOi7m/i6xtUcA0ZqzVRU5qcpJgvSAiEPbKLtLhs61RzC6sNyZTG5zTz3AhGDsSdPiZ0ezLp5cobZVRqVT+oN5pUCDsu12kHwTCfqF5wppbK2F4fAUOwiS7SJcEwm4LhPXo+zXtG4A+PC1sQZZlgyPBQ3fv7CL9KRD2lvfRbHHzmWVnWxmNJfLXbV564PCzVYGwXYGwdYGw12ieaPdejuPWSMoEdCO/XjJlskXoJupH0Tf/4H10iffR9HKmwPZ21c8zc2t7TS5JtYtUtnnpDu+jH20++lWazt18sb99T1Hk1WpVSVRVZU9VZLeqyDWHzgCz8CLNuy9NP++KzFNFkR3v3+xbh0bT3s6+uahO18D8yJX+x+Oh3tlkZnWTZnMGyZVs8UH6STGWWyvxRw7PeR4al93gmAIwCFWRT6UyxSZN09Dek/B4OuPdwWsJrx4D3QlidkvBJpfkb3BOBS0t0ZDZJXXg9JgJZ+7XBG1eCqefmcBPNgIcyuUKllcK0AV7bywg1DuL/juLRhwYWoL+C8xuCeAnjRc3uyQAdwGMAOcDMQBBABEspjagqrUX0+1r2gE8nXGuJTzNiVcfcS3hGU6fX+yY4dqO0Ro2gM5vLMW4QBfW320AAAAASUVORK5CYII=',
+          },
+          images: {
+            fallback: {
+              src: '/static/9183b168bd71c4c658482dbc1fc4fd5a/b9cff/logo.png',
+              srcSet:
+                '/static/9183b168bd71c4c658482dbc1fc4fd5a/25cc1/logo.png 284w,\n/static/9183b168bd71c4c658482dbc1fc4fd5a/047fd/logo.png 567w,\n/static/9183b168bd71c4c658482dbc1fc4fd5a/b9cff/logo.png 1134w',
+              sizes: '(min-width: 1134px) 1134px, 100vw',
+            },
+            sources: [
+              {
+                srcSet:
+                  '/static/9183b168bd71c4c658482dbc1fc4fd5a/d22c3/logo.avif 284w,\n/static/9183b168bd71c4c658482dbc1fc4fd5a/539d7/logo.avif 567w,\n/static/9183b168bd71c4c658482dbc1fc4fd5a/49218/logo.avif 1134w',
+                type: 'image/avif',
+                sizes: '(min-width: 1134px) 1134px, 100vw',
+              },
+              {
+                srcSet:
+                  '/static/9183b168bd71c4c658482dbc1fc4fd5a/71c35/logo.webp 284w,\n/static/9183b168bd71c4c658482dbc1fc4fd5a/6ca3a/logo.webp 567w,\n/static/9183b168bd71c4c658482dbc1fc4fd5a/50010/logo.webp 1134w',
+                type: 'image/webp',
+                sizes: '(min-width: 1134px) 1134px, 100vw',
+              },
+            ],
+          },
+          width: 1134,
+          height: 567,
+        },
+      },
+    },
+  },
+  {
+    name: 'Incfile',
+    status: 'published',
+    category: 'plan',
+    subcategory: 'legal',
+    description:
+      '[Incfile](https://shareasale.com/r.cfm?b=617326&u=3128191&m=53954&urllink=&afftrack=) is a document filing firm that specializes in business formation and registered agent services for small businesses and startups. In addition to formation and compliance, Incfile also offers tax filing services. By handling the formalities of business entity formation, Incfile helps entrepreneurs start and grow their businesses faster. \n\n\n## Product Features\n\n\n\n* Name verification\n* LLC, S-Corp, C-Corp, & Nonprofit formation\n* First year of registered agent services free\n* Document preparation & file\n* Lifetime customer service\n* Free business tax consultation\n* Order status and online tracking\n* Expedited filing\n\n\n## What Makes Incfile Unique?\n\nIncfile offers a simple, straight-forward approach to forming a business, making filing an LLC and acquiring registered agent services in all 50 states a matter of a few clicks. In addition, filing annual reports and compliance services, preparing tax documents, and handling financial statements can all be done and tracked through Incfile, creating one easy place to track and file, keeping your business up to date and in compliance with every requirement.\n\n\n## Best Suited For\n\nIncfile is best suited for small businesses and startups looking to form and track their business. The company pulls requirements based on state and federal laws, ensuring that every business filing through Incfile is compliant with all legal requirements, no matter where they are. Incfile’s easy application takes beginners step by step through the filing process with simple instructions and guiding information, making forming a business as simple as possible. \n\n\n## Pricing\n\n\n\n* Platinum** - **$535\n* Gold** - **$385 \n* Silver** - **$236 \n\n\n## Company Info\n\nIncfile was established in 2004 and is based in Houston, Texas. The company has helped over 500,000 entrepreneurs and small businesses form and grow their companies.',
+    slug: 'incfile',
+    logoImage: {
+      childImageSharp: {
+        gatsbyImageData: {
+          layout: 'constrained',
+          placeholder: {
+            fallback:
+              'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAIAAADKYVtkAAAACXBIWXMAAAsTAAALEwEAmpwYAAABGUlEQVQY02P4/+/f/////7969P/WaRADwgXRIMat5x93nb79/8qBzSfufPz2CyT+HwEYIIoe37q9a/22PVdfTtly8caTd1cfvW1fc/b2sw9+bdsSe7cfXLvBo2bdtcfvlh28ue3sA4TmP39BmrdfeOreutOrcVPtspO+LVuC2re3rT4zb8+18K4dvRsv+PXsjezZlTH9gG/LFvuqdcduPP/////ff/9gms8+dKhalzZ1390XH8yKV7nUbrj74uPhq8+K5hxecuCmb8tm/5Ytvk2bM6btr1ly4sTNF1DNf8HOPnf3dc2SE1O3Xrrz/EPvhvO9G8671G3Yce7hwn3X91x80rbmTMuq03svPk6ftr9xxanvv35DPA8AkYrrroGQnwsAAAAASUVORK5CYII=',
+          },
+          images: {
+            fallback: {
+              src: '/static/9e173469a5ee9299f46c922a33cbf7aa/b646b/logo.png',
+              srcSet:
+                '/static/9e173469a5ee9299f46c922a33cbf7aa/60acb/logo.png 200w,\n/static/9e173469a5ee9299f46c922a33cbf7aa/c8f19/logo.png 400w,\n/static/9e173469a5ee9299f46c922a33cbf7aa/b646b/logo.png 800w',
+              sizes: '(min-width: 800px) 800px, 100vw',
+            },
+            sources: [
+              {
+                srcSet:
+                  '/static/9e173469a5ee9299f46c922a33cbf7aa/2d211/logo.avif 200w,\n/static/9e173469a5ee9299f46c922a33cbf7aa/0d2b9/logo.avif 400w,\n/static/9e173469a5ee9299f46c922a33cbf7aa/9233e/logo.avif 800w',
+                type: 'image/avif',
+                sizes: '(min-width: 800px) 800px, 100vw',
+              },
+              {
+                srcSet:
+                  '/static/9e173469a5ee9299f46c922a33cbf7aa/d2441/logo.webp 200w,\n/static/9e173469a5ee9299f46c922a33cbf7aa/8e2f4/logo.webp 400w,\n/static/9e173469a5ee9299f46c922a33cbf7aa/771ec/logo.webp 800w',
+                type: 'image/webp',
+                sizes: '(min-width: 800px) 800px, 100vw',
+              },
+            ],
+          },
+          width: 800,
+          height: 208,
+        },
+      },
+    },
+  },
+];
+
+export const cms_articles = [
+  {
+    name: 'Can Crowdfunding Work for You and Your Business?',
+    status: 'featured',
+    category: 'plan',
+    subcategory: 'business-funding',
+    excerpt: 'The complete guide for what works in crowdfunding for startups.',
+    slug: 'can-crowdfunding-work-for-you-and-your-business',
+    headerImage: {
+      childImageSharp: {
+        gatsbyImageData: {
+          layout: 'fullWidth',
+          placeholder: {
+            fallback:
+              'data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAQL/xAAXAQADAQAAAAAAAAAAAAAAAAAAAQIE/9oADAMBAAIQAxAAAAGJ8TNU8mAv/8QAGxAAAQQDAAAAAAAAAAAAAAAAAQACAxAREyL/2gAIAQEAAQUCHRkgw1ArY41//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFhEAAwAAAAAAAAAAAAAAAAAAAAER/9oACAECAQE/AXWQ/8QAGxAAAQQDAAAAAAAAAAAAAAAAAQACECERMVH/2gAIAQEABj8C1lNLeXNmP//EABkQAQEBAQEBAAAAAAAAAAAAAAERACEQMf/aAAgBAQABPyGxDEg1+FumYeMzxqnn/9oADAMBAAIAAwAAABBQ/wD/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQMBAT8Qka//xAAVEQEBAAAAAAAAAAAAAAAAAAARAP/aAAgBAgEBPxBCwv/EAB0QAQACAgIDAAAAAAAAAAAAAAEAESExUWEQQaH/2gAIAQEAAT8QL0C0g199QEDKLM8nUAG5ZmQiI1qDm+EwW98+P//Z',
+          },
+          images: {
+            fallback: {
+              src: '/static/ee2a0ea47add0d706b373c2379b6753b/fe407/header.jpg',
+              srcSet:
+                '/static/ee2a0ea47add0d706b373c2379b6753b/37bba/header.jpg 750w,\n/static/ee2a0ea47add0d706b373c2379b6753b/61c72/header.jpg 1080w,\n/static/ee2a0ea47add0d706b373c2379b6753b/fe407/header.jpg 1200w',
+              sizes: '100vw',
+            },
+            sources: [
+              {
+                srcSet:
+                  '/static/ee2a0ea47add0d706b373c2379b6753b/ba386/header.avif 750w,\n/static/ee2a0ea47add0d706b373c2379b6753b/8adb1/header.avif 1080w,\n/static/ee2a0ea47add0d706b373c2379b6753b/6a57e/header.avif 1200w',
+                type: 'image/avif',
+                sizes: '100vw',
+              },
+              {
+                srcSet:
+                  '/static/ee2a0ea47add0d706b373c2379b6753b/a66aa/header.webp 750w,\n/static/ee2a0ea47add0d706b373c2379b6753b/65dd5/header.webp 1080w,\n/static/ee2a0ea47add0d706b373c2379b6753b/edb28/header.webp 1200w',
+                type: 'image/webp',
+                sizes: '100vw',
+              },
+            ],
+          },
+          width: 1,
+          height: 0.5625,
+        },
+      },
+    },
+  },
+  {
+    name: 'How to Find Your Niche Business Consultant',
+    status: 'published',
+    category: 'plan',
+    subcategory: 'business-consultants',
+    excerpt:
+      'A Step-by-Step Guide to Finding Profitable Consulting for Small Businesses in a Niche Market',
+    slug: 'how-to-find-your-niche-business-consultant',
+    headerImage: {
+      childImageSharp: {
+        gatsbyImageData: {
+          layout: 'fullWidth',
+          placeholder: {
+            fallback:
+              'data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAwAE/8QAFgEBAQEAAAAAAAAAAAAAAAAABAEC/9oADAMBAAIQAxAAAAHBpEFmWC1P/8QAGBAAAwEBAAAAAAAAAAAAAAAAAAEREgL/2gAIAQEAAQUCTMvNN8yuH//EABURAQEAAAAAAAAAAAAAAAAAAAAS/9oACAEDAQE/AZS//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAHBAAAgAHAAAAAAAAAAAAAAAAABAREiEiMVFh/9oACAEBAAY/AiaFu10zRf/EABoQAAMAAwEAAAAAAAAAAAAAAAABESFRYTH/2gAIAQEAAT8hBoRnt4DS+in40bTilP/aAAwDAQACAAMAAAAQnD//xAAWEQADAAAAAAAAAAAAAAAAAAABEBH/2gAIAQMBAT8QkL//xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAgEBPxBVn//EABsQAQEBAAIDAAAAAAAAAAAAAAERACExUXHR/9oACAEBAAE/EBoLMFBCk5fmEpR5xiGAFbnGewvU6L6zv//Z',
+          },
+          images: {
+            fallback: {
+              src: '/static/99508561ba4aa7cdf7e322d2418e1124/09b90/header.jpg',
+              srcSet:
+                '/static/99508561ba4aa7cdf7e322d2418e1124/bf494/header.jpg 750w,\n/static/99508561ba4aa7cdf7e322d2418e1124/1a05b/header.jpg 1080w,\n/static/99508561ba4aa7cdf7e322d2418e1124/09b90/header.jpg 1200w',
+              sizes: '100vw',
+            },
+            sources: [
+              {
+                srcSet:
+                  '/static/99508561ba4aa7cdf7e322d2418e1124/9a83e/header.avif 750w,\n/static/99508561ba4aa7cdf7e322d2418e1124/05271/header.avif 1080w,\n/static/99508561ba4aa7cdf7e322d2418e1124/67462/header.avif 1200w',
+                type: 'image/avif',
+                sizes: '100vw',
+              },
+              {
+                srcSet:
+                  '/static/99508561ba4aa7cdf7e322d2418e1124/2bddf/header.webp 750w,\n/static/99508561ba4aa7cdf7e322d2418e1124/3b4fe/header.webp 1080w,\n/static/99508561ba4aa7cdf7e322d2418e1124/b7b77/header.webp 1200w',
+                type: 'image/webp',
+                sizes: '100vw',
+              },
+            ],
+          },
+          width: 1,
+          height: 0.7458333333333333,
+        },
+      },
+    },
+  },
+  {
+    name: 'Everything You Need to Know About Research Consultants',
+    status: 'published',
+    category: 'plan',
+    subcategory: 'business-consultants',
+    excerpt:
+      'What does a research consultant do and what are the benefits of hiring one when starting a new business?',
+    slug: 'everything-you-need-to-know-about-research-consultants',
+    headerImage: {
+      childImageSharp: {
+        gatsbyImageData: {
+          layout: 'fullWidth',
+          placeholder: {
+            fallback:
+              'data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAGABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUD/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAEDBP/aAAwDAQACEAMQAAABqYDJA1Q//8QAGRAAAwADAAAAAAAAAAAAAAAAAQISAxMx/9oACAEBAAEFAqbYKyhu/wD/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAaEAABBQEAAAAAAAAAAAAAAAACAAEQERJB/9oACAEBAAY/AsuiC+x//8QAGhABAAMAAwAAAAAAAAAAAAAAAQARIUFx4f/aAAgBAQABPyELO2ujAyPYvn2LeBWT/9oADAMBAAIAAwAAABBwD//EABYRAQEBAAAAAAAAAAAAAAAAAAEQIf/aAAgBAwEBPxB0n//EABYRAQEBAAAAAAAAAAAAAAAAAAEQIf/aAAgBAgEBPxAxJ//EABwQAQEAAgIDAAAAAAAAAAAAAAEhABExUWFxgf/aAAgBAQABPxAwYaDBCpPUzSCCN8Q2nUB8yBYY8Z//2Q==',
+          },
+          images: {
+            fallback: {
+              src: '/static/942dc7ea375338f6ca2359665110213d/8c906/header.jpg',
+              srcSet:
+                '/static/942dc7ea375338f6ca2359665110213d/2a0c1/header.jpg 750w,\n/static/942dc7ea375338f6ca2359665110213d/74d97/header.jpg 1080w,\n/static/942dc7ea375338f6ca2359665110213d/ab29b/header.jpg 1366w,\n/static/942dc7ea375338f6ca2359665110213d/8c906/header.jpg 1430w',
+              sizes: '100vw',
+            },
+            sources: [
+              {
+                srcSet:
+                  '/static/942dc7ea375338f6ca2359665110213d/dba6f/header.avif 750w,\n/static/942dc7ea375338f6ca2359665110213d/cb797/header.avif 1080w,\n/static/942dc7ea375338f6ca2359665110213d/df55b/header.avif 1366w,\n/static/942dc7ea375338f6ca2359665110213d/d1ae7/header.avif 1430w',
+                type: 'image/avif',
+                sizes: '100vw',
+              },
+              {
+                srcSet:
+                  '/static/942dc7ea375338f6ca2359665110213d/fd5f8/header.webp 750w,\n/static/942dc7ea375338f6ca2359665110213d/03c46/header.webp 1080w,\n/static/942dc7ea375338f6ca2359665110213d/70632/header.webp 1366w,\n/static/942dc7ea375338f6ca2359665110213d/b98a0/header.webp 1430w',
+                type: 'image/webp',
+                sizes: '100vw',
+              },
+            ],
+          },
+          width: 1,
+          height: 0.3237762237762238,
+        },
+      },
+    },
+  },
+  {
+    name: 'Can Crowdfunding Work for You and Your Business?',
+    status: 'featured',
+    category: 'plan',
+    subcategory: 'business-funding',
+    excerpt: 'The complete guide for what works in crowdfunding for startups.',
+    slug: 'can-crowdfunding-work-for-you-and-your-business',
+    headerImage: {
+      childImageSharp: {
+        gatsbyImageData: {
+          layout: 'fullWidth',
+          placeholder: {
+            fallback:
+              'data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAQL/xAAXAQADAQAAAAAAAAAAAAAAAAAAAQIE/9oADAMBAAIQAxAAAAGJ8TNU8mAv/8QAGxAAAQQDAAAAAAAAAAAAAAAAAQACAxAREyL/2gAIAQEAAQUCHRkgw1ArY41//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFhEAAwAAAAAAAAAAAAAAAAAAAAER/9oACAECAQE/AXWQ/8QAGxAAAQQDAAAAAAAAAAAAAAAAAQACECERMVH/2gAIAQEABj8C1lNLeXNmP//EABkQAQEBAQEBAAAAAAAAAAAAAAERACEQMf/aAAgBAQABPyGxDEg1+FumYeMzxqnn/9oADAMBAAIAAwAAABBQ/wD/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQMBAT8Qka//xAAVEQEBAAAAAAAAAAAAAAAAAAARAP/aAAgBAgEBPxBCwv/EAB0QAQACAgIDAAAAAAAAAAAAAAEAESExUWEQQaH/2gAIAQEAAT8QL0C0g199QEDKLM8nUAG5ZmQiI1qDm+EwW98+P//Z',
+          },
+          images: {
+            fallback: {
+              src: '/static/ee2a0ea47add0d706b373c2379b6753b/fe407/header.jpg',
+              srcSet:
+                '/static/ee2a0ea47add0d706b373c2379b6753b/37bba/header.jpg 750w,\n/static/ee2a0ea47add0d706b373c2379b6753b/61c72/header.jpg 1080w,\n/static/ee2a0ea47add0d706b373c2379b6753b/fe407/header.jpg 1200w',
+              sizes: '100vw',
+            },
+            sources: [
+              {
+                srcSet:
+                  '/static/ee2a0ea47add0d706b373c2379b6753b/ba386/header.avif 750w,\n/static/ee2a0ea47add0d706b373c2379b6753b/8adb1/header.avif 1080w,\n/static/ee2a0ea47add0d706b373c2379b6753b/6a57e/header.avif 1200w',
+                type: 'image/avif',
+                sizes: '100vw',
+              },
+              {
+                srcSet:
+                  '/static/ee2a0ea47add0d706b373c2379b6753b/a66aa/header.webp 750w,\n/static/ee2a0ea47add0d706b373c2379b6753b/65dd5/header.webp 1080w,\n/static/ee2a0ea47add0d706b373c2379b6753b/edb28/header.webp 1200w',
+                type: 'image/webp',
+                sizes: '100vw',
+              },
+            ],
+          },
+          width: 1,
+          height: 0.5625,
+        },
+      },
+    },
+  },
+  {
+    name: 'How to Find Your Niche Business Consultant',
+    status: 'published',
+    category: 'plan',
+    subcategory: 'business-consultants',
+    excerpt:
+      'A Step-by-Step Guide to Finding Profitable Consulting for Small Businesses in a Niche Market',
+    slug: 'how-to-find-your-niche-business-consultant',
+    headerImage: {
+      childImageSharp: {
+        gatsbyImageData: {
+          layout: 'fullWidth',
+          placeholder: {
+            fallback:
+              'data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAwAE/8QAFgEBAQEAAAAAAAAAAAAAAAAABAEC/9oADAMBAAIQAxAAAAHBpEFmWC1P/8QAGBAAAwEBAAAAAAAAAAAAAAAAAAEREgL/2gAIAQEAAQUCTMvNN8yuH//EABURAQEAAAAAAAAAAAAAAAAAAAAS/9oACAEDAQE/AZS//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAHBAAAgAHAAAAAAAAAAAAAAAAABAREiEiMVFh/9oACAEBAAY/AiaFu10zRf/EABoQAAMAAwEAAAAAAAAAAAAAAAABESFRYTH/2gAIAQEAAT8hBoRnt4DS+in40bTilP/aAAwDAQACAAMAAAAQnD//xAAWEQADAAAAAAAAAAAAAAAAAAABEBH/2gAIAQMBAT8QkL//xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAgEBPxBVn//EABsQAQEBAAIDAAAAAAAAAAAAAAERACExUXHR/9oACAEBAAE/EBoLMFBCk5fmEpR5xiGAFbnGewvU6L6zv//Z',
+          },
+          images: {
+            fallback: {
+              src: '/static/99508561ba4aa7cdf7e322d2418e1124/09b90/header.jpg',
+              srcSet:
+                '/static/99508561ba4aa7cdf7e322d2418e1124/bf494/header.jpg 750w,\n/static/99508561ba4aa7cdf7e322d2418e1124/1a05b/header.jpg 1080w,\n/static/99508561ba4aa7cdf7e322d2418e1124/09b90/header.jpg 1200w',
+              sizes: '100vw',
+            },
+            sources: [
+              {
+                srcSet:
+                  '/static/99508561ba4aa7cdf7e322d2418e1124/9a83e/header.avif 750w,\n/static/99508561ba4aa7cdf7e322d2418e1124/05271/header.avif 1080w,\n/static/99508561ba4aa7cdf7e322d2418e1124/67462/header.avif 1200w',
+                type: 'image/avif',
+                sizes: '100vw',
+              },
+              {
+                srcSet:
+                  '/static/99508561ba4aa7cdf7e322d2418e1124/2bddf/header.webp 750w,\n/static/99508561ba4aa7cdf7e322d2418e1124/3b4fe/header.webp 1080w,\n/static/99508561ba4aa7cdf7e322d2418e1124/b7b77/header.webp 1200w',
+                type: 'image/webp',
+                sizes: '100vw',
+              },
+            ],
+          },
+          width: 1,
+          height: 0.7458333333333333,
+        },
+      },
+    },
+  },
+  {
+    name: 'Everything You Need to Know About Research Consultants',
+    status: 'published',
+    category: 'plan',
+    subcategory: 'business-consultants',
+    excerpt:
+      'What does a research consultant do and what are the benefits of hiring one when starting a new business?',
+    slug: 'everything-you-need-to-know-about-research-consultants',
+    headerImage: {
+      childImageSharp: {
+        gatsbyImageData: {
+          layout: 'fullWidth',
+          placeholder: {
+            fallback:
+              'data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAGABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUD/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAEDBP/aAAwDAQACEAMQAAABqYDJA1Q//8QAGRAAAwADAAAAAAAAAAAAAAAAAQISAxMx/9oACAEBAAEFAqbYKyhu/wD/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAaEAABBQEAAAAAAAAAAAAAAAACAAEQERJB/9oACAEBAAY/AsuiC+x//8QAGhABAAMAAwAAAAAAAAAAAAAAAQARIUFx4f/aAAgBAQABPyELO2ujAyPYvn2LeBWT/9oADAMBAAIAAwAAABBwD//EABYRAQEBAAAAAAAAAAAAAAAAAAEQIf/aAAgBAwEBPxB0n//EABYRAQEBAAAAAAAAAAAAAAAAAAEQIf/aAAgBAgEBPxAxJ//EABwQAQEAAgIDAAAAAAAAAAAAAAEhABExUWFxgf/aAAgBAQABPxAwYaDBCpPUzSCCN8Q2nUB8yBYY8Z//2Q==',
+          },
+          images: {
+            fallback: {
+              src: '/static/942dc7ea375338f6ca2359665110213d/8c906/header.jpg',
+              srcSet:
+                '/static/942dc7ea375338f6ca2359665110213d/2a0c1/header.jpg 750w,\n/static/942dc7ea375338f6ca2359665110213d/74d97/header.jpg 1080w,\n/static/942dc7ea375338f6ca2359665110213d/ab29b/header.jpg 1366w,\n/static/942dc7ea375338f6ca2359665110213d/8c906/header.jpg 1430w',
+              sizes: '100vw',
+            },
+            sources: [
+              {
+                srcSet:
+                  '/static/942dc7ea375338f6ca2359665110213d/dba6f/header.avif 750w,\n/static/942dc7ea375338f6ca2359665110213d/cb797/header.avif 1080w,\n/static/942dc7ea375338f6ca2359665110213d/df55b/header.avif 1366w,\n/static/942dc7ea375338f6ca2359665110213d/d1ae7/header.avif 1430w',
+                type: 'image/avif',
+                sizes: '100vw',
+              },
+              {
+                srcSet:
+                  '/static/942dc7ea375338f6ca2359665110213d/fd5f8/header.webp 750w,\n/static/942dc7ea375338f6ca2359665110213d/03c46/header.webp 1080w,\n/static/942dc7ea375338f6ca2359665110213d/70632/header.webp 1366w,\n/static/942dc7ea375338f6ca2359665110213d/b98a0/header.webp 1430w',
+                type: 'image/webp',
+                sizes: '100vw',
+              },
+            ],
+          },
+          width: 1,
+          height: 0.3237762237762238,
+        },
+      },
+    },
+  },
+  {
+    name: 'How to Find Your Niche Business Consultant',
+    status: 'published',
+    category: 'plan',
+    subcategory: 'business-consultants',
+    excerpt:
+      'A Step-by-Step Guide to Finding Profitable Consulting for Small Businesses in a Niche Market',
+    slug: 'how-to-find-your-niche-business-consultant',
+    headerImage: {
+      childImageSharp: {
+        gatsbyImageData: {
+          layout: 'fullWidth',
+          placeholder: {
+            fallback:
+              'data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAwAE/8QAFgEBAQEAAAAAAAAAAAAAAAAABAEC/9oADAMBAAIQAxAAAAHBpEFmWC1P/8QAGBAAAwEBAAAAAAAAAAAAAAAAAAEREgL/2gAIAQEAAQUCTMvNN8yuH//EABURAQEAAAAAAAAAAAAAAAAAAAAS/9oACAEDAQE/AZS//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAHBAAAgAHAAAAAAAAAAAAAAAAABAREiEiMVFh/9oACAEBAAY/AiaFu10zRf/EABoQAAMAAwEAAAAAAAAAAAAAAAABESFRYTH/2gAIAQEAAT8hBoRnt4DS+in40bTilP/aAAwDAQACAAMAAAAQnD//xAAWEQADAAAAAAAAAAAAAAAAAAABEBH/2gAIAQMBAT8QkL//xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAgEBPxBVn//EABsQAQEBAAIDAAAAAAAAAAAAAAERACExUXHR/9oACAEBAAE/EBoLMFBCk5fmEpR5xiGAFbnGewvU6L6zv//Z',
+          },
+          images: {
+            fallback: {
+              src: '/static/99508561ba4aa7cdf7e322d2418e1124/09b90/header.jpg',
+              srcSet:
+                '/static/99508561ba4aa7cdf7e322d2418e1124/bf494/header.jpg 750w,\n/static/99508561ba4aa7cdf7e322d2418e1124/1a05b/header.jpg 1080w,\n/static/99508561ba4aa7cdf7e322d2418e1124/09b90/header.jpg 1200w',
+              sizes: '100vw',
+            },
+            sources: [
+              {
+                srcSet:
+                  '/static/99508561ba4aa7cdf7e322d2418e1124/9a83e/header.avif 750w,\n/static/99508561ba4aa7cdf7e322d2418e1124/05271/header.avif 1080w,\n/static/99508561ba4aa7cdf7e322d2418e1124/67462/header.avif 1200w',
+                type: 'image/avif',
+                sizes: '100vw',
+              },
+              {
+                srcSet:
+                  '/static/99508561ba4aa7cdf7e322d2418e1124/2bddf/header.webp 750w,\n/static/99508561ba4aa7cdf7e322d2418e1124/3b4fe/header.webp 1080w,\n/static/99508561ba4aa7cdf7e322d2418e1124/b7b77/header.webp 1200w',
+                type: 'image/webp',
+                sizes: '100vw',
+              },
+            ],
+          },
+          width: 1,
+          height: 0.7458333333333333,
+        },
+      },
+    },
+  },
+  {
+    name: 'Everything You Need to Know About Research Consultants',
+    status: 'published',
+    category: 'plan',
+    subcategory: 'business-consultants',
+    excerpt:
+      'What does a research consultant do and what are the benefits of hiring one when starting a new business?',
+    slug: 'everything-you-need-to-know-about-research-consultants',
+    headerImage: {
+      childImageSharp: {
+        gatsbyImageData: {
+          layout: 'fullWidth',
+          placeholder: {
+            fallback:
+              'data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAGABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUD/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAEDBP/aAAwDAQACEAMQAAABqYDJA1Q//8QAGRAAAwADAAAAAAAAAAAAAAAAAQISAxMx/9oACAEBAAEFAqbYKyhu/wD/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAaEAABBQEAAAAAAAAAAAAAAAACAAEQERJB/9oACAEBAAY/AsuiC+x//8QAGhABAAMAAwAAAAAAAAAAAAAAAQARIUFx4f/aAAgBAQABPyELO2ujAyPYvn2LeBWT/9oADAMBAAIAAwAAABBwD//EABYRAQEBAAAAAAAAAAAAAAAAAAEQIf/aAAgBAwEBPxB0n//EABYRAQEBAAAAAAAAAAAAAAAAAAEQIf/aAAgBAgEBPxAxJ//EABwQAQEAAgIDAAAAAAAAAAAAAAEhABExUWFxgf/aAAgBAQABPxAwYaDBCpPUzSCCN8Q2nUB8yBYY8Z//2Q==',
+          },
+          images: {
+            fallback: {
+              src: '/static/942dc7ea375338f6ca2359665110213d/8c906/header.jpg',
+              srcSet:
+                '/static/942dc7ea375338f6ca2359665110213d/2a0c1/header.jpg 750w,\n/static/942dc7ea375338f6ca2359665110213d/74d97/header.jpg 1080w,\n/static/942dc7ea375338f6ca2359665110213d/ab29b/header.jpg 1366w,\n/static/942dc7ea375338f6ca2359665110213d/8c906/header.jpg 1430w',
+              sizes: '100vw',
+            },
+            sources: [
+              {
+                srcSet:
+                  '/static/942dc7ea375338f6ca2359665110213d/dba6f/header.avif 750w,\n/static/942dc7ea375338f6ca2359665110213d/cb797/header.avif 1080w,\n/static/942dc7ea375338f6ca2359665110213d/df55b/header.avif 1366w,\n/static/942dc7ea375338f6ca2359665110213d/d1ae7/header.avif 1430w',
+                type: 'image/avif',
+                sizes: '100vw',
+              },
+              {
+                srcSet:
+                  '/static/942dc7ea375338f6ca2359665110213d/fd5f8/header.webp 750w,\n/static/942dc7ea375338f6ca2359665110213d/03c46/header.webp 1080w,\n/static/942dc7ea375338f6ca2359665110213d/70632/header.webp 1366w,\n/static/942dc7ea375338f6ca2359665110213d/b98a0/header.webp 1430w',
+                type: 'image/webp',
+                sizes: '100vw',
+              },
+            ],
+          },
+          width: 1,
+          height: 0.3237762237762238,
+        },
+      },
+    },
+  },
+];

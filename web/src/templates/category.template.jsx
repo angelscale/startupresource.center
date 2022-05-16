@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Typography, Grid, useMediaQuery, styled } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
+import { Typography, Grid, styled } from '@mui/material';
+// import { useTheme } from '@mui/material/styles';
 
 // components
 import {
@@ -11,7 +11,12 @@ import {
   ArticleCard,
   ProductCard,
   FeatureArticle,
+  ProductList,
+  ArticleList,
 } from 'components';
+
+// mock
+// import { cms_products, cms_articles } from './data';
 
 // Styles
 const Root = styled('div')({
@@ -72,10 +77,10 @@ const content = {
 
 // Component
 const CategoryTemplate = ({ data, location, pageContext }) => {
-  const theme = useTheme();
-  const isMd = useMediaQuery(theme.breakpoints.up('md'), {
-    defaultMatches: true,
-  });
+  // const theme = useTheme();
+  // const isMd = useMediaQuery(theme.breakpoints.up('md'), {
+  //   defaultMatches: true,
+  // });
 
   const featuredArticles =
     process.env.NODE_ENV === 'production'
@@ -102,7 +107,14 @@ const CategoryTemplate = ({ data, location, pageContext }) => {
   while (publishedArticles.length > 0 || publishedProducts.length > 0) {
     groupedCards.push(
       <React.Fragment key={`${i}-${j}`}>
-        <Grid container item xs={12} key={`${i++}-articles`} data-aos="fade-up">
+        <Grid
+          container
+          item
+          xs={12}
+          spacing={2}
+          key={`${i++}-articles`}
+          data-aos="fade-up"
+        >
           <Grid item xs={12} md={4} data-aos="fade-up">
             <StyledArticleCard
               withShadow
@@ -125,7 +137,14 @@ const CategoryTemplate = ({ data, location, pageContext }) => {
             />
           </Grid>
         </Grid>
-        <Grid container item xs={12} key={`${j++}-products`} data-aos="fade-up">
+        <Grid
+          container
+          item
+          xs={12}
+          spacing={2}
+          key={`${j++}-products`}
+          data-aos="fade-up"
+        >
           <Grid item xs={12} md={6} data-aos="fade-up">
             <ProductCard data={publishedProducts.pop()} />
           </Grid>
@@ -186,9 +205,11 @@ const CategoryTemplate = ({ data, location, pageContext }) => {
 
       {/* Articles */}
       <Container>
-        <Grid container spacing={isMd ? 4 : 2}>
+        {/* <Grid container spacing={isMd ? 4 : 2}>
           {groupedCards}
-        </Grid>
+        </Grid> */}
+        <ArticleList articleList={publishedArticles} />
+        <ProductList sx={{ mt: 8 }} productList={publishedProducts} />
       </Container>
     </Root>
   );
