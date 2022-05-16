@@ -37,6 +37,15 @@ const StyledSwiper = styled(Swiper)({
   },
 });
 
+const StyledArticleCard = styled(ArticleCard)(({ theme }) => ({
+  height: '100%',
+  borderRadius: theme.spacing(1),
+  '& .card-blog__content': {
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
+  },
+}));
+
 const ArticleList = ({ articleList, sx }) => {
   return (
     <Box sx={sx}>
@@ -57,7 +66,7 @@ const ArticleList = ({ articleList, sx }) => {
       >
         {articleList.map((article, i) => (
           <SwiperSlide key={i}>
-            <ArticleCard data={article} />
+            <StyledArticleCard withShadow data={article} />
           </SwiperSlide>
         ))}
       </StyledSwiper>
