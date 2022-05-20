@@ -30,10 +30,6 @@ const StyledSwiper = styled(Swiper)({
       fontSize: '.875rem',
       color: '#ffffff',
     },
-
-    '@media (max-width: 640px)': {
-      display: 'none',
-    },
   },
 });
 
