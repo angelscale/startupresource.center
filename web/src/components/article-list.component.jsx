@@ -43,6 +43,21 @@ const StyledArticleCard = styled(ArticleCard)(({ theme }) => ({
   '& .card-blog__content': {
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2),
+
+    '&  p': {
+      minHeight: '72px',
+
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      display: '-webkit-box',
+      '-webkit-line-clamp': '3',
+      '-webkit-box-orient': 'vertical',
+    },
+
+    '& h6': {
+      minHeight: '72px',
+      lineHeight: '1.2',
+    },
   },
 }));
 

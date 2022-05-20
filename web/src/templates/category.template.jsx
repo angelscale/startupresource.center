@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Typography, Grid, styled } from '@mui/material';
+import { Typography, styled } from '@mui/material';
 // import { useTheme } from '@mui/material/styles';
 
 // components
@@ -8,29 +8,29 @@ import {
   Breadcrumb,
   Container,
   Section,
-  ArticleCard,
-  ProductCard,
+  // ArticleCard,
+  // ProductCard,
   FeatureArticle,
   ProductList,
   ArticleList,
 } from 'components';
 
 // mock
-import { cms_products, cms_articles } from './data';
+// import { cms_products, cms_articles } from './data';
 
 // Styles
 const Root = styled('div')({
   margin: '0 auto',
 });
 
-const StyledArticleCard = styled(ArticleCard)(({ theme }) => ({
-  height: '100%',
-  borderRadius: theme.spacing(1),
-  '& .card-blog__content': {
-    paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(2),
-  },
-}));
+// const StyledArticleCard = styled(ArticleCard)(({ theme }) => ({
+//   height: '100%',
+//   borderRadius: theme.spacing(1),
+//   '& .card-blog__content': {
+//     paddingTop: theme.spacing(2),
+//     paddingBottom: theme.spacing(2),
+//   },
+// }));
 
 const Title = styled(Typography)({
   textTransform: 'capitalize',
@@ -101,60 +101,60 @@ const CategoryTemplate = ({ data, location, pageContext }) => {
         )
       : data.allProducts.nodes;
 
-  const groupedCards = [];
-  let i = 0,
-    j = 0;
-  while (publishedArticles.length > 0 || publishedProducts.length > 0) {
-    groupedCards.push(
-      <React.Fragment key={`${i}-${j}`}>
-        <Grid
-          container
-          item
-          xs={12}
-          spacing={2}
-          key={`${i++}-articles`}
-          data-aos="fade-up"
-        >
-          <Grid item xs={12} md={4} data-aos="fade-up">
-            <StyledArticleCard
-              withShadow
-              liftUp
-              data={publishedArticles.pop()}
-            />
-          </Grid>
-          <Grid item xs={12} md={4} data-aos="fade-up">
-            <StyledArticleCard
-              withShadow
-              liftUp
-              data={publishedArticles.pop()}
-            />
-          </Grid>
-          <Grid item xs={12} md={4} data-aos="fade-up">
-            <StyledArticleCard
-              withShadow
-              liftUp
-              data={publishedArticles.pop()}
-            />
-          </Grid>
-        </Grid>
-        <Grid
-          container
-          item
-          xs={12}
-          spacing={2}
-          key={`${j++}-products`}
-          data-aos="fade-up"
-        >
-          <Grid item xs={12} md={6} data-aos="fade-up">
-            <ProductCard data={publishedProducts.pop()} />
-          </Grid>
-          <Grid item xs={12} md={6} data-aos="fade-up">
-            <ProductCard data={publishedProducts.pop()} />
-          </Grid>
-        </Grid>
-      </React.Fragment>,
-    );
-  }
+  // const groupedCards = [];
+  // let i = 0,
+  //   j = 0;
+  // while (publishedArticles.length > 0 || publishedProducts.length > 0) {
+  //   groupedCards.push(
+  //     <React.Fragment key={`${i}-${j}`}>
+  //       <Grid
+  //         container
+  //         item
+  //         xs={12}
+  //         spacing={2}
+  //         key={`${i++}-articles`}
+  //         data-aos="fade-up"
+  //       >
+  //         <Grid item xs={12} md={4} data-aos="fade-up">
+  //           <StyledArticleCard
+  //             withShadow
+  //             liftUp
+  //             data={publishedArticles.pop()}
+  //           />
+  //         </Grid>
+  //         <Grid item xs={12} md={4} data-aos="fade-up">
+  //           <StyledArticleCard
+  //             withShadow
+  //             liftUp
+  //             data={publishedArticles.pop()}
+  //           />
+  //         </Grid>
+  //         <Grid item xs={12} md={4} data-aos="fade-up">
+  //           <StyledArticleCard
+  //             withShadow
+  //             liftUp
+  //             data={publishedArticles.pop()}
+  //           />
+  //         </Grid>
+  //       </Grid>
+  //       <Grid
+  //         container
+  //         item
+  //         xs={12}
+  //         spacing={2}
+  //         key={`${j++}-products`}
+  //         data-aos="fade-up"
+  //       >
+  //         <Grid item xs={12} md={6} data-aos="fade-up">
+  //           <ProductCard data={publishedProducts.pop()} />
+  //         </Grid>
+  //         <Grid item xs={12} md={6} data-aos="fade-up">
+  //           <ProductCard data={publishedProducts.pop()} />
+  //         </Grid>
+  //       </Grid>
+  //     </React.Fragment>,
+  //   );
+  // }
 
   return (
     <Root>
@@ -208,8 +208,8 @@ const CategoryTemplate = ({ data, location, pageContext }) => {
         {/* <Grid container spacing={isMd ? 4 : 2}>
           {groupedCards}
         </Grid> */}
-        <ArticleList articleList={cms_articles} />
-        <ProductList sx={{ mt: 8 }} productList={cms_products} />
+        <ArticleList articleList={publishedArticles} />
+        <ProductList sx={{ mt: 8 }} productList={publishedProducts} />
       </Container>
     </Root>
   );
@@ -253,6 +253,7 @@ export const categoryPageQuery = graphql`
         subcategory
         description
         slug
+        affiliate_link
         logoImage {
           childImageSharp {
             gatsbyImageData(
