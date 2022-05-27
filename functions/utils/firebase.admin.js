@@ -3,6 +3,8 @@ const { getAuth } = require('firebase-admin/auth');
 const { getFirestore } = require('firebase-admin/firestore');
 const { getStorage } = require('firebase-admin/storage');
 
+const firebaseAdminCredentials = JSON.parse(process.env.FB_ADMIN_CREDENTIALS);
+
 const firebaseConfig = {
   apiKey: 'AIzaSyC6O3jawP6T71_CE1SX76iMmvo-TuzE6oI',
   authDomain: 'startupresourcecenter.firebaseapp.com',
@@ -10,9 +12,9 @@ const firebaseConfig = {
   projectId: 'startupresourcecenter',
   storageBucket: 'startupresourcecenter.appspot.com',
   messagingSenderId: '245708595165',
-  appId: '1:245708595165:web:013395841af4a14c6e6034',
-  measurementId: 'G-GK0BMCZDKC',
-  credential: cert(JSON.parse(process.env.FB_ADMIN_CREDENTIALS)),
+  appId: '1:245708595165:web:28b476cc67ce4aa26e6034',
+  measurementId: 'G-PJ0S60P5TT',
+  credential: cert(firebaseAdminCredentials),
 };
 
 const firebaseAdmin = initializeApp(firebaseConfig);
