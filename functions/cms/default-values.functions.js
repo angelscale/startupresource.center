@@ -2,6 +2,7 @@ const functions = require('firebase-functions');
 const { slugify } = require('../utils/helpers');
 const { bucket } = require('../utils/firebase.admin');
 const _ = require('lodash');
+const { firestore } = require('firebase-admin');
 
 exports.setDefaultArticlesFields = functions.firestore
   .document(`articles/{articleId}`)
@@ -10,6 +11,7 @@ exports.setDefaultArticlesFields = functions.firestore
     doEnsureTitleTag(document.after);
     doEnsureImagesLocation(document.after, 'header_image');
     doEnsureImagesLocation(document.after, 'images');
+    doSetPublishDate(document.after);
   });
 
 exports.setDefaultProductFields = functions.firestore
@@ -18,6 +20,7 @@ exports.setDefaultProductFields = functions.firestore
     doSlugify(document.after);
     doEnsureTitleTag(document.after);
     doEnsureImagesLocation(document.after, 'logo');
+    doSetPublishDate(document.after);
   });
 
 exports.setDefaultPeopleFields = functions.firestore
@@ -25,6 +28,7 @@ exports.setDefaultPeopleFields = functions.firestore
   .onWrite(async (document) => {
     doSlugify(document.after);
     doEnsureImagesLocation(document.after, 'image');
+    doSetPublishDate(document.after);
   });
 
 const doSlugify = (document) => {
@@ -104,3 +108,25 @@ const doEnsureTitleTag = (document) => {
     });
   }
 };
+
+const doSetPublishDate = (document) => {
+  if (!document.data().publish_date || document.data().publish_date == '') {
+    document.ref.set({
+      ...document.data(),
+      publish_date: firestore.Timestamp.now(),
+    });
+  }
+};
+
+// const doSetUpdateTime = (document) => {
+//   const before = document.before.data();
+//   const after = document.after.data();
+//   after.updated_date = before.updated_date;
+
+//   if (!_.isEqual(document.before.data(), document.after.data())) {
+//     document.ref.set({
+//       ...document.data(),
+//       updated_date: firestore.Timestamp.now(),
+//     });
+//   }
+// };

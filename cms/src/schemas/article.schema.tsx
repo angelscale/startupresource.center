@@ -52,6 +52,10 @@ export const ArticleSchema = buildSchema<Article>({
         },
       },
     },
+    publish_date: {
+      title: 'Published Date',
+      dataType: 'timestamp',
+    },
     category: {
       title: 'Category',
       dataType: 'string',
@@ -144,16 +148,10 @@ export const ArticleSchema = buildSchema<Article>({
         hidden: true,
       },
     },
-    publish_date: {
-      title: 'Published Date',
-      dataType: 'timestamp',
-      disabled: {
-        hidden: true,
-      },
-    },
     updated_date: {
-      title: 'Edited Date',
+      title: 'Updated Date',
       dataType: 'timestamp',
+      autoValue: 'on_update',
       disabled: {
         hidden: true,
       },

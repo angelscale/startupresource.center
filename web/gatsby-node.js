@@ -185,6 +185,7 @@ exports.createPages = async ({ graphql, actions }) => {
           category
           subcategory
           slug
+          publish_date
         }
       }
       allProducts {
@@ -215,13 +216,18 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create article pages
   articles.forEach((node) => {
-    createPage({
-      path: `${node.category}/${node.subcategory}/${slugify(node.slug)}`,
-      component: require.resolve(`./src/templates/article.template.jsx`),
-      context: {
-        id: node.id,
-      },
-    });
+    if (
+      node.publish_date === null ||
+      Date.now() >= Date.parse(node.publish_date)
+    ) {
+      createPage({
+        path: `${node.category}/${node.subcategory}/${slugify(node.slug)}`,
+        component: require.resolve(`./src/templates/article.template.jsx`),
+        context: {
+          id: node.id,
+        },
+      });
+    }
   });
 
   // Create product pages

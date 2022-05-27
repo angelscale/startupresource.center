@@ -1,61 +1,24 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Typography, styled } from '@mui/material';
-// import { useTheme } from '@mui/material/styles';
 
-// components
 import {
   Breadcrumb,
   Container,
   Section,
-  // ArticleCard,
-  // ProductCard,
   FeatureArticle,
   ProductList,
   ArticleList,
   CategoryDescription,
 } from 'components';
 
-// mock
-// import { cms_products, cms_articles } from './data';
-
-// Styles
 const Root = styled('div')({
   margin: '0 auto',
 });
 
-// const StyledArticleCard = styled(ArticleCard)(({ theme }) => ({
-//   height: '100%',
-//   borderRadius: theme.spacing(1),
-//   '& .card-blog__content': {
-//     paddingTop: theme.spacing(2),
-//     paddingBottom: theme.spacing(2),
-//   },
-// }));
-
 const Title = styled(Typography)({
   textTransform: 'capitalize',
 });
-
-// const CategoryCard = styled(CardBase)(({ theme }) => ({
-//   borderRadius: theme.spacing(2),
-//   background: theme.palette.alternate.main,
-//   cursor: 'pointer',
-// }));
-
-// const CategoryImage = styled(SvgIcon)(({ theme }) => ({
-//   width: 60,
-//   height: 60,
-//   objectFit: 'contain',
-//   marginBottom: theme.spacing(5),
-// }));
-
-// const CategoryListIcon = styled(DescriptionListIcon)({
-//   '& .description-list-icon__title': {
-//     fontWeight: 400,
-//     fontSize: 16,
-//   },
-// });
 
 const content = {
   grow: {
@@ -76,22 +39,24 @@ const content = {
   },
 };
 
-// Component
 const CategoryTemplate = ({ data, location, pageContext }) => {
-  // const theme = useTheme();
-  // const isMd = useMediaQuery(theme.breakpoints.up('md'), {
-  //   defaultMatches: true,
-  // });
-
   const featuredArticles =
     process.env.NODE_ENV === 'production'
-      ? data.allArticles.nodes.filter((node) => node.status === 'featured')
+      ? data.allArticles.nodes.filter(
+          (node) =>
+            node.status === 'featured' &&
+            (node.publish_date === null ||
+              Date.now() >= Date.parse(node.publish_date)),
+        )
       : data.allArticles.nodes;
 
   const publishedArticles =
     process.env.NODE_ENV === 'production'
       ? data.allArticles.nodes.filter(
-          (node) => node.status === 'published' || node.status === 'featured',
+          (node) =>
+            (node.status === 'published' || node.status === 'featured') &&
+            (node.publish_date === null ||
+              Date.now() >= Date.parse(node.publish_date)),
         )
       : data.allArticles.nodes;
 
