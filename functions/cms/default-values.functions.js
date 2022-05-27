@@ -3,50 +3,77 @@ const { slugify } = require('../utils/helpers');
 
 exports.setDefaultArticlesFields = functions.firestore
   .document(`articles/{articleId}`)
-  .onCreate(async (document) => {
+  .onWrite(async (document) => {
     // Slug
-    if (!document.data().slug || document.data().slug == '') {
-      document.ref.set({
-        ...document.data(),
-        slug: slugify(document.data().name),
+    if (!document.after.data().slug || document.after.data().slug == '') {
+      document.after.ref.set({
+        ...document.after.data(),
+        slug: slugify(document.after.data().name),
+      });
+    } else if (
+      document.after.data().slug != slugify(document.after.data().slug)
+    ) {
+      document.after.ref.set({
+        ...document.after.data(),
+        slug: slugify(document.after.data().slug),
       });
     }
     // Title Tag
-    if (!document.data().title_tag || document.data().title_tag == '') {
-      document.ref.set({
-        ...document.data(),
-        title_tag: `${document.data().name} - Startup Resource Center`,
+    if (
+      !document.after.data().title_tag ||
+      document.after.data().title_tag == ''
+    ) {
+      document.after.ref.set({
+        ...document.after.data(),
+        title_tag: `${document.after.data().name} - Startup Resource Center`,
       });
     }
   });
 
 exports.setDefaultProductFields = functions.firestore
   .document(`products/{productId}`)
-  .onCreate(async (document) => {
+  .onWrite(async (document) => {
     // Slug
-    if (!document.data().slug || document.data().slug == '') {
-      document.ref.set({
-        ...document.data(),
-        slug: slugify(document.data().name),
+    if (!document.after.data().slug || document.after.data().slug == '') {
+      document.after.ref.set({
+        ...document.after.data(),
+        slug: slugify(document.after.data().name),
+      });
+    } else if (
+      document.after.data().slug != slugify(document.after.data().slug)
+    ) {
+      document.after.ref.set({
+        ...document.after.data(),
+        slug: slugify(document.after.data().slug),
       });
     }
     // Title Tag
-    if (!document.data().title_tag || document.data().title_tag == '') {
-      document.ref.set({
-        ...document.data(),
-        title_tag: `${document.data().name} - Startup Resource Center`,
+    if (
+      !document.after.data().title_tag ||
+      document.after.data().title_tag == ''
+    ) {
+      document.after.ref.set({
+        ...document.after.data(),
+        title_tag: `${document.after.data().name} - Startup Resource Center`,
       });
     }
   });
 
 exports.setDefaultPeopleFields = functions.firestore
   .document(`people/{peopleId}`)
-  .onCreate(async (document) => {
+  .onWrite(async (document) => {
     // Slug
-    if (!document.data().slug || document.data().slug == '') {
-      document.ref.set({
-        ...document.data(),
-        slug: slugify(document.data().name),
+    if (!document.after.data().slug || document.after.data().slug == '') {
+      document.after.ref.set({
+        ...document.after.data(),
+        slug: slugify(document.after.data().name),
+      });
+    } else if (
+      document.after.data().slug != slugify(document.after.data().slug)
+    ) {
+      document.after.ref.set({
+        ...document.after.data(),
+        slug: slugify(document.after.data().slug),
       });
     }
   });
