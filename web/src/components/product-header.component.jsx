@@ -27,7 +27,8 @@ const classes = {
 const Root = styled('div')(({ theme }) => ({
   [`&.${classes.root}`]: {
     background: '#fff',
-    paddingTop: theme.spacing(2),
+    paddingBlock: theme.spacing(2),
+    // paddingTop: theme.spacing(2),
     boxShadow:
       '0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%)',
     [theme.breakpoints.up('sm')]: {
@@ -105,7 +106,8 @@ const Root = styled('div')(({ theme }) => ({
 
   [`& .${classes.tab_wrapper}`]: {
     padding: theme.spacing(2, 2, 0),
-    display: 'flex',
+    // display: 'flex',
+    display: 'none',
     alignItems: 'center',
     gap: theme.spacing(3),
     listStyle: 'none',
@@ -212,12 +214,12 @@ const ProductHeader = ({ logoImage, name, location, affiliate_link }) => {
                 <Rating
                   name="read-only"
                   precision={0.5}
-                  value={0}
+                  value={5}
                   readOnly
                   size="small"
                 />
                 <Typography variant="body1">
-                  <strong>{0}</strong> / <span>5</span>
+                  <strong>{5}</strong> / <span>5</span>
                 </Typography>
               </Box>
             </div>

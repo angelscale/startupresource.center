@@ -13,6 +13,7 @@ import {
   FeatureArticle,
   ProductList,
   ArticleList,
+  CategoryDescription,
 } from 'components';
 
 // mock
@@ -165,9 +166,10 @@ const CategoryTemplate = ({ data, location, pageContext }) => {
         <Title variant="h3" gutterBottom>
           {content[pageContext.category].title}
         </Title>
-        <Typography variant="h6">
+        {/* <Typography variant="h6">
           {content[pageContext.category].content}
-        </Typography>
+        </Typography> */}
+        <CategoryDescription content={content[pageContext.category].content} />
       </Container>
       <Section disablePadding>
         <FeatureArticle items={featuredArticles} />

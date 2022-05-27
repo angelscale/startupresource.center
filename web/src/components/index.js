@@ -27,6 +27,7 @@ export { default as ProductHeader } from './product-header.component';
 export { default as FeatureArticle } from './feature-article.component';
 export { default as ProductList } from './product-list.component';
 export { default as ArticleList } from './article-list.component';
+export { default as CategoryDescription } from './category-description.component';
 
 // Main Layout Components
 export { default as Topbar } from './topbar.component';

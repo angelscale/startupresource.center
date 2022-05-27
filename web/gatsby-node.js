@@ -65,6 +65,17 @@ const createImageNodesFromStorage = async ({
   return processedImages;
 };
 
+const slugify = (text) => {
+  return text
+    .toString()
+    .toLowerCase()
+    .replace(/\s+/g, '-') // Replace spaces with -
+    .replace(/[^\w-]+/g, '') // Remove all non-word chars
+    .replace(/--+/g, '-') // Replace multiple - with single -
+    .replace(/^-+/, '') // Trim - from start of text
+    .replace(/-+$/, ''); // Trim - from end of text
+};
+
 exports.onCreateNode = async ({
   node,
   actions: { createNode, createNodeField },
@@ -205,7 +216,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create article pages
   articles.forEach((node) => {
     createPage({
-      path: `${node.category}/${node.subcategory}/${node.slug}`,
+      path: `${node.category}/${node.subcategory}/${slugify(node.slug)}`,
       component: require.resolve(`./src/templates/article.template.jsx`),
       context: {
         id: node.id,
@@ -216,7 +227,9 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create product pages
   products.forEach(async (node) => {
     createPage({
-      path: `${node.category}/${node.subcategory}/core-four/${node.slug}`,
+      path: `${node.category}/${node.subcategory}/core-four/${slugify(
+        node.slug,
+      )}`,
       component: require.resolve(`./src/templates/product.template.jsx`),
       context: {
         id: node.id,
@@ -227,7 +240,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create person pages
   people.forEach(async (node) => {
     createPage({
-      path: `about-us/${node.slug}`,
+      path: `about-us/${slugify(node.slug)}`,
       component: require.resolve(`./src/templates/person.template.jsx`),
       context: {
         id: node.id,
@@ -239,29 +252,31 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create category pages
   navigation.forEach((category) => {
     createPage({
-      path: `/${category.slug}`,
+      path: `/${slugify(category.slug)}`,
       component: require.resolve(`./src/templates/category.template.jsx`),
       context: {
-        category: category.slug,
+        category: slugify(category.slug),
       },
     });
 
     // Create subcategory pages
     category.subCategories.forEach((subcategory) => {
       createPage({
-        path: `/${category.slug}/${subcategory.slug}`,
+        path: `/${slugify(category.slug)}/${slugify(subcategory.slug)}`,
         component: require.resolve(`./src/templates/category.template.jsx`),
         context: {
-          category: category.slug,
-          subcategory: subcategory.slug,
+          category: slugify(category.slug),
+          subcategory: slugify(subcategory.slug),
         },
       });
       createPage({
-        path: `/${category.slug}/${subcategory.slug}/core-four`,
+        path: `/${slugify(category.slug)}/${slugify(
+          subcategory.slug,
+        )}/core-four`,
         component: require.resolve(`./src/templates/core-four.template.jsx`),
         context: {
-          category: category.slug,
-          subcategory: subcategory.slug,
+          category: slugify(category.slug),
+          subcategory: slugify(subcategory.slug),
         },
       });
     });
