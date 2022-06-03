@@ -40,32 +40,23 @@ const content = {
 };
 
 const CategoryTemplate = ({ data, location, pageContext }) => {
-  const featuredArticles =
-    process.env.NODE_ENV === 'production'
-      ? data.allArticles.nodes.filter(
-          (node) =>
-            node.status === 'featured' &&
-            (node.publish_date === null ||
-              Date.now() >= Date.parse(node.publish_date)),
-        )
-      : data.allArticles.nodes;
+  const featuredArticles = data.allArticles.nodes.filter(
+    (node) =>
+      node.status === 'featured' &&
+      (node.publish_date === null ||
+        Date.now() >= Date.parse(node.publish_date)),
+  );
 
-  const publishedArticles =
-    process.env.NODE_ENV === 'production'
-      ? data.allArticles.nodes.filter(
-          (node) =>
-            (node.status === 'published' || node.status === 'featured') &&
-            (node.publish_date === null ||
-              Date.now() >= Date.parse(node.publish_date)),
-        )
-      : data.allArticles.nodes;
+  const publishedArticles = data.allArticles.nodes.filter(
+    (node) =>
+      (node.status === 'published' || node.status === 'featured') &&
+      (node.publish_date === null ||
+        Date.now() >= Date.parse(node.publish_date)),
+  );
 
-  const publishedProducts =
-    process.env.NODE_ENV === 'production'
-      ? data.allProducts.nodes.filter(
-          (node) => node.status === 'published' || node.status === 'featured',
-        )
-      : data.allProducts.nodes;
+  const publishedProducts = data.allProducts.nodes.filter(
+    (node) => node.status === 'published' || node.status === 'featured',
+  );
 
   // const groupedCards = [];
   // let i = 0,
@@ -193,6 +184,7 @@ export const categoryPageQuery = graphql`
       nodes {
         name
         status
+        publish_date
         category
         subcategory
         excerpt
