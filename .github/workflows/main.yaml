@@ -20,6 +20,14 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
+      - name: Prepare Dependency Cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            web/node_modules/
+          key: ${{ runner.os }}-web-deps-${{ hashFiles('web/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-web-deps-
       - name: Prepare Dependencies
         working-directory: web
         run: yarn install
@@ -35,6 +43,14 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
+      - name: Prepare Dependency Cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            cms/node_modules/
+          key: ${{ runner.os }}-cms-deps-${{ hashFiles('cms/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cms-deps-
       - name: Prepare Dependencies
         working-directory: cms
         run: yarn install
@@ -66,17 +82,23 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
-      - name: Prepare Cache
+      - name: Prepare Dependency Cache
         uses: actions/cache@v2
         with:
           path: |
-            ~/.npm
+            web/node_modules/
+          key: ${{ runner.os }}-web-deps-${{ hashFiles('web/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-web-deps-
+      - name: Prepare Content Cache
+        uses: actions/cache@v2
+        with:
+          path: |
             web/.cache/
             web/public/
-            web/node_modules/
-          key: ${{ runner.os }}-web-${{ hashFiles('web/yarn.lock') }}
+          key: ${{ runner.os }}-web-content-${{ hashFiles('web/public') }}
           restore-keys: |
-            ${{ runner.os }}-web-
+            ${{ runner.os }}-web-content-
       - name: Prepare Dependencies
         working-directory: web
         run: yarn install
@@ -99,17 +121,14 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
-      - name: Prepare Cache
+      - name: Prepare Dependency Cache
         uses: actions/cache@v2
         with:
           path: |
-            ~/.npm
-            cms/.cache/
-            cms/build/
             cms/node_modules/
-          key: ${{ runner.os }}-cms-${{ hashFiles('cms/yarn.lock') }}
+          key: ${{ runner.os }}-cms-deps-${{ hashFiles('cms/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-cms-
+            ${{ runner.os }}-cms-deps-
       - name: Prepare Dependencies
         working-directory: cms
         run: yarn install
