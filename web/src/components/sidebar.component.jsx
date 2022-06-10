@@ -9,14 +9,10 @@ const PREFIX = 'Sidebar';
 const classes = {
   drawer: `${PREFIX}-drawer`,
   root: `${PREFIX}-root`,
-  nav: `${PREFIX}-nav`
+  nav: `${PREFIX}-nav`,
 };
 
-const StyledDrawer = styled(Drawer)((
-  {
-    theme
-  }
-) => ({
+const StyledDrawer = styled(Drawer)(({ theme }) => ({
   [`& .${classes.drawer}`]: {
     width: '100%',
     maxWidth: 325,
@@ -29,7 +25,7 @@ const StyledDrawer = styled(Drawer)((
 
   [`& .${classes.nav}`]: {
     marginBottom: theme.spacing(1),
-  }
+  },
 }));
 
 const Sidebar = ({
@@ -40,8 +36,6 @@ const Sidebar = ({
   className,
   ...rest
 }) => {
-
-
   return (
     <StyledDrawer
       anchor="left"

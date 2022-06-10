@@ -84,6 +84,7 @@ const StyledCard = styled(Card)(({ theme }) => ({
  * Component to display the basic card
  *
  * @param {Object} props
+ * @return {Object}
  */
 const CardBase = (props) => {
   const {

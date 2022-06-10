@@ -13,14 +13,10 @@ const classes = {
   heroRightSide: `${PREFIX}-heroRightSide`,
   heroCover: `${PREFIX}-heroCover`,
   heroImageContainer: `${PREFIX}-heroImageContainer`,
-  heroImage: `${PREFIX}-heroImage`
+  heroImage: `${PREFIX}-heroImage`,
 };
 
-const Root = styled('div')((
-  {
-    theme
-  }
-) => ({
+const Root = styled('div')(({ theme }) => ({
   [`&.${classes.root}`]: {
     height: '100%',
     width: '100%',
@@ -84,18 +80,17 @@ const Root = styled('div')((
       shapeOutside: 'polygon(10% 0%, 100% 0, 100% 100%, 0% 100%)',
       clipPath: 'polygon(10% 0%, 100% 0, 100% 100%, 0% 100%)',
     },
-  }
+  },
 }));
 
 /**
  * Component to display the shaped hero
  *
  * @param {Object} props
+ * @return {Object}
  */
 const HeroShaped = (props) => {
   const { leftSide, rightSide, hideDivider, className, ...rest } = props;
-
-
 
   return (
     <Root className={clsx(classes.root, 'hero-shaped', className)} {...rest}>

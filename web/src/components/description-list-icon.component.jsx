@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
  * Component to display the description list with icon
  *
  * @param {Object} props
+ * @return {Object}
  */
 const DescriptionListIcon = (props) => {
   const {
@@ -25,7 +26,6 @@ const DescriptionListIcon = (props) => {
     subtitleVariant,
     className,
     titleProps,
-    subtitleProps,
     ...rest
   } = props;
 

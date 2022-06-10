@@ -5,26 +5,20 @@ const PREFIX = 'SectionLabel';
 
 const classes = {
   sectionLabel: `${PREFIX}-sectionLabel`,
-  sectionLabelTitle: `${PREFIX}-sectionLabelTitle`
+  sectionLabelTitle: `${PREFIX}-sectionLabelTitle`,
 };
 
-const StyledBox = styled(Box)((
-  {
-    theme
-  }
-) => ({
+const StyledBox = styled(Box)(({ theme }) => ({
   [`&.${classes.sectionLabel}`]: {
     margin: theme.spacing(8, 0, 2, 0),
   },
 
   [`& .${classes.sectionLabelTitle}`]: {
     fontWeight: 700,
-  }
+  },
 }));
 
 const SectionLabel = ({ align = 'left', title, subtitle }) => {
-
-
   return (
     <StyledBox className={classes.sectionLabel}>
       <Typography

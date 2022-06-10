@@ -91,7 +91,7 @@ const Form = (props) => {
       });
     } else {
       setLoading(true);
-      let data = {
+      const data = {
         from: formData.email.value,
         to: 'contact@startupresource.center',
         subject: `Request from ${formData.name.value}`,

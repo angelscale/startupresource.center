@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
 const { initializeApp, cert } = require('firebase-admin/app');
 const { getStorage } = require('firebase-admin/storage');

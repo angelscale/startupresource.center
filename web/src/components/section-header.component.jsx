@@ -40,6 +40,7 @@ const StyledGrid = styled(Grid)(({ theme }) => ({
  * Component to display the section headers
  *
  * @param {Object} props
+ * @return {Object}
  */
 const SectionHeader = (props) => {
   const {

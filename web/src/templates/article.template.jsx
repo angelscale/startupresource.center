@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, { createElement, Fragment, useEffect } from 'react';
 import clsx from 'clsx';
 import _ from 'lodash';

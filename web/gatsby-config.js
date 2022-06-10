@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-let siteMetadata = {
+const siteMetadata = {
   title: `Startup Resource Center`,
   description: `Helping you connect the dots for your Startup!`,
   siteUrl: `https://www.startupresource.center`, // Site domain. Do not include a trailing slash!

@@ -1,7 +1,14 @@
 import React from 'react';
 import clsx from 'clsx';
 import { Link } from 'gatsby';
-import { List, ListItem, Typography, ListItemIcon, Divider, styled } from '@mui/material';
+import {
+  List,
+  ListItem,
+  Typography,
+  ListItemIcon,
+  Divider,
+  styled,
+} from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { MenuGroup } from 'components';
 
@@ -18,14 +25,10 @@ const classes = {
   menuItem: `${PREFIX}-menuItem`,
   menuGroupItem: `${PREFIX}-menuGroupItem`,
   menuGroupTitle: `${PREFIX}-menuGroupTitle`,
-  divider: `${PREFIX}-divider`
+  divider: `${PREFIX}-divider`,
 };
 
-const StyledList = styled(List)((
-  {
-    theme
-  }
-) => ({
+const StyledList = styled(List)(({ theme }) => ({
   [`&.${classes.root}`]: {},
 
   [`& .${classes.listItem}`]: {
@@ -77,12 +80,10 @@ const StyledList = styled(List)((
 
   [`& .${classes.divider}`]: {
     width: '100%',
-  }
+  },
 }));
 
 const SidebarNav = ({ navigation, onClose, className, ...rest }) => {
-
-
   return (
     <StyledList {...rest} className={clsx(classes.root, className)}>
       <ListItem className={classes.closeIcon} onClick={() => onClose()}>

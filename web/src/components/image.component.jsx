@@ -8,7 +8,7 @@ const PREFIX = 'Image';
 
 const classes = {
   root: `${PREFIX}-root`,
-  dBlock: `${PREFIX}-dBlock`
+  dBlock: `${PREFIX}-dBlock`,
 };
 
 const Root = styled('img\n')(() => ({
@@ -19,17 +19,17 @@ const Root = styled('img\n')(() => ({
 
   [`& .${classes.dBlock}`]: {
     display: 'block',
-  }
+  },
 }));
 
 /**
  * Component to display the images
  *
  * @param {Object} props
+ * @return {Object}
  */
 const Image = (props) => {
   const { src, srcSet, alt, lazy, lazyProps, className, ...rest } = props;
-
 
   if (lazy) {
     return (
@@ -46,7 +46,7 @@ const Image = (props) => {
   }
 
   return (
-    <img
+    <Root
       className={clsx('image', classes.root, className)}
       alt={alt}
       src={src}

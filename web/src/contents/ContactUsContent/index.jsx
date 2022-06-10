@@ -35,14 +35,10 @@ const classes = {
   contact_section: `${PREFIX}-contact_section`,
   newsletter_root: `${PREFIX}-newsletter_root`,
   inputContainer: `${PREFIX}-inputContainer`,
-  formControl: `${PREFIX}-formControl`
+  formControl: `${PREFIX}-formControl`,
 };
 
-const Root = styled('div')((
-  {
-    theme
-  }
-) => ({
+const Root = styled('div')(({ theme }) => ({
   [`& .${classes.hero_root}`]: {
     width: '100%',
     height: '100%',
@@ -141,12 +137,10 @@ const Root = styled('div')((
     '& .MuiInputAdornment-root i': {
       color: 'white !important',
     },
-  }
+  },
 }));
 
 const ContactUsContent = () => {
-
-
   return (
     <Root>
       <Section disablePadding className={classes.hero_root}>

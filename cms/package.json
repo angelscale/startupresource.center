@@ -10,9 +10,6 @@
     "@mui/lab": "^5.0.0-alpha.78",
     "@mui/material": "^5",
     "@mui/styles": "^5",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^12.1.5",
-    "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.4.1",
     "@types/node": "^16.11.27",
     "@types/react": "^17.0.44",
@@ -27,6 +24,19 @@
     "typescript": "^4.6.3",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^13.5.0",
+    "eslint": "^8.17.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "prettier": "^2.6.2"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -35,10 +45,24 @@
     "lint": "eslint . --ext .tsx --ext .ts --ext .jsx --ext .js --cache"
   },
   "eslintConfig": {
+    "root": true,
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "eslint:recommended",
+      "google",
+      "prettier"
     ]
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true
   },
   "browserslist": {
     "production": [
