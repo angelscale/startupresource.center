@@ -14,6 +14,7 @@ import {
   SectionLabel,
   TypedText,
   ServiceCards,
+  SEO,
 } from 'components';
 
 import HomeImage from 'assets/images/home-image.jpg';
@@ -110,6 +111,14 @@ const Root = styled('div')(({ theme }) => ({
 const HomePage = () => {
   return (
     <Root className={classes.root}>
+      <SEO
+        data={{
+          title_tag:
+            'Small Business & Startup Advice, Help and Resources - SRC',
+          meta_description:
+            'Startup Resource Center provides you the advice, help and resources you need for every stage of your business journey. Visit us to learn from experts.',
+        }}
+      />
       <HeroShaped
         className={classes.heroShaped}
         leftSide={
