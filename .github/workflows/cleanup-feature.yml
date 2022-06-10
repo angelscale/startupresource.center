@@ -3,8 +3,6 @@ name: cleanup-feature
 on:
   pull_request:
     types:
-      - opened
-      - synchronized
       - closed
 
 concurrency:
