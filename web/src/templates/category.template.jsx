@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { graphql } from 'gatsby';
 import { Typography, styled } from '@mui/material';
 
@@ -19,6 +20,36 @@ const Root = styled('div')({
 const Title = styled(Typography)({
   textTransform: 'capitalize',
 });
+
+const CategoryWrapper = styled('div')(({ theme }) => ({
+  marginTop: theme.spacing(8),
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexWrap: 'wrap',
+  gap: theme.spacing(2),
+
+  '& span': {
+    fontSize: '.875rem',
+    fontWeight: '600',
+    color: '#3f51b5',
+    cursor: 'pointer',
+    textTransform: 'capitalize',
+  },
+
+  '& > *:not(:last-child)': {
+    position: 'relative',
+
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      right: '-.5rem',
+      width: '1px',
+      height: '100%',
+      background: '#3f51b5',
+    },
+  },
+}));
 
 const content = {
   grow: {
@@ -57,6 +88,14 @@ const CategoryTemplate = ({ data, location, pageContext }) => {
   const publishedProducts = data.allProducts.nodes.filter(
     (node) => node.status === 'published' || node.status === 'featured',
   );
+
+  const articlesSubCats = data.allArticles.nodes.map(
+    (node) => node.subcategory,
+  );
+  const productsSubCats = data.allProducts.nodes.map(
+    (node) => node.subcategory,
+  );
+  const subCategories = [...new Set([...articlesSubCats, ...productsSubCats])];
 
   // const groupedCards = [];
   // let i = 0,
@@ -168,6 +207,16 @@ const CategoryTemplate = ({ data, location, pageContext }) => {
         </Grid> */}
         <ArticleList articleList={publishedArticles} />
         <ProductList sx={{ mt: 8 }} productList={publishedProducts} />
+
+        {location.pathname.split('/').length <= 3 && (
+          <CategoryWrapper>
+            {subCategories.map((subcategory, i) => (
+              <Link key={i} to={`/${pageContext.category}/${subcategory}`}>
+                <span>{subcategory.replaceAll('-', ' ')}</span>
+              </Link>
+            ))}
+          </CategoryWrapper>
+        )}
       </Container>
     </Root>
   );
