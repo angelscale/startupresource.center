@@ -14,7 +14,7 @@ import {
   useTheme,
 } from '@mui/material';
 
-import { Breadcrumb, Section, SectionHeader, CardBase } from 'components';
+import { Breadcrumb, Section, SectionHeader, CardBase, SEO } from 'components';
 import WorkingOnSofa from 'assets/images/about/working-on-sofa.inline.svg';
 import PeopleInSofa from 'assets/images/about/people-in-sofa.inline.svg';
 
@@ -148,6 +148,13 @@ const AboutUsPage = ({ data, location }) => {
 
   return (
     <Root className={classes.root}>
+      <SEO
+        data={{
+          title_tag:
+            'About Our Experts & Professionals in Business Startups - SRC',
+          meta_description: `The business professionals at Startup Resource Center are small business owners with decades of experience to help your startup succeed.`,
+        }}
+      />
       <Breadcrumb location={location} />
       <Section className={classes.hero_root}>
         <StaticImage

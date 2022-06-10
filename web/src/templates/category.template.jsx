@@ -10,6 +10,7 @@ import {
   ProductList,
   ArticleList,
   CategoryDescription,
+  SEO,
 } from 'components';
 
 const Root = styled('div')({
@@ -24,18 +25,27 @@ const content = {
   grow: {
     title: 'Grow Your Business',
     content: `Once you’ve established your new business, the most important task ahead is ensuring its success through growth. Angel-Scale offers all the insight you need to build your business brand and market it. Create the customer base and recognition that will keep your business growing for years to come with our expert advice and resources, broken down into careful categories to answer all of your questions. Our Creative & Design section offers advice on building a better brand. Our Digital Marketing section will help you tap into the online market. Our Influencer & Affiliate Marketing section offers the tips and tricks to build your online presence. Our Retail & Event Marketing gives insight to creating the best in-person shopping experience. Our eCommerce & Online Markets section will help you tackle shopping giants like Shopify and Etsy.  Our articles on Website Management & SEO will help you attract customers on every front.`,
+    title_tag: 'How to Grow a Startup Business - Articles & Resources - SRC',
+    meta_description: `Digital marketing and design are just two parts to growing your startup. Startup Resource Center provides help and advice on all aspects of growth.`,
   },
   launch: {
     title: 'Launch Your Business',
     content: `You’ve done the research, you’ve done the planning and the work, now you’re ready to take what was once a dream and launch it into reality. In our Launch hub, you’ll find everything you need to hit the ground running on your new business, broken down into easy-to-navigate categories. A great business is made with a great plan, and our Business Planning section offers a number of resources and great advice to ensure your vision comes to life successfully. Visual impressions and product reputation are so important for consumers today -- under our Create Your Brand section, you’ll find everything you need to shape the perfect message for your company. Before your items have even sold, you’ll want to invest time into Product Packaging & Design--luckily Angel-Scale has everything you need to know in order to create the right packaging for your products. Between our eCommerce Website and Website Development sections, you’ll have all the insight and tools you need to fast-track your online business. And, in our Networking section, you’ll learn all the tips and tricks to building out your business’s profile for better growth and high success.`,
+    title_tag: 'Guides & Articles to Launch Your New Business Startup - SRC',
+    meta_description: `You've done all the planning and are ready to launch your business, but how? Visit Startup Resource Center for advice and guides from business experts.`,
   },
   manage: {
     title: 'Manage Your Business',
     content: `You’ve started your new business. Congratulations! But now comes the challenging (fun) part: managing your operations. Here at Angel-Scale, we’ve compiled a comprehensive collection of resources to help you navigate this next step in entrepreneurship. From Staffing & Hiring help as you grow, to Inventory Management to help you walk that fine line between supply and demand. In this section you’ll find expert insight into Shipping to help you keep costs low and customers happy, as well as resources on Relationship Management--an important aspect of handling customers and employees. Not to be forgotten, this section also covers Operating Software--something that can make or break your business, so be sure to check out our diligently sourced expert advice and transform your new business into a well-oiled money-making machine.`,
+    title_tag:
+      'Managing a Startup Business - Advice, Articles, Resources - SRC',
+    meta_description: `Managing a new business is challenging. From hiring staff to inventory management, there's a lot to know. Startup Resource Center has resources to help.`,
   },
   plan: {
     title: 'Plan Your Business',
     content: `Got an idea for a business, but don’t know where to start? In our Plan section, you’ll find everything you need to know to get your business off the ground. In our Research section, you’ll learn how to diligently investigate your idea and finely tune it to make it as competitive as possible. Our Business Funding section will guide you through the overwhelming but necessary process of building that startup capital. In our Legal section, you’ll find the best advice and explanations on everything you legally need to get your business running. Our Accounting & Finance section will help you take that startup capital you’ve raised and stretch it to its full capacity. In our Licensing & Patents section, you’ll find resources to help you protect your intellectual property, even as you begin to share it with the world. Within our Business Consultants section, you’ll find guidance and mentorship from experts in your business niche to help guide you through the planning process.`,
+    title_tag: 'Advice and Resources to Plan Your Startup Business - SRC',
+    meta_description: `Planning to start a business but unsure where to start? Startup Resource Center has articles and resources from experts to help you get off the ground.`,
   },
 };
 
@@ -115,6 +125,7 @@ const CategoryTemplate = ({ data, location, pageContext }) => {
 
   return (
     <Root>
+      <SEO data={content[pageContext.category]} />
       <Breadcrumb location={location} />
 
       <Container>
