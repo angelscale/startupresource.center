@@ -79,7 +79,7 @@ const slugify = (text) => {
 
 exports.onCreateNode = async ({
   node,
-  actions: { createNode, createNodeField },
+  actions: { createNode, createNodeField, createPage },
   createNodeId,
   getCache,
 }) => {
@@ -121,6 +121,41 @@ exports.onCreateNode = async ({
       name: 'images',
       value: images,
     });
+
+    // // Redirect if slug changed
+    // if (slugify(node.name) !== slugify(node.slug)) {
+    //   let fromPath;
+    //   let toPath;
+    //   if (node.internal.type === 'articles') {
+    //     fromPath = `${node.category}/${node.subcategory}/${slugify(node.name)}`;
+    //     toPath = `${node.category}/${node.subcategory}/${slugify(node.slug)}`;
+    //   } else if (node.internal.type === 'products') {
+    //     fromPath = `${node.category}/${node.subcategory}/core-four/${slugify(
+    //       node.name,
+    //     )}`;
+    //     toPath = `${node.category}/${node.subcategory}/core-four/${slugify(
+    //       node.slug,
+    //     )}`;
+    //   } else if (node.internal.type === 'people') {
+    //     fromPath = `about-us/${slugify(node.name)}`;
+    //     toPath = `about-us/${slugify(node.slug)}`;
+    //   }
+    //   console.log(`Creating Redirect for: ${node.name}`);
+    //   console.log(`From: ${fromPath}`);
+    //   console.log(`To: ${toPath}`);
+    //   // createRedirect({
+    //   //   fromPath,
+    //   //   toPath,
+    //   //   isPermanent: true,
+    //   // });
+    //   createPage({
+    //     path: fromPath,
+    //     component: require.resolve(`./src/templates/redirect.template.jsx`),
+    //     context: {
+    //       toPath: toPath,
+    //     },
+    //   });
+    // }
   }
 };
 
@@ -165,7 +200,7 @@ exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
 };
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
 
   // Create Error Pages
   ['400', '401', '403', '404', '500'].forEach((e) => {
@@ -185,6 +220,7 @@ exports.createPages = async ({ graphql, actions }) => {
           id
           category
           subcategory
+          name
           slug
           publish_date
         }
@@ -194,6 +230,7 @@ exports.createPages = async ({ graphql, actions }) => {
           id
           category
           subcategory
+          name
           slug
         }
       }
@@ -201,6 +238,7 @@ exports.createPages = async ({ graphql, actions }) => {
         nodes {
           id
           slug
+          name
         }
       }
     }
@@ -215,12 +253,63 @@ exports.createPages = async ({ graphql, actions }) => {
   const products = result.data.allProducts.nodes;
   const people = result.data.allPeople.nodes;
 
+  // Redirect if slug changed
+  // if (slugify(node.name) !== slugify(node.slug)) {
+  //   let fromPath;
+  //   let toPath;
+  //   if (node.internal.type === 'articles') {
+  //     fromPath = `${node.category}/${node.subcategory}/${slugify(node.name)}`;
+  //     toPath = `${node.category}/${node.subcategory}/${slugify(node.slug)}`;
+  //   } else if (node.internal.type === 'products') {
+  //     fromPath = `${node.category}/${node.subcategory}/core-four/${slugify(
+  //       node.name,
+  //     )}`;
+  //     toPath = `${node.category}/${node.subcategory}/core-four/${slugify(
+  //       node.slug,
+  //     )}`;
+  //   } else if (node.internal.type === 'people') {
+  //     fromPath = `about-us/${slugify(node.name)}`;
+  //     toPath = `about-us/${slugify(node.slug)}`;
+  //   }
+  //   console.log(`Creating Redirect for: ${node.name}`);
+  //   console.log(`From: ${fromPath}`);
+  //   console.log(`To: ${toPath}`);
+  //   // createRedirect({
+  //   //   fromPath,
+  //   //   toPath,
+  //   //   isPermanent: true,
+  //   // });
+  //   createPage({
+  //     path: fromPath,
+  //     component: require.resolve(`./src/templates/redirect.template.jsx`),
+  //     context: {
+  //       toPath: toPath,
+  //     },
+  //   });
+  // }
+
   // Create article pages
   articles.forEach((node) => {
     if (
       node.publish_date === null ||
       Date.now() >= Date.parse(node.publish_date)
     ) {
+      if (slugify(node.name) !== slugify(node.slug)) {
+        console.log(
+          `fromPath: ${node.category}/${node.subcategory}/${slugify(
+            node.name,
+          )}`,
+        );
+        createPage({
+          path: `${node.category}/${node.subcategory}/${slugify(node.name)}`,
+          component: require.resolve(`./src/templates/redirect.template.jsx`),
+          context: {
+            toPath: `${node.category}/${node.subcategory}/${slugify(
+              node.slug,
+            )}`,
+          },
+        });
+      }
       createPage({
         path: `${node.category}/${node.subcategory}/${slugify(node.slug)}`,
         component: require.resolve(`./src/templates/article.template.jsx`),
@@ -233,6 +322,19 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create product pages
   products.forEach(async (node) => {
+    if (slugify(node.name) !== slugify(node.slug)) {
+      createPage({
+        path: `${node.category}/${node.subcategory}/core-four/${slugify(
+          node.name,
+        )}`,
+        component: require.resolve(`./src/templates/redirect.template.jsx`),
+        context: {
+          toPath: `${node.category}/${node.subcategory}/core-four/${slugify(
+            node.slug,
+          )}`,
+        },
+      });
+    }
     createPage({
       path: `${node.category}/${node.subcategory}/core-four/${slugify(
         node.slug,
