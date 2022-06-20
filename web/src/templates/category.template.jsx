@@ -22,12 +22,13 @@ const Title = styled(Typography)({
 });
 
 const CategoryWrapper = styled('div')(({ theme }) => ({
-  marginTop: theme.spacing(8),
+  marginBlock: theme.spacing(0, 4),
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
-  flexWrap: 'wrap',
-  gap: theme.spacing(2),
+  justifyContent: 'flex-start',
+  flexWrap: 'nowrap',
+  columnGap: theme.spacing(2),
+  overflowX: 'auto',
 
   '& span': {
     fontSize: '.875rem',
@@ -48,6 +49,24 @@ const CategoryWrapper = styled('div')(({ theme }) => ({
       height: '100%',
       background: '#3f51b5',
     },
+  },
+
+  '& > *': {
+    flex: '0 0 auto',
+  },
+
+  '&::-webkit-scrollbar': {
+    display: 'none',
+  },
+
+  '@media (min-width: 640px)': {
+    marginBlock: theme.spacing(-4, 4),
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+  },
+
+  '@media (min-width: 900px)': {
+    marginBlock: theme.spacing(-6, 4),
   },
 }));
 
@@ -158,6 +177,16 @@ const CategoryTemplate = ({ data, location, pageContext }) => {
 
       <Container>
         {/* category description */}
+        {location.pathname.split('/').length <= 3 && (
+          <CategoryWrapper>
+            {subCategories.map((subcategory, i) => (
+              <Link key={i} to={`/${pageContext.category}/${subcategory}`}>
+                <span>{subcategory.replaceAll('-', ' ')}</span>
+              </Link>
+            ))}
+          </CategoryWrapper>
+        )}
+
         <Title variant="h3" gutterBottom>
           {content[pageContext.category].title}
         </Title>
@@ -207,16 +236,6 @@ const CategoryTemplate = ({ data, location, pageContext }) => {
         </Grid> */}
         <ArticleList articleList={publishedArticles} />
         <ProductList sx={{ mt: 8 }} productList={publishedProducts} />
-
-        {location.pathname.split('/').length <= 3 && (
-          <CategoryWrapper>
-            {subCategories.map((subcategory, i) => (
-              <Link key={i} to={`/${pageContext.category}/${subcategory}`}>
-                <span>{subcategory.replaceAll('-', ' ')}</span>
-              </Link>
-            ))}
-          </CategoryWrapper>
-        )}
       </Container>
     </Root>
   );
