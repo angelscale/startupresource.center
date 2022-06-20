@@ -63,7 +63,7 @@ const ArticleList = ({ articleList, sx }) => {
     <Box sx={sx}>
       <SectionHeader
         title="Articles"
-        subtitle="Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+        subtitle="The Best Tips and Tricks of the Trade from Our Business Experts"
         align="start"
       />
       <StyledSwiper
