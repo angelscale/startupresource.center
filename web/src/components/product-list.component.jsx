@@ -35,7 +35,7 @@ const ProductList = ({ productList, sx }) => {
     <Box sx={sx}>
       <SectionHeader
         title="Products"
-        subtitle="Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+        subtitle="Recommendations for the Best Services for Your Business"
         align="start"
       />
       <StyledSwiper
