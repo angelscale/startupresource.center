@@ -91,20 +91,26 @@ export const ArticleSchema = buildSchema<Article>({
         path: 'people',
       },
     },
-    header_image: ({ entityId }) => ({
-      title: 'Header Image',
-      dataType: 'string',
-      config: {
-        storageMeta: {
-          mediaType: 'image',
-          storagePath: `images/articles/${entityId}`,
-          acceptedFiles: ['image/*'],
-          metadata: {
-            cacheControl: 'max-age=1000000',
+    header_image: ({ entityId }) =>
+      buildProperty({
+        title: 'Header Image',
+        dataType: 'string',
+        config: {
+          storageMeta: {
+            mediaType: 'image',
+            storagePath: `images/articles/${entityId}`,
+            fileName: (context) => {
+              return `header.${context.file.name.substring(
+                context.file.name.lastIndexOf('.') + 1,
+              )}`;
+            },
+            acceptedFiles: ['image/*'],
+            metadata: {
+              cacheControl: 'max-age=1000000',
+            },
           },
         },
-      },
-    }),
+      }),
     images: ({ entityId }) => ({
       title: 'Images',
       dataType: 'array',

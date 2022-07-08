@@ -95,11 +95,18 @@ const ArticleTemplate = ({ data, location }) => {
       data.allFile.nodes,
       (node) => node.name === imgName,
     );
+
     if (imgIndex === -1) {
-      return null;
+      console.log(
+        `WARN: No image found for ${imgName} - assuming header image!`,
+      );
+      return <GatsbyImage image={getImage(headerImage)} alt={alt} {...rest} />;
     }
     const imgSharp = getImage(data.allFile.nodes[imgIndex]);
     if (!imgSharp) {
+      console.log(
+        `WARN: No sharp processed images found for ${imgName} - will not be rendered!`,
+      );
       return null;
     }
     return <GatsbyImage image={imgSharp} alt={alt} {...rest} />;
