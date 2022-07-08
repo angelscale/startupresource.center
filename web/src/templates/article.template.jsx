@@ -60,17 +60,33 @@ const Text = styled('div')(
 `,
 );
 
-const Itemtext = styled(ListItemText)(
+const UnorderedList = styled('ul')(
   () => `
-    font-size: 1.125rem;
-    line-height: 1.125rem;
-    font-weight: 600;
-    letter-spacing: 0.4px;
-    white-space: pre-line;
+    padding: 0 2em;
+    margin-bottom: 1.5em;
 
-    span {
-      all: inherit;
-      margin: 0;
+    li {
+      ol {
+        margin-bottom: 0em;
+      }
+      ul {
+        margin-bottom: 0em;
+      }
+    }
+`,
+);
+const OrderedList = styled('ol')(
+  () => `
+    padding: 0 2em;
+    margin-bottom: 1.5em;
+    
+    li {
+      ol {
+        margin-bottom: 0em;
+      }
+      ul {
+        margin-bottom: 0em;
+      }
     }
 `,
 );
@@ -135,13 +151,15 @@ const ArticleTemplate = ({ data, location }) => {
       Fragment,
       components: {
         p: Text,
-        li: Itemtext,
+        ul: UnorderedList,
+        ol: OrderedList,
         a: LinkText,
         img: InlineImage,
       },
     })
     .processSync(content);
 
+  console.log(parseContent);
   return (
     <Root>
       <SEO data={data.allArticles.nodes[0]} />
