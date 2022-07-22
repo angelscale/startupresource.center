@@ -8,6 +8,8 @@ import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
 import rehypeReact from 'rehype-react';
+import rehypeRaw from 'rehype-raw';
+import rehypeSanitize from 'rehype-sanitize';
 import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 import { convertToBgImage } from 'gbimage-bridge';
 import BackgroundImage from 'gatsby-background-image';
@@ -144,7 +146,9 @@ const ArticleTemplate = ({ data, location }) => {
 
   const parseContent = unified()
     .use(remarkParse)
-    .use(remarkRehype)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
+    .use(rehypeSanitize)
     .use(rehypeStringify)
     .use(rehypeReact, {
       createElement,
@@ -159,7 +163,7 @@ const ArticleTemplate = ({ data, location }) => {
     })
     .processSync(content);
 
-  console.log(parseContent);
+  console.log(String(parseContent.result));
   return (
     <Root>
       <SEO data={data.allArticles.nodes[0]} />
