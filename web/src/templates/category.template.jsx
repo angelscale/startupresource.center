@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 import { graphql } from 'gatsby';
 import { Typography, styled } from '@mui/material';
 
@@ -21,71 +21,179 @@ const Title = styled(Typography)({
   textTransform: 'capitalize',
 });
 
-const CategoryWrapper = styled('div')(({ theme }) => ({
-  marginBlock: theme.spacing(0, 4),
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-start',
-  flexWrap: 'nowrap',
-  columnGap: theme.spacing(2),
-  overflowX: 'auto',
+// const CategoryWrapper = styled('div')(({ theme }) => ({
+//   marginBlock: theme.spacing(0, 4),
+//   display: 'flex',
+//   alignItems: 'center',
+//   justifyContent: 'flex-start',
+//   flexWrap: 'nowrap',
+//   columnGap: theme.spacing(2),
+//   overflowX: 'auto',
 
-  '& span': {
-    fontSize: '.875rem',
-    fontWeight: '600',
-    color: '#3f51b5',
-    cursor: 'pointer',
-    textTransform: 'capitalize',
-  },
+//   '& span': {
+//     fontSize: '.875rem',
+//     fontWeight: '600',
+//     color: '#3f51b5',
+//     cursor: 'pointer',
+//     textTransform: 'capitalize',
+//   },
 
-  '& > *:not(:last-child)': {
-    position: 'relative',
+//   '& > *:not(:last-child)': {
+//     position: 'relative',
 
-    '&::before': {
-      content: '""',
-      position: 'absolute',
-      right: '-.5rem',
-      width: '1px',
-      height: '100%',
-      background: '#3f51b5',
-    },
-  },
+//     '&::before': {
+//       content: '""',
+//       position: 'absolute',
+//       right: '-.5rem',
+//       width: '1px',
+//       height: '100%',
+//       background: '#3f51b5',
+//     },
+//   },
 
-  '& > *': {
-    flex: '0 0 auto',
-  },
+//   '& > *': {
+//     flex: '0 0 auto',
+//   },
 
-  '&::-webkit-scrollbar': {
-    display: 'none',
-  },
+//   '&::-webkit-scrollbar': {
+//     display: 'none',
+//   },
 
-  '@media (min-width: 640px)': {
-    marginBlock: theme.spacing(-4, 4),
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-  },
+//   '@media (min-width: 640px)': {
+//     marginBlock: theme.spacing(-4, 4),
+//     justifyContent: 'center',
+//     flexWrap: 'wrap',
+//   },
 
-  '@media (min-width: 900px)': {
-    marginBlock: theme.spacing(-6, 4),
-  },
-}));
+//   '@media (min-width: 900px)': {
+//     marginBlock: theme.spacing(-6, 4),
+//   },
+// }));
 
 const content = {
-  grow: {
-    title: 'Grow Your Business',
-    content: `Once you’ve established your new business, the most important task ahead is ensuring its success through growth. Angel-Scale offers all the insight you need to build your business brand and market it. Create the customer base and recognition that will keep your business growing for years to come with our expert advice and resources, broken down into careful categories to answer all of your questions. Our Creative & Design section offers advice on building a better brand. Our Digital Marketing section will help you tap into the online market. Our Influencer & Affiliate Marketing section offers the tips and tricks to build your online presence. Our Retail & Event Marketing gives insight to creating the best in-person shopping experience. Our eCommerce & Online Markets section will help you tackle shopping giants like Shopify and Etsy.  Our articles on Website Management & SEO will help you attract customers on every front.`,
+  plan: {
+    title: 'Plan Your Business',
+    content: `Have an idea for a business, but don’t know where to start?  Here you'll find all the resources to help you plan for success as you start your new business.`,
+    'business-funding': {
+      title: `Business Funding`,
+      content: `Raising startup capital can be overwhelming.  Get the help and guidance you need with these resources.`,
+    },
+    'business-consulting': {
+      title: 'Business Consulting',
+      content: `Find guidance and mentorship from experts in your business niche to help guide you through the planning process.`,
+    },
+    'licensing-and-patents': {
+      title: 'Licensing & Patents',
+      content: `Find resources to help you protect your intellectual property, even as you begin to share it with the world.`,
+    },
+    legal: {
+      title: 'Legal',
+      content: `Get the best advice and explanations on everything you need to do to get your business running, from a legal perspective.`,
+    },
+    'accounting-and-finance': {
+      title: 'Accounting & Finance',
+      content: `Get help making your capital work for you in the most efficient way.`,
+    },
+    research: {
+      title: 'Research',
+      content: `Learn how to diligently investigate your idea and finely tune it to make it as competitive as possible.`,
+    },
   },
   launch: {
     title: 'Launch Your Business',
-    content: `You’ve done the research, you’ve done the planning and the work, now you’re ready to take what was once a dream and launch it into reality. In our Launch hub, you’ll find everything you need to hit the ground running on your new business, broken down into easy-to-navigate categories. A great business is made with a great plan, and our Business Planning section offers a number of resources and great advice to ensure your vision comes to life successfully. Visual impressions and product reputation are so important for consumers today -- under our Create Your Brand section, you’ll find everything you need to shape the perfect message for your company. Before your items have even sold, you’ll want to invest time into Product Packaging & Design--luckily Angel-Scale has everything you need to know in order to create the right packaging for your products. Between our eCommerce Website and Website Development sections, you’ll have all the insight and tools you need to fast-track your online business. And, in our Networking section, you’ll learn all the tips and tricks to building out your business’s profile for better growth and high success.`,
+    content: `You’ve done the research, you’ve built the plan, and now you’re ready to turn your dream into a reality.  Here you will find everything you need to hit the ground running as you launch your new business.`,
+    'ecommerce-website': {
+      title: 'eCommerce Websites',
+      content: `Get the insight and tools to build your online eCommerce business.`,
+    },
+    'create-your-brand': {
+      title: 'Create Your Brand',
+      content: `Visual impressions and product reputation are so important.  Here you’ll find everything you need to create the perfect message for your company.`,
+    },
+    'product-packaging-and-design': {
+      title: 'Product Packaging & Design',
+      content: `Product Packaging is often the first insight into your product that your customers will see.  Here you will find all the resources you need to design the packaging for your products.`,
+    },
+    networking: {
+      title: 'Professional Networking',
+      content: `Learn all the tips and tricks to building out your business’s profile for better growth and success.`,
+    },
+    'website-development': {
+      title: 'Website Development',
+      content: `Here you will find all the resources to develop the home for your business on the web.`,
+    },
+    'website-hosting': {
+      title: 'Website Hosting',
+      content: `Here you will find resources to help you host your business website.`,
+    },
+    'business-planning': {
+      title: 'Business Planning',
+      content: `A great business is made with a great plan. Here you will find a number of resources and great advice to ensure your vision comes to life successfully.`,
+    },
   },
   manage: {
     title: 'Manage Your Business',
-    content: `You’ve started your new business. Congratulations! But now comes the challenging (fun) part: managing your operations. Here at Angel-Scale, we’ve compiled a comprehensive collection of resources to help you navigate this next step in entrepreneurship. From Staffing & Hiring help as you grow, to Inventory Management to help you walk that fine line between supply and demand. In this section you’ll find expert insight into Shipping to help you keep costs low and customers happy, as well as resources on Relationship Management--an important aspect of handling customers and employees. Not to be forgotten, this section also covers Operating Software--something that can make or break your business, so be sure to check out our diligently sourced expert advice and transform your new business into a well-oiled money-making machine.`,
+    content: `You’ve started your new business. Congratulations! But now comes the challenging (fun) part: managing your operations. We’ve compiled a comprehensive collection of resources to help you navigate this next step in entrepreneurship.`,
+    'customer-relationship-management': {
+      title: 'Customer Relationship Management',
+      content: `Here you will find all the resources you need to help you build and maintain Customer Relationships.`,
+    },
+    'inventory-management': {
+      title: 'Inventory Management',
+      content: `Here you will find all the resources you need for management of your inventory.`,
+    },
+    'staffing-and-hiring': {
+      title: 'Staffing & Hiring',
+      content: `Here you will find advice and resources on how to staff your business, including hiring and consultants.`,
+    },
+    shipping: {
+      title: 'Shipping',
+      content: `Here you will find resources to help you ship your product to your consumers.`,
+    },
+    'operating-software': {
+      title: 'Operating Software',
+      content: `Here you will find resources about software to help you operate your business.`,
+    },
   },
-  plan: {
-    title: 'Plan Your Business',
-    content: `Got an idea for a business, but don’t know where to start? In our Plan section, you’ll find everything you need to know to get your business off the ground. In our Research section, you’ll learn how to diligently investigate your idea and finely tune it to make it as competitive as possible. Our Business Funding section will guide you through the overwhelming but necessary process of building that startup capital. In our Legal section, you’ll find the best advice and explanations on everything you legally need to get your business running. Our Accounting & Finance section will help you take that startup capital you’ve raised and stretch it to its full capacity. In our Licensing & Patents section, you’ll find resources to help you protect your intellectual property, even as you begin to share it with the world. Within our Business Consultants section, you’ll find guidance and mentorship from experts in your business niche to help guide you through the planning process.`,
+  grow: {
+    title: 'Grow Your Business',
+    content: `Once you’ve established your new business, the most important task ahead is ensuring its success through growth. Angel-Scale offers all the insight you need to build your business brand and market it. Create the customer base and recognition that will keep your business growing for years to come with our expert advice and resources, broken down into careful categories to answer all of your questions.`,
+    'creative-and-design': {
+      title: 'Creative & Design',
+      content: `Get help building a better brand.`,
+    },
+    'digital-display-advertising': {
+      title: 'Digital Display Advertising',
+      content: `Get help tapping into the online market.`,
+    },
+    'retail-and-event-marketing': {
+      title: 'Retail & Event Marketing',
+      content: `Get insight into creating the best in-person shopping experience.`,
+    },
+    'website-management-and-seo': {
+      title: 'Website Management & SEO',
+      content: `Get help attracting customers on every front.`,
+    },
+    'ecommerce-and-online-markets': {
+      title: 'eCommerce & Online Markets',
+      content: `Get help creating the best online shoping experience, and utilize existing online marketplaces.`,
+    },
+    'influencer-and-affiliate-marketing': {
+      title: 'Influencer & Affiliate Marketing',
+      content: `Get tips and tricks to build your online presence.`,
+    },
+    'social-media': {
+      title: 'Social Media',
+      content: `Here you will find resources related to the Social Media precense of your business.`,
+    },
+    'search-engine-marketing': {
+      title: 'Search Engine Marketing',
+      content: `Here you will find advice and resources to help you market your products via Search Engines.`,
+    },
+    email: {
+      title: 'Email Marketing',
+      content: `Here you will find advice and resources to help you market your products via Email.`,
+    },
   },
 };
 
@@ -108,135 +216,51 @@ const CategoryTemplate = ({ data, location, pageContext }) => {
     (node) => node.status === 'published' || node.status === 'featured',
   );
 
-  const articlesSubCats = data.allArticles.nodes.map(
-    (node) => node.subcategory,
-  );
-  const productsSubCats = data.allProducts.nodes.map(
-    (node) => node.subcategory,
-  );
-  const subCategories = [...new Set([...articlesSubCats, ...productsSubCats])];
-
-  // const groupedCards = [];
-  // let i = 0,
-  //   j = 0;
-  // while (publishedArticles.length > 0 || publishedProducts.length > 0) {
-  //   groupedCards.push(
-  //     <React.Fragment key={`${i}-${j}`}>
-  //       <Grid
-  //         container
-  //         item
-  //         xs={12}
-  //         spacing={2}
-  //         key={`${i++}-articles`}
-  //         data-aos="fade-up"
-  //       >
-  //         <Grid item xs={12} md={4} data-aos="fade-up">
-  //           <StyledArticleCard
-  //             withShadow
-  //             liftUp
-  //             data={publishedArticles.pop()}
-  //           />
-  //         </Grid>
-  //         <Grid item xs={12} md={4} data-aos="fade-up">
-  //           <StyledArticleCard
-  //             withShadow
-  //             liftUp
-  //             data={publishedArticles.pop()}
-  //           />
-  //         </Grid>
-  //         <Grid item xs={12} md={4} data-aos="fade-up">
-  //           <StyledArticleCard
-  //             withShadow
-  //             liftUp
-  //             data={publishedArticles.pop()}
-  //           />
-  //         </Grid>
-  //       </Grid>
-  //       <Grid
-  //         container
-  //         item
-  //         xs={12}
-  //         spacing={2}
-  //         key={`${j++}-products`}
-  //         data-aos="fade-up"
-  //       >
-  //         <Grid item xs={12} md={6} data-aos="fade-up">
-  //           <ProductCard data={publishedProducts.pop()} />
-  //         </Grid>
-  //         <Grid item xs={12} md={6} data-aos="fade-up">
-  //           <ProductCard data={publishedProducts.pop()} />
-  //         </Grid>
-  //       </Grid>
-  //     </React.Fragment>,
-  //   );
-  // }
+  // const articlesSubCats = data.allArticles.nodes.map(
+  //   (node) => node.subcategory,
+  // );
+  // const productsSubCats = data.allProducts.nodes.map(
+  //   (node) => node.subcategory,
+  // );
+  // const subCategories = [...new Set([...articlesSubCats, ...productsSubCats])];
 
   return (
     <Root>
       <Breadcrumb location={location} />
 
+      {/* {location.pathname.split('/').length <= 3 && (
+        <CategoryWrapper>
+          {subCategories.map((subcategory, i) => (
+            <Link key={i} to={`/${pageContext.category}/${subcategory}`}>
+              <span>{subcategory.replaceAll('-', ' ')}</span>
+            </Link>
+          ))}
+        </CategoryWrapper>
+      )} */}
+
       <Container>
         {/* category description */}
-        {location.pathname.split('/').length <= 3 && (
-          <CategoryWrapper>
-            {subCategories.map((subcategory, i) => (
-              <Link key={i} to={`/${pageContext.category}/${subcategory}`}>
-                <span>{subcategory.replaceAll('-', ' ')}</span>
-              </Link>
-            ))}
-          </CategoryWrapper>
-        )}
-
         <Title variant="h3" gutterBottom>
           {content[pageContext.category].title}
         </Title>
-        {/* <Typography variant="h6">
-          {content[pageContext.category].content}
-        </Typography> */}
         <CategoryDescription content={content[pageContext.category].content} />
       </Container>
-      <Section disablePadding>
-        <FeatureArticle items={featuredArticles} />
-      </Section>
-
-      {/* <Container> */}
-      {/* sub category list */}
-      {/* Disabled for now, as we don't want to link to subcategory pages yet. */}
-      {/* <Box sx={{ mt: 4 }}>
-          <SectionHeader title="Sub Categories" align="left" />
-          <Grid container spacing={2}>
-            {navigation
-              .filter(
-                ({ slug }) => slug === data.allArticles.nodes[0].category,
-              )[0]
-              .subCategories.map(({ title }, index) => (
-                <Grid item xs={6} md={2} key={index} data-aos="fade-up">
-                  <CategoryCard noBorder noShadow liftUp>
-                    <CategoryListIcon
-                      icon={
-                        <CategoryImage
-                          component={KeyboardDoubleArrowRight}
-                          inheritViewBox
-                          alt={title}
-                        />
-                      }
-                      title={title}
-                    />
-                  </CategoryCard>
-                </Grid>
-              ))}
-          </Grid>
-        </Box> */}
-      {/* </Container> */}
 
       {/* Articles */}
-      <Container>
-        {/* <Grid container spacing={isMd ? 4 : 2}>
-          {groupedCards}
-        </Grid> */}
-        <ArticleList articleList={publishedArticles} />
-        <ProductList sx={{ mt: 8 }} productList={publishedProducts} />
-      </Container>
+      <Section disablePadding>
+        <Title variant="h4">Featured Articles</Title>
+        <FeatureArticle items={featuredArticles} />
+      </Section>
+      <Section disablePadding>
+        <Title sx={{ mt: 4 }} variant="h4">
+          Products
+        </Title>
+        <ProductList sx={{ mb: 4 }} productList={publishedProducts} />
+      </Section>
+      <Section disablePadding>
+        <Title variant="h4">Articles</Title>
+        <ArticleList sx={{ mb: 4 }} articleList={publishedArticles} />
+      </Section>
     </Root>
   );
 };
