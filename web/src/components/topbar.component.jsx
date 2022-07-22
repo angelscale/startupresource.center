@@ -5,7 +5,6 @@ import {
   Button,
   Toolbar,
   Hidden,
-  InputBase,
   List,
   ListItem,
   Typography,
@@ -20,7 +19,6 @@ import {
   Pinterest,
   LinkedIn,
 } from '@mui/icons-material';
-import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';

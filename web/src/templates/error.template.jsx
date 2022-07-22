@@ -7,14 +7,10 @@ const PREFIX = 'ServerError';
 const classes = {
   formContainer: `${PREFIX}-formContainer`,
   section: `${PREFIX}-section`,
-  label: `${PREFIX}-label`
+  label: `${PREFIX}-label`,
 };
 
-const Root = styled('div')((
-  {
-    theme
-  }
-) => ({
+const Root = styled('div')(({ theme }) => ({
   [`& .${classes.formContainer}`]: {
     height: '100%',
     display: 'flex',
@@ -34,12 +30,10 @@ const Root = styled('div')((
   [`& .${classes.label}`]: {
     fontWeight: 'bold',
     textTransform: 'uppercase',
-  }
+  },
 }));
 
 const ServerError = ({ pageContext: { code } }) => {
-
-
   const handleClick = () => {
     window.history.back();
   };

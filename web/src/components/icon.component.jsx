@@ -9,7 +9,7 @@ const classes = {
   extraSmall: `${PREFIX}-extraSmall`,
   small: `${PREFIX}-small`,
   medium: `${PREFIX}-medium`,
-  large: `${PREFIX}-large`
+  large: `${PREFIX}-large`,
 };
 
 const StyledNoSsr = styled(NoSsr)(() => ({
@@ -27,18 +27,17 @@ const StyledNoSsr = styled(NoSsr)(() => ({
 
   [`& .${classes.large}`]: {
     fontSize: 40,
-  }
+  },
 }));
 
 /**
  * Component to display the icon
  *
  * @param {Object} props
+ * @return {Object}
  */
 const Icon = (props) => {
   const { fontIconClass, size, fontIconColor, className, ...rest } = props;
-
-
 
   return (
     <StyledNoSsr>

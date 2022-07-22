@@ -58,11 +58,11 @@ const InternalLink = styled(Link)(({ theme }) => ({
  * Component to display the "Learn More" link
  *
  * @param {Object} props
+ * @return {Object}
  */
 const LearnMoreLink = (props) => {
   const {
     color,
-    component,
     variant,
     title,
     href,

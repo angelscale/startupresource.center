@@ -5,6 +5,7 @@ import { Navigation } from 'swiper';
 import { styled, Box } from '@mui/material';
 
 import ArticleCard from './card-article.component';
+import SectionHeader from './section-header.component';
 
 const StyledSwiper = styled(Swiper)({
   overflow: 'hidden',
@@ -60,6 +61,11 @@ const StyledArticleCard = styled(ArticleCard)(({ theme }) => ({
 const ArticleList = ({ articleList, sx }) => {
   return (
     <Box sx={sx}>
+      <SectionHeader
+        title="Articles"
+        subtitle="The Best Tips and Tricks of the Trade from Our Business Experts"
+        align="start"
+      />
       <StyledSwiper
         modules={[Navigation]}
         slidesPerView={1}

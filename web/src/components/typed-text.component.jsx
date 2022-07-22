@@ -8,6 +8,7 @@ import { Typography } from '@mui/material';
  * Component to display the typed animated texts
  *
  * @param {Object} props
+ * @return {Object}
  */
 const TypedText = (props) => {
   const { className, typedProps, ...rest } = props;

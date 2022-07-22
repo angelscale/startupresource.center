@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, { createElement, Fragment, useEffect } from 'react';
 import clsx from 'clsx';
 import _ from 'lodash';
@@ -59,17 +60,33 @@ const Text = styled('div')(
 `,
 );
 
-const Itemtext = styled(ListItemText)(
+const UnorderedList = styled('ul')(
   () => `
-    font-size: 1.125rem;
-    line-height: 1.125rem;
-    font-weight: 600;
-    letter-spacing: 0.4px;
-    white-space: pre-line;
+    padding: 0 2em;
+    margin-bottom: 1.5em;
 
-    span {
-      all: inherit;
-      margin: 0;
+    li {
+      ol {
+        margin-bottom: 0em;
+      }
+      ul {
+        margin-bottom: 0em;
+      }
+    }
+`,
+);
+const OrderedList = styled('ol')(
+  () => `
+    padding: 0 2em;
+    margin-bottom: 1.5em;
+    
+    li {
+      ol {
+        margin-bottom: 0em;
+      }
+      ul {
+        margin-bottom: 0em;
+      }
     }
 `,
 );
@@ -94,11 +111,18 @@ const ArticleTemplate = ({ data, location }) => {
       data.allFile.nodes,
       (node) => node.name === imgName,
     );
+
     if (imgIndex === -1) {
-      return null;
+      console.log(
+        `WARN: No image found for ${imgName} - assuming header image!`,
+      );
+      return <GatsbyImage image={getImage(headerImage)} alt={alt} {...rest} />;
     }
     const imgSharp = getImage(data.allFile.nodes[imgIndex]);
     if (!imgSharp) {
+      console.log(
+        `WARN: No sharp processed images found for ${imgName} - will not be rendered!`,
+      );
       return null;
     }
     return <GatsbyImage image={imgSharp} alt={alt} {...rest} />;
@@ -127,13 +151,15 @@ const ArticleTemplate = ({ data, location }) => {
       Fragment,
       components: {
         p: Text,
-        li: Itemtext,
+        ul: UnorderedList,
+        ol: OrderedList,
         a: LinkText,
         img: InlineImage,
       },
     })
     .processSync(content);
 
+  console.log(parseContent);
   return (
     <Root>
       <SEO data={data.allArticles.nodes[0]} />

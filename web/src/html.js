@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// eslint-disable-next-line require-jsdoc
 export default function HTML(props) {
   return (
-    <html {...props.htmlAttributes}>
+    <html lang="en" {...props.htmlAttributes}>
       <head>
         <script
           type="text/javascript"

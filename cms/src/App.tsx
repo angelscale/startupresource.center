@@ -37,7 +37,7 @@ const onFirebaseInit = () => {
 };
 const client: SearchClient | undefined = algoliasearch(
   '2OPLL36H7M',
-  '4d6a3f1a36a80b12d725d88cad742f65'
+  '4d6a3f1a36a80b12d725d88cad742f65',
 );
 
 const firebaseConfig = {
@@ -77,6 +77,7 @@ const textSearchController: FirestoreTextSearchController = ({
   }
 };
 
+// eslint-disable-next-line require-jsdoc
 export default function App() {
   const navigation: NavigationBuilder = async ({
     user,

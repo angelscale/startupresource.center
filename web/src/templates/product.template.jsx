@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, { useEffect, useState, createElement, Fragment } from 'react';
 import { graphql } from 'gatsby';
 

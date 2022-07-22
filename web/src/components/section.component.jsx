@@ -42,6 +42,7 @@ const Root = styled('section')(({ theme }) => ({
  * Component to display the sections
  *
  * @param {Object} props
+ * @return {Object}
  */
 const Section = (props) => {
   const { children, fullWidth, narrow, disablePadding, className, ...rest } =

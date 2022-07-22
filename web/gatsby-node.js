@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`);
 const { initializeApp, cert } = require('firebase-admin/app');
 const { getStorage } = require('firebase-admin/storage');
@@ -78,7 +79,7 @@ const slugify = (text) => {
 
 exports.onCreateNode = async ({
   node,
-  actions: { createNode, createNodeField },
+  actions: { createNode, createNodeField, createPage },
   createNodeId,
   getCache,
 }) => {
@@ -184,6 +185,7 @@ exports.createPages = async ({ graphql, actions }) => {
           id
           category
           subcategory
+          name
           slug
           publish_date
         }
@@ -193,6 +195,7 @@ exports.createPages = async ({ graphql, actions }) => {
           id
           category
           subcategory
+          name
           slug
         }
       }
@@ -200,6 +203,7 @@ exports.createPages = async ({ graphql, actions }) => {
         nodes {
           id
           slug
+          name
         }
       }
     }
@@ -220,6 +224,22 @@ exports.createPages = async ({ graphql, actions }) => {
       node.publish_date === null ||
       Date.now() >= Date.parse(node.publish_date)
     ) {
+      if (slugify(node.name) !== slugify(node.slug)) {
+        console.log(
+          `fromPath: ${node.category}/${node.subcategory}/${slugify(
+            node.name,
+          )}`,
+        );
+        createPage({
+          path: `${node.category}/${node.subcategory}/${slugify(node.name)}`,
+          component: require.resolve(`./src/templates/redirect.template.jsx`),
+          context: {
+            toPath: `${node.category}/${node.subcategory}/${slugify(
+              node.slug,
+            )}`,
+          },
+        });
+      }
       createPage({
         path: `${node.category}/${node.subcategory}/${slugify(node.slug)}`,
         component: require.resolve(`./src/templates/article.template.jsx`),
@@ -232,6 +252,19 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create product pages
   products.forEach(async (node) => {
+    if (slugify(node.name) !== slugify(node.slug)) {
+      createPage({
+        path: `${node.category}/${node.subcategory}/core-four/${slugify(
+          node.name,
+        )}`,
+        component: require.resolve(`./src/templates/redirect.template.jsx`),
+        context: {
+          toPath: `${node.category}/${node.subcategory}/core-four/${slugify(
+            node.slug,
+          )}`,
+        },
+      });
+    }
     createPage({
       path: `${node.category}/${node.subcategory}/core-four/${slugify(
         node.slug,

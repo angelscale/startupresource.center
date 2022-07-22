@@ -97,6 +97,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
  * Component to display the product card
  *
  * @param {Object} props
+ * @return {Object}
  */
 const ArticleCard = (props) => {
   const {

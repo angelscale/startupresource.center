@@ -11,6 +11,7 @@ import {
   ProductList,
   ArticleList,
   CategoryDescription,
+  SEO,
 } from 'components';
 
 const Root = styled('div')({
@@ -74,6 +75,8 @@ const content = {
   plan: {
     title: 'Plan Your Business',
     content: `Have an idea for a business, but don’t know where to start?  Here you'll find all the resources to help you plan for success as you start your new business.`,
+    title_tag: 'Advice and Resources to Plan Your Startup Business - SRC',
+    meta_description: `Planning to start a business but unsure where to start? Startup Resource Center has articles and resources from experts to help you get off the ground.`,
     'business-funding': {
       title: `Business Funding`,
       content: `Raising startup capital can be overwhelming.  Get the help and guidance you need with these resources.`,
@@ -102,6 +105,8 @@ const content = {
   launch: {
     title: 'Launch Your Business',
     content: `You’ve done the research, you’ve built the plan, and now you’re ready to turn your dream into a reality.  Here you will find everything you need to hit the ground running as you launch your new business.`,
+    title_tag: 'Guides & Articles to Launch Your New Business Startup - SRC',
+    meta_description: `You've done all the planning and are ready to launch your business, but how? Visit Startup Resource Center for advice and guides from business experts.`,
     'ecommerce-website': {
       title: 'eCommerce Websites',
       content: `Get the insight and tools to build your online eCommerce business.`,
@@ -134,6 +139,8 @@ const content = {
   manage: {
     title: 'Manage Your Business',
     content: `You’ve started your new business. Congratulations! But now comes the challenging (fun) part: managing your operations. We’ve compiled a comprehensive collection of resources to help you navigate this next step in entrepreneurship.`,
+    title_tag: 'Managing a Startup Business - Advice, Articles, Resources - SRC',
+    meta_description: `Managing a new business is challenging. From hiring staff to inventory management, there's a lot to know. Startup Resource Center has resources to help.`,
     'customer-relationship-management': {
       title: 'Customer Relationship Management',
       content: `Here you will find all the resources you need to help you build and maintain Customer Relationships.`,
@@ -158,6 +165,8 @@ const content = {
   grow: {
     title: 'Grow Your Business',
     content: `Once you’ve established your new business, the most important task ahead is ensuring its success through growth. Angel-Scale offers all the insight you need to build your business brand and market it. Create the customer base and recognition that will keep your business growing for years to come with our expert advice and resources, broken down into careful categories to answer all of your questions.`,
+    title_tag: 'How to Grow a Startup Business - Articles & Resources - SRC',
+    meta_description: `Digital marketing and design are just two parts to growing your startup. Startup Resource Center provides help and advice on all aspects of growth.`,
     'creative-and-design': {
       title: 'Creative & Design',
       content: `Get help building a better brand.`,
@@ -226,6 +235,7 @@ const CategoryTemplate = ({ data, location, pageContext }) => {
 
   return (
     <Root>
+      <SEO data={content[pageContext.category]} />
       <Breadcrumb location={location} />
 
       {/* {location.pathname.split('/').length <= 3 && (
